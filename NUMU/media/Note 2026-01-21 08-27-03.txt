@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Numo Sorveteria</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<!-- BOTÃO WHATSAPP -->
+<a 
+  href="https://wa.me/258841234567?text=Olá%20Numo!%20Gostaria%20de%20fazer%20um%20pedido."
+  class="botao-whatsapp"
+  target="_blank"
+>
+💬
+</a>
+
+<header id="cabecalho">
+    <div class="conteudo-cabecalho animar">
+        <h1 class="logo">Numo</h1>
+        <p class="slogan">Sorvetes que derretem o coração</p>
+        <a href="#sabores" class="botao-principal">Ver Sabores</a>
+    </div>
+
+    <!-- Sorvete a escorrer -->
+    <div class="onda-sorvete drip"></div>
+</header>
+
+<section id="sobre" class="secao animar">
+    <h2>Sobre a Numo</h2>
+    <p>
+        Criamos sorvetes artesanais, cremosos e refrescantes,
+        feitos para transformar qualquer momento em felicidade.
+    </p>
+</section>
+
+<section id="sabores">
+    <div class="onda-topo drip"></div>
+
+    <div class="conteudo-sabores animar">
+        <h2>Nossos Sabores</h2>
+
+        <div class="lista-sabores">
+
+            <div class="cartao-sabor">
+                <img src="imagens/morango.jpg" alt="Sorvete de Morango">
+                <h3>Morango Cremoso</h3>
+            </div>
+
+            <div class="cartao-sabor">
+                <img src="imagens/baunilha.jpg" alt="Sorvete de Baunilha">
+                <h3>Baunilha Premium</h3>
+            </div>
+
+            <div class="cartao-sabor">
+                <img src="imagens/chocolate.jpg" alt="Sorvete de Chocolate">
+                <h3>Chocolate Intenso</h3>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="chamada" class="secao animar">
+    <h2>Peça agora 🍨</h2>
+    <p>Entrega rápida e sabor inesquecível</p>
+    <a href="https://wa.me/258841234567" class="botao-secundario">
+        Pedir no WhatsApp
+    </a>
+</section>
+
+<footer id="rodape">
+    <p>© 2026 Numo Sorveteria</p>
+</footer>
+
+<script src="animacoes.js"></script>
+</body>
+</html>
+
+<style>
+
+:root {
+    --rosa-creme: #f6c1cc;
+    --rosa-claro: #fde7ec;
+    --rosa-forte: #e48ca3;
+    --branco: #ffffff;
+    --texto: #4a2c34;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Poppins, Arial, sans-serif;
+    background: var(--rosa-claro);
+    color: var(--texto);
+}
+
+/* ================= WHATSAPP ================= */
+
+.botao-whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25d366;
+    color: white;
+    font-size: 1.6rem;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    z-index: 999;
+    transition: transform 0.3s;
+}
+
+.botao-whatsapp:hover {
+    transform: scale(1.1);
+}
+
+/* ================= CABEÇALHO ================= */
+
+#cabecalho {
+    height: 100vh;
+    background: linear-gradient(180deg, var(--rosa-creme), var(--rosa-claro));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo {
+    font-size: 3rem;
+}
+
+.slogan {
+    margin: 15px 0 30px;
+}
+
+/* ================= BOTÕES ================= */
+
+.botao-principal,
+.botao-secundario {
+    background: var(--rosa-forte);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.botao-principal:hover,
+.botao-secundario:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* ================= ONDAS + DRIP ================= */
+
+.onda-sorvete,
+.onda-topo {
+    width: 100%;
+    height: 140px;
+    background: var(--branco);
+    position: absolute;
+}
+
+.onda-sorvete {
+    bottom: 0;
+    border-radius: 100% 100% 0 0;
+}
+
+.onda-topo {
+    top: 0;
+    background: var(--rosa-claro);
+    border-radius: 0 0 100% 100%;
+}
+
+/* Animação tipo sorvete a derreter */
+.drip {
+    animation: derreter 6s ease-in-out infinite;
+}
+
+@keyframes derreter {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+    100% { transform: translateY(0); }
+}
+
+/* ================= SEÇÕES ================= */
+
+.secao {
+    padding: 70px 20px;
+    text-align: center;
+}
+
+/* ================= SABORES ================= */
+
+#sabores {
+    background: white;
+    position: relative;
+    padding-top: 140px;
+}
+
+.lista-sabores {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.cartao-sabor {
+    background: var(--rosa-creme);
+    border-radius: 25px;
+    overflow: hidden;
+    transition: transform 0.4s;
+}
+
+.cartao-sabor:hover {
+    transform: translateY(-10px);
+}
+
+.cartao-sabor img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.cartao-sabor h3 {
+    padding: 20px;
+}
+
+/* ================= RODAPÉ ================= */
+
+#rodape {
+    background: var(--rosa-creme);
+    text-align: center;
+    padding: 20px;
+}
+
+/* ================= ANIMAÇÕES SCROLL ================= */
+
+.animar {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s, transform 0.8s;
+}
+
+.animar.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================= DESKTOP ================= */
+
+@media (min-width: 768px) {
+    .logo {
+        font-size: 4rem;
+    }
+
+    .lista-sabores {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+</style>
+
+
+const elementos = document.querySelectorAll('.animar');
+
+function animarAoScroll() {
+    const limite = window.innerHeight * 0.85;
+
+    elementos.forEach(el => {
+        const topo = el.getBoundingClientRect().top;
+        if (topo < limite) {
+            el.classList.add('visivel');
+        }
+    });
+}
+
+window.addEventListener('scroll', animarAoScroll);
+animarAoScroll();

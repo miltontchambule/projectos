@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hamburgueria Prime</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="header">
+    <div class="logo">🍔 Prime Burger</div>
+    <nav class="nav">
+      <a href="#home">Início</a>
+      <a href="#menu">Menu</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="hero">
+    <div class="hero-content reveal">
+      <h1>O Melhor Hambúrguer da Cidade</h1>
+      <p>Sabor autêntico, ingredientes frescos e uma experiência inesquecível.</p>
+      <button class="btn">Pedir Agora</button>
+    </div>
+  </section>
+
+  <!-- MENU SECTION -->
+  <section id="menu" class="menu">
+    <h2 class="section-title reveal">O Nosso Menu</h2>
+
+    <div class="menu-grid">
+      <div class="card reveal">
+        <img src="https://i.imgur.com/9YVHmEJ.jpeg" alt="Burger Classic">
+        <h3>Classic Burger</h3>
+        <p>Carne grelhada, queijo cheddar, tomate e molho especial.</p>
+      </div>
+
+      <div class="card reveal">
+        <img src="https://i.imgur.com/nmv14pP.jpeg" alt="Double Smash">
+        <h3>Double Smash</h3>
+        <p>Duas carnes smash, cheddar duplo e pickles.</p>
+      </div>
+
+      <div class="card reveal">
+        <img src="https://i.imgur.com/yxpM4SO.jpeg" alt="BBQ Burger">
+        <h3>BBQ Bacon</h3>
+        <p>Carne suculenta, molho BBQ, bacon crocante e cebola.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="sobre">
+    <div class="sobre-content reveal">
+      <h2>Sobre Nós</h2>
+      <p>
+        Na Prime Burger, acreditamos em hambúrgueres artesanais, preparados
+        com dedicação, frescura e paixão. Cada hambúrguer é feito no momento!
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="contact">
+    <h2 class="section-title reveal">Contacto</h2>
+    <p class="reveal">📍 Maputo, Av. Julius Nyerere</p>
+    <p class="reveal">📞 +258 84 000 0000</p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+body {
+  background: #111;
+  color: #fff;
+  scroll-behavior: smooth;
+}
+
+/* HEADER */
+.header {
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.nav a:hover {
+  color: #ffcc00;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: url("https://i.imgur.com/zmM9x6G.jpeg") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  background: #ffcc00;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #ffaa00;
+}
+
+/* MENU */
+.menu {
+  padding: 100px 40px;
+  background: #1a1a1a;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: 0.8s ease;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* SOBRE */
+.sobre {
+  padding: 100px 40px;
+  background: #111;
+  text-align: center;
+}
+
+/* CONTACT */
+.contact {
+  padding: 100px 40px;
+  background: #1a1a1a;
+  text-align: center;
+}
+
+/* SCROLL REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+// Scroll Reveal Animation
+const revealElements = document.querySelectorAll(".reveal");
+
+function revealOnScroll() {
+  const windowHeight = window.innerHeight;
+
+  revealElements.forEach(element => {
+    const elementTop = element.getBoundingClientRect().top;
+
+    if (elementTop < windowHeight - 100) {
+      element.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+
+// Ativar logo no carregamento
+revealOnScroll();

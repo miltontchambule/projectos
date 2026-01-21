@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+.logo{
+    margin-bottom: -3em;
+    margin-left: 3em;
+}
+
+body{
+     background-color:#412511;
+}
+    h1 {
+        animation: fadeInUp 1s ease;
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        color:#ffffff;
+    }
+
+    h2{
+         animation: fadeInUp 1s ease;
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        margin-left: 1em;
+        margin-right:1em;
+        color: #f8f8f8; 
+        padding: 8px;
+        background-color: #9e7047;
+        border-radius: 10px;
+    }
+ .producto {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+    }
+
+
+    .producto-card {
+      background:#ffffff;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.288);
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-align: center;
+    }
+
+    .producto-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .producto-icon {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        background-size: contain;
+
+    }
+
+  
+    .producto-card h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: #6f4e37;
+    }
+
+#producto-card-croissant3{
+    margin-top: 1em;
+}
+
+    .producto-card p {
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .preco{
+        font-size: 22px;
+    }
+
+    .comprar{
+        padding: 15px;
+        background-color: #785230;
+        border: 1px #785230;
+        color: white;
+        border-radius: 10px;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+
+    }
+
+    .comprar:hover{
+        background-color:#be8e64;
+        box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.276);
+        transform: translateY(-2px);
+        cursor: pointer;
+        transition: all 0.3s;
+        
+
+    }
+
+ 
+     
+ @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }

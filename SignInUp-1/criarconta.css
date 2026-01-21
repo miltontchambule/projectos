@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+/* superglobais */
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+  
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+}
+
+
+body{
+    background: pink;
+    max-width: 540px;
+      display: flex;
+      margin: auto;
+      margin-top: 20px ;
+
+
+}
+
+
+/* contentor de sign in/up */
+#container{
+     background: linear-gradient(165deg, rgb(180, 92, 114) 0%, rgb(206, 0, 79) 100%);
+    align-items: center;
+    display: flex; /*centraliza, aparentemente */
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 50px;
+    padding-bottom: 30px;
+    border-radius: 20px;
+    background-color: rgb(255, 149, 149);
+    color: rgba(255, 255, 255, 0.973);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.26);
+
+}
+
+h1{
+    margin-bottom: 3px;
+}
+
+h2{
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+div{
+    margin-top: 30px;
+}
+
+.nome{
+
+ display: flex; /*centraliza, aparentemente */
+line-height: 20px;
+background-color: white;
+padding: 15px;
+align-items: center;
+color: black;
+border: 1px white;
+display: block;
+padding-right: 100px;
+border-radius: 10px;
+flex-wrap: wrap;
+box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.26);
+
+}
+
+#novidade{
+    background-color: white;
+    align-items: left;
+    border: 1px white;
+}
+
+p{
+    margin-top: 80px;
+    display: inline;
+   font-size:13px;
+}
+
+.extra{
+    margin-top: 30px;
+
+}
+
+a{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+a:hover{
+    color: rgb(255, 176, 189);
+}
+
+#criar{
+     display: flex; /*centraliza, aparentemente */
+line-height: 20px;
+background-color: white;
+padding: 10px;
+align-items: center;
+color: black;
+border: 1px white;
+display: block;
+padding-right: 30px;
+padding-left: 30px;
+border-radius: 10px;
+flex-wrap: wrap;
+box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.336);
+
+}
+
+#criar:hover{
+    color: rgb(252, 252, 252);
+    background-color: rgb(255, 74, 104) ;
+    transform: translateY() ease 0.1;
+}

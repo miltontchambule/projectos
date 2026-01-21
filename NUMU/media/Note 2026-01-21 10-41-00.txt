@@ -1,0 +1,497 @@
+numo-landing/
+│── index.html
+│── estilo.css
+│── animacoes.js
+│── imagens/
+│     ├─ morango.jpg
+│     ├─ baunilha.jpg
+│     └─ chocolate.jpg
+
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Numo Sorveteria</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<!-- BOTÃO WHATSAPP -->
+<a href="https://wa.me/258841234567" class="botao-whatsapp" target="_blank">💬</a>
+
+<!-- HEADER + MENU -->
+<header id="cabecalho">
+    <nav class="barra-navegacao">
+        <span class="logo">Numo</span>
+
+        <button id="botao-menu" aria-label="Abrir menu">☰</button>
+
+        <ul id="menu-principal">
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#localizacao">Localização</a></li>
+            <li><a href="#contactos">Contactos</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero animar">
+        <h1>Sorvetes que derretem o coração</h1>
+        <a href="#menu" class="botao-principal">Ver Menu</a>
+    </div>
+
+    <div class="onda-sorvete drip"></div>
+</header>
+
+<!-- SOBRE -->
+<section id="sobre" class="secao animar">
+    <h2>Sobre a Numo</h2>
+    <p>
+        A Numo é uma sorveteria artesanal focada em sabores naturais,
+        cremosos e preparados com paixão.
+    </p>
+</section>
+
+<!-- MENU / SABORES -->
+<section id="menu">
+    <div class="onda-topo drip"></div>
+
+    <div class="secao animar">
+        <h2>Nosso Menu</h2>
+
+        <div class="lista-sabores">
+            <div class="cartao-sabor">
+                <img src="imagens/morango.jpg">
+                <h3>Morango Cremoso</h3>
+                <span>150 MT</span>
+            </div>
+
+            <div class="cartao-sabor">
+                <img src="imagens/baunilha.jpg">
+                <h3>Baunilha Premium</h3>
+                <span>140 MT</span>
+            </div>
+
+            <div class="cartao-sabor">
+                <img src="imagens/chocolate.jpg">
+                <h3>Chocolate Intenso</h3>
+                <span>160 MT</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LOCALIZAÇÃO -->
+<section id="localizacao" class="secao animar">
+    <h2>Onde Estamos</h2>
+    <p>Av. Julius Nyerere, Maputo</p>
+
+    <iframe
+        class="mapa"
+        src="https://www.google.com/maps?q=Maputo&output=embed"
+        loading="lazy">
+    </iframe>
+</section>
+
+<!-- CONTACTOS -->
+<section id="contactos" class="secao animar">
+    <h2>Contactos</h2>
+
+    <div class="info-contactos">
+        <p>📞 +258 84 123 4567</p>
+        <p>📧 contacto@numo.co.mz</p>
+        <p>🕒 Seg - Dom | 10h - 22h</p>
+    </div>
+
+    <a href="https://wa.me/258841234567" class="botao-secundario">
+        Falar no WhatsApp
+    </a>
+</section>
+
+<!-- FOOTER -->
+<footer id="rodape">
+    <div class="conteudo-rodape">
+        <span class="logo">Numo</span>
+        <p>Sorveteria artesanal em Maputo</p>
+        <small>© 2026 Numo • Todos os direitos reservados</small>
+    </div>
+</footer>
+
+<script src="animacoes.js"></script>
+</body>
+</html>
+
+<style>
+:root {
+    --rosa-creme:#f6c1cc;
+    --rosa-claro:#fde7ec;
+    --rosa-forte:#e48ca3;
+    --branco:#fff;
+    --texto:#4a2c34;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    font-family:Poppins, Arial, sans-serif;
+    background:var(--rosa-claro);
+    color:var(--texto);
+}
+
+/* WHATSAPP */
+.botao-whatsapp {
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25d366;
+    color:white;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    z-index:999;
+}
+
+/* NAV */
+.barra-navegacao {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px;
+}
+
+#menu-principal {
+    list-style:none;
+    position:absolute;
+    top:70px;
+    right:20px;
+    background:var(--branco);
+    border-radius:15px;
+    display:none;
+    flex-direction:column;
+}
+
+#menu-principal li a {
+    padding:15px 25px;
+    display:block;
+    color:var(--texto);
+    text-decoration:none;
+}
+
+#botao-menu {
+    background:none;
+    border:none;
+    font-size:1.6rem;
+}
+
+/* HERO */
+#cabecalho {
+    height:100vh;
+    background:linear-gradient(var(--rosa-creme), var(--rosa-claro));
+    position:relative;
+    overflow:hidden;
+}
+
+.hero {
+    height:calc(100vh - 80px);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+/* ONDAS */
+.onda-sorvete, .onda-topo {
+    width:100%;
+    height:140px;
+    position:absolute;
+    background:var(--branco);
+}
+
+.onda-sorvete { bottom:0; border-radius:100% 100% 0 0; }
+.onda-topo { top:0; background:var(--rosa-claro); border-radius:0 0 100% 100%; }
+
+.drip { animation:derreter 6s infinite ease-in-out; }
+
+@keyframes derreter {
+    0%{transform:translateY(0)}
+    50%{transform:translateY(8px)}
+    100%{transform:translateY(0)}
+}
+
+/* SEÇÕES */
+.secao {
+    padding:80px 20px;
+    text-align:center;
+}
+
+/* MENU */
+.lista-sabores {
+    display:grid;
+    grid-template-columns:1fr;
+    gap:25px;
+    margin-top:40px;
+}
+
+.cartao-sabor {
+    background:var(--rosa-creme);
+    border-radius:25px;
+    overflow:hidden;
+}
+
+.cartao-sabor img {
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+/* MAPA */
+.mapa {
+    width:100%;
+    height:300px;
+    border-radius:20px;
+    border:none;
+    margin-top:20px;
+}
+
+/* FOOTER */
+#rodape {
+    background:var(--rosa-creme);
+    text-align:center;
+    padding:30px;
+}
+
+/* ANIMAÇÕES */
+.animar {
+    opacity:0;
+    transform:translateY(40px);
+    transition:0.8s;
+}
+
+.animar.visivel {
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* DESKTOP */
+@media (min-width:768px) {
+    #menu-principal {
+        position:static;
+        display:flex !important;
+        flex-direction:row;
+        background:none;
+    }
+
+    #botao-menu { display:none; }
+
+    .lista-sabores {
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+
+<style>
+
+:root {
+    --rosa-creme:#f6c1cc;
+    --rosa-claro:#fde7ec;
+    --rosa-forte:#e48ca3;
+    --branco:#fff;
+    --texto:#4a2c34;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    font-family:Poppins, Arial, sans-serif;
+    background:var(--rosa-claro);
+    color:var(--texto);
+}
+
+/* WHATSAPP */
+.botao-whatsapp {
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25d366;
+    color:white;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    z-index:999;
+}
+
+/* NAV */
+.barra-navegacao {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px;
+}
+
+#menu-principal {
+    list-style:none;
+    position:absolute;
+    top:70px;
+    right:20px;
+    background:var(--branco);
+    border-radius:15px;
+    display:none;
+    flex-direction:column;
+}
+
+#menu-principal li a {
+    padding:15px 25px;
+    display:block;
+    color:var(--texto);
+    text-decoration:none;
+}
+
+#botao-menu {
+    background:none;
+    border:none;
+    font-size:1.6rem;
+}
+
+/* HERO */
+#cabecalho {
+    height:100vh;
+    background:linear-gradient(var(--rosa-creme), var(--rosa-claro));
+    position:relative;
+    overflow:hidden;
+}
+
+.hero {
+    height:calc(100vh - 80px);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+/* ONDAS */
+.onda-sorvete, .onda-topo {
+    width:100%;
+    height:140px;
+    position:absolute;
+    background:var(--branco);
+}
+
+.onda-sorvete { bottom:0; border-radius:100% 100% 0 0; }
+.onda-topo { top:0; background:var(--rosa-claro); border-radius:0 0 100% 100%; }
+
+.drip { animation:derreter 6s infinite ease-in-out; }
+
+@keyframes derreter {
+    0%{transform:translateY(0)}
+    50%{transform:translateY(8px)}
+    100%{transform:translateY(0)}
+}
+
+/* SEÇÕES */
+.secao {
+    padding:80px 20px;
+    text-align:center;
+}
+
+/* MENU */
+.lista-sabores {
+    display:grid;
+    grid-template-columns:1fr;
+    gap:25px;
+    margin-top:40px;
+}
+
+.cartao-sabor {
+    background:var(--rosa-creme);
+    border-radius:25px;
+    overflow:hidden;
+}
+
+.cartao-sabor img {
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+/* MAPA */
+.mapa {
+    width:100%;
+    height:300px;
+    border-radius:20px;
+    border:none;
+    margin-top:20px;
+}
+
+/* FOOTER */
+#rodape {
+    background:var(--rosa-creme);
+    text-align:center;
+    padding:30px;
+}
+
+/* ANIMAÇÕES */
+.animar {
+    opacity:0;
+    transform:translateY(40px);
+    transition:0.8s;
+}
+
+.animar.visivel {
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* DESKTOP */
+@media (min-width:768px) {
+    #menu-principal {
+        position:static;
+        display:flex !important;
+        flex-direction:row;
+        background:none;
+    }
+
+    #botao-menu { display:none; }
+
+    .lista-sabores {
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+
+</style>
+
+<script>
+
+// MENU
+const botaoMenu = document.getElementById('botao-menu');
+const menu = document.getElementById('menu-principal');
+
+botaoMenu.addEventListener('click', () => {
+    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+});
+
+// ANIMAÇÕES SCROLL
+const animar = document.querySelectorAll('.animar');
+
+function animarScroll() {
+    const limite = window.innerHeight * 0.85;
+    animar.forEach(el => {
+        if (el.getBoundingClientRect().top < limite) {
+            el.classList.add('visivel');
+        }
+    });
+}
+
+window.addEventListener('scroll', animarScroll);
+animarScroll();
+
+</script>
