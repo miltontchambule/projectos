@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sugestoes - Toyota</title>
+     <link rel="shortcut icon" href="toyotafavicon.ico" type="image/x-icon">
+     <link rel="stylesheet" href="sugestoes.css">
+ 
+</head>
+
+
+<body>
+
+  <h1>Sugestões TOYOTA</h1>
+  <p>Apresente as suas sugestões e/ou reclamações nos campos abaixo. Pode fazê-lo adicionando ficheiros PDF, PNG e JPG.</p>
+  <div class="container">
+
+    <!-- Campo para enviar ficheiros -->
+     <input type="text" id="sugestao" placeholder="sugerir">
+     <input type="submit" id="submit">
+    <input type="file" id="inputFicheiro" accept=".jpg,.png,.pdf" multiple>
+    <button id="btnAdicionar">Adicionar Ficheiros</button>
+
+    <h3>Lista de Ficheiros:</h3>
+    <ul id="listaFicheiros"></ul>
+
+    <p class="mensagem" id="mensagem"></p>
+  </div>
+
+<script src="sugestoes.js"></script>
+
+
+<!-- NB: nenhum ficheiro e guardado na memoria do site, ao recarregar a pagina toda,  a lista e reposta. Nao possui
+ integracao com algum backend para memoria. -->
+</body>
+</html>

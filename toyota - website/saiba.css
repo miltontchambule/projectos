@@ -1,0 +1,173 @@
+@charset "UTF-8";
+*{font-family: Arial, Helvetica, sans-serif;}
+
+
+#logo > img{
+
+background: linear-gradient(122deg, #740a0a 0%, rgb(243, 0, 0) 100%);
+position: relative;
+display: flex;
+padding: 20px;
+width: 90px;
+height: 90px;
+
+}
+
+#novo-carro{
+  line-height: 1.5;
+}
+
+
+
+#container > h1{
+  font-size: 60px;
+  position:relative;
+  display: block;
+  flex-wrap:wrap;
+  text-align: center;
+  align-items: center;
+  color: white;
+margin-bottom: -30px;
+}
+#container > #titulo-carro1{
+  text-align: center;
+  color: white;
+
+
+}
+.texto{
+    padding: 50px;
+    word-spacing: 5px;
+    line-height: 1.5;
+    word-wrap: break-word;
+    flex-wrap: wrap;
+    display: inline-block;
+ text-align: justify;
+}
+
+#container{
+  
+  margin-top:40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-image: url('./cross11.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 150px 20px;
+  color: white;
+  text-align: center;
+
+
+}
+
+
+#container2 > #titulo-carro2{
+
+    font-size: 20px;
+  position:relative;
+  display: block;
+  flex-wrap:wrap;
+  text-align: center;
+  color: rgb(255, 255, 255);
+margin-bottom: -30px;
+
+}
+
+#container2{
+
+  margin-top:40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 150px 20px;
+  color: white;
+  text-align: center;
+background-image: url('./cross2.jpg'); 
+
+
+}
+
+#container3 > #titulo-carro3{
+
+    font-size: 20px;
+
+  position:relative;
+  display: block;
+  flex-wrap:wrap;
+  text-align: center;
+  color: rgb(255, 255, 255);
+margin-bottom: -30px;
+
+}
+
+#container3{
+
+  margin-top:40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 150px 20px;
+  color: white;
+  text-align: center;
+background-image: url('./cross3.jpg'); 
+
+
+}
+
+
+
+#container4 > #titulo-carro4{
+
+    font-size: 20px;
+
+  position:relative;
+  display: block;
+  flex-wrap:wrap;
+  text-align: center;
+  color: rgb(255, 255, 255);
+margin-bottom: -30px;
+
+}
+
+#container4{
+
+
+  margin-top:40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 150px 20px;
+  color: white;
+  text-align: center;
+background-image: url('./cross4.jpg'); 
+
+}
+
+
+footer{
+  background: linear-gradient(155deg, #740a0a 33%, rgb(184, 0, 0) 67%);
+  color: white;
+font-size: 8px;
+text-align: center;
+padding: 9px;
+
+}

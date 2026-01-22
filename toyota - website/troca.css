@@ -1,0 +1,98 @@
+
+header{
+    font-weight: bolder;
+    color: rgb(255, 0, 0);
+    padding: 14px;
+    flex-wrap: wrap;
+    display: inline;
+    font-size: 25px;
+  
+}
+header > h1{
+    margin-left: 50px;
+    
+}
+ 
+ body{
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+
+ }
+
+ /* container do formulario inteiro */
+
+ #container {
+    display: block;
+   align-items: top;
+      max-width: 600px;
+      background: #f1f1f1;
+margin: auto;
+      line-height: 2.5;
+      padding: 10vh;
+flex-wrap: wrap;
+margin-bottom: 50px;
+      border-radius: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.185);
+ }
+
+
+ /* caixas de texto */
+ .caixa{
+  border:5px rgb(0, 0, 0);
+    background-color: white;
+    color: rgb(0, 0, 0);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.144);
+ }
+
+ /* campo para inserir detalhes */
+ #detalhes{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.144);
+    border:5px rgb(0, 0, 0);
+    background-color: white;
+    color: rgb(0, 0, 0);
+    padding: 30px;
+    margin-top: 10px;
+    border-radius: 10px; 
+ }
+
+ #quilometragem{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.144);
+     border:5px rgb(0, 0, 0);
+    background-color: white;
+    color: rgb(0, 0, 0);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+ }
+
+ /* botao de submeter */
+ #submeter{
+    background-color: rgb(0, 0, 0);
+    color:rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 30px;
+    border:2px black;
+    margin-top: 30px;
+ }
+
+ /* comportamento do botao quando o mouse passa por cima */
+    #submeter:hover {
+        padding: 10px;
+        background-color: rgb(62, 69, 177);
+         transition: all 0.1s ease;
+        transform: translateY(2%);
+        color: white;
+    border:2px black;
+    
+    }
+
+     footer{
+        background: linear-gradient(121deg, #740a0a 0%, rgb(243, 0, 0) 100%); 
+        padding: 4px;
+        color:white;
+        font-size: 15px;
+        text-align: center;
+    }

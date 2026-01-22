@@ -1,0 +1,139 @@
+@charset "UTF-8";
+/* superglobal */
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#logo > img{
+
+background: linear-gradient(122deg, #740a0a 0%, rgb(243, 0, 0) 100%);
+position: relative;
+display: flex;
+flex-wrap: wrap;
+padding: 20px;
+width: 90px;
+height: 90px;
+
+}
+
+/* div da aba dos contactos */
+#contactos-toyota {
+  
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #222;
+}
+
+/* texto do titulo */
+#titulo-contactos { 
+     font-size: 33px;
+  margin-bottom: 30px;
+  text-align: left;
+
+}
+
+/* Lista */
+#lista-provincias {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* espaço entre items */
+}
+
+/* Cada item (apresentação lateral) */
+.provincia {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: #fafafa;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  padding: 12px;
+  gap: 16px;
+}
+
+/* Coluna esquerda: nome da província e concessionário  */
+.col-esquerda {
+  min-width: 210px; 
+  max-width: 35%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Coluna direita - contactos dispostos verticalmete */
+.col-direita {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Tipos de texto */
+.nome-provincia {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #cc0101;
+}
+
+.nome-concessionario {
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: #333;
+}
+
+.endereco {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+/* Links de telefone e email */
+.telefone,
+.email {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: #0b4a6f;
+}
+
+.telefone:hover,
+.email:hover {
+  text-decoration: underline;
+}
+
+
+/* Responsividade: em telas pequenas  */
+@media (max-width: 720px) {
+  .provincia {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .col-esquerda {
+    max-width: 100%;
+    min-width: 0;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .nome-provincia {
+    width: 100%;
+  }
+}
+
+
+.provincia {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.062);
+}
+
+/* rodape */
+    footer{
+        background: linear-gradient(121deg, #740a0a 0%, rgb(243, 0, 0) 100%); 
+        padding: 3px;
+        color:white;
+        font-size: 13px;
+        text-align: center;
+    }

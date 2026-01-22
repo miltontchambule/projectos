@@ -1,0 +1,106 @@
+    @charset "UTF-8";
+    
+    body {
+      font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #740a0a 0%, rgb(243, 0, 0) 100%);
+      margin: 0;
+      padding: 50px;
+    }
+
+    h1 {
+      text-align: left;
+      color: #ffffff;
+      font-size: 50px;
+      word-spacing: 124vh;
+    }
+    p{
+        color: white;
+        font-size: 14px;
+        margin-top: 10px;
+        line-height: 24px;
+    }
+
+
+    /* conteudo de interacao com o CRUD */
+    .container {
+      max-width: 600px;
+      background: #f1f1f1;
+
+      margin: 0 auto;
+      padding: 70px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    input[type="file"] {
+      display: block;
+      margin: 10px 0;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: #f9f9f9;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .botoes button {
+      margin-left: 5px;
+      border: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #btnAdicionar{
+      border:white;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: rgb(102, 105, 255);
+      color:white;
+      font-weight: bold;
+    }
+
+    /* botao de submeter */
+  #submit{
+    border: 1px black;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+/* div para escrever  a sugestao */
+  #sugestao{
+    border:5px rgb(0, 0, 0);
+    background-color: white;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+
+
+    /* cores do botoes */
+    .renomear { background: #1900ff; color: #fff; }
+    .apagar { background: #ff0000; color: #fff; }
+    .ver { background: #00c907; color: #fff; }
+
+    .mensagem {
+      text-align: center;
+      color: #555;
+      margin-top: 10px;
+    }
+
+    img {
+      max-width: 60px;
+      border-radius: 4px;
+    }
