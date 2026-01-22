@@ -5,75 +5,89 @@
     <title>Numo Sorveteria</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
     <link rel="stylesheet" href="numo.css">
 </head>
 <body>
 
-<!-- BOTÃO WHATSAPP -->
+
 <a 
-  href="https://wa.me/258841234567?text=Olá%20Numo!%20Gostaria%20de%20fazer%20um%20pedido."
+  href="https://wa.me/?text=Olá%20Numo!%20Gostaria%20de%20fazer%20um%20pedido."
   class="botao-whatsapp"
   target="_blank"
->
-💬
+><img src="media/whatsapp40.PNG" alt="whatsapp">
 </a>
 
 <header id="cabecalho">
     <div class="conteudo-cabecalho animar">
         <div class="logo"><img src="media/Numulogo500.PNG" alt="logo"> </div>
-        <p class="slogan">Sorvetes que derretem o coração</p>
-        <a href="#sabores" class="botao-principal">Ver Sabores</a>
+        <p class="slogan">Gelado Turco Naural.</p>
+        <a href="#" class="botao-principal">Visitar Website</a>
     </div>
 
-    <!-- Sorvete a escorrer -->
-    <div class="onda-sorvete drip"></div>
+    <div class="onda-topo gota"></div>
+
 </header>
 
-<section id="sobre" class="secao animar">
-    <h2>Sobre a Numo</h2>
-    <p>
-        Criamos sorvetes artesanais, cremosos e refrescantes,
-        feitos para transformar qualquer momento em felicidade.
-    </p>
-</section>
+<!-- codigo copiado do gerador de efeitos de onda no w3.org -->
+     <div class=“wave-container”>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="palevioletred" fill-opacity="1" d="M0,320L9.2,314.7C18.5,309,37,299,55,277.3C73.8,256,92,224,111,186.7C129.2,149,148,107,166,117.3C184.6,128,203,192,222,224C240,256,258,256,277,218.7C295.4,181,314,107,332,101.3C350.8,96,369,160,388,176C406.2,192,425,160,443,170.7C461.5,181,480,235,498,213.3C516.9,192,535,96,559,64C572.3,32,591,64,609,96C627.7,128,646,160,665,154.7C683.1,149,702,107,720,106.7C738.5,107,757,149,775,149.3C793.8,149,812,107,831,117.3C849.2,128,868,192,886,224C904.6,256,923,256,942,250.7C960,245,978,235,997,245.3C1015.4,256,1034,288,1052,293.3C1070.8,299,1089,277,1108,261.3C1126.2,245,1145,235,1163,208C1181.5,181,1200,139,1218,117.3C1236.9,96,1255,96,1274,96C1292.3,96,1311,96,1329,117.3C1347.7,139,1366,181,1385,181.3C1403.1,181,1422,139,1431,117.3L1440,96L1440,0L1430.8,0C1421.5,0,1403,0,1385,0C1366.2,0,1348,0,1329,0C1310.8,0,1292,0,1274,0C1255.4,0,1237,0,1218,0C1200,0,1182,0,1163,0C1144.6,0,1126,0,1108,0C1089.2,0,1071,0,1052,0C1033.8,0,1015,0,997,0C978.5,0,960,0,942,0C923.1,0,905,0,886,0C867.7,0,849,0,831,0C812.3,0,794,0,775,0C756.9,0,738,0,720,0C701.5,0,683,0,665,0C646.2,0,628,0,609,0C590.8,0,572,0,554,0C535.4,0,517,0,498,0C480,0,462,0,443,0C424.6,0,406,0,388,0C369.2,0,351,0,332,0C313.8,0,295,0,277,0C258.5,0,240,0,222,0C203.1,0,185,0,166,0C147.7,0,129,0,111,0C92.3,0,74,0,55,0C36.9,0,18,0,9,0L0,0Z"></path></svg>
+</div>
 
-<section id="sabores">
-    <div class="onda-topo drip"></div>
+<section class="secao animar">
+   
 
     <div class="conteudo-sabores animar">
-        <h2>Nossos Sabores</h2>
+        <h2 id="titulo">Nossos Sabores</h2>
 
         <div class="lista-sabores">
 
             <div class="cartao-sabor">
-                <img src="imagens/morango.jpg" alt="Sorvete de Morango">
-                <h3>Morango Cremoso</h3>
+                <img src="media/right.JPG" alt="Sorvete de Morango">
+                <h3>Bolas de Vanilla</h3>
             </div>
 
             <div class="cartao-sabor">
-                <img src="imagens/baunilha.jpg" alt="Sorvete de Baunilha">
-                <h3>Baunilha Premium</h3>
+                <img src="media/center.JPG" alt="Sorvete de Baunilha">
+                <h3>Cone de Chocolate e Baunilha</h3>
             </div>
 
             <div class="cartao-sabor">
-                <img src="imagens/chocolate.jpg" alt="Sorvete de Chocolate">
-                <h3>Chocolate Intenso</h3>
+                <img src="media/right2.JPG" alt="Sorvete de Chocolate">
+                <h3>Sorvete de Morango e pepitas de Chocolate</h3>
             </div>
 
         </div>
     </div>
 </section>
 
+
 <section id="chamada" class="secao animar">
-    <h2>Peça agora 🍨</h2>
+    <div class="pedidos">
+         <h2>Peça agora</h2>
     <p>Entrega rápida e sabor inesquecível</p>
-    <a href="https://wa.me/258841234567" class="botao-secundario">
+    <a href="#" class="botao-secundario">
         Pedir no WhatsApp
     </a>
+
+    <a href="#" class="botao-secundario">
+        Visitar Website
+    </a>
+    </div>
+   
 </section>
 
-<footer id="rodape">
-    <p>© 2026 Numo Sorveteria</p>
+ 
+
+<footer>
+       <div class="socials-container">
+        <a href="#"><img src="media/ig40.PNG" alt="instagram" class="icons" ></a>
+        <a href="#"><img src="media/facebook40.PNG" alt="facebook" class="icons"></a>
+        <a href="#"><img src="media/tiktok40.PNG" alt="tiktok" class="icons" id="tiktok"></a>
+    </div>
+
+    <p>© 2026 Numo. Todos os Direitos Reservados</p>
+    <p><small>Desenvolvido por Milton Tchambule</small></p>
 </footer>
 
 
