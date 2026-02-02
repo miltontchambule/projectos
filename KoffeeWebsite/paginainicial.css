@@ -314,78 +314,95 @@
   background: linear-gradient(135deg, #f5f5f5 0%, #e8ddd0 100%);
         padding: 5rem 2rem;
         flex-wrap: wrap;
-        display:ruby-text-container; 
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+        overflow: hidden;
+
 }
 
-.feedback-content{
-
-    display: inline-block;
+#about{
+    color:#2c1810;
 }
-
 
 .slider{
-    height: 380px;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    background: linear-gradient(135deg, #f5f5f5 0%, #e8ddd0 100%);
 
-    padding: 60px;
-    margin-bottom: 100px;
-    
-    
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.082);
+    background-color: rgb(243, 243, 243);
+    height: 56vh;
+    overflow:hidden;
+    position:relative;
+    border-radius: 30px;
 }
 
-#rate1{
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
+
+.slider::before, .slider::after{
+    /* background: linear-gradient(to right, rgb(16, 15, 19) 0%, rgb(31, 29, 29) 100%); */
+    content:"";
+    height:100%;
+    position: absolute;
+    width: 100px;
+    z-index: 1;
+}
+
+.slider::after{
+    right:0;
+    top:0;
+    transform:rotateZ(180deg);
+
+}
+
+.slider::before{
+    left:0;
+    top:0;
+
+}
+
+.slider .slider-track{
+    animation: scroll 15s linear infinite;
     display: flex;
-    height: 330px;
-    width: 800px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.377);
-    margin-top: -34px;
-    padding: 100px;
- 
-  
-}
+   width:calc(7rem * 6);   /* larura do slide*/
 
-#rate1 > p{
-      font-size: 14px;
-    justify-content:space-around;
-    align-items: center;
-    line-height: 1.5;
-}
-
-.username{
- font-size: 20px;
-
-}
-
-.slider-track{
-    display: flex;
-     width: calc(200px * 8); /* largura = largura do slide * quantidade total de slides  */
-     animation: scroll 30s linear infinite;
     
-     
+}    
+
+.slider .slide-track:hover{
+    animation-play-state:paused ;
+} 
+
+.slider .slide{
+    padding: 13em 8em;
+    margin-top: -30px;
 }
 
 .slide{
-    width: 200px;
-    height: 200px;
     display: flex;
-    align-items: center;
     justify-content: center;
-     padding: 5em;  
-
-    
+    background-color:#6f4e37;
+    border-radius: 10px;
 }
 
-@keyframes scroll { 0%{
-    transform: translateX(0);
-} 100% {
-    transform: translateX(-50%);
+.slide h3{
+    text-align: center;
+    color:#f5f5f5;
+    margin: -130px;
 }
+
+.slide p{
+    color:#f5f5f5;
+    margin-top: -80px;
+    word-break: break-all;
+    line-height: 1.5;
+    text-align: center;
+    margin-left: 60px;
+
 }
+
+@keyframes scroll {
+    0%{transform:translateX(0);}
+     100%{transform: translateX(calc(-7em *5));} /*onde a animacao reinicia */
+}
+
 
 .sobre {
         background: linear-gradient(135deg, #f5f5f5 0%, #e8ddd0 100%);
