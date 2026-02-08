@@ -3,7 +3,7 @@
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            /* box-sizing: border-box; */
             scroll-behavior: smooth;
         }
 
@@ -11,27 +11,32 @@
     body {
         font-family: 'Georgia', serif;
         color: #2c1810;
-        overflow-x: hidden;
-        background-color:#1a0f0a;
+        /* overflow-x: hidden; */
+        background-color:#27160e;
        
     }
 
+
+
    
     .navbar {
-        background: transparent;
+        margin-bottom: 10px;
 
-        -webkit-backdrop-filter: blur(18px);
-        backdrop-filter: blur(18px) ;
-        /* background: linear-gradient(135deg, #2c1810 0%, #6f4e37 100%); */
-       position:fixed;
+        background: transparent;
+        -webkit-backdrop-filter: blur(20px);
+
+        backdrop-filter: blur(20px) ;
+        position: -webkit-sticky; /* suporte para iOS*/
+        position:sticky; 
+        top:0;
         color: #fff;
-        padding: 1.5em;
-        width: 80%;
+        padding: 0.5em;
+        width: 90%;
         justify-self: center;
         top: 0;
         z-index: 1000;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.233);
-        border-radius: 20px;   
+        border-radius: 10px;   
         margin-top: 20px;
         z-index:1000;
         transition: color 0.3s ease ;
@@ -45,25 +50,20 @@
         margin: 0 auto;
         justify-self: right;
         margin-right: -2em;
-         margin-top: -7.6em;
+         margin-top: -9.9em;
         
     }
 
    .logo {
     justify-self: left;
-    margin-top: -50px;
-    margin-left:-10px;
+margin: -30px 0px 20px 20px;
     transition: opacity 0.3s ease;
+  padding:10px;
+
 
     }
 
-    .navbar.modo-claro .menu > a{
-        color:black;
-    }
 
-    .clara{
-        color:black;
-    }
     .nav-links {
         display: flex;
         gap: 2rem;
@@ -78,9 +78,11 @@
     
     
     }
+  
 
-    .nav-links a:hover {
-        color:#1a0f0a;
+    .icons:hover {
+         transition: all 0.3s ease-in-out;
+             transform: translateY(-3px); 
    
     }
 
@@ -95,7 +97,12 @@
     cursor: pointer;
     justify-self: right;
     -webkit-box-align:end;
-    margin-top: -5.6em;
+    margin-top: -7.5em;
+    padding-bottom: 20px;
+    margin-right: 10px ;
+    position:-webkit-sticky;
+   
+
 
     
 }
@@ -119,24 +126,29 @@
     margin: 0;
     padding: 2em;
     position: top right;
+    
 }
 
 .menu ul li a {
-    position: top right;
+    position: left;
     color: #fafafa;
     text-decoration: none;
     font-size: 14px;
     font-weight: bold;
     transition: color 0.3s ease;
+    
+    p{
+        display: none;
+    }
+
 }
 
 /* aparencia do menu (navbar) ao passar o mouse por cima */
 .menu ul li a:hover {
-    color:#503019;
+    transition: 0.3s all ease ;
     border-radius: 8px;
-        background-color: #e8ddd0;
-        padding: 10px;
     transition-duration: 0.5s;
+    transform: translateY(-3px); 
 }
 
 
@@ -146,25 +158,47 @@
     .menu {
 
         color: #c58452;
-        display: none;
+        display: flex;
+        justify-self: left;
         flex-direction: column;
         position: absolute;
-        top: 78px;
+        top: 120px;
         right: 30px;
         background-color:#2c1810;
-        width: 180px;
+        width: 50px;
         transition: 0.3s ease-in-out;
-        border-radius: 20px;
-        padding:3px;
-        margin-top: -0.5px;
+        border-radius: 10px;
+        padding:80px;
+        margin-top: -6.3px;
       
     }
 
+    .menu ul li a { 
+   
+    transition: color 0.3s ease;
+    
+    p{
+         color: #fafafa;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+      margin: auto;
+        display:inline;
+        font-size:14px;
+        color:white;
+    }
+    
+}
+
+
+    
 
     /* menu hamburguer com opcoes extendidas */
     .menu.ativo {
         display: flex;
         animation: deslizar 0.3s ease;
+    
+       
     }
 
 
@@ -454,9 +488,15 @@
         color: #d4a574;
     }
 
-    #map{
+    .map{
         border-radius:20px;
         box-shadow:0px 0px 20px rgba(0, 0, 0, 0.418);
+        display: flex;
+        justify-self:center;
+        overflow: hidden;
+        width: 600px;
+     height: 450px;
+
     }
 
     footer {
@@ -465,6 +505,29 @@
         text-align: center;
         padding: 2rem;
     }
+
+.koffee-logo{
+    margin-top: -50px;
+}
+
+  .social-logos{
+        justify-self: center;
+        display: flex;
+        margin-bottom: 20px;
+      
+    }
+
+    .items{
+        padding: 5px;
+        cursor: pointer;
+    }
+
+    .items:hover{
+        transition: 0.3 both ease;
+        transform: translateY(-3px);
+    }
+
+
 
     @keyframes fadeInUp {
         from {
