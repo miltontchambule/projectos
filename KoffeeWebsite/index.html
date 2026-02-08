@@ -9,86 +9,220 @@
     
 
 </head>
+
+
 <body>
- <header class="navbar">
-<div class="navbar-container">
+    <header class="header">
+  <nav class="navbar">
+    <div class="logo">LOGO</div>
 
-<img src="https://dummyimage.com/120x50/000/fff&text=Koffee">
+    <div class="botao-menu" id="botao-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
-<nav class="menu" id="menu">
-<ul class="nav-links">
-<li><a href="#">Destaques</a></li>
-<li><a href="#">Eventos</a></li>
-<li><a href="#">Login</a></li>
-</ul>
-</nav>
-
-<div class="botao-menu" id="botao-menu">
-<span></span><span></span><span></span>
-</div>
-
-</div>
+    <div class="menu" id="menu">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Serviços</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
 </header>
+
 
 
 
     <!-- seccao principal - hero -->
 
 
-    <section class="hero">
-<div>
-<h1>Desperte seus sentidos</h1>
-<p>O melhor café da cidade</p>
-</div>
+ <section class="hero" id="home">
+
+    <div class="hero-conteudo"> 
+        <h1>Desperte Seus Sentidos</h1>
+        <p>O Melhor Koffee da Cidade</p>
+        <a href="#contato" class="butaoInt">Visite-nos Hoje</a>
+    </div>
+
+</section>
+ 
+
+
+<!-- cards da seccao de produtos -->
+
+
+   <section id="produtos">
+    
+    <!-- titulo da seccao -->
+    <h2>Nossos Cafés Especiais</h2>
+
+    <!-- cards  -->
+    <div class="producto clara" >
+
+       
+        <div class="producto-card">
+            <div class="product-icon clara"><img src="Media/icedcappuccino250.png" alt="iced cappuccino"></div>
+
+            <!-- card description -->
+            <h3>Iced Cappuccino</h3>
+            <p>Café forte e aromático, extraído na perfeição. A base para todas as grandes experiências.</p>
+        </div>
+        
+        <!-- cards  -->
+        <div class="producto-card">
+            <div class="product-icon"><img src="Media/frappuccino250.png" alt="frappuccino"></div>
+            
+             <!-- card description -->
+            <h3>Frappuccino</h3>
+            <p>Grãos selecionados de fazendas premium, com notas de chocolate e caramelo.</p>
+        </div>
+
+          <!-- cards  -->
+        <div class="producto-card">
+            <div class="product-icon"><img src="Media/iceddonut250.PNG" alt="Iced Donut"></div>
+            
+             <!-- card description -->
+            <h3>Donut Iced</h3>
+            <p>Grãos selecionados de fazendas premium, com notas de chocolate e caramelo.</p>
+        </div>
+
+       
+<br>
+
+<a href="#" id="butaoInt">Ver Mais</a>
+    
+
+</section>
+ 
+
+<!-- seccao feedback -->
+
+   
+  
+
+<section class="secao-feedbacks">
+
+  <h2 id="about">
+            O Que Dizem Sobre Nós?
+    </h2>
+    
+  <!-- Linha superior -->
+  <div class="faixa faixa-cima">
+    <div class="conteudo">
+      <div class="card-feedback">“Excelente atendimento e suporte rápido.”</div>
+      <div class="card-feedback">“O site ficou incrível, super profissional.”</div>
+      <div class="card-feedback">“Entrega antes do prazo combinado!”</div>
+      <div class="card-feedback">“Recomendo 100%, trabalho de qualidade.”</div>
+      <div class="card-feedback">“Comunicação clara e eficiente.”</div>
+
+      <!-- duplicação para efeito infinito -->
+      <div class="card-feedback">“Excelente atendimento e suporte rápido.”</div>
+      <div class="card-feedback">“O site ficou incrível, super profissional.”</div>
+      <div class="card-feedback">“Entrega antes do prazo combinado!”</div>
+      <div class="card-feedback">“Recomendo 100%, trabalho de qualidade.”</div>
+      <div class="card-feedback">“Comunicação clara e eficiente.”</div>
+    </div>
+  </div>
+
+  <!-- Linha inferior -->
+  <div class="faixa faixa-baixo">
+    <div class="conteudo">
+      <div class="card-feedback">“Design moderno e responsivo.”</div>
+      <div class="card-feedback">“Muito profissional e atencioso.”</div>
+      <div class="card-feedback">“Superou minhas expectativas.”</div>
+      <div class="card-feedback">“Voltarei a contratar sem dúvidas.”</div>
+      <div class="card-feedback">“Ótima experiência do início ao fim.”</div>
+
+      <!-- duplicação -->
+      <div class="card-feedback">“Design moderno e responsivo.”</div>
+      <div class="card-feedback">“Muito profissional e atencioso.”</div>
+      <div class="card-feedback">“Superou minhas expectativas.”</div>
+      <div class="card-feedback">“Voltarei a contratar sem dúvidas.”</div>
+      <div class="card-feedback">“Ótima experiência do início ao fim.”</div>
+    </div>
+  </div>
+
+</section>
+       
+
+
+ 
+<!-- seccao about -->
+<section class="sobre" id="sobre">
+    <h2 style="color: #2c1810;">Nossa História</h2>
+    <div class="sobre-conteudo">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla aut, accusantium quas unde nemo non assumenda provident minus voluptatum repudiandae nostrum beatae architecto dicta fuga, amet consectetur voluptas optio. Molestias.</p>
+        <br>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore odio ipsum, nulla earum, consequuntur aspernatur modi vitae est culpa magnam voluptas assumenda praesentium accusamus voluptatem maxime non, dicta perspiciatis porro.</p>
+    </div>
+
 </section>
 
 
-<!-- TABS -->
-<section class="tabs-section">
+<!-- seccao contactos -->
 
-<div class="tabs">
-<button class="tab-btn ativo" data-tab="destaques">Destaques</button>
-<button class="tab-btn" data-tab="eventos">Eventos</button>
-<button class="tab-btn" data-tab="login">Login</button>
-</div>
+<section class="contacto" id="contato">
+    <h2>Visite-nos</h2>
 
-<div class="tab-content ativo" id="destaques">
-<h2>Mais pedidos</h2>
-<p>Cafés e pães favoritos dos clientes</p>
-</div>
+    <div class="map-container">
+ <iframe class="map"
+   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.1259890966217!2d32.5617991742074!3d-25.963908077225327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69b7d6166b651%3A0xe324aea2cffbd8b5!2sKoffee%20Shop.%20EI!5e0!3m2!1spt-PT!2smz!4v1770216729289!5m2!1spt-PT!2smz"
+  
+   style="border:0;" 
+   allowfullscreen="" 
+   loading="lazy" 
+   referrerpolicy="no-referrer-when-downgrade"
+    sandbox="allow-scripts allow-same-origin allow-popups"
+    allow="geolocation 'none'; camera 'none' microphone 'none' fullscreen 'none'">
+</iframe>
 
-<div class="tab-content" id="eventos">
-<h2>Eventos</h2>
-<p>Blog dos eventos da empresa</p>
-</div>
+    </div>
+  
+    
+   <div class="contacto-info">
 
-<div class="tab-content" id="login">
-<input placeholder="Email"><br><br>
-<input type="password" placeholder="Senha"><br><br>
-<button>Entrar</button>
-</div>
-
+        <!-- contact info div -->
+        <div class="contacto-item">
+            Localização
+            <span>Av. Josina Machel, 1015<br>Cidade de Maputo</span>
+        </div>
+         <!-- contact info div -->
+        <div class="contacto-item">
+            Horário
+            <span>Ter-Sex: 7h30 - 20h30<br>Sáb-Dom: 8h30 - 20h30</span>
+        </div>
+         <!-- contact info div -->
+        <div class="contacto-item">
+            Contato
+            <span>(+258) 85 834 2848<br>koffeeshop@info.mz</span>
+        </div>
+    </div>
 </section>
-
-<!-- CAROUSEL -->
-<section style="padding:60px;text-align:center">
-<h2>Nossos Cafés Especiais</h2>
-
-<div class="carousel" id="carousel">
-<div class="slide ativo">Cappuccino</div>
-<div class="slide">Frappuccino</div>
-<div class="slide">Donut Iced</div>
-</div>
-</section>
-
-<!-- MAP -->
-<div class="map-container">
-<iframe class="map"
-src="https://www.google.com/maps?q=maputo&output=embed"></iframe>
-</div>
-
 
 <footer>
+
+     <div class="koffee-container">
+       
+            <img src="Media/Logokoffee160.png" alt="Kofee logo" class="koffee-logo">
+        
+    </div>
+
+    <div class="socials">
+        <div class="social-logos">
+                         <a href="#"><img src="Media/whatsapp30.PNG" alt="Whatsapp" class="items"></a>
+                        <a href="#"><img src="Media/tiktok30.PNG" alt="Tiktok" class="items"></a>
+                       <a href="#"><img src="Media/facebook30.PNG" alt="Facebook" class="items"></a> 
+                       <a href="https://www.instagram.com/koffeeshop.mz"> <img src="Media/ig30.PNG" alt="Instagram" class="items"></a>
+    
+
+        </div>
+                      
+    </div>
+
+   
     <p>&copy; 2025 Koffee. Todos os direitos reservados.</p><br>
     <small>Desenvolvido por Milton Tchambule</small>
 </footer>
