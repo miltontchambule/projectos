@@ -3,7 +3,7 @@
         * {
             margin: 0;
             padding: 0;
-            /* box-sizing: border-box; */
+            box-sizing: border-box;
             scroll-behavior: smooth;
         }
 
@@ -11,156 +11,139 @@
     body {
         font-family: 'Georgia', serif;
         color: #2c1810;
-        /* overflow-x: hidden; */
+        overflow-x: hidden;
         background-color:#27160e;
        
     }
 
-
-
-   
-.navbar {
-    position: sticky;
-    top: env(safe-area-inset-top);
-    z-index: 1000;
-
-    width: calc(100% - 32px);
-    max-width: 1100px;
-
-    margin: 16px auto;
-    padding: 0.75em 1em;
-
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-
-    border-radius: 14px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.23);
-    color: #fff;
-
-    transition: color 0.3s ease;
-}
-
-    nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    width: 100%;
-}
-
-
-  .logo {
-    display: flex;
-    align-items: center;
-
-    padding: 10px;
-    transition: opacity 0.3s ease;
-}
-
-
-
-    .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-
-   .icons {
-    transition: transform 0.3s ease-in-out;
-}
-
-.icons:hover {
-    transform: translateY(-3px);
-}
-
-/* HEADER */
+/* Contentor do Cabecalho */
 .header {
-    padding-top: 20px;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    padding: 20px;
 }
 
-/* NAVBAR */
+
+/* efeito quando faz scroll */
+    .header.scrolled .navbar {
+    background-color: rgba(0, 0, 0, 0.342);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* contentor da barra de navegacao interno ao header */
 .navbar {
-    max-width: 1200px;
+
+     max-width: 1200px;
     margin: auto;
-    padding: 15px 25px;
+    padding: 15x 28px;
+    
     display: flex;
     align-items: center;
     justify-content: space-between;
-    backdrop-filter: blur(10px);
-    background: rgba(44, 24, 16, 0.85);
-    border-radius: 15px;
+    border-radius: 10px;
+
+    background: rgba(44, 24, 16, 0.349);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.404);
+
+    transition: all 0.4s ease;
 }
 
-/* LOGO */
+/* contentor do logotipo*/
 .logo {
     color: white;
     font-weight: bold;
     font-size: 18px;
+     
+      padding: 20px;
 }
 
-/* MENU DESKTOP */
+/* Menu em computadores*/
 .menu ul {
     display: flex;
     gap: 25px;
     list-style: none;
-    margin: 0;
+ margin-right:1em ;
     padding: 0;
+    
 }
 
 .menu a {
     color: #fff;
     text-decoration: none;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 20px;
     transition: 0.3s;
 }
 
-.menu a:hover {
+.menu a:hover{
     transform: translateY(-3px);
+    transition: all 0.3s ease-in-out;
 }
 
-/* BOTÃO HAMBÚRGUER */
+/* Icons do menu em computadores */
+.menu-opcoes{
+    display:none; 
+     padding-left: 10px;
+}
+
+
+
+/* Botao do menu hamburguer */
 .botao-menu {
     display: none;
     flex-direction: column;
     gap: 4px;
     cursor: pointer;
+    
 }
 
+/* 3 barrinhas do menu hamburguer */
 .botao-menu span {
+    
     width: 25px;
     height: 3px;
     background: white;
     transition: 0.3s;
+
+     border-radius: 999px;
 }
 
-/* MOBILE */
+/* Menu versao mobile */
 @media (max-width: 832px) {
 
-    .botao-menu {
+    .botao-menu { 
+        
         display: flex;
+        margin-right: 2em;
+       
+        
     }
 
     .menu {
+         backdrop-filter: blur(20px);
+         background: transparent;
+         background-color: #1a0f0afa;
+         -webkit-backdrop-filter: blur(20px);
+                            
         display: none;
         position: absolute;
-        top: 90px;
-        right: 20px;
-        background: #2c1810;
-        padding: 20px;
+        top: 100px;
+        right: 0px;
+       
+        padding: 30px;
         border-radius: 12px;
+    }
+
+/* icons no mobile */
+    .menu-opcoes{
+        
+        display: inline;
+        color:#e8ddd0;
     }
 
     .menu ul {
@@ -169,11 +152,13 @@
     }
 
     .menu.ativo {
+        
         display: block;
         animation: aparecer 0.3s ease;
+        
     }
 
-    /* ANIMAÇÃO X */
+    /* Animacao em X do menu */
     .botao-menu.ativo span:nth-child(1) {
         transform: rotate(45deg) translateY(8px);
     }
@@ -198,6 +183,7 @@
     }
 }
 
+/* seccao principal - cara do website */
     .hero {
         height: 100vh;
         background: linear-gradient(rgba(44, 24, 16, 0.5), rgba(44, 24, 16, 0.5)),
@@ -214,7 +200,7 @@
     }
 
     .hero-conteudo h1 {
-        margin-top: 3em;
+        margin-top: 0;
         font-size: 4rem;
         margin-bottom: 1rem;
         animation: fadeInUp 1s ease;
@@ -225,6 +211,8 @@
         margin-bottom: 2rem;
         animation: fadeInUp 1s ease 0.2s both;
     }
+
+    /* botao de visita */
 
     .butaoInt {
         background: #ccbaa6;
@@ -239,6 +227,7 @@
         display: inline-block;
         animation: fadeInUp 1s ease 0.4s both;
         font-weight: bold;
+        
     }
 
     .butaoInt:hover {
@@ -263,14 +252,271 @@
         color: #f8f8f8;
     }
 
+/* Seccao de tabelas interativas*/
+.tabs-section{
+    padding:80px 20px;
+    text-align:center;
+    border-radius: 23px 23px 0px 0px;
+    margin-top: -20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.233);
+
+    
+}
+
+.tabs{ 
+
+    margin-bottom:50px;
+}
+
+
+.tab-btn{
+    padding:10px 20px;
+    border:solid 1px #ddd;
+    background-color:#ddd;
+    cursor:pointer;
+    border-radius: 5px;
+}
+
+.tab-btn.ativo{
+    background:#2c1810;
+    border: solid 1px #2c1810;
+    color:white;
+}
+
+
+.tab-content{
+    display:none;
+
+}
+
+.tab-content.ativo{
+    
+    display:block;
+}
+
+.dados{
+    display:inline;
+    border: solid 1px white;
+    background-color: white;
+    padding:10px 40px;
+    border-radius: 10px;
+}
+
+.entrar{
+    border: solid 1px #2c1810;
+    padding:8px 20px;
+    background-color: #7c4833;
+    color: white;
+    border-radius: 3px;
+     
+}
+
+.entrar:hover{
+    background-color: #d4a574;
+  transition: all 0.3s ease-in-out;
+}
+
+
+#login{
+    margin: auto;
+    padding: 60px 30px;
+    width:70%;
+    align-items: center;
+    
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.425);
+    background-color:#2c1810e1;
+    border-radius: 23px;
+    
+    text-decoration: none;
+
+}
+
+#login p{
+   
+    color:white;
+}
+
+#login a{
+     text-decoration: none;
+    color:white;
+}
+
+#login a:hover{
+    color: #d4a574;
+}
+
+#login small{
+    color: rgb(207, 207, 207);
+    font-size: 11px;
+}
+
+/* cartoes da seccao eventos  */
+.cabecalho-destaques small {
+    color: wheat;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+
+.destaques h2 {
+    font-size: 48px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: white;
+}
+
+.grade-destaques {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:39px;
+    margin-top: 40px;
+}
+
+.cartao-destaque {
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+/* animacao de mover-se 10px para cima ao passar o mouse simbolizar seleccao */
+.cartao-destaque:hover {
+    transform: translateY(-10px);
+}
+
+.cartao-destaque img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+
+.icone-cartao a {
+    text-decoration: none;
+    color: black;
+    font-size: 6px;
+}
+
+.icone-cartao:hover {
+    transform: translateX(-50%) scale(1.1);
+}
+
+/* Cartões Dinâmicos */
+
+/* container dos cartoes */
+.caixa-cartoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    padding: 35px;
+   align-items: center;
+    border-radius: 23px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.418);
+}
+
+/* cartoes individuais */
+
+.cartao {
+    
+    margin: auto;
+    width: 300px;
+    height: 280px;
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+    transition: transform .35s cubic-bezier(.2, .8, .2, 1), box-shadow .35s; 
+    background: #111;
+}
+
+
+/* animacao ao passar o mouse por cima do cartao, desloca-se para a frente */
+.cartao:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.18);
+}
+
+.cartao img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .6s cubic-bezier(.2, .8, .2, 1), filter .4s;
+}
+
+.cartao:hover img {
+    transform: scale(1.08);
+    filter: contrast(0.95) brightness(0.95);
+}
+
+
+/* cartoes nas imagens dos eventos - efeito do site da TOYOTA */
+.informacao {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    
+    background-color:#2c13046c;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    
+    border-radius: 10px;
+    padding: 12px 14px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    transform: translateY(120%);
+    opacity: 0;
+    transition: transform .45s cubic-bezier(.2, .8, .2, 1), opacity .3s;
+    pointer-events: none;
+}
+
+/* notas nos cartoes ao passar o mouse */
+.cartao:hover .informacao {
+    transform: translateY(0%);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.informacao small {
+    display: block;
+    font-size: 11px;
+    color: #eeeeee;
+    margin-bottom: 4px;
+}
+
+.informacao h4 {
+    margin: 0;
+    font-size: 15px;
+    color: #ffffff;
+    line-height: 1.1;
+}
+
+.informacao a {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #cacaca;
+    text-decoration: none;
+    border-radius: 6px;
+    padding: 6px 8px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: transparent;
+}
+
+    /* Tease do menu */
     .producto {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 2rem;
+        margin-bottom: -50px;
       
     }
 
     .producto-card {
+
         background: #f1f1f1;
         border-radius: 15px;
         padding: 2rem;
@@ -292,7 +538,7 @@
 
     }
 
-  
+   
     .producto-card h3 {
         font-size: 1.8rem;
         margin-bottom: 1rem;
@@ -319,6 +565,7 @@
         display: flex;
         font-weight: bold;
        justify-self: center;
+       margin-bottom: 50px;
 
         
     }
@@ -340,12 +587,11 @@
         border-radius: 30px 30px 0px 0px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.37);
         margin-top: -20px; 
-
-        h2{
-            color:#2c1810;
-        }
 }
 
+.secao-feedbacks >  h2 {
+            color:#2c1810;
+        }
 
 .faixa {
   width: 100%;
@@ -404,13 +650,15 @@
 .sobre {
         background: linear-gradient(135deg, #f5f5f5 0%, #e8ddd0 100%);
         padding: 5rem 2rem;
-             border-radius: 23px 23px 0px 0px;
+        border-radius: 23px 23px 0px 0px;
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.171);
         margin-top: -20px;
-        p{
+     
+    }
+
+   .sobre p{
             color:#1a0f0a;
         }
-    }
 
     .sobre-conteudo {
         max-width: 800px;
@@ -425,7 +673,7 @@
         color: #fff;
         text-align: center;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.562);
-        border-radius:20px 20px 0px 0px;
+        border-radius:23px 23px 0px 0px;
         margin-top: -20px;
     }
 
@@ -455,27 +703,31 @@
         border-radius:20px;
         box-shadow:0px 0px 20px rgba(0, 0, 0, 0.418);
         display: flex;
+        flex-wrap: wrap;
         justify-self:center;
+
         overflow: hidden;
-        width: 600px;
-     height: 450px;
+  
 
     }
 
     footer {
         background: #1a0f0a;
+        display: block;
         color: #d4a574;
         text-align: center;
         padding: 2rem;
     }
 
-.koffee-logo{
-    margin-top: -50px;
+ .koffee-logo{
+    margin-top: 0.2em;
+    padding-bottom: 2em;
 }
 
-  .social-logos{
+ .social-logos{
         justify-self: center;
         display: flex;
+        gap: 5px;
         margin-bottom: 20px;
       
     }

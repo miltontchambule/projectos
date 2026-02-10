@@ -8,10 +8,41 @@ botaoMenu.addEventListener("click", () => {
     menu.classList.toggle("ativo");
 });
 
+/* CAROUSEL */
+const slides = document.querySelectorAll(".slide");
+let atual=0;
 
-// const MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.1259890966217!2d32.5617991742074!3d-25.963908077225327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69b7d6166b651%3A0xe324aea2cffbd8b5!2sKoffee%20Shop.%20EI!5e0!3m2!1spt-PT!2smz!4v1770216729289!5m2!1spt-PT!2smz";
+/* TABS */
+const tabs = document.querySelectorAll(".tab-btn");
+const contents = document.querySelectorAll(".tab-content");
 
-// if (userAcceptedCookies) {
-//    document.getElementById('map').src = MAP_URL;
-// };
+tabs.forEach(btn=>{
+btn.addEventListener("click",()=>{
+tabs.forEach(b=>b.classList.remove("ativo"));
+contents.forEach(c=>c.classList.remove("ativo"));
+btn.classList.add("ativo");
+document.getElementById(btn.dataset.tab).classList.add("ativo");
+});
+});
+
+
+document.getElementById("carousel").addEventListener("click",(e)=>{
+if(e.clientX > window.innerWidth/2){
+slides[atual].classList.remove("ativo");
+atual=(atual+1)%slides.length;
+slides[atual].classList.add("ativo");
+}
+});
+
+window.addEventListener("scroll", () => {
+    const header = document.querySelector(".header");
+
+    if (window.scrollY > 20) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+});
+
+
 
