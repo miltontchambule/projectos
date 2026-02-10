@@ -86,9 +86,11 @@
 }
 
 /* Icons do menu em computadores */
+
 .menu-opcoes{
     display:none; 
      padding-left: 10px;
+     
 }
 
 
@@ -120,8 +122,7 @@
         
         display: flex;
         margin-right: 2em;
-       
-        
+          
     }
 
     .menu {
@@ -144,7 +145,11 @@
         
         display: inline;
         color:#e8ddd0;
+        transition: transform 0.3s ease;
     }
+.menu-opcoes:hover{
+    color: #d4a574;
+}
 
     .menu ul {
         flex-direction: column;
@@ -270,7 +275,9 @@
 
 
 .tab-btn{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding:10px 20px;
+    color: black;
     border:solid 1px #ddd;
     background-color:#ddd;
     cursor:pointer;
@@ -525,8 +532,51 @@
         text-align: center;
     }
 
-    .producto-card:hover {
-        transform: translateY(-10px);
+    .preco{
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin:auto;
+        background-color: #946b4a;
+        width:40%;
+        height:40px;
+        max-width: 600px;
+        border: 0;
+        border-radius: 23px;
+        box-shadow:0px 0px 5px rgba(0, 0, 0, 0.226);
+    }
+
+    #preco{
+        color:white;
+    }
+
+    .cafes-img{
+    
+        border: 0;
+        border-radius: 23px;
+        
+    }
+
+    .encomendar{ 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin:auto;
+        background-color: #946b4a;
+        width:20%;
+        height:30px;
+        max-width: 600px;
+        border: solid 1px #946b4a;
+        color: white;
+        border-radius: 20px;
+        background-color:#946b4a ;
+         box-shadow:0px 0px 5px rgba(0, 0, 0, 0.226);
+         transition: transform 0.3s ease;
+    }
+
+    .encomendar:hover {
+        transform: translateY(-3px) scale(1.05);
         box-shadow: 0 15px 30px rgba(0,0,0,0.2);
         
     }
@@ -699,15 +749,20 @@
         color: #d4a574;
     }
 
-    .map{
-        border-radius:20px;
-        box-shadow:0px 0px 20px rgba(0, 0, 0, 0.418);
-        display: flex;
-        flex-wrap: wrap;
-        justify-self:center;
+    .map-container{
 
-        overflow: hidden;
-  
+        display: flex;
+        justify-content: center;
+        margin:2rem 0;
+    }
+    .map{
+     width:100%;
+     max-width: 600px;
+     height:350px;
+     border: 0;
+     border-radius: 23px;
+        box-shadow:0px 0px 20px rgba(0, 0, 0, 0.418);
+       
 
     }
 
@@ -724,24 +779,27 @@
     padding-bottom: 2em;
 }
 
- .social-logos{
-        justify-self: center;
+ .socials{
+        justify-content: center;
+        align-items: center;
+
         display: flex;
-        gap: 5px;
-        margin-bottom: 20px;
-      
+        gap: 1.2rem;
+        margin: 2rem 0;
     }
 
-    .items{
-        padding: 5px;
-        cursor: pointer;
-    }
+     .social-logos{
+        cursor:pointer;
+     }
 
-    .items:hover{
-        transition: 0.3 both ease;
-        transform: translateY(-3px);
-    }
-
+.items{
+    padding: 0.4em;
+    will-change: transform;
+    transition:transform 0.2s ease;
+}
+      .items:hover{
+    transform: translateY(-5px) scale(1.05);
+      }
 
 
     @keyframes fadeInUp {
