@@ -8,10 +8,6 @@ botaoMenu.addEventListener("click", () => {
     menu.classList.toggle("ativo");
 });
 
-/* CAROUSEL */
-const slides = document.querySelectorAll(".slide");
-let atual=0;
-
 /* TABS */
 const tabs = document.querySelectorAll(".tab-btn");
 const contents = document.querySelectorAll(".tab-content");
@@ -26,13 +22,6 @@ document.getElementById(btn.dataset.tab).classList.add("ativo");
 });
 
 
-document.getElementById("carousel").addEventListener("click",(e)=>{
-if(e.clientX > window.innerWidth/2){
-slides[atual].classList.remove("ativo");
-atual=(atual+1)%slides.length;
-slides[atual].classList.add("ativo");
-}
-});
 
 window.addEventListener("scroll", () => {
     const header = document.querySelector(".header");
@@ -43,6 +32,4 @@ window.addEventListener("scroll", () => {
         header.classList.remove("scrolled");
     }
 });
-
-
 

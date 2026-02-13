@@ -25,9 +25,19 @@
 
     <div class="menu" id="menu">
       <ul>
-        <li><a href="#"><img src="Media/signin10.PNG" title="Entrar" alt="sign in" ><p class="menu-opcoes">Entrar</p></a></li>
-        <li><a href="#"><img src="Media/events10.PNG" title="Eventos" alt="eventos"><p class="menu-opcoes">Eventos</p></a></li>
-        <li><a href="#"><img src="Media/cart10.PNG" title="Carrinho" alt="cart"><p class="menu-opcoes">Encomendar</p></a></li>
+        <li><a href="#"><img src="Media/menu20.PNG" title="Menu" alt="Menu"><p class="menu-opcoes">Menu</p></a></li>
+        <div class="divisor"></div>
+
+        <li><a href="#"><img src="Media/cart10.PNG" title="Carrinho" alt="Carrinho"><p class="menu-opcoes">Encomendar</p></a></li>
+            <div class="divisor"></div>  
+        <li><a href="#iframe"><img src="Media/location20.PNG" title="Localização" alt="Localização"><p class="menu-opcoes">Localização</p></a></li>
+         <li><a href="#"><img src="Media/about20.PNG" title="Sobre Nós" alt="Sobre Nós"><p class="menu-opcoes">Sobre Nós</p></a></li>        
+        <li><a href="#"><img src="Media/events10.PNG" title="Eventos" alt="Eventos"><p class="menu-opcoes">Eventos</p></a></li> 
+             <li><a href="#"><img src="Media/contacts20.PNG" title="Contactos" alt="Contactos"><p class="menu-opcoes">Contactos</p></a></li> 
+           <div class="divisor"></div>       
+        <li><a href="#"><img src="Media/Entrar20.PNG" title="Entrar" alt="Entrar" ><p class="menu-opcoes">Entrar</p></a></li>
+         
+   
       </ul>
     </div>
   </nav>
@@ -81,11 +91,16 @@
             <p>Café forte e aromático, extraído na perfeição. A base para todas as grandes experiências.</p>
             <br>
            
-            <div class="preco"><p id="preco">290.00MT</p></div>
-              <br>
-            <button type="submit" class="encomendar">Encomendar</button>
-          
-    
+            <div class="preco">
+              
+                <p id="preco">289.00MT</p>
+               <button type="submit" class="encomendar"><img src="Media/cart5.PNG" alt="comprar">Comprar</button>
+            
+            </div>
+
+             
+         
+      
       </div>
         
 
@@ -97,9 +112,14 @@
             <h3>Frappuccino</h3>
             <p>Grãos selecionados de fazendas premium, com notas de chocolate e caramelo.</p>
             <br>
-          <div class="preco"><p id="preco">400.00MT</p></div>
-              <br>
-            <button type="submit" class="encomendar">Encomendar</button>
+         
+         
+           <div class="preco">
+              
+                <p id="preco">599.00MT</p>
+               <button type="submit" class="encomendar"><img src="Media/cart5.PNG" alt="comprar">Comprar</button>
+            
+            </div>
 
       </div>
 
@@ -111,9 +131,13 @@
             <h3>Donut Iced</h3>
             <p>Grãos selecionados de fazendas premium, com notas de chocolate e caramelo.</p>
             <br>
-            <div class="preco"><p id="preco">350.00MT</p></div>
-              <br>
-            <button type="submit" class="encomendar">Encomendar</button>
+
+            <div class="preco">
+              
+                <p id="preco">449.00MT</p>
+               <button type="submit" class="encomendar"><img src="Media/cart5.PNG" alt="comprar">Comprar</button>
+            
+            </div>
 
         </div>
 
@@ -126,20 +150,44 @@
       
       
 <div class="tab-content" id="login">
-
-    <h2>Olá! Cria Uma Conta</h2>
+<img src="Media/Logokoffee160.png" alt="Logo"><br>
+<br>    
+<h2>Olá! Bem Vindo(a) ao Koffee.</h2>
 
     <input placeholder="Email" class="dados"><br><br>
     <input type="password" placeholder="Senha" class="dados"><br><br>
+    <a href="#"><small>Esqueceu a senha? Recupere aqui</small></a><br><br>
     <button class="entrar">Entrar</button><br><br>
 
-    <p>Já  tem conta? <a href="#">Entrar</a></p> <br><br>
-    <input type="checkbox"><small>Não quero receber novidades no e-mail.</small>
+    <p>Já  tem conta? <a href="#">Entrar</a></p> <br>
+
+    <div class="divisor-login"></div><p style="color:white">Ou</p><div class="divisor-login"></div>
+
+<div class="oauth-container">
+
+        <button class="google-btn">
+        <img src="Media/google50.PNG" alt="Google"><span>Entrar com Google</span>
+        </button>
+
+    <button class="google-btn">
+       <img src="Media/apple20.png" alt="Apple"> <span class="span-icon">Entrar com Apple</span>
+    </button>
+
+    <br>
+   
+
+</div>
+
+ <input type="checkbox"><small>Não quero receber novidades no e-mail.</small>
 
 </div>
   
 <div class="tab-content" id="eventos">
         <h2>Eventos</h2>
+     
+     <div class="interagir"><img src="Media/toca-aqui20.PNG" ></div>
+ <br>
+      
         <div class="caixa-cartoes">
 
             <div class="cartao">
@@ -162,7 +210,9 @@
                     <h4>Venha ver-nos de perto em 2026!</h4>
                 </div>
 
-            </div>
+            </div> 
+            <br>
+
 
           </div>
         
@@ -241,8 +291,8 @@
 <section class="contacto" id="contato">
     <h2>Visite-nos</h2>
 
-    <div class="map-container">
- <iframe class="map"
+    <div id="iframe" class="map-container">
+ <iframe  class="map"
    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.1259890966217!2d32.5617991742074!3d-25.963908077225327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69b7d6166b651%3A0xe324aea2cffbd8b5!2sKoffee%20Shop.%20EI!5e0!3m2!1spt-PT!2smz!4v1770216729289!5m2!1spt-PT!2smz"
   
    style="border:0;" 
@@ -255,8 +305,17 @@
 
     </div>
   
-    
-   <div class="contacto-info">
+</section>
+
+<footer>
+
+     <div class="koffee-container">
+       
+            <img src="Media/Logokoffee160.png" alt="Kofee logo" class="koffee-logo">
+        
+    </div>
+
+     <div class="contacto-info">
 
         <!-- contact info div -->
         <div class="contacto-item">
@@ -273,15 +332,6 @@
             Contato
             <span>(+258) 85 834 2848<br>koffeeshop@info.mz</span>
         </div>
-    </div>
-</section>
-
-<footer>
-
-     <div class="koffee-container">
-       
-            <img src="Media/Logokoffee160.png" alt="Kofee logo" class="koffee-logo">
-        
     </div>
 
     <div class="socials">

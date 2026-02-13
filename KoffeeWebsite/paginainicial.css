@@ -73,17 +73,6 @@
     
 }
 
-.menu a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 20px;
-    transition: 0.3s;
-}
-
-.menu a:hover{
-    transform: translateY(-3px);
-    transition: all 0.3s ease-in-out;
-}
 
 /* Icons do menu em computadores */
 
@@ -93,6 +82,33 @@
      
 }
 
+/* links do menu em computadores*/
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+/* hover nos icones do menu em computadores*/
+.menu a:hover{
+    transform: translateY(-3px);
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+/* separadores das opcoes de menu nos desktops ou ecras grandes */
+.divisor{
+    display: none;
+}
+
+.divisor-login{
+    display: inline-block;
+    height:1px;
+    background-color: rgb(255, 255, 255);
+    margin:7px 0;
+}
 
 
 /* Botao do menu hamburguer */
@@ -110,7 +126,7 @@
     width: 25px;
     height: 3px;
     background: white;
-    transition: 0.3s;
+    transition: 0.1s;
 
      border-radius: 999px;
 }
@@ -128,7 +144,7 @@
     .menu {
          backdrop-filter: blur(20px);
          background: transparent;
-         background-color: #1a0f0afa;
+         background-color: #1a0f0aee;
          -webkit-backdrop-filter: blur(20px);
                             
         display: none;
@@ -150,6 +166,14 @@
 .menu-opcoes:hover{
     color: #d4a574;
 }
+
+.divisor{
+    display: inline-block;
+    height:1px;
+    background-color: rgb(148, 129, 93);
+    margin:7px 0;
+    }
+
 
     .menu ul {
         flex-direction: column;
@@ -296,17 +320,36 @@
 
 }
 
+ .interagir{
+    animation: fadeInUp 1s ease;
+    
+ }
+
 .tab-content.ativo{
     
     display:block;
 }
 
 .dados{
-    display:inline;
-    border: solid 1px white;
-    background-color: white;
-    padding:10px 40px;
-    border-radius: 10px;
+   display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width:100%;
+  max-width:350px;
+
+  font-size: 16px;
+  font-weight: 500px;
+
+  height: 55px;
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  border: solid 1px #d7c6ff;
+
+  cursor: pointer;
+  margin: -10px auto;
+  transition: 0.3s ease;
+
 }
 
 .entrar{
@@ -314,7 +357,7 @@
     padding:8px 20px;
     background-color: #7c4833;
     color: white;
-    border-radius: 3px;
+    border-radius: 10px;
      
 }
 
@@ -326,9 +369,11 @@
 
 #login{
     margin: auto;
-    padding: 60px 30px;
+    padding: 60px 10px;
     width:70%;
+    height:30%;
     align-items: center;
+    
     
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.425);
     background-color:#2c1810e1;
@@ -352,10 +397,59 @@
     color: #d4a574;
 }
 
+.divisor-login{
+    display: flex;
+    height:1px;
+    background-color: rgb(148, 129, 93);
+    margin:7px 0;
+}
+
+.oauth-container{
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    flex-wrap: wrap;
+ } 
+
+ .google-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:10px;
+
+  width:70%;
+  max-width:350px;
+
+  font-size: 16px;
+  font-weight: 500px;
+
+  height: 30px;
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  border: solid 1px #d7c6ff;
+
+  cursor: pointer;
+  margin: 10px auto;
+  transition: 0.3s ease;
+
+ 
+ }
+
+.google-btn img{
+    width:20px;
+    height:21px;
+}
+
+.google-btn:hover{
+    background-color: #d7c6ff;
+}
+
 #login small{
-    color: rgb(207, 207, 207);
+    color: rgb(116, 118, 124);
     font-size: 11px;
 }
+
+
 
 /* cartoes da seccao eventos  */
 .cabecalho-destaques small {
@@ -513,7 +607,7 @@
     background: transparent;
 }
 
-    /* Tease do menu */
+    /* os 3 cartoes com exibicao dos cafes */
     .producto {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -533,24 +627,40 @@
     }
 
     .preco{
-
+       flex-direction: column;
+        font-size: 20px;
         display: flex;
-        justify-content: center;
         align-items: center;
-        margin:auto;
-        background-color: #946b4a;
-        width:40%;
-        height:40px;
-        max-width: 600px;
-        border: 0;
+        
         border-radius: 23px;
-        box-shadow:0px 0px 5px rgba(0, 0, 0, 0.226);
+       
     }
 
-    #preco{
-        color:white;
+      #preco{
+        color:#6f4e37;
+        font-size: 22px;
+      }
+      
+    .encomendar{ 
+        margin-top: 10px;
+       background-color:#9b6c4b;
+       padding: 8px 17px;
+       border-radius: 23px;
+       font-weight: bold;
+       font-size: 15px;
+       color: white;
+       border:none;
+       transition: transform 0.3s ease;
+
     }
 
+    .encomendar:hover {
+        transform: translateY(-3px) scale(1.05);
+       box-shadow:0px 5px 10px rgba(0, 0, 0, 0.349);
+    }
+
+
+    
     .cafes-img{
     
         border: 0;
@@ -558,30 +668,7 @@
         
     }
 
-    .encomendar{ 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin:auto;
-        background-color: #946b4a;
-        padding: 10px;
-        height:50px;
-        max-width: 600px;
-        width:60%;
-        border: solid 1px #946b4a;
-        color: white;
-        border-radius: 20px;
-        background-color:#946b4a ;
-         box-shadow:0px 0px 5px rgba(0, 0, 0, 0.226);
-         transition: transform 0.3s ease;
-    }
-
-    .encomendar:hover {
-        transform: translateY(-3px) scale(1.05);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        
-    }
-
+ 
     .producto-icon {
         font-size: 4rem;
         margin-bottom: 1rem;

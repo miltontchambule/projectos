@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cartão para  Fofucha</title>
+
+
+</head>
+
+<body class="corpo">
+@charset "UTF-8";
+
+/* corpo */
+.corpo{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#f8b4c4,#f6d0c0);
+    font-family:Arial, Helvetica, sans-serif;
+    overflow:hidden;
+}
+
+/* container */
+.container{
+    text-align:center;
+    position:relative;
+}
+
+/* titulo */
+.titulo{
+    color:#b3003c;
+    margin-bottom:30px;
+}
+
+/* envelope */
+.envelope{
+    width:300px;
+    height:200px;
+    background:#ff4d89;
+    position:relative;
+    margin:auto;
+    border-radius:8px;
+    box-shadow:0px 0px 20px rgba(0,0,0,0.2);
+    overflow:hidden;
+}
+
+/* tampa */
+
+.tampa{
+    width:0;
+    height:0;
+    border-left:150px solid transparent;
+    border-right:150px solid transparent;
+    border-top:120px solid #7e081f;
+    position:absolute;
+    top:0;
+    left:0;
+    transform-origin:top;
+    transition:0.8s;
+}
+
+/* carta */
+.carta{
+    width:260px;
+    height:140px;
+    background:white;
+    position:absolute;
+    left:20px;
+    bottom:-170px;
+    border-radius:10px;
+    padding:20px;
+    box-sizing:border-box;
+    transition:1s;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* texto */
+.texto{
+    font-size:14px;
+    color:#333;
+}
+
+/* botoes */
+.botoes{
+    margin-top:25px;
+}
+
+/* botao */
+.botao{
+    padding:10px 25px;
+    margin:10px;
+    border:2px solid #ff1744;
+    background:#ff1744;
+    color:white;
+    cursor:pointer;
+    border-radius:6px;
+    transition:0.3s;
+}
+
+.botao:hover{
+    background:white;
+    color:#ff1744;
+}
+
+/* coracao */
+.coracao{
+    position:absolute;
+    color:red;
+    font-size:20px;
+    animation:flutuar 4s linear infinite;
+}
+
+/* animação */
+@keyframes flutuar{
+    0%{transform:translateY(0) scale(1); opacity:1;}
+    100%{transform:translateY(-400px) scale(1.5); opacity:0;}
+}
+
+/* formulário */
+.formulario{
+    margin-top:15px;
+}
+
+/* botões formulário */
+.botao-form{
+    padding:8px 15px;
+    margin:8px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    background:#ff1744;
+    color:white;
+    font-weight:bold;
+    position:relative;
+    transition:0.3s;
+}
+
+/* mensagem final cinema */
+.mensagem-final{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0);
+    font-size:60px;
+    font-weight:bold;
+    color:white;
+    text-shadow:0 0 20px #ff1744,0 0 40px #ff1744;
+    transition:0.6s ease;
+    z-index:999;
+}
+
+/* efeito brilho nome */
+.nome-brilho{
+    font-size:70px;
+    font-weight:bold;
+    background:linear-gradient(90deg,#fff,#ff1744,#fff);
+    background-size:200% auto;
+    color:transparent;
+    -webkit-background-clip:text;
+    background-clip:text;
+    animation:brilho 2s linear infinite;
+}
+
+@keyframes brilho{
+    0%{background-position:0%;}
+    100%{background-position:200%;}
+}
+
+<div class="container">
+
+<h2 class="titulo">Quero Uma Cena Real Contigo!</h2>
+
+<div class="envelope">
+
+<div class="tampa" id="tampa"></div>
+
+<div class="carta" id="carta">
+<div class="texto" id="texto">
+Olá, Fofucha❤️❤️❤️ Sweetie❤️❤️❤️,<br><br>
+Acreditas no Pai Natal? ...<br><br>
+<small>Toca para o proximo cartao</small>
+</div>
+</div>
+
+
+
+</div>
+
+<div class="botoes">
+<button class="botao" onclick="abrir()">Abrir</button>
+<button class="botao" onclick="fechar()">Fechar</button>
+</div>
+
+</div>
+
+
+<script>
+let indice = 0;
+
+let mensagens = [
+"Olá meu amorcito ❤️<br><br>Fiz estes cartões para ti...",
+"Dizer-te olá foi e sempre será uma das melhores decisões que já tomei!",
+"Conversar e estar contigo faz-me bem a saúde e a mente",
+"Todos os dias contigo são fantásticos e espero que sempre nos sintamos sempre bem um ao lado do outro ",
+"Com isto...",
+"Queres ser a minha Sweetie hoje e sempre (mesmo tu estando na balada em Bilene)? ❤️"
+
+];
+
+function abrir(){
+    document.getElementById("tampa").style.transform="rotateX(180deg)";
+    document.getElementById("carta").style.bottom="40px";
+    criarCoracoes();
+}
+
+function fechar(){
+    document.getElementById("tampa").style.transform="rotateX(0deg)";
+    document.getElementById("carta").style.bottom="-170px";
+}
+
+document.getElementById("carta").addEventListener("click", function(e){
+
+  if(e.target.tagname("BUTTON")){
+    return
+  }
+  if(indice < mensagens.lenght-1){
+    indice++;
+    document.getElementById("texto").innerHTML = mensagens[indice];
+
+  }
+  if(indice === mensagens.lenght-1){
+    mostrarFormulario();
+  }
+
+});
+
+function mostrarFormulario(){
+
+    document.getElementById("texto").innerHTML = `
+    Queres ser a minha eterna Valentine? ❤️
+    <div class="formulario">
+        <button class="botao-form" id="sim">Sim</button>
+        <button class="botao-form" onclick="respostaClaro()">Claro que sim</button>
+    </div>
+    `;
+
+    let botaoSim = document.getElementById("sim");
+
+
+    botaoSim.addEventListener("mouseover", function(){
+        botaoSim.style.position="absolute";
+        botaoSim.style.left=Math.random()*150+"px";
+        botaoSim.style.top=Math.random()*80+"px";
+    });
+}
+
+function respostaClaro(){
+
+    // explosão de corações
+    for(let i=0;i<100;i++){
+        let coracao = document.createElement("div");
+        coracao.className="coracao";
+        coracao.innerHTML="❤️";
+        coracao.style.left=Math.random()*window.innerWidth+"px";
+        coracao.style.bottom="0px";
+        coracao.style.fontSize=(Math.random()*30+20)+"px";
+        coracao.style.animationDuration=(Math.random()*3+2)+"s";
+        document.body.appendChild(coracao);
+
+        setTimeout(()=>{coracao.remove();},4000);
+    }
+
+    // mensagem cinema
+    let mensagem = document.createElement("div");
+    mensagem.className="mensagem-final";
+    mensagem.innerHTML="TE AMO ❤️<br><span class='nome-brilho'>Lil Cíci❤️</span>";
+
+    document.body.appendChild(mensagem);
+
+    setTimeout(()=>{
+        mensagem.style.transform="translate(-50%,-50%) scale(1)";
+    },100);
+}
+
+function criarCoracoes(){
+    for(let i=0;i<15;i++){
+        let coracao = document.createElement("div");
+        coracao.className="coracao";
+        coracao.innerHTML="❤️";
+        coracao.style.left=Math.random()*300+"px";
+        coracao.style.bottom="0px";
+        coracao.style.fontSize=(Math.random()*20+15)+"px";
+        document.querySelector(".container").appendChild(coracao);
+        setTimeout(()=>{coracao.remove();},4000);
+    }
+}
+
+</script>
+
+</body>
+</html>
