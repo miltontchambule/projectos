@@ -25,17 +25,17 @@
 
     <div class="menu" id="menu">
       <ul>
-        <li><a href="#"><img src="Media/menu20.PNG" title="Menu" alt="Menu"><p class="menu-opcoes">Menu</p></a></li>
+        <li><a href="menu.html"><img src="Media/menu20.PNG" title="Menu" alt="Menu"><p class="menu-opcoes">Menu</p></a></li>
         <div class="divisor"></div>
 
         <li><a href="#"><img src="Media/cart10.PNG" title="Carrinho" alt="Carrinho"><p class="menu-opcoes">Encomendar</p></a></li>
             <div class="divisor"></div>  
         <li><a href="#iframe"><img src="Media/location20.PNG" title="Localização" alt="Localização"><p class="menu-opcoes">Localização</p></a></li>
-         <li><a href="#"><img src="Media/about20.PNG" title="Sobre Nós" alt="Sobre Nós"><p class="menu-opcoes">Sobre Nós</p></a></li>        
-        <li><a href="#"><img src="Media/events10.PNG" title="Eventos" alt="Eventos"><p class="menu-opcoes">Eventos</p></a></li> 
-             <li><a href="#"><img src="Media/contacts20.PNG" title="Contactos" alt="Contactos"><p class="menu-opcoes">Contactos</p></a></li> 
+         <li><a href="#sobre"><img src="Media/about20.PNG" title="Sobre Nós" alt="Sobre Nós"><p class="menu-opcoes">Sobre Nós</p></a></li>        
+        <li><a href="#eventos"><img src="Media/events10.PNG" title="Eventos" alt="Eventos"><p class="menu-opcoes">Eventos</p></a></li> 
+             <li><a href="#contato"><img src="Media/contacts20.PNG" title="Contactos" alt="Contactos"><p class="menu-opcoes">Contactos</p></a></li> 
            <div class="divisor"></div>       
-        <li><a href="#"><img src="Media/Entrar20.PNG" title="Entrar" alt="Entrar" ><p class="menu-opcoes">Entrar</p></a></li>
+        <li><a href="#login"><img src="Media/sign-in-alt20.png" title="Entrar" alt="Entrar" ><p class="menu-opcoes">Entrar</p></a></li>
          
    
       </ul>
@@ -150,18 +150,33 @@
       
       
 <div class="tab-content" id="login">
-<img src="Media/Logokoffee160.png" alt="Logo"><br>
+<!-- <img src="Media/Logokoffee160.png" alt="Logo"><br> -->
 <br>    
-<h2>Olá! Bem Vindo(a) ao Koffee.</h2>
+<h3>Olá! Vamos Entrar?</h3>
 
-    <input placeholder="Email" class="dados"><br><br>
-    <input type="password" placeholder="Senha" class="dados"><br><br>
-    <a href="#"><small>Esqueceu a senha? Recupere aqui</small></a><br><br>
+<div class="img-input">
+<img src="Media/envelope10.png" alt="icon-email" class="icon-email">
+  <input type="email" placeholder="Email" class="dados" required><br><br>
+  <img src="Media/lock10.png" alt="icon-senha" class="icon-senha">
+    <input type="password" placeholder="Senha" class="dados" required><br>
+
+</div>
+  
+    
+    
+    <div id="Relembre-me">
+        <input type="checkbox"><small >Relembre-me.</small>
+    </div>
+    <br><br>
+    <small>Esqueceu a senha? <a href="#">Recupere aqui</a></small><br><br>
     <button class="entrar">Entrar</button><br><br>
 
-    <p>Já  tem conta? <a href="#">Entrar</a></p> <br>
 
-    <div class="divisor-login"></div><p style="color:white">Ou</p><div class="divisor-login"></div>
+    <div class="sub-oauth-container">
+        <br>
+
+         <p style="color:rgb(117, 117, 117)">Não tem conta? <a href="#" id="criar-conta">Criar conta.</a></p> <br>
+<p style="color:rgb(117, 117, 117)">Ou</p>
 
 <div class="oauth-container">
 
@@ -174,10 +189,12 @@
     </button>
 
     <br>
+    </div>
+   
    
 
 </div>
-
+<br>
  <input type="checkbox"><small>Não quero receber novidades no e-mail.</small>
 
 </div>
@@ -188,9 +205,9 @@
      <div class="interagir"><img src="Media/toca-aqui20.PNG" ></div>
  <br>
       
-        <div class="caixa-cartoes">
+        <div class="caixa-cartoes" >
 
-            <div class="cartao">
+            <div class="cartao" id="eventos">
                 <img  src="Media/atcm2023-2-200.jpg" alt="Feira ATCM 2023">
                 <div class="informacao"><small>Feira ATCM 2023</small>
                     <h4>Primeira vez na Feira ATCM</h4>
@@ -288,7 +305,7 @@
 
 <!-- seccao contactos -->
 
-<section class="contacto" id="contato">
+<section class="contacto">
     <h2>Visite-nos</h2>
 
     <div id="iframe" class="map-container">
@@ -315,7 +332,7 @@
         
     </div>
 
-     <div class="contacto-info">
+     <div class="contacto-info" id="contato">
 
         <!-- contact info div -->
         <div class="contacto-item">
@@ -329,7 +346,7 @@
         </div>
          <!-- contact info div -->
         <div class="contacto-item">
-            Contato
+            Contacto
             <span>(+258) 85 834 2848<br>koffeeshop@info.mz</span>
         </div>
     </div>
