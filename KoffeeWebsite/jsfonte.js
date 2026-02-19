@@ -8,7 +8,7 @@ botaoMenu.addEventListener("click", () => {
     menu.classList.toggle("ativo");
 });
 
-/* TABS */
+//barra horizontal que tem "destaques, eventos e login "
 const tabs = document.querySelectorAll(".tab-btn");
 const contents = document.querySelectorAll(".tab-content");
 
@@ -22,12 +22,12 @@ document.getElementById(btn.dataset.tab).classList.add("ativo");
 });
 
 
-
+//efeito do navbar ao sair do topo do site ao fazer scroll
 window.addEventListener("scroll", () => {
     const header = document.querySelector(".header");
 
     if (window.scrollY > 20) {
-        header.classList.add("scrolled");
+        header.classList.add("scrolled"); //iniciar scroll quando estiver a 20px do topo
     } else {
         header.classList.remove("scrolled");
     }

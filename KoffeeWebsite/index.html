@@ -13,9 +13,11 @@
 
 
 <body>
-    <header class="header">
-  <nav class="navbar">
-    <div class="logo"><a href="index.html"><img src="Media/Logokoffee160.png" alt="logo"></div></a>
+    
+<header class="header">
+  
+    <nav class="navbar">
+    <div class="logo"><a href="index.html"><img src="Media/Logokoffee160.png" alt="logo"></a></div>
 
     <div class="botao-menu" id="botao-menu">
       <span></span>
@@ -25,17 +27,17 @@
 
     <div class="menu" id="menu">
       <ul>
-        <li><a href="menu.html"><img src="Media/menu20.PNG" title="Menu" alt="Menu"><p class="menu-opcoes">Menu</p></a></li>
+        <li><a href="#tabs"><img src="Media/menu20.PNG" title="Menu" alt="Menu"><p class="menu-opcoes">Menu</p></a></li>
         <div class="divisor"></div>
 
         <li><a href="#"><img src="Media/cart10.PNG" title="Carrinho" alt="Carrinho"><p class="menu-opcoes">Encomendar</p></a></li>
             <div class="divisor"></div>  
         <li><a href="#iframe"><img src="Media/location20.PNG" title="Localização" alt="Localização"><p class="menu-opcoes">Localização</p></a></li>
          <li><a href="#sobre"><img src="Media/about20.PNG" title="Sobre Nós" alt="Sobre Nós"><p class="menu-opcoes">Sobre Nós</p></a></li>        
-        <li><a href="#eventos"><img src="Media/events10.PNG" title="Eventos" alt="Eventos"><p class="menu-opcoes">Eventos</p></a></li> 
+        <li><a href="#tabs"><img src="Media/events10.PNG" title="Eventos" alt="Eventos"><p class="menu-opcoes">Eventos</p></a></li> 
              <li><a href="#contato"><img src="Media/contacts20.PNG" title="Contactos" alt="Contactos"><p class="menu-opcoes">Contactos</p></a></li> 
            <div class="divisor"></div>       
-        <li><a href="#login"><img src="Media/sign-in-alt20.png" title="Entrar" alt="Entrar" ><p class="menu-opcoes">Entrar</p></a></li>
+        <li><a href="#tabs"><img src="Media/sign-in-alt20.png" title="Entrar" alt="Entrar" ><p class="menu-opcoes">Entrar</p></a></li>
          
    
       </ul>
@@ -52,8 +54,8 @@
  <section class="hero" id="home">
 
     <div class="hero-conteudo"> 
-        <h1>Desperte Seus Sentidos</h1>
-        <p>O Melhor Koffee da Cidade</p>
+        <h1>Hmmm...Koffeeee!</h1>
+        <p>Vais ler os ingredientes.</p>
         <a href="#contato" class="butaoInt">Visite-nos Hoje</a>
     </div>
 
@@ -65,7 +67,7 @@
 <!-- TABS -->
 <section class="tabs-section" >
 
-<div class="tabs">
+<div class="tabs" id="tabs">
 <button class="tab-btn ativo" data-tab="destaques">Destaques</button>
 <button class="tab-btn" data-tab="eventos">Eventos</button>
 <button class="tab-btn" data-tab="login">Login</button>
@@ -88,7 +90,7 @@
 
             <!-- card description -->
             <h3>Iced Cappuccino</h3>
-            <p>Café forte e aromático, extraído na perfeição. A base para todas as grandes experiências.</p>
+            <p>Cappuccino refrescante e cremoso, com camadas suaves de leite gelado e café intenso, servido com gelo cristalino.</p>
             <br>
            
             <div class="preco">
@@ -97,10 +99,6 @@
                <button type="submit" class="encomendar"><img src="Media/cart5.PNG" alt="comprar">Comprar</button>
             
             </div>
-
-             
-         
-      
       </div>
         
 
@@ -110,7 +108,7 @@
             
              <!-- card description -->
             <h3>Frappuccino</h3>
-            <p>Grãos selecionados de fazendas premium, com notas de chocolate e caramelo.</p>
+            <p>Preparado com café batido no gelo, textura cremosa, coberto com chantilly macio e finalizado com calda de chocolate.</p>
             <br>
          
          
@@ -128,8 +126,9 @@
             <div class="product-icon"><img src="Media/iceddonut250.PNG" alt="Iced Donut" class="cafes-img"></div>
             
              <!-- card description -->
-            <h3>Donut Iced</h3>
-            <p>Grãos selecionados de fazendas premium, com notas de chocolate e caramelo.</p>
+            <h3>Iced Coffee & Donut</h3>
+            <p>Combo especial com camadas intensas de café e chocolate com um donut macio e fresco no topo.
+            </p>
             <br>
 
             <div class="preco">
@@ -150,51 +149,47 @@
       
       
 <div class="tab-content" id="login">
-<!-- <img src="Media/Logokoffee160.png" alt="Logo"><br> -->
-<br>    
-<h3>Olá! Vamos Entrar?</h3>
 
-<div class="img-input">
-<img src="Media/envelope10.png" alt="icon-email" class="icon-email">
-  <input type="email" placeholder="Email" class="dados" required><br><br>
-  <img src="Media/lock10.png" alt="icon-senha" class="icon-senha">
-    <input type="password" placeholder="Senha" class="dados" required><br>
+        <br>    
+        <h3>Olá! Bem Vindo de Volta.</h3>
 
-</div>
-  
-    
-    
-    <div id="Relembre-me">
-        <input type="checkbox"><small >Relembre-me.</small>
-    </div>
-    <br><br>
-    <small>Esqueceu a senha? <a href="#">Recupere aqui</a></small><br><br>
-    <button class="entrar">Entrar</button><br><br>
+              <input type="email" placeholder="Email" class="dados" required><br><br>
+              <input type="password" placeholder="Senha" class="dados" required><br>
+            
+       
+            <div id="Relembre-me">
+                <input type="checkbox"><small >Relembre-me.</small>
+            </div>
+            <br><br>
+
+            <small>Esqueceu a senha? <a href="#">Recupere aqui</a></small><br><br>
+            <button class="entrar">Entrar</button><br><br>
 
 
-    <div class="sub-oauth-container">
-        <br>
+            <div class="sub-oauth-container">
+                <br>
 
-         <p style="color:rgb(117, 117, 117)">Não tem conta? <a href="#" id="criar-conta">Criar conta.</a></p> <br>
-<p style="color:rgb(117, 117, 117)">Ou</p>
+                <p style="color:rgb(117, 117, 117)">Não tem conta? <a href="#" id="criar-conta">Criar conta.</a></p> <br>
+        <p style="color:rgb(117, 117, 117)">Ou</p>
 
-<div class="oauth-container">
+        <div class="oauth-container">
 
-        <button class="google-btn">
-        <img src="Media/google50.PNG" alt="Google"><span>Entrar com Google</span>
-        </button>
+                <button class="google-btn">
+                <img src="Media/google50.PNG" alt="Google"><span>Entrar com Google</span>
+                </button>
 
-    <button class="google-btn">
-       <img src="Media/apple20.png" alt="Apple"> <span class="span-icon">Entrar com Apple</span>
-    </button>
+            <button class="google-btn">
+            <img src="Media/apple20.png" alt="Apple"> <span class="span-icon">Entrar com Apple</span>
+            </button>
 
-    <br>
-    </div>
-   
+            <br>
+            </div>
    
 
 </div>
+
 <br>
+
  <input type="checkbox"><small>Não quero receber novidades no e-mail.</small>
 
 </div>
@@ -210,21 +205,21 @@
             <div class="cartao" id="eventos">
                 <img  src="Media/atcm2023-2-200.jpg" alt="Feira ATCM 2023">
                 <div class="informacao"><small>Feira ATCM 2023</small>
-                    <h4>Primeira vez na Feira ATCM</h4>
+                    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4>
                 </div>
             </div>
 
               <div class="cartao">
                 <img  src="Media/atcm2023-1-200.jpg" alt="Feira ATCM 2023-2" >
                 <div class="informacao"><small>Feira ATCM 2023 (Dia 2)</small>
-                    <h4>Foram necessarios 2 dias para satisfazer toda a gente, belissimo</h4>
+                    <h4>Ratione molestias illo harum. Distinctio at cumque iusto non!</h4>
                 </div>
             </div>
 
               <div class="cartao">
                 <img  src="Media/atcm2024-1-300.jpg" alt="Feira ATCM 2024">
                 <div class="informacao"><small>Feira ATMC 2024</small>
-                    <h4>Venha ver-nos de perto em 2026!</h4>
+                    <h4>ipsum rem debitis dolorum, dolore beatae officiis natus.</h4>
                 </div>
 
             </div> 
@@ -247,23 +242,23 @@
 <section class="secao-feedbacks">
 
   <h2 id="about">
-            O Que Dizem Sobre Nós?
+            Qual é o buzz?
     </h2>
     
   <!-- Linha superior -->
   <div class="faixa faixa-cima">
     <div class="conteudo">
-      <div class="card-feedback">“Excelente atendimento e suporte rápido.”</div>
-      <div class="card-feedback">“O site ficou incrível, super profissional.”</div>
-      <div class="card-feedback">“Entrega antes do prazo combinado!”</div>
-      <div class="card-feedback">“Recomendo 100%, trabalho de qualidade.”</div>
+      <div class="card-feedback">“Excelente atendimento e entrega rápida.”</div>
+      <div class="card-feedback">“O meu pedido ficou incrível, super profissionais.”</div>
+      <div class="card-feedback">“Delivery antes da hora combinada!”</div>
+      <div class="card-feedback">“Recomendo 100%, nunca tinha provado um assim.”</div>
       <div class="card-feedback">“Comunicação clara e eficiente.”</div>
 
       <!-- duplicação para efeito infinito -->
-      <div class="card-feedback">“Excelente atendimento e suporte rápido.”</div>
-      <div class="card-feedback">“O site ficou incrível, super profissional.”</div>
-      <div class="card-feedback">“Entrega antes do prazo combinado!”</div>
-      <div class="card-feedback">“Recomendo 100%, trabalho de qualidade.”</div>
+ <div class="card-feedback">“Excelente atendimento e entrega rápida.”</div>
+      <div class="card-feedback">“O meu pedido ficou incrível, super profissionais.”</div>
+      <div class="card-feedback">“Delivery antes da hora combinada!”</div>
+      <div class="card-feedback">“Recomendo 100%, nunca tinha provado um assim.”</div>
       <div class="card-feedback">“Comunicação clara e eficiente.”</div>
     </div>
   </div>
@@ -271,17 +266,17 @@
   <!-- Linha inferior -->
   <div class="faixa faixa-baixo">
     <div class="conteudo">
-      <div class="card-feedback">“Design moderno e responsivo.”</div>
-      <div class="card-feedback">“Muito profissional e atencioso.”</div>
+      <div class="card-feedback">“Iced Coffee neste friozinho.”</div>
+      <div class="card-feedback">“Muito profissionais e atenciosos.”</div>
       <div class="card-feedback">“Superou minhas expectativas.”</div>
-      <div class="card-feedback">“Voltarei a contratar sem dúvidas.”</div>
+      <div class="card-feedback">“Voltarei a encomendar sem dúvidas.”</div>
       <div class="card-feedback">“Ótima experiência do início ao fim.”</div>
 
       <!-- duplicação -->
-      <div class="card-feedback">“Design moderno e responsivo.”</div>
-      <div class="card-feedback">“Muito profissional e atencioso.”</div>
+       <div class="card-feedback">“Iced Coffee neste friozinho.”</div>
+      <div class="card-feedback">“Muito profissionais e atenciosos.”</div>
       <div class="card-feedback">“Superou minhas expectativas.”</div>
-      <div class="card-feedback">“Voltarei a contratar sem dúvidas.”</div>
+      <div class="card-feedback">“Voltarei a encomendar sem dúvidas.”</div>
       <div class="card-feedback">“Ótima experiência do início ao fim.”</div>
     </div>
   </div>
@@ -366,6 +361,7 @@
    
     <p>&copy; 2025 Koffee. Todos os direitos reservados.</p><br>
     <small>Desenvolvido por Milton Tchambule</small>
+
 </footer>
 
 
