@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registo Mensal de Pães</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+<div class="container">
+  <header>
+    <h1>Padaria</h1>
+    <p>Registo Mensal de Pães</p>
+  <div class="toggle-wrap">
+      <span class="toggle-label" id="modeLabel">Claro</span>
+      <label class="toggle">
+        <input type="checkbox" id="darkToggle" onchange="toggleDark()">
+        <div class="toggle-track"></div>
+        <div class="toggle-thumb"></div>
+      </label>
+    </div>
+
+
+  </header>
+
+ 
+  <!-- Budget -->
+
+  <div class="card">
+    <div class="card-title">Budget Mensal</div>
+    <div class="budget-row">
+      <div class="form-group" style="flex:1">
+        <label for="budgetInput">Valor Depositado (MZN)</label>
+        <input type="number" id="budgetInput" placeholder="Ex: 1500.00" min="0" step="0.01">
+      </div>
+      
+      <button class="btn btn-primary" onclick="setBudget()">Definir</button>
+    </div>
+    <div class="budget-display">
+      <div class="budget-box">
+        <div class="label">Budget Inicial</div>
+        <div class="value" id="budgetTotal">0,00 MZN</div>
+      </div>
+      <div class="budget-box spent">
+        <div class="label">Gasto</div>
+        <div class="value" id="budgetSpent">0,00 MZN</div>
+      </div>
+      <div class="budget-box remaining">
+        <div class="label">Restante</div>
+        <div class="value" id="budgetRemaining">0,00 MZN</div>
+      </div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  </div>
+
+  <!-- Register -->
+
+  <div class="card">
+    <div class="card-title">Registar Pão</div>
+    <div class="alert alert-warn" id="formAlert"></div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="fDate">Data</label>
+        <input type="date" id="fDate">
+      </div>
+      <div class="form-group">
+        <label for="fDesc">Descrição (opcional)</label>
+        <input type="text" id="fDesc" placeholder="Ex: Pão de forma">
+      </div>
+      <div class="form-group">
+        <label for="fQty">Quantidade</label>
+        <input type="number" id="fQty" placeholder="Ex: 4" min="1" step="1">
+      </div>
+      <div class="form-group">
+        <label for="fPrice">Preço por unidade (MZN)</label>
+        <input type="number" id="fPrice" placeholder="Ex: 10.00" min="0" step="0.01">
+      </div>
+    </div>
+    <div style="margin-top:14px; display:flex; gap:8px; justify-content:flex-end">
+      <button class="btn btn-ghost" onclick="clearForm()">Limpar</button>
+      <button class="btn btn-primary" onclick="addEntry()">✔ Registar</button>
+    </div>
+  </div>
+
+  <!-- History -->
+
+  <div class="card">
+    <div class="card-title">Histórico de Registos</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Descrição</th>
+            <th>Qtd</th>
+            <th>Preço/un</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+      <div class="empty" id="emptyMsg">Nenhum registo ainda.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Modal -->
+
+<div class="modal-overlay" id="editModal">
+  <div class="modal">
+    <h2>Editar Registo</h2>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Data</label>
+        <input type="date" id="eDate">
+      </div>
+      <div class="form-group">
+        <label>Descrição</label>
+        <input type="text" id="eDesc" placeholder="Descrição">
+      </div>
+      <div class="form-group">
+        <label>Quantidade</label>
+        <input type="number" id="eQty" min="1" step="1">
+      </div>
+      <div class="form-group">
+        <label>Preço/un (MZN)</label>
+        <input type="number" id="ePrice" min="0" step="0.01">
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal()">Cancelar</button>
+      <button class="btn btn-primary" onclick="saveEdit()">Guardar</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- Reset -->
+
+  <div class="card reset-card">
+    <div class="reset-info">
+      <h3>Apagar Todos os Dados</h3>
+      <p>Remove o budget e todos os registos permanentemente.</p>
+    </div>
+    <button class="btn-reset" onclick="resetAll()">Repor Dados</button>
+  </div>
+</div>
+ 
+<script src="script.js"></script>
+
+<br>
+<br>
+<footer>
+  <small>Desenvolvido por Milton Tchambule</small>
+</footer>
+</body>
+
+</html>
