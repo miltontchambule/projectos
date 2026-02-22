@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Padaria — Registo Mensal</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #f5f5f0;
+    --surface: #ffffff;
+    --surface2: #f0efea;
+    --border: #e2e1da;
+    --text: #1a1a18;
+    --text2: #6b6b63;
+    --accent: #c8861a;
+    --accent-light: #fdf3e3;
+    --danger: #d94f4f;
+    --danger-light: #fdf0f0;
+    --success: #2e7d5e;
+    --success-light: #edf7f2;
+    --radius: 12px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.06);
+  }
+  body.dark {
+    --bg: #141412;
+    --surface: #1e1e1b;
+    --surface2: #2a2a26;
+    --border: #3a3a34;
+    --text: #f0efe8;
+    --text2: #9b9b8f;
+    --accent-light: #2e2108;
+    --danger-light: #2a0f0f;
+    --shadow: 0 1px 3px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.25);
+  }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 24px 16px; transition: background 0.3s, color 0.3s; }
+  .container { max-width: 680px; margin: 0 auto; }
+
+header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 28px; }
+header .title-block h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px; }
+header .title-block p { color: var(–text2); font-size: 0.9rem; margin-top: 4px; }
+
+/* Apple-style toggle */
+.toggle-wrap { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+.toggle-label { font-size: 0.78rem; color: var(–text2); font-weight: 500; }
+.toggle { position: relative; width: 51px; height: 31px; cursor: pointer; }
+.toggle input { opacity: 0; width: 0; height: 0; position: absolute; }
+.toggle-track { position: absolute; inset: 0; background: #dcdcd4; border-radius: 999px; transition: background 0.25s; }
+body.dark .toggle-track { background: #3a3a34; }
+.toggle input:checked + .toggle-track { background: #34c759; }
+.toggle-thumb { position: absolute; top: 2px; left: 2px; width: 27px; height: 27px; background: white; border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,0.22); transition: transform 0.25s cubic-bezier(.4,0,.2,1); }
+.toggle input:checked ~ .toggle-thumb { transform: translateX(20px); }
+
+.card { background: var(–surface); border-radius: var(–radius); padding: 20px; margin-bottom: 16px; box-shadow: var(–shadow); border: 1px solid var(–border); transition: background 0.3s, border-color 0.3s; }
+.card-title { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(–text2); margin-bottom: 14px; }
+
+.budget-row { display: flex; gap: 10px; align-items: flex-end; }
+.budget-display { margin-top: 16px; display: flex; gap: 12px; }
+.budget-box { flex: 1; background: var(–surface2); border-radius: 8px; padding: 12px 14px; transition: background 0.3s; }
+.budget-box .label { font-size: 0.75rem; color: var(–text2); margin-bottom: 4px; }
+.budget-box .value { font-size: 1.25rem; font-weight: 700; }
+.budget-box.remaining .value { color: var(–success); }
+.budget-box.spent .value { color: var(–danger); }
+.progress-bar { height: 6px; background: var(–border); border-radius: 999px; margin-top: 14px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(–accent); border-radius: 999px; transition: width 0.4s ease, background 0.3s; }
+.progress-fill.danger { background: var(–danger); }
+
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+label { font-size: 0.8rem; font-weight: 600; color: var(–text2); }
+input { border: 1.5px solid var(–border); border-radius: 8px; padding: 10px 12px; font-size: 0.95rem; background: var(–surface); color: var(–text); outline: none; transition: border-color 0.2s, background 0.3s, color 0.3s; width: 100%; }
+input:focus { border-color: var(–accent); }
+.btn { padding: 10px 20px; border-radius: 8px; border: none; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+.btn-primary { background: var(–accent); color: white; }
+.btn-primary:hover { background: #b57614; }
+.btn-sm { padding: 6px 12px; font-size: 0.8rem; border-radius: 6px; }
+.btn-ghost { background: var(–surface2); color: var(–text); border: 1px solid var(–border); }
+.btn-ghost:hover { background: var(–border); }
+.btn-danger { background: var(–danger-light); color: var(–danger); border: 1px solid #f5c2c2; }
+.btn-danger:hover { background: #fbd9d9; }
+body.dark .btn-danger { border-color: #5a1f1f; }
+.btn-edit { background: var(–accent-light); color: var(–accent); border: 1px solid #f0d8b0; }
+.btn-edit:hover { background: #fae7c5; }
+body.dark .btn-edit { border-color: #4a3010; }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+thead th { text-align: left; padding: 8px 10px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; color: var(–text2); border-bottom: 2px solid var(–border); }
+tbody tr { border-bottom: 1px solid var(–border); transition: background 0.1s; }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: var(–surface2); }
+td { padding: 10px 10px; vertical-align: middle; }
+.actions { display: flex; gap: 6px; }
+.empty { text-align: center; color: var(–text2); padding: 28px; font-size: 0.9rem; }
+.tag { display: inline-block; background: var(–accent-light); color: var(–accent); border-radius: 4px; padding: 2px 7px; font-size: 0.78rem; font-weight: 600; }
+
+/* Reset card */
+.reset-card { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; }
+.reset-card .reset-info h3 { font-size: 0.95rem; font-weight: 600; }
+.reset-card .reset-info p { font-size: 0.8rem; color: var(–text2); margin-top: 2px; }
+.btn-reset { background: var(–danger); color: white; border: none; border-radius: 8px; padding: 10px 18px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: background 0.15s; white-space: nowrap; }
+.btn-reset:hover { background: #bf3f3f; }
+
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 100; align-items: center; justify-content: center; }
+.modal-overlay.open { display: flex; }
+.modal { background: var(–surface); border-radius: var(–radius); padding: 24px; width: 90%; max-width: 420px; box-shadow: 0 8px 32px rgba(0,0,0,0.22); border: 1px solid var(–border); }
+.modal h2 { font-size: 1.1rem; margin-bottom: 16px; }
+.modal-actions { display: flex; gap: 8px; margin-top: 18px; justify-content: flex-end; }
+
+.alert { border-radius: 8px; padding: 10px 14px; font-size: 0.85rem; margin-bottom: 14px; display: none; }
+.alert.show { display: block; }
+.alert-warn { background: #fff8e6; border: 1px solid #f5d98a; color: #8a6000; }
+body.dark .alert-warn { background: #2e2108; border-color: #6a5010; color: #f0c060; }
+
+@media(max-width: 480px) { .form-grid { grid-template-columns: 1fr; } .budget-display { flex-direction: column; } }
+</style>
+
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="title-block">
+      <h1>🍞 Padaria</h1>
+      <p>Registo mensal de pão</p>
+    </div>
+    <div class="toggle-wrap">
+      <span class="toggle-label" id="modeLabel">Claro</span>
+      <label class="toggle">
+        <input type="checkbox" id="darkToggle" onchange="toggleDark()">
+        <div class="toggle-track"></div>
+        <div class="toggle-thumb"></div>
+      </label>
+    </div>
+  </header>
+
+  <!-- Budget -->
+
+  <div class="card">
+    <div class="card-title">Budget Mensal</div>
+    <div class="budget-row">
+      <div class="form-group" style="flex:1">
+        <label for="budgetInput">Valor Depositado (MZN)</label>
+        <input type="number" id="budgetInput" placeholder="Ex: 1500.00" min="0" step="0.01">
+      </div>
+      <button class="btn btn-primary" onclick="setBudget()">Definir</button>
+    </div>
+    <div class="budget-display">
+      <div class="budget-box">
+        <div class="label">Budget Inicial</div>
+        <div class="value" id="budgetTotal">0,00 MZN</div>
+      </div>
+      <div class="budget-box spent">
+        <div class="label">Gasto</div>
+        <div class="value" id="budgetSpent">0,00 MZN</div>
+      </div>
+      <div class="budget-box remaining">
+        <div class="label">Restante</div>
+        <div class="value" id="budgetRemaining">0,00 MZN</div>
+      </div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  </div>
+
+  <!-- Register -->
+
+  <div class="card">
+    <div class="card-title">Registar Pão</div>
+    <div class="alert alert-warn" id="formAlert"></div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="fDate">Data</label>
+        <input type="date" id="fDate">
+      </div>
+      <div class="form-group">
+        <label for="fDesc">Descrição (opcional)</label>
+        <input type="text" id="fDesc" placeholder="Ex: Pão de forma">
+      </div>
+      <div class="form-group">
+        <label for="fQty">Quantidade</label>
+        <input type="number" id="fQty" placeholder="Ex: 4" min="1" step="1">
+      </div>
+      <div class="form-group">
+        <label for="fPrice">Preço por unidade (MZN)</label>
+        <input type="number" id="fPrice" placeholder="Ex: 10.00" min="0" step="0.01">
+      </div>
+    </div>
+    <div style="margin-top:14px; display:flex; gap:8px; justify-content:flex-end">
+      <button class="btn btn-ghost" onclick="clearForm()">Limpar</button>
+      <button class="btn btn-primary" onclick="addEntry()">✔ Registar</button>
+    </div>
+  </div>
+
+  <!-- History -->
+
+  <div class="card">
+    <div class="card-title">Histórico de Registos</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Descrição</th>
+            <th>Qtd</th>
+            <th>Preço/un</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+      <div class="empty" id="emptyMsg">Nenhum registo ainda.</div>
+    </div>
+  </div>
+
+  <!-- Reset -->
+
+  <div class="card reset-card">
+    <div class="reset-info">
+      <h3>Apagar Todos os Dados</h3>
+      <p>Remove o budget e todos os registos permanentemente.</p>
+    </div>
+    <button class="btn-reset" onclick="resetAll()">🗑 Resetar Tudo</button>
+  </div>
+</div>
+
+<!-- Edit Modal -->
+
+<div class="modal-overlay" id="editModal">
+  <div class="modal">
+    <h2>Editar Registo</h2>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Data</label>
+        <input type="date" id="eDate">
+      </div>
+      <div class="form-group">
+        <label>Descrição</label>
+        <input type="text" id="eDesc" placeholder="Descrição">
+      </div>
+      <div class="form-group">
+        <label>Quantidade</label>
+        <input type="number" id="eQty" min="1" step="1">
+      </div>
+      <div class="form-group">
+        <label>Preço/un (MZN)</label>
+        <input type="number" id="ePrice" min="0" step="0.01">
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal()">Cancelar</button>
+      <button class="btn btn-primary" onclick="saveEdit()">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let budget = 0;
+  let entries = [];
+  let editIdx = -1;
+
+  const fmt = v => v.toLocaleString('pt-MZ', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' MZN';
+
+  function load() {
+    try {
+      const d = JSON.parse(localStorage.getItem('padaria') || '{}');
+      budget = d.budget || 0;
+      entries = Array.isArray(d.entries) ? d.entries : [];
+      const dark = d.dark || false;
+      if (dark) {
+        document.body.classList.add('dark');
+        document.getElementById('darkToggle').checked = true;
+        document.getElementById('modeLabel').textContent = 'Escuro';
+      }
+      if (budget) document.getElementById('budgetInput').value = budget;
+    } catch(e) { budget = 0; entries = []; }
+    render();
+  }
+
+  function persist() {
+    const dark = document.body.classList.contains('dark');
+    localStorage.setItem('padaria', JSON.stringify({budget, entries, dark}));
+  }
+
+  function setBudget() {
+    const v = parseFloat(document.getElementById('budgetInput').value);
+    if (isNaN(v) || v <= 0) { alert('Insira um valor válido.'); return; }
+    budget = v;
+    persist(); render();
+  }
+
+  function spent() { return entries.reduce((s, e) => s + (e.qty * e.price), 0); }
+
+  function render() {
+    const s = spent();
+    const rem = Math.max(0, budget - s);
+    const pct = budget > 0 ? Math.min(100, (s / budget) * 100) : 0;
+    document.getElementById('budgetTotal').textContent = fmt(budget);
+    document.getElementById('budgetSpent').textContent = fmt(s);
+    document.getElementById('budgetRemaining').textContent = fmt(rem);
+    const fill = document.getElementById('progressFill');
+    fill.style.width = pct + '%';
+    fill.className = 'progress-fill' + (pct >= 90 ? ' danger' : '');
+    renderTable();
+  }
+
+  function renderTable() {
+    const tbody = document.getElementById('tableBody');
+    const empty = document.getElementById('emptyMsg');
+    if (!entries.length) { tbody.innerHTML = ''; empty.style.display = 'block'; return; }
+    empty.style.display = 'none';
+    tbody.innerHTML = entries.map((e, i) => `
+      <tr>
+        <td>${formatDate(e.date)}</td>
+        <td>${e.desc || '<span style="color:var(--text2)">—</span>'}</td>
+        <td><span class="tag">${e.qty}</span></td>
+        <td>${fmt(e.price)}</td>
+        <td><strong>${fmt(e.qty * e.price)}</strong></td>
+        <td><div class="actions">
+          <button class="btn btn-sm btn-edit" data-i="${i}">Editar</button>
+          <button class="btn btn-sm btn-danger" data-del="${i}">Apagar</button>
+        </div></td>
+      </tr>`).join('');
+
+    // Attach events directly — avoids index mismatch with onclick strings
+    tbody.querySelectorAll('[data-del]').forEach(btn => {
+      btn.addEventListener('click', () => del(parseInt(btn.getAttribute('data-del'))));
+    });
+    tbody.querySelectorAll('[data-i]').forEach(btn => {
+      btn.addEventListener('click', () => openEdit(parseInt(btn.getAttribute('data-i'))));
+    });
+  }
+
+  function formatDate(d) {
+    if (!d) return '—';
+    const [y, m, day] = d.split('-');
+    return `${day}/${m}/${y}`;
+  }
+
+  function showAlert(msg) {
+    const el = document.getElementById('formAlert');
+    el.textContent = msg; el.classList.add('show');
+    setTimeout(() => el.classList.remove('show'), 3000);
+  }
+
+  function addEntry() {
+    const date = document.getElementById('fDate').value;
+    const desc = document.getElementById('fDesc').value.trim();
+    const qty = parseInt(document.getElementById('fQty').value);
+    const price = parseFloat(document.getElementById('fPrice').value);
+    if (!date) { showAlert('Por favor insira a data.'); return; }
+    if (!qty || qty < 1) { showAlert('Insira uma quantidade válida.'); return; }
+    if (isNaN(price) || price <= 0) { showAlert('Insira um preço válido.'); return; }
+    if (budget > 0 && spent() + qty * price > budget) {
+      showAlert('⚠️ Atenção: este registo ultrapassa o budget disponível!');
+    }
+    entries.unshift({date, desc, qty, price});
+    persist(); render(); clearForm();
+  }
+
+  function clearForm() {
+    document.getElementById('fDesc').value = '';
+    document.getElementById('fQty').value = '';
+    document.getElementById('fPrice').value = '';
+    document.getElementById('fDate').value = new Date().toISOString().split('T')[0];
+  }
+
+  function del(i) {
+    if (!confirm('Apagar este registo?')) return;
+    entries.splice(i, 1);
+    persist(); render();
+  }
+
+  function openEdit(i) {
+    editIdx = i;
+    const e = entries[i];
+    document.getElementById('eDate').value = e.date;
+    document.getElementById('eDesc').value = e.desc || '';
+    document.getElementById('eQty').value = e.qty;
+    document.getElementById('ePrice').value = e.price;
+    document.getElementById('editModal').classList.add('open');
+  }
+
+  function closeModal() {
+    document.getElementById('editModal').classList.remove('open');
+    editIdx = -1;
+  }
+
+  function saveEdit() {
+    const date = document.getElementById('eDate').value;
+    const desc = document.getElementById('eDesc').value.trim();
+    const qty = parseInt(document.getElementById('eQty').value);
+    const price = parseFloat(document.getElementById('ePrice').value);
+    if (!date || !qty || isNaN(price)) { alert('Preencha todos os campos obrigatórios.'); return; }
+    entries[editIdx] = {date, desc, qty, price};
+    persist(); render(); closeModal();
+  }
+
+  function resetAll() {
+    if (!confirm('Tens a certeza? Todos os dados (budget e registos) serão apagados permanentemente.')) return;
+    budget = 0;
+    entries = [];
+    document.getElementById('budgetInput').value = '';
+    persist(); render();
+  }
+
+  function toggleDark() {
+    const on = document.getElementById('darkToggle').checked;
+    document.body.classList.toggle('dark', on);
+    document.getElementById('modeLabel').textContent = on ? 'Escuro' : 'Claro';
+    persist();
+  }
+
+  document.getElementById('editModal').addEventListener('click', e => {
+    if (e.target === document.getElementById('editModal')) closeModal();
+  });
+
+  document.getElementById('fDate').value = new Date().toISOString().split('T')[0];
+  load();
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+// Dados da aplicação
+    let budgetData = {
+        totalBudget: 0,
+        expenses: [],
+        remainingBudget: 0
+    };
+
+    let chart = null;
+
+    // Mudar tema
+    function toggleTheme() {
+        const body = document.body;
+        const themeToggle = document.querySelector('.theme-toggle');
+        
+        if (body.classList.contains('dark-mode')) {
+            body.classList.remove('dark-mode');
+            themeToggle.textContent = 'Noite';
+            document.cookie = 'darkMode=false; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/';
+        } else {
+            body.classList.add('dark-mode');
+            themeToggle.textContent = 'Dia';
+            document.cookie = 'darkMode=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/';
+        }
+    }
+
+    // Carregar tema salvo
+    function loadTheme() {
+        const cookies = document.cookie.split(';');
+        for (let cookie of cookies) {
+            const [name, value] = cookie.trim().split('=');
+            if (name === 'darkMode' && value === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.theme-toggle').textContent = 'Dia';
+                return;
+            }
+        }
+    }
+
+    // Carregar dados ao iniciar
+    window.onload = function() {
+        loadTheme();
+        loadData();
+        updateDisplay();
+        updateStats();
+    };
+
+    // Salvar dados no armazenamento local
+    function saveData() {
+        const dataStr = JSON.stringify(budgetData);
+        document.cookie = `budgetData=${dataStr}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+    }
+
+    // Carregar dados do armazenamento local
+    function loadData() {
+        const cookies = document.cookie.split(';');
+        for (let cookie of cookies) {
+            const [name, value] = cookie.trim().split('=');
+            if (name === 'budgetData') {
+                try {
+                    budgetData = JSON.parse(decodeURIComponent(value));
+                    return;
+                } catch (e) {
+                    console.error('Erro ao carregar dados:', e);
+                }
+            }
+        }
+    }
+
+    // Definir orçamento
+    function setBudget() {
+        const totalBudget = parseFloat(document.getElementById('totalBudget').value);
+        
+        if (isNaN(totalBudget) || totalBudget <= 0) {
+            alert('Por favor, insira um valor válido para o orçamento');
+            return;
+        }
+
+        budgetData.totalBudget = totalBudget;
+        budgetData.remainingBudget = totalBudget - getTotalSpent();
+        
+        // Mudar interface após definir orçamento
+        document.getElementById('setBudgetBtn').style.display = 'none';
+        document.getElementById('addBudgetBtn').style.display = 'block';
+        document.getElementById('totalBudget').previousElementSibling.textContent = 'Adicionar ao Orçamento';
+        document.getElementById('totalBudget').placeholder = 'Ex: 200 (valor adicional)';
+        
+        saveData();
+        updateDisplay();
+        updateStats();
+        
+        document.getElementById('totalBudget').value = '';
+        alert('Orçamento definido com sucesso!');
+    }
+
+    // Adicionar ao orçamento existente
+    function addToBudget() {
+        const additionalBudget = parseFloat(document.getElementById('totalBudget').value);
+        
+        if (isNaN(additionalBudget) || additionalBudget <= 0) {
+            alert('Por favor, insira um valor válido para adicionar ao orçamento');
+            return;
+        }
+
+        budgetData.totalBudget += additionalBudget;
+        budgetData.remainingBudget += additionalBudget;
+        
+        saveData();
+        updateDisplay();
+        updateStats();
+        
+        document.getElementById('totalBudget').value = '';
+        alert(`MT ${additionalBudget.toFixed(2)} adicionados ao orçamento com sucesso!`);
+    }
+
+    // Adicionar gasto
+    function addExpense() {
+        const name = document.getElementById('expenseName').value.trim();
+        const dateInput = document.getElementById('expenseDate').value;
+        const amount = parseFloat(document.getElementById('expenseAmount').value);
+
+        if (!name) {
+            alert('Por favor, insira o nome do produto/serviço');
+            return;
+        }
+
+        if (!dateInput) {
+            alert('Por favor, selecione a data do gasto');
+            return;
+        }
+
+        if (isNaN(amount) || amount <= 0) {
+            alert('Por favor, insira um valor válido para o gasto');
+            return;
+        }
+
+        // Converter data para formato dia/mês/ano
+        const dateObj = new Date(dateInput);
+        const formattedDate = `${dateObj.getDate().toString().padStart(2, '0')}/${(dateObj.getMonth() + 1).toString().padStart(2, '0')}/${dateObj.getFullYear()}`;
+
+        const expense = {
+            id: Date.now(),
+            name: name,
+            amount: amount,
+            date: formattedDate
+        };
+
+        budgetData.expenses.push(expense);
+        budgetData.remainingBudget = budgetData.totalBudget - getTotalSpent();
+
+        saveData();
+        updateDisplay();
+        updateStats();
+
+        document.getElementById('expenseName').value = '';
+        document.getElementById('expenseDate').value = '';
+        document.getElementById('expenseAmount').value = '';
+    }
+
+    // Calcular total gasto
+    function getTotalSpent() {
+        return budgetData.expenses.reduce((total, expense) => total + expense.amount, 0);
+    }
+
+    // Atualizar exibição
+    function updateDisplay() {
+        document.getElementById('remainingBudget').textContent = `MT ${budgetData.remainingBudget.toFixed(2)}`;
+        
+        // Verificar se já existe orçamento definido
+        if (budgetData.totalBudget > 0) {
+            document.getElementById('setBudgetBtn').style.display = 'none';
+            document.getElementById('addBudgetBtn').style.display = 'block';
+            document.getElementById('totalBudget').previousElementSibling.textContent = 'Adicionar ao Orçamento';
+            document.getElementById('totalBudget').placeholder = 'Ex: 200 (valor adicional)';
+        }
+        
+        const expensesList = document.getElementById('expensesList');
+        
+        if (budgetData.expenses.length === 0) {
+            expensesList.innerHTML = '<div class="no-data">Nenhum gasto registado ainda</div>';
+            return;
+        }
+
+        expensesList.innerHTML = budgetData.expenses.map(expense => `
+            <div class="expense-item">
+                <div class="expense-info">
+                    <div class="expense-name">${expense.name}</div>
+                    <div class="expense-date">${expense.date}</div>
+                </div>
+                <div class="expense-amount">MT ${expense.amount.toFixed(2)}</div>
+            </div>
+        `).reverse().join('');
+    }
+
+    // Atualizar estatísticas
+    function updateStats() {
+        const totalSpent = getTotalSpent();
+        const averageSpend = budgetData.expenses.length > 0 ? totalSpent / budgetData.expenses.length : 0;
+        
+        document.getElementById('totalSpent').textContent = `MT ${totalSpent.toFixed(2)}`;
+        document.getElementById('averageSpend').textContent = `MT ${averageSpend.toFixed(2)}`;
+        document.getElementById('totalPurchases').textContent = budgetData.expenses.length;
+
+        updateChart();
+        updatePrediction();
+    }
+
+    // Atualizar gráfico
+    function updateChart() {
+        const ctx = document.getElementById('spendingChart').getContext('2d');
+        
+        if (chart) {
+            chart.destroy();
+        }
+
+        if (budgetData.expenses.length === 0) {
+            return;
+        }
+
+        // Agrupar gastos por categoria (primeiras 10 compras ou últimos 7 dias)
+        const last7Days = budgetData.expenses.slice(-7);
+        const labels = last7Days.map(expense => expense.name);
+        const data = last7Days.map(expense => expense.amount);
+
+        chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Gastos (MT)',
+                    data: data,
+                    backgroundColor: [
+                        '#667eea', '#764ba2', '#f093fb', '#f5576c',
+                        '#4facfe', '#00f2fe', '#43e97b', '#38f9d7',
+                        '#ffecd2', '#fcb69f', '#a8edea', '#fed6e3'
+                    ],
+                    borderRadius: 8,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(0,0,0,0.1)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    }
+
+    // Atualizar previsão
+    function updatePrediction() {
+        const predictionDiv = document.getElementById('prediction');
+        const predictionText = document.getElementById('predictionText');
+
+        if (budgetData.expenses.length < 2 || budgetData.totalBudget === 0) {
+            predictionDiv.style.display = 'none';
+            return;
+        }
+
+        // Calcular média diária de gastos
+        const daysSinceFirstExpense = getDaysSinceFirstExpense();
+        const totalSpent = getTotalSpent();
+        const dailyAverage = totalSpent / Math.max(daysSinceFirstExpense, 1);
+        
+        // Calcular quantos dias restam
+        const remainingBudget = budgetData.remainingBudget;
+        const daysRemaining = remainingBudget / dailyAverage;
+
+        predictionDiv.style.display = 'block';
+
+        if (daysRemaining < 0) {
+            predictionText.innerHTML = `
+                <strong>Orçamento esgotado!</strong><br>
+                Já gastou MT ${Math.abs(remainingBudget).toFixed(2)} acima do orçamento.
+            `;
+        } else if (daysRemaining < 7) {
+            predictionText.innerHTML = `
+                <strong>Atenção!</strong> Ao ritmo atual de gastos (MT ${dailyAverage.toFixed(2)}/dia), 
+                o seu orçamento irá esgotar em aproximadamente <strong>${Math.floor(daysRemaining)} dias</strong>.
+            `;
+        } else {
+            const endDate = new Date();
+            endDate.setDate(endDate.getDate() + daysRemaining);
+            predictionText.innerHTML = `
+                Com base no seu padrão de gastos atual, o orçamento deverá durar até aproximadamente 
+                <strong>${endDate.toLocaleDateString('pt-PT')}</strong> (${Math.floor(daysRemaining)} dias).
+            `;
+        }
+    }
+
+    // Calcular dias desde a primeira compra
+    function getDaysSinceFirstExpense() {
+        if (budgetData.expenses.length === 0) return 0;
+        
+        const firstExpenseDate = new Date(budgetData.expenses[0].date.split('/').reverse().join('/'));
+        const today = new Date();
+        const diffTime = Math.abs(today - firstExpenseDate);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        
+        return Math.max(diffDays, 1);
+    }
+
+    // Resetar app completamente
+    function resetApp() {
+        if (confirm('Tem certeza que deseja resetar completamente a app? Todos os dados serão perdidos definitivamente.')) {
+            // Resetar dados completamente
+            budgetData = {
+                totalBudget: 0,
+                expenses: [],
+                remainingBudget: 0
+            };
+            
+            // Limpar cookies
+            document.cookie = 'budgetData=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            
+            // Resetar interface para estado inicial
+            document.getElementById('setBudgetBtn').style.display = 'block';
+            document.getElementById('addBudgetBtn').style.display = 'none';
+            document.getElementById('totalBudget').previousElementSibling.textContent = 'Orçamento Mensal Total';
+            document.getElementById('totalBudget').placeholder = 'Ex: 1000';
+            
+            // Limpar todos os campos
+            document.getElementById('totalBudget').value = '';
+            document.getElementById('expenseName').value = '';
+            document.getElementById('expenseDate').value = '';
+            document.getElementById('expenseAmount').value = '';
+            
+            // Atualizar displays
+            updateDisplay();
+            updateStats();
+            
+            // Destruir gráfico
+            if (chart) {
+                chart.destroy();
+                chart = null;
+            }
+            
+            alert('App restaurada com sucesso! Todos os dados foram limpos.');
+        }
+    }
+
+    // Limpar todos os dados
+    function clearAllData() {
+        if (confirm('Tem certeza que quer apagar o histórico de gastos?')) {
+            budgetData.expenses = [];
+            budgetData.remainingBudget = budgetData.totalBudget;
+            
+            saveData();
+            updateDisplay();
+            updateStats();
+            
+            if (chart) {
+                chart.destroy();
+                chart = null;
+            }
+            
+            // Forçar atualização da interface
+            document.getElementById('totalSpent').textContent = 'MT 0,00';
+            document.getElementById('averageSpend').textContent = 'MT 0,00';
+            document.getElementById('totalPurchases').textContent = '0';
+            
+            alert('A lista de dados foi reposta com sucesso!');
+        }
+    }
+
+    // Mudar abas
+    function showTab(tabName) {
+        // Remover classe ativa de todas as abas
+        document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+        
+        // Ativar aba selecionada
+        event.target.classList.add('active');
+        document.getElementById(tabName + 'Tab').classList.add('active');
+        
+        // Atualizar gráfico se for a aba de estatísticas
+        if (tabName === 'stats') {
+            setTimeout(() => {
+                updateChart();
+            }, 100);
+        }
+    }
+
+
+ @charset "UTF-8";
+ 
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: auto;
+            scroll-behavior: smooth;
+        }
+
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: linear-gradient(135deg, #d8d8d8 0%, #f5efef 100%);
+        min-height: 100vh;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: rgb(255, 255, 255);
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .header h1 {
+        color: #000000;
+        font-size: 24px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .budget-display {
+        background-color:rgb(0, 0, 0);
+        color: white;
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        margin-bottom: 25px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .budget-display h2 {
+        font-size: 14px;
+        opacity: 0.9;
+        margin-bottom: 5px;
+    }
+
+    .budget-display .amount {
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .input-section {
+        margin-bottom: 25px;
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+    }
+
+    .input-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .input-group input {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+    }
+
+    .input-group input:focus {
+        outline: none;
+        border-color: #969696;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        margin-bottom: 10px;
+    }
+
+    .btn:active {
+        transform: translateY(2px);
+    }
+
+    .btn-primary {
+        margin-top: 2px;
+        background-color: black;
+        color: white;
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-danger {
+        background-color: rgb(204, 0, 0);
+        color: white;
+    }
+
+    .expenses-list {
+        max-height: 200px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .expense-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        margin-bottom: 8px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        border-left: 4px solid #000000;
+    }
+
+    .expense-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .expense-info {
+        flex: 1;
+    }
+
+    .expense-name {
+        font-weight: 600;
+        color: #333;
+        font-size: 14px;
+    }
+
+    .expense-date {
+        font-size: 12px;
+        color: #666;
+    }
+
+    .expense-amount {
+        font-weight: bold;
+        color: #db1600;
+    }
+
+    .stats-section {
+        margin-top: 25px;
+    }
+
+    .stat-card {
+        background: #f3f3f3;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        border-left: 4px solid #000000;
+    }
+
+    .stat-card h3 {
+        font-size: 14px;
+        color: #363636;
+        margin-bottom: 5px;
+    }
+
+    .stat-card .value {
+        font-size: 18px;
+        font-weight: bold;
+        color: #ac0000;
+    }
+
+    .chart-container {
+        margin-top: 20px;
+        height: 250px;
+        position: relative;
+    }
+
+    .prediction-alert {
+        background: linear-gradient(135deg, #ffecd2, #fcb69f);
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 15px;
+        border-left: 4px solid #ff6b6b;
+    }
+
+    .prediction-alert h4 {
+        color: #d63031;
+        margin-bottom: 8px;
+    }
+
+    .prediction-alert p {
+        color: #2d3436;
+        font-size: 14px;
+    }
+
+    .no-data {
+        text-align: center;
+        color: #666;
+        font-style: italic;
+        padding: 20px;
+    }
+
+    .tabs {
+        display: flex;
+        margin-bottom: 20px;
+        background: #f0f0f0;
+        border-radius: 10px;
+        padding: 4px;
+    }
+
+    .tab {
+        flex: 1;
+        padding: 10px;
+        text-align: center;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s;
+    }
+
+    .tab.active {
+        background: white;
+        color: #000000;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .tab-content {
+        display: none;
+    }
+
+    .tab-content.active {
+        display: block;
+    }
+
+    /*/////////////////// Modo Escuro//////////////////// */
+    .dark-mode {
+        background-color: black;
+    }
+
+    .dark-mode .container {
+        background-color: #00080f;
+        color: rgb(226, 226, 226);
+    }
+
+    .dark-mode .header h1 {
+        color: rgb(243, 243, 243);
+    }
+
+    .dark-mode .input-group label {
+        color: white;
+    }
+
+    .dark-mode .input-group input {
+        margin-bottom: 2px;
+        background: #00080f;
+        border-color: #061931;
+        color: white;
+    }
+
+    .dark-mode .input-group input::placeholder {
+        color: #bdc3c7;
+    }
+
+    .dark-mode .input-group input:focus {
+        border-color: #aebdff;
+    }
+
+    .dark-mode .expenses-list {
+        border-color: #4a5f7a;
+        background: #00080f;
+    }
+
+    .dark-mode .expense-item {
+        background: #00080f;
+        border-left-color: #ffffff;
+    }
+
+    .dark-mode .expense-name {
+        color: white;
+    }
+
+    .dark-mode .expense-date {
+        color: #bdc3c7;
+    }
+
+    .dark-mode .stat-card {
+        background: #000f1b;
+        border-left-color: #ffffff;
+    }
+
+    .dark-mode .stat-card h3 {
+        color: #bdc3c7;
+    }
+
+    .dark-mode .stat-card .value {
+        color: white;
+    }
+
+    .dark-mode .tabs {
+        background: #000f1b;
+    }
+
+    .dark-mode .tab {
+        color: #58809b;
+    }
+
+    .dark-mode .tab.active {
+        background: #192e4b;
+        color: white;
+    }
+
+    .dark-mode .no-data {
+        color: #bdc3c7;
+    }
+
+    /* Botão de modo */
+    .theme-toggle {
+        /* position: fixed; */
+        top: 20px;
+        left: 20px;
+        background: rgba(0, 2, 37, 0.9);
+        border: 3px solid black;
+        border-radius: 20px;
+        width: 60px;
+        color:rgb(149, 150, 202);
+        height: 25px;
+        cursor: pointer;
+        font-size: 10px;
+        transition: all 0.3s;
+        box-shadow: 0px 0px 3px rgb(0, 0, 0);
+        z-index: 1000;
+    }
+
+    .theme-toggle:hover {
+        transform: scale(0.9);
+    }
+
+    .dark-mode .theme-toggle {
+        background: rgba(250, 253, 255, 0.9);
+        color: black;
+
+    }
+
+    footer{
+        font-size: 13px;
+        text-align: center;
+        
+    }
+
+
+<!DOCTYPE html>
+
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Orçamento</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <div class="container">
+    <button class="theme-toggle" onclick="toggleTheme()"></button>
+
+        <div class="header">
+            <h1>Gestor de Orçamento</h1>
+            <div class="budget-display">
+                <h2>ORÇAMENTO RESTANTE</h2>
+                <div class="amount" id="remainingBudget">MT 0,00</div>
+            </div>
+        </div>
+
+
+    <div class="tabs">
+        <div class="tab active" onclick="showTab('budget')">Orçamento</div>
+        <div class="tab" onclick="showTab('stats')">Estatísticas</div>
+    </div>
+
+    <div id="budgetTab" class="tab-content active">
+        <div class="input-section">
+            <div class="input-group">
+                <label>Orçamento Mensal Total</label>
+                <input type="number" id="totalBudget" placeholder="Ex: 1000" step="0.01">
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn btn-primary" id="setBudgetBtn" onclick="setBudget()" style="flex: 1;">Definir Orçamento</button>
+                    <button class="btn btn-primary" id="addBudgetBtn" onclick="addToBudget()" style="flex: 1; display: none;">Adicionar ao Orçamento</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-section">
+            <div class="input-group">
+                <label>Produto/Serviço</label>
+                <input type="text" id="expenseName" placeholder="Ex: Supermercado">
+            </div>
+            <div class="input-group">
+                <label>Data do Gasto</label>
+                <input type="date" id="expenseDate">
+            </div>
+            <div class="input-group">
+                <label>Valor Gasto (MT)</label>
+                <input type="number" id="expenseAmount" placeholder="Ex: 25.50" step="0.01">
+                <button class="btn btn-primary" onclick="addExpense()">Adicionar Gasto</button>
+            </div>
+        </div>
+
+        <div class="expenses-list" id="expensesList">
+            <div class="no-data">Nenhum gasto registado ainda</div>
+        </div>
+
+        <button class="btn btn-danger" onclick="clearAllData()">Limpar Todos os Dados</button>
+        <button class="btn btn-danger" onclick="resetApp()" style="margin-top: 5px;">Resetar App Completamente</button>
+    </div>
+
+    <div id="statsTab" class="tab-content">
+        <div class="stats-section">
+            <div class="stat-card">
+                <h3>Total Gasto Este Mês</h3>
+                <div class="value" id="totalSpent">MT 0,00</div>
+            </div>
+            <div class="stat-card">
+                <h3>Gasto Médio por Compra</h3>
+                <div class="value" id="averageSpend">MT 0,00</div>
+            </div>
+            <div class="stat-card">
+                <h3>Número de Compras</h3>
+                <div class="value" id="totalPurchases">0</div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="spendingChart"></canvas>
+        </div>
+
+        <div id="prediction" class="prediction-alert" style="display: none;">
+            <h4>Previsão de Orçamento</h4>
+            <p id="predictionText"></p>
+        </div>
+    </div>
+<br>
+<footer>
+        <small>Desenvolvido por Milton Tchambule</small>
+</footer>
+
+</div>
+
+  <script src="script.js"></script>
+
+
+  
+</body>
+</html>

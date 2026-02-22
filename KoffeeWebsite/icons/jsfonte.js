@@ -22,13 +22,13 @@ document.getElementById(btn.dataset.tab).classList.add("ativo");
 });
 
 
-//efeito do navbar ao sair do topo do site ao fazer scroll
-window.addEventListener("scroll", () => {
-    const header = document.querySelector(".header");
+// //efeito do navbar ao sair do topo do site ao fazer scroll
+// window.addEventListener("scroll", () => {
+//     const header = document.querySelector(".header");
 
-    if (window.scrollY > 20) {
-        header.classList.add("scrolled"); //iniciar scroll quando estiver a 20px do topo
-    } else {
-        header.classList.remove("scrolled");
-    }
-});
+//     if (window.scrollY > 20) {
+//         header.classList.add("scrolled"); //iniciar scroll quando estiver a 20px do topo
+//     } else {
+//         header.classList.remove("scrolled");
+//     }
+// });

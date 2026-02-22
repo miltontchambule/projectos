@@ -1,310 +1,267 @@
+Koffee - reformulado
+
 <!DOCTYPE html>
 
-<html lang="pt-PT">
+<html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem Vindo ao Koffee! - Pagina Inicial</title>
-    <link rel="stylesheet" href="paginainicial.css">
-    <link rel="shortcut icon" href="Media/koffeefavicon.ico" type="image/x-icon">
-    
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Koffee — Pagina Inicial!</title>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 
 <body>
+
+<!-- NAV -->
+
+<nav>
+  <span class="logo"><img src="Media/Logokoffee160.png" alt="Logo"></span>
+
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#eventos">Eventos</a></li>
+    <li><a href="#sobre">Sobre Nós</a></li>
+    <li><a href="#contato">Contacto</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Encomendar</button>
+  
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-particles"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Combo Iced Coffee & Donut</div>
+    <h1>Hmmm...<br/><em>Koffeeee!</em></h1>
+    <p class="hero-sub">O melhor café de Maputo. Cada sorvo é uma experiência única — artesanal, fresco e feito com amor.</p>
     
-<header class="header">
-  
-    <nav class="navbar">
-    <div class="logo"><a href="index.html"><img src="Media/Logokoffee160.png" alt="logo"></a></div>
 
-    <div class="botao-menu" id="botao-menu">
-      <span></span>
-      <span></span>
-      <span></span>
+    <div class="hero-actions">
+      <a href="#menu" class="btn-primary">Ver Menu</a>
+      <a href="#sobre" class="btn-outline">A Nossa História</a>
     </div>
 
-    <div class="menu" id="menu">
-      <ul>
-        <li><a href="#tabs"><img src="Media/menu20.PNG" title="Menu" alt="Menu"><p class="menu-opcoes">Menu</p></a></li>
-        <div class="divisor"></div>
-
-        <li><a href="#"><img src="Media/cart10.PNG" title="Carrinho" alt="Carrinho"><p class="menu-opcoes">Encomendar</p></a></li>
-            <div class="divisor"></div>  
-        <li><a href="#iframe"><img src="Media/location20.PNG" title="Localização" alt="Localização"><p class="menu-opcoes">Localização</p></a></li>
-         <li><a href="#sobre"><img src="Media/about20.PNG" title="Sobre Nós" alt="Sobre Nós"><p class="menu-opcoes">Sobre Nós</p></a></li>        
-        <li><a href="#tabs"><img src="Media/events10.PNG" title="Eventos" alt="Eventos"><p class="menu-opcoes">Eventos</p></a></li> 
-             <li><a href="#contato"><img src="Media/contacts20.PNG" title="Contactos" alt="Contactos"><p class="menu-opcoes">Contactos</p></a></li> 
-           <div class="divisor"></div>       
-        <li><a href="#tabs"><img src="Media/sign-in-alt20.png" title="Entrar" alt="Entrar" ><p class="menu-opcoes">Entrar</p></a></li>
-         
-   
-      </ul>
-    </div>
-  </nav>
-</header>
-
-
-
-
-    <!-- seccao principal - hero -->
-
-
- <section class="hero" id="home">
-
-    <div class="hero-conteudo"> 
-        <h1>Hmmm...Koffeeee!</h1>
-        <p>Vais ler os ingredientes.</p>
-        <a href="#contato" class="butaoInt">Visite-nos Hoje</a>
-    </div>
-
-</section>
- 
-
-
-
-<!-- TABS -->
-<section class="tabs-section" >
-
-<div class="tabs" id="tabs">
-<button class="tab-btn ativo" data-tab="destaques">Destaques</button>
-<button class="tab-btn" data-tab="eventos">Eventos</button>
-<button class="tab-btn" data-tab="login">Login</button>
-</div>
-
-
-<div id="produtos">
-
-   <div class="tab-content ativo" id="destaques"> 
-   
-    <!-- titulo da seccao -->
-   <h2>Mais pedidos</h2>
-    <!-- cards  -->
-   
-    <div class="producto" >
-
-       
-        <div class="producto-card">
-            <div class="product-icon"><img src="Media/icedcappuccino250.png" alt="iced cappuccino" class="cafes-img"></div>
-
-            <!-- card description -->
-            <h3>Iced Cappuccino</h3>
-            <p>Cappuccino refrescante e cremoso, com camadas suaves de leite gelado e café intenso, servido com gelo cristalino.</p>
-            <br>
-           
-            <div class="preco">
-              
-                <p id="preco">289.00MT</p>
-               <button type="submit" class="encomendar"><img src="Media/cart5.PNG" alt="comprar">Comprar</button>
-            
-            </div>
-      </div>
-        
-
-        <!-- cards  -->
-        <div class="producto-card">
-            <div class="product-icon"><img src="Media/frappuccino250.png" alt="frappuccino" class="cafes-img"></div>
-            
-             <!-- card description -->
-            <h3>Frappuccino</h3>
-            <p>Preparado com café batido no gelo, textura cremosa, coberto com chantilly macio e finalizado com calda de chocolate.</p>
-            <br>
-         
-         
-           <div class="preco">
-              
-                <p id="preco">599.00MT</p>
-               <button type="submit" class="encomendar"><img src="Media/cart5.PNG" alt="comprar">Comprar</button>
-            
-            </div>
-
-      </div>
-
-          <!-- cards  -->
-        <div class="producto-card">
-            <div class="product-icon"><img src="Media/iceddonut250.PNG" alt="Iced Donut" class="cafes-img"></div>
-            
-             <!-- card description -->
-            <h3>Iced Coffee & Donut</h3>
-            <p>Combo especial com camadas intensas de café e chocolate com um donut macio e fresco no topo.
-            </p>
-            <br>
-
-            <div class="preco">
-              
-                <p id="preco">449.00MT</p>
-               <button type="submit" class="encomendar"><img src="Media/cart5.PNG" alt="comprar">Comprar</button>
-            
-            </div>
-
-        </div>
-
-       
-        <br>
-        <a href="#" id="butaoInt">Ver Mais</a>
-        </div>
- 
-      </div>
-      
-      
-<div class="tab-content" id="login">
-
-        <br>    
-        <h3>Olá! Bem Vindo de Volta.</h3>
-
-              <input type="email" placeholder="Email" class="dados" required><br><br>
-              <input type="password" placeholder="Senha" class="dados" required><br>
-            
-       
-            <div id="Relembre-me">
-                <input type="checkbox"><small >Relembre-me.</small>
-            </div>
-            <br><br>
-
-            <small>Esqueceu a senha? <a href="#">Recupere aqui</a></small><br><br>
-            <button class="entrar">Entrar</button><br><br>
-
-
-            <div class="sub-oauth-container">
-                <br>
-
-                <p style="color:rgb(117, 117, 117)">Não tem conta? <a href="#" id="criar-conta">Criar conta.</a></p> <br>
-        <p style="color:rgb(117, 117, 117)">Ou</p>
-
-        <div class="oauth-container">
-
-                <button class="google-btn">
-                <img src="Media/google50.PNG" alt="Google"><span>Entrar com Google</span>
-                </button>
-
-            <button class="google-btn">
-            <img src="Media/apple20.png" alt="Apple"> <span class="span-icon">Entrar com Apple</span>
-            </button>
-
-            <br>
-            </div>
-   
-
-</div>
-
-<br>
-
- <input type="checkbox"><small>Não quero receber novidades no e-mail.</small>
-
-</div>
-  
-<div class="tab-content" id="eventos">
-        <h2>Eventos</h2>
-     
-     <div class="interagir"><img src="Media/toca-aqui20.PNG" ></div>
- <br>
-      
-        <div class="caixa-cartoes" >
-
-            <div class="cartao" id="eventos">
-                <img  src="Media/atcm2023-2-200.jpg" alt="Feira ATCM 2023">
-                <div class="informacao"><small>Feira ATCM 2023</small>
-                    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4>
-                </div>
-            </div>
-
-              <div class="cartao">
-                <img  src="Media/atcm2023-1-200.jpg" alt="Feira ATCM 2023-2" >
-                <div class="informacao"><small>Feira ATCM 2023 (Dia 2)</small>
-                    <h4>Ratione molestias illo harum. Distinctio at cumque iusto non!</h4>
-                </div>
-            </div>
-
-              <div class="cartao">
-                <img  src="Media/atcm2024-1-300.jpg" alt="Feira ATCM 2024">
-                <div class="informacao"><small>Feira ATMC 2024</small>
-                    <h4>ipsum rem debitis dolorum, dolore beatae officiis natus.</h4>
-                </div>
-
-            </div> 
-            <br>
-
-
-          </div>
-        
-
-
-
-</section>
- 
-
-<!-- seccao feedback -->
-
-   
-  
-
-<section class="secao-feedbacks">
-
-  <h2 id="about">
-            Qual é o buzz?
-    </h2>
-    
-  <!-- Linha superior -->
-  <div class="faixa faixa-cima">
-    <div class="conteudo">
-      <div class="card-feedback">“Excelente atendimento e entrega rápida.”</div>
-      <div class="card-feedback">“O meu pedido ficou incrível, super profissionais.”</div>
-      <div class="card-feedback">“Delivery antes da hora combinada!”</div>
-      <div class="card-feedback">“Recomendo 100%, nunca tinha provado um assim.”</div>
-      <div class="card-feedback">“Comunicação clara e eficiente.”</div>
-
-      <!-- duplicação para efeito infinito -->
- <div class="card-feedback">“Excelente atendimento e entrega rápida.”</div>
-      <div class="card-feedback">“O meu pedido ficou incrível, super profissionais.”</div>
-      <div class="card-feedback">“Delivery antes da hora combinada!”</div>
-      <div class="card-feedback">“Recomendo 100%, nunca tinha provado um assim.”</div>
-      <div class="card-feedback">“Comunicação clara e eficiente.”</div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Clientes</div></div>
+      <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Opções</div></div>
+      <div class="stat"><div class="stat-num">4.8&star;</div><div class="stat-label">Avaliação</div></div>
     </div>
   </div>
+  <div class="hero-visual"><div class="coffee-circle"><img src="Media/capaaa500.PNG" alt="Iced Donut"></div></div>
+</section>
 
-  <!-- Linha inferior -->
-  <div class="faixa faixa-baixo">
-    <div class="conteudo">
-      <div class="card-feedback">“Iced Coffee neste friozinho.”</div>
-      <div class="card-feedback">“Muito profissionais e atenciosos.”</div>
-      <div class="card-feedback">“Superou minhas expectativas.”</div>
-      <div class="card-feedback">“Voltarei a encomendar sem dúvidas.”</div>
-      <div class="card-feedback">“Ótima experiência do início ao fim.”</div>
+<!-- MENU -->
 
-      <!-- duplicação -->
-       <div class="card-feedback">“Iced Coffee neste friozinho.”</div>
-      <div class="card-feedback">“Muito profissionais e atenciosos.”</div>
-      <div class="card-feedback">“Superou minhas expectativas.”</div>
-      <div class="card-feedback">“Voltarei a encomendar sem dúvidas.”</div>
-      <div class="card-feedback">“Ótima experiência do início ao fim.”</div>
+<section id="menu">
+  <div class="menu-header">
+    <div>
+      <p class="section-tag">O Nosso Menu</p>
+      <h2 class="section-title">Mais Pedidos</h2>
+      <p class="section-sub">Seleccionados pelos nossos clientes. Feitos frescos, todos os dias.</p>
+    </div>
+    <a href="#" class="view-more">Ver Menu Completo →</a>
+  </div>
+  
+  <div class="cards">
+
+    <div class="card">
+
+      <div class="card-img"><img src="Media/popular420.jpg" alt="Popular"><span class="card-badge">Popular</span></div>
+    
+      <div class="card-body">
+    
+        <div class="card-name">Lotus & Nutella Iced Coffee</div>
+        <div class="card-desc">
+Iced coffee cremoso coberto com espuma suave, finalizado com crumble de lótus e pedaços de Oreo, 
+combinado com o sabor rico de Nutella. Textura, contraste e indulgência em cada gole.
+</div>
+        <div class="card-footer">
+          <div class="card-price">289<span>.00 MT</span></div>
+          <button class="add-btn"><img src="Media/cart5.PNG" alt="Comprar"></button>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img"><img src="Media/Novo300.jpg" alt="Novidade"><span class="card-badge">Novo</span></div>
+      <div class="card-body">
+        <div class="card-name"> Bombolonis</div>
+        <div class="card-desc">Bombolonis dourados, envolvidos em açúcar fino, com recheio generoso que 
+          transborda do chocolate cremoso ao biscoff crocante e toque de morango. 
+          Macios por dentro, intensos no sabor.</div>
+
+        <div class="card-footer">
+          <div class="card-price">599<span>.00 MT</span></div>
+          <button class="add-btn"><img src="Media/cart5.PNG" alt="Comprar"></button>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img"><img src="Media/Maisvendido300.jpg" alt="Mais Vendido"><span class="card-badge">Mais-Vendido</span></div>
+      <div class="card-body">
+        <div class="card-name">Nutella & Biscoff Lotus Iced Coffee</div>
+        <div class="card-desc">Copos cheios de Iced coffee com camadas visíveis de leite, 
+          café e calda de caramelo, finalizados com gelo crocante no topo. Refrescante, doce na medida certa 
+          e com aquele efeito drip irresistível.</div>
+        <div class="card-footer">
+          <div class="card-price">449<span>.00 MT</span></div>
+          <button class="add-btn"><img src="Media/cart5.PNG" alt="Comprar"></button>
+        </div>
+      </div>
     </div>
   </div>
-
 </section>
-       
 
+<!-- REVIEWS -->
 
- 
-<!-- seccao about -->
-<section class="sobre" id="sobre">
-    <h2 style="color: #2c1810;">Nossa História</h2>
-    <div class="sobre-conteudo">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla aut, accusantium quas unde nemo non assumenda provident minus voluptatum repudiandae nostrum beatae architecto dicta fuga, amet consectetur voluptas optio. Molestias.</p>
-        <br>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore odio ipsum, nulla earum, consequuntur aspernatur modi vitae est culpa magnam voluptas assumenda praesentium accusamus voluptatem maxime non, dicta perspiciatis porro.</p>
+<section id="reviews">
+  <p class="section-tag">Avaliações</p>
+  <h2 class="section-title">Qual é o Buzzz?</h2>
+  <p class="section-sub">O que os nossos clientes dizem sobre nós.</p>
+  <div class="marquee-wrap">
+    <div class="marquee">
+      <div class="review-pill">Excelente atendimento e entrega rápida.</div>
+      <div class="review-pill">O meu pedido ficou incrível, super profissionais.</div>
+      <div class="review-pill">Delivery antes da hora combinada!</div>
+      <div class="review-pill">Recomendo 100%, nunca tinha provado um assim.</div>
+      <div class="review-pill">Comunicação clara e eficiente.</div>
+      <div class="review-pill">Iced Coffee neste friozinho. Perfeito!</div>
+      <div class="review-pill">Muito profissionais e atenciosos.</div>
+      <div class="review-pill">Superou as minhas expectativas.</div>
+      <div class="review-pill">Voltarei a encomendar sem dúvidas.</div>
+      <div class="review-pill">Ótima experiência do início ao fim.</div>
+      <div class="review-pill">Excelente atendimento e entrega rápida.</div>
+      <div class="review-pill">O meu pedido ficou incrível, super profissionais.</div>
+      <div class="review-pill">Delivery antes da hora combinada!</div>
+      <div class="review-pill">Recomendo 100%, nunca tinha provado um assim.</div>
+      <div class="review-pill">Comunicação clara e eficiente.</div>
+      <div class="review-pill">Iced Coffee neste friozinho. Perfeito!</div>
+      <div class="review-pill">Muito profissionais e atenciosos.</div>
+      <div class="review-pill">Superou as minhas expectativas.</div>
+      <div class="review-pill">Voltarei a encomendar sem dúvidas.</div>
+      <div class="review-pill">Ótima experiência do início ao fim.</div>
     </div>
-
+    <div class="marquee marquee-rev">
+      <div class="review-pill">Melhor café de Maputo, sem dúvida.</div>
+      <div class="review-pill">O Frappuccino é uma obra de arte.</div>
+      <div class="review-pill">Sempre fresco e saboroso.</div>
+      <div class="review-pill">Atendimento impecável, voltarei sempre.</div>
+      <div class="review-pill">Preço justo para a qualidade.</div>
+      <div class="review-pill">Rápidos e muito simpáticos.</div>
+      <div class="review-pill">O melhor iced coffee que já provei!</div>
+      <div class="review-pill">Melhor café de Maputo, sem dúvida.</div>
+      <div class="review-pill">O Frappuccino é uma obra de arte.</div>
+      <div class="review-pill">Sempre fresco e saboroso.</div>
+      <div class="review-pill">Atendimento impecável, voltarei sempre.</div>
+      <div class="review-pill">Preço justo para a qualidade.</div>
+      <div class="review-pill">Rápidos e muito simpáticos.</div>
+      <div class="review-pill">O melhor iced coffee que já provei!</div>
+    </div>
+  </div>
 </section>
 
+<!-- EVENTS -->
 
-<!-- seccao contactos -->
+<section id="eventos">
+  <p class="section-tag">Eventos</p>
+  <h2 class="section-title">Estivemos Por Lá</h2>
+  <p class="section-sub">Presença nas maiores feiras e eventos de Moçambique.</p>
+  <div class="events-grid">
+    <div class="event-card">
+      <div><img src="Media/atcm2023-1-200.jpg" alt="ATCM 2023"></div>
+      <div class="event-overlay">
+        <div class="event-info"><h3>Feira ATCM 2023</h3><p>Primeira edição — presença marcada</p></div>
+      </div>
+      <div class="event-tag">2023</div>
+    </div>
+    <div class="event-card">
+      <div><img src="Media/atcm2023-2-200.jpg" alt="ATCM 2023 dia 2"></div>
+      <div class="event-overlay">
+        <div class="event-info"><h3>Feira ATCM 2023 — Dia 2</h3><p>Mais sabor, mais clientes, mais sucesso</p></div>
+      </div>
+      <div class="event-tag">2023</div>
+    </div>
+    <div class="event-card">
+      <div><img src="Media/atcm2024-2.jpg" alt="TCM - 2024"></div>
+      <div class="event-overlay">
+        <div class="event-info"><h3>Feira ATMC 2024</h3><p>Edição ainda maior — ainda mais Koffee</p></div>
+      </div>
+      <div class="event-tag">2024</div>
+    </div>
+  </div>
+</section>
 
-<section class="contacto">
-    <h2>Visite-nos</h2>
+<!-- ABOUT -->
 
-    <div id="iframe" class="map-container">
- <iframe  class="map"
+<section id="sobre">
+  <div class="about-visual"><img src="Media/historiacapa.PNG" alt="Nossa Historia"></div>
+  <div class="about-text">
+    <p class="section-tag">A Nossa História</p>
+    <h2 class="section-title">Feito com Paixão, Servido com Amor</h2>
+    <p>O Koffee nasceu do desejo de levar o melhor café a cada canto de Maputo. 
+      Mais do que uma bebida, oferecemos uma
+       experiência. Cada copo preparado com ingredientes seleccionados e muito carinho.</p>
+    <p>Da primeira chávena à última encomenda do dia, o nosso compromisso é sempre a qualidade. 
+      Visite-nos e descubra porquê somos o café favorito da cidade.</p>
+    <div class="about-chips">
+      <span class="chip">Ingredientes Frescos</span>
+      <span class="chip">Delivery Rápido</span>
+      <span class="chip">Feito com Amor</span>
+      <span class="chip">Maputo</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contato">
+  <div class="contact-left">
+    <span><img src="Media/Logokoffee160.png" alt=""></span>
+    <br><br>        
+    <div class="contact-item">
+
+      <div>
+        <span class="contact-label">Localização</span>
+        Av. Josina Machel, 1015.
+        <br/>
+        Av. Marginal, 222, Gloria Hotel.
+         <br>
+        Av. Eduardo Mondlane, Alto Mae.
+        <br>
+        Cidade de Maputo.
+      </div>
+
+    </div>
+    <div class="contact-item">
+
+      <div>
+        <span class="contact-label">Horário</span>
+        <div class="hours-grid">
+          <strong>Ter - Sex</strong><span>7h30 - 20h30</span>
+          <strong>Sáb - Dom</strong><span>8h30 - 20h30</span>
+        </div>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div><span class="contact-label">Contacto</span>(+258) 85 834 2848<br/>koffeeshop@info.mz</div>
+    </div>
+    <div class="socials">
+      <a href="#" class="social-btn"><img src="Media/whatsapp30.PNG" alt="Whatsapp"></a>
+      <a href="#" class="social-btn"><img src="Media/tiktok30.PNG" alt="Tiktok"></a>
+      <a href="#" class="social-btn"><img src="Media/facebook30.PNG" alt="Facebook"></a>
+      <a href="https://www.instagram.com/koffeeshop.mz" class="social-btn" target="_blank"><img src="Media/ig30.PNG" alt="Instagram"></a>
+    </div>
+    
+    <iframe  class="map-wrap"
    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.1259890966217!2d32.5617991742074!3d-25.963908077225327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69b7d6166b651%3A0xe324aea2cffbd8b5!2sKoffee%20Shop.%20EI!5e0!3m2!1spt-PT!2smz!4v1770216729289!5m2!1spt-PT!2smz"
   
    style="border:0;" 
@@ -315,59 +272,23 @@
     allow="geolocation 'none'; camera 'none' microphone 'none' fullscreen 'none'">
 </iframe>
 
+  </div>
+  <div class="contact-right">
+    <h3>Faça a Sua Encomenda</h3>
+    <div class="form-row">
+      <div class="form-group"><label>Nome</label><input type="text" placeholder="O seu nome"/></div>
+      <div class="form-group"><label>Telefone</label><input type="tel" placeholder="+258 ..."/></div>
     </div>
-  
+    <div class="form-group"><label>E-mail</label><input type="email" placeholder="email@exemplo.com"/></div>
+    <div class="form-group"><label>Mensagem / Pedido</label><textarea rows="5" placeholder="Descreva o seu pedido ou deixe uma mensagem..."></textarea></div>
+    <button class="btn-primary" style="width:100%;padding:1rem" onclick="alert('Pedido enviado! Entraremos em contacto em breve ☕')">Enviar Pedido</button>
+  </div>
 </section>
 
 <footer>
-
-     <div class="koffee-container">
-       
-            <img src="Media/Logokoffee160.png" alt="Kofee logo" class="koffee-logo">
-        
-    </div>
-
-     <div class="contacto-info" id="contato">
-
-        <!-- contact info div -->
-        <div class="contacto-item">
-            Localização
-            <span>Av. Josina Machel, 1015<br>Cidade de Maputo</span>
-        </div>
-         <!-- contact info div -->
-        <div class="contacto-item">
-            Horário
-            <span>Ter-Sex: 7h30 - 20h30<br>Sáb-Dom: 8h30 - 20h30</span>
-        </div>
-         <!-- contact info div -->
-        <div class="contacto-item">
-            Contacto
-            <span>(+258) 85 834 2848<br>koffeeshop@info.mz</span>
-        </div>
-    </div>
-
-    <div class="socials">
-        <div class="social-logos">
-                         <a href="#"  ><img src="Media/whatsapp30.PNG" alt="Whatsapp" class="items"></a>
-                        <a href="#" ><img src="Media/tiktok30.PNG" alt="Tiktok" class="items"></a>
-                       <a href="#" ><img src="Media/facebook30.PNG" alt="Facebook" class="items"></a> 
-                       <a href="https://www.instagram.com/koffeeshop.mz" target="_blank" ><img src="Media/ig30.PNG" alt="Instagram" class="items"></a>
-    
-
-        </div>
-                      
-    </div>
-
-   
-    <p>&copy; 2025 Koffee. Todos os direitos reservados.</p><br>
-    <small>Desenvolvido por Milton Tchambule</small>
-
+  <p>©2026 Koffee. Todos os direitos reservados.</p>
+  <a href="#">Desenvolvido por Milton Tchambule</a>
 </footer>
 
-
-<script src="jsfonte.js"></script>
-
-
 </body>
-
 </html>
