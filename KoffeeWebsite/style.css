@@ -37,8 +37,8 @@ nav{
     z-index:100;
     padding:3.5% 5%;
     background-color:rgba(3, 3, 3, 0.89);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter:blur(12px);
+    /* -webkit-backdrop-filter: blur(12px);
+    backdrop-filter:blur(12px); */
     display:flex;
     align-items:center;
     justify-content:space-between;
