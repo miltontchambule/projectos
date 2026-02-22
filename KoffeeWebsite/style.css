@@ -117,7 +117,7 @@ nav{
 /* HERO */
 #hero{
     min-height:100vh;
-    background:var(--dark);
+    background:black;
     display:flex;
     align-items:center;
     padding:5% 10%;
@@ -152,7 +152,6 @@ nav{
     background:rgba(43, 42, 42, 0.15);
     border:1px solid rgba(200,145,58,0.3);
     color:var(--gold);
-    margin-top: 2em;
     padding:.4rem 1rem;
     border-radius:50px;
     font-size:.8rem;
