@@ -37,13 +37,11 @@ nav{
     z-index:100;
     padding:3.5% 5%;
     background-color:rgba(3, 3, 3, 0.89);
-    /* -webkit-backdrop-filter: blur(12px);
-    backdrop-filter:blur(12px); */
     display:flex;
     align-items:center;
     justify-content:space-between;
     height:64px;
-    /* border-bottom:1px solid rgba(200,145,58,0.2); */
+
 }
 
 
@@ -79,9 +77,9 @@ nav{
 
 
 .nav-cta{
-    border: 1px solid var(--gold);
-    background-color: var(--gold);
-    color:#fff;
+   
+    background-color: var(--cream);
+    color:#000000;
     padding:.5rem 1.2rem;
     border-radius:50px;
     font-size:.85rem;
@@ -94,8 +92,8 @@ nav{
 
 .nav-cta:hover{
     transform: translateY(-1px) scale(0.95);
- color:black;
-    background-color: white;
+ color:var(--cream);
+    background-color: var(--gold);
 }
 
 
@@ -122,12 +120,14 @@ nav{
     padding:5% 10%;
     position:relative;
     overflow:hidden;
+    
 }
+
 
 .hero-bg{
     position:absolute;
     inset:0;
-    background:radial-gradient(ellipse 80% 80% at 70% 50%, rgb(255, 255, 255) 0%, transparent 0%);
+    background:radial-gradient(ellipse 80% 80% at 70% 50%, rgb(43, 43, 43) 0%, transparent 70%);
 }
 
 .hero-particles{
@@ -138,7 +138,8 @@ nav{
 }
 
 
-.hero-content{ margin-top: -7em;
+.hero-content{
+
     position:relative;
     z-index:2;
     max-width:600px;
@@ -162,12 +163,12 @@ nav{
 
 
 .hero-badge::before{
-    content:‘☕’;
+    content:"";
     font-size:1rem;
 }
 
 h1{
-    font-size:clamp(2.8rem,6vw,5rem);
+    font-size:clamp(3.9rem,6vw,5rem);
     font-weight:900;
     color:#fff;
     line-height:1.05;
@@ -215,6 +216,7 @@ h1 em{
 .btn-primary:hover{
     background:#b07a2a;
     transform:translateY(-2px);
+    color:var(--cream);
 }
 
 
@@ -254,7 +256,7 @@ h1 em{
 .stat-num{
     font-size:2rem;
     font-weight:900;
-    color:var(--cream);
+    color:var(--gold);
 
 }
 
@@ -292,6 +294,7 @@ h1 em{
     justify-content:center;
     font-size:clamp(4rem,10vw,10rem);
     animation:float 4s ease-in-out infinite;
+
 
 }
 
@@ -337,7 +340,7 @@ h1 em{
 #menu{
     padding:7rem 8%;
     background:var(--cream);
-    margin-top: -3em;
+    margin-top: -2em;
     
 }
 
@@ -675,7 +678,7 @@ h1 em{
 
 /* CONTACT / FOOTER */
 #contato{
-    background:var(--dark);
+    background:black;
     padding:5rem 8%;
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -822,7 +825,7 @@ h1 em{
 
 
 footer{
-    background:var(--dark);
+    background:black;
     border-top:1px solid rgba(255,255,255,0.07);
     padding:1.5rem 8%;
     display:flex;
@@ -848,7 +851,8 @@ footer a{
     border-radius:16px;
     overflow:hidden;
     height:220px;
-    background:rgba(255,255,255,0.05);display:flex;
+    background-color:rgb(24, 24, 24);
+    display:flex;
     align-items:center;
     justify-content:center;
     color:rgba(255,255,255,0.3);
@@ -857,7 +861,10 @@ footer a{
     margin-top:1.5rem;
 }
 
-@media(max-width:900px){
+
+/*///////////////////// MEDIA QUERIES////////////////////// */
+
+@media(max-width:1000px){
 #sobre{
     grid-template-columns:1fr;
 }
@@ -866,16 +873,84 @@ footer a{
     grid-template-columns:1fr;
 }
 
+#hero{
+    position: relative;
+    overflow: hidden;
+}
+
+#hero::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+
+     
+    background: linear-gradient(
+        to right,
+        rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.65) 25%, rgba(0,0,0,0.3) 50%,rgba(0,0,0,0,0.1) 70%,
+        transparent 100% 
+    );
+
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,1.9) 0%, rgba(0,0,0,1.0) 30%, rgba(0,0,0,0.43) 80%,
+        transparent 100% 
+    );
+    z-index: 2;
+    pointer-events: none;
+}
+
+.hero-visual img{
+    position: relative;
+    z-index: 2;
+}
+
 .hero-visual{
-    display:none;
+    animation: zoomFade 1.4s ease forwards;
+}
+
+.hero-content {
+position: relative;
+z-index: 1000;
+max-width: 600px;
+animation: fadeUp 1s ease forwards;
+}
+
+.hero-sub{
+    animation: fadeUp 1.2s ease forwards;
+}
+
+.hero-actions{
+    animation: fadeUp 1.4s ease forwards;
 }
 
 .hero-stats{
     position:static;
-    margin-top:2.5rem;
+    margin-top:2.5rem;   
+ animation: fadeUp 1.6s ease forwards;
     justify-content:flex-start;
 }
 
+@keyframes fadeUp{
+    from{
+        opacity: 0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomFade {
+    from{
+        opacity: 0;
+        transform: translateY(-50%) scale(1.08);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+    }
+}
 
 .hero-content{
     max-width:100%;
@@ -889,7 +964,7 @@ footer a{
 
 
 nav{
-    padding:0 4%;
+    padding:2.3em 4%;
 
 }
 
@@ -913,4 +988,5 @@ footer{
 .form-row{
     grid-template-columns:1fr;
 }
+
 }
