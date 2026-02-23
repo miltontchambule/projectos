@@ -13,28 +13,46 @@
 
 <body>
 
-<!-- NAV -->
+  <!-- ///////////////////////BOTAO PARA FECHAR O MENU/////////////////// -->
 
-<nav>
-  <span class="logo"><img src="Media/Logokoffee160.png" alt="Logo"></span>
+  <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
 
+<!-- ///////////////////////////MENU TELEMOVEIS/ ECRAS PEQUENOS//////////////////////////////////////////////////////// -->
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hero" onclick="closeMenu()"><img src="Media/home30.PNG" alt="home-page" class="icones"> Início</a>
+  <a href="#menu" onclick="closeMenu()"><img src="Media/eventoss20.PNG" alt="menu" class="icones"> Produtos</a> 
+   <a href="#reviews" onclick="closeMenu()"><img src="Media/reviews20.PNG" alt="reviews" class="icones"> Reviews</a>
+  <a href="#eventos" onclick="closeMenu()"><img src="Media/events20.PNG" alt="Events" class="icones"> Eventos</a>
+  <a href="#sobre" onclick="closeMenu()"><img src="Media/about20preto.PNG" alt="Historia" class="icones"> Sobre Nós</a>
+  <a href="#contato" onclick="closeMenu()"><img src="Media/contacts20preto.PNG" alt="Contacts" class="icones"> Contactos</a>
+  <a href="#contato" class="mobile-menu-cta" onclick="closeMenu()">
+    <img src="Media/cart5.PNG" alt="Cart" class="mobile-menu-cta-icon"> Encomendar</a>
+</div>
+
+
+<!-- ///////////////////////////////// NAVBAR E LINKS /////////////////////////////////////////////////////////////// -->
+
+<nav id="navbar">
+  <a class="nav-logo" href="#hero"><img src="Media/Logokoffee160.png" alt="Logo"></span></a>
   <ul class="nav-links">
-    <li><a href="#menu">Menu</a></li>
+    <li><a href="#menu">Produtos</a></li>    
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#eventos">Eventos</a></li>
     <li><a href="#sobre">Sobre Nós</a></li>
-    <li><a href="#contato">Contacto</a></li>
+    <li><a href="#contato">Contactos</a></li>
   </ul>
-  <button class="nav-cta" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Encomendar</button>
-  
-  <div class="hamburger">
+  <button class="nav-cta" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">    <img src="Media/cartpreto5.PNG" alt="Cart" class="mobile-menu-cta-icon"> Encomendar</button>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
     <span></span>
     <span></span>
     <span></span>
   </div>
 </nav>
 
-<!-- HERO -->
+
+
+<!--///////////////////////////////////////// SECCAO HERO //////////////////////////////////////////////////////////////-->
 
 <section id="hero">
  <div class="hero-img"></div>
@@ -46,11 +64,14 @@
         <h1>Hmmm...<br/><em>Koffeeee!</em></h1>
         <p class="hero-sub">O melhor café de Maputo. Cada sorvo é uma experiência única — artesanal, fresco e feito com amor.</p>
 
+
+        <!--//////////////////////////// BOTOES VER MENU E HISTORIA/////////////////////////// -->
         <div class="hero-actions">
           <a href="#menu" class="btn-primary">Ver Menu</a>
           <a href="#sobre" class="btn-outline">A Nossa História</a>
         </div>
 
+        <!-- //////////////////////////////////STATS////////////////////////////////// -->
         <div class="hero-stats">
           <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Clientes</div></div>
           <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Opções</div></div>
@@ -58,6 +79,7 @@
         </div>
     </div> 
 
+    <!-- ///////////////////////////////// EFEITO FLUTUANTE DO KOFFEE/////////////////////// -->
    <div class="hero-overlay"> 
           <div class="hero-visual"><div class="coffee-circle"><img src="Media/capaaa500.PNG" alt="Iced Donut"></div></div>
     </div>
@@ -65,7 +87,7 @@
 
 </section>
 
-<!-- MENU -->
+<!-- ///////////////////////////////////////////CATALAGO/MENU///////////////////////////////////////////////////// -->
 
 <section id="menu">
   <div class="menu-header">
@@ -126,10 +148,10 @@ combinado com o sabor rico de Nutella. Textura, contraste e indulgência em cada
   </div>
 </section>
 
-<!-- REVIEWS -->
+<!-- //////////////////////////////////////////AVALIACOES/TESTEMUNHOS///////////////////////////////////////////// -->
 
 <section id="reviews">
-  <p class="section-tag">Avaliações</p>
+  <p class="section-tag">Reviews</p>
   <h2 class="section-title">Qual é o Buzzz?</h2>
   <p class="section-sub">O que os nossos clientes dizem sobre nós.</p>
   <div class="marquee-wrap">
@@ -174,7 +196,7 @@ combinado com o sabor rico de Nutella. Textura, contraste e indulgência em cada
   </div>
 </section>
 
-<!-- EVENTS -->
+<!-- /////////////////////////////////////////////////EVENTOS////////////////////////////////////////////////// -->
 
 <section id="eventos">
   <p class="section-tag">Eventos</p>
@@ -205,10 +227,10 @@ combinado com o sabor rico de Nutella. Textura, contraste e indulgência em cada
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- //////////////////////////////////////////////HISTORIA DO KOFFEE/////////////////////////////////////////// -->
 
 <section id="sobre">
-  <div class="about-visual"><img src="Media/historiacapa.PNG" alt="Nossa Historia"></div>
+  <div class="about-visual"><img src="Media/capadehistoria.jpg" alt="Nossa Historia"></div>
   <div class="about-text">
     <p class="section-tag">A Nossa História</p>
     <h2 class="section-title">Feito com Paixão, Servido com Amor</h2>
@@ -226,7 +248,7 @@ combinado com o sabor rico de Nutella. Textura, contraste e indulgência em cada
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- ///////////////////////////////////////////////////CONTACTOS////////////////////////////////////////////// -->
 
 <section id="contato">
   <div class="contact-left">
@@ -236,12 +258,7 @@ combinado com o sabor rico de Nutella. Textura, contraste e indulgência em cada
 
       <div>
         <span class="contact-label">Localização</span>
-        Av. Josina Machel, 1015.
-        <br/>
-        Av. Marginal, 222, Gloria Hotel.
-         <br>
-        Av. Eduardo Mondlane, Alto Mae.
-        <br>
+        Av. Josina Machel, 1015.<br> 
         Cidade de Maputo.
       </div>
 
@@ -259,6 +276,9 @@ combinado com o sabor rico de Nutella. Textura, contraste e indulgência em cada
     <div class="contact-item">
       <div><span class="contact-label">Contacto</span>(+258) 85 834 2848<br/>koffeeshop@info.mz</div>
     </div>
+
+
+    <!-- /////////////////////////////////////////////////SOCIALS///////////////////////////////////////// -->
     <div class="socials">
       <a href="#" class="social-btn"><img src="Media/whatsapp30.PNG" alt="Whatsapp"></a>
       <a href="#" class="social-btn"><img src="Media/tiktok30.PNG" alt="Tiktok"></a>
@@ -266,6 +286,8 @@ combinado com o sabor rico de Nutella. Textura, contraste e indulgência em cada
       <a href="https://www.instagram.com/koffeeshop.mz" class="social-btn" target="_blank"><img src="Media/ig30.PNG" alt="Instagram"></a>
     </div>
     
+
+    <!-- /////////////////////////IFRAME DO GOOGLE MAPS//////// -->
     <iframe  class="map-wrap"
    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.1259890966217!2d32.5617991742074!3d-25.963908077225327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69b7d6166b651%3A0xe324aea2cffbd8b5!2sKoffee%20Shop.%20EI!5e0!3m2!1spt-PT!2smz!4v1770216729289!5m2!1spt-PT!2smz"
   
@@ -277,6 +299,8 @@ combinado com o sabor rico de Nutella. Textura, contraste e indulgência em cada
     allow="geolocation 'none'; camera 'none' microphone 'none' fullscreen 'none'">
 </iframe>
 
+
+<!-- ///////////////////////////////////////////////PLACE ORDER -->
   </div>
   <div class="contact-right">
     <h3>Faça a Sua Encomenda</h3>
@@ -290,10 +314,17 @@ combinado com o sabor rico de Nutella. Textura, contraste e indulgência em cada
   </div>
 </section>
 
+
+<!-- ////////////////////////////////////////////////////FOOTER ///////////////////////////////////////-->
+
 <footer>
   <p>©2026 Koffee. Todos os direitos reservados.</p>
   <a href="#">Desenvolvido por Milton Tchambule</a>
 </footer>
+
+<script src="koffee.js"> </script>
+
+
 
 </body>
 </html>
