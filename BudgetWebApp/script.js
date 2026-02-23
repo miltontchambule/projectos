@@ -350,7 +350,7 @@
                 chart = null;
             }
             
-            alert('App resetada com sucesso! Todos os dados foram limpos.');
+            alert('App restaurada com sucesso! Todos os dados foram limpos.');
         }
     }
 
