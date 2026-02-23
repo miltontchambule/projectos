@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ShyFlowers — Arranjos Florais</title>
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+
+<body>
+
+<!-- OVERLAY (mobile menu) -->
+
+<div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+
+<!-- MOBILE MENU -->
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hero" onclick="closeMenu()">Início</a>
+  <a href="#produtos" onclick="closeMenu()">Produtos</a>
+  <a href="#categorias" onclick="closeMenu()">Categorias</a>
+  <a href="#sobre" onclick="closeMenu()">Sobre Nós</a>
+  <a href="#reviews" onclick="closeMenu()">Reviews</a>
+  <a href="#contato" onclick="closeMenu()">Contacto</a>
+  <a href="#contato" class="mobile-menu-cta" onclick="closeMenu()">Encomendar Agora 🌸</a>
+</div>
+
+<!-- NAVBAR -->
+
+<nav id="navbar">
+  <a class="nav-logo" href="#hero">Shy<span>Flowers</span></a>
+  <ul class="nav-links">
+    <li><a href="#produtos">Produtos</a></li>
+    <li><a href="#categorias">Categorias</a></li>
+    <li><a href="#sobre">Sobre Nós</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contato">Contacto</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Encomendar</button>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+
+<section id="hero">
+  <div class="hero-petals" id="petals"></div>
+  <div class="hero-badge">🌸 Arranjos Artesanais em Maputo</div>
+  <h1 class="hero-title">Flores que<br/><em>falam por ti.</em></h1>
+  <p class="hero-sub">Arranjos florais únicos, bandejas românticas e decorações feitas com amor — para todos os momentos especiais da tua vida.</p>
+  <div class="hero-actions">
+    <a href="#produtos" class="btn-primary">Ver Colecção</a>
+    <a href="#contato" class="btn-outline">Fazer Encomenda</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">200+</span>
+      <span class="stat-label">Clientes</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">100+</span>
+      <span class="stat-label">Arranjos</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">4.8★</span>
+      <span class="stat-label">Avaliação</span>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <span style="font-size:1rem">↓</span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+
+<div class="marquee-section">
+  <div class="marquee-track" id="marqueeTrack"></div>
+</div>
+
+<!-- PRODUTOS -->
+
+<section id="produtos">
+  <div class="produtos-header reveal">
+    <div>
+      <span class="section-tag">A Nossa Colecção</span>
+      <h2 class="section-title">Mais Pedidos</h2>
+      <p class="section-sub">Escolhidos com carinho pelos nossos clientes. Cada arranjo é único.</p>
+    </div>
+    <a href="#" style="color:var(--pink-deep);font-weight:700;font-size:.9rem;text-decoration:none;">Ver Tudo →</a>
+  </div>
+
+  <div class="carousel-wrap reveal">
+    <div class="carousel-track" id="carouselTrack">
+
+
+  <div class="produto-card">
+    <div class="card-img card-img-bg-1">
+      🌹
+      <span class="card-badge">🔥 Popular</span>
+    </div>
+    <div class="card-body">
+      <div class="card-name">Buquê Romântico</div>
+      <div class="card-desc">Rosas vermelhas frescas cuidadosamente selecionadas, embaladas com fita de cetim e laço artesanal.</div>
+      <div class="card-footer">
+        <div class="card-price">850<small> MT</small></div>
+        <button class="add-btn">+</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="produto-card">
+    <div class="card-img card-img-bg-2">
+      🎁
+      <span class="card-badge">⭐ Top</span>
+    </div>
+    <div class="card-body">
+      <div class="card-name">Bandeja Luxo</div>
+      <div class="card-desc">Bandeja decorada com flores, chocolates e velas perfumadas — perfeita para surpreender alguém especial.</div>
+      <div class="card-footer">
+        <div class="card-price">1.200<small> MT</small></div>
+        <button class="add-btn">+</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="produto-card">
+    <div class="card-img card-img-bg-3">
+      🌸
+      <span class="card-badge">💕 Novo</span>
+    </div>
+    <div class="card-body">
+      <div class="card-name">Arranjo de Mesa</div>
+      <div class="card-desc">Centrepiece floral com rosas cor-de-rosa e flores silvestres, ideal para jantares e eventos.</div>
+      <div class="card-footer">
+        <div class="card-price">650<small> MT</small></div>
+        <button class="add-btn">+</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="produto-card">
+    <div class="card-img card-img-bg-4">
+      💐
+    </div>
+    
+    <div class="card-body">
+      <div class="card-name">Caixa de Flores</div>
+      <div class="card-desc">Caixa forrada com flores premium em tons suaves de rosa e branco — um presente inesquecível.</div>
+      <div class="card-footer">
+        <div class="card-price">980<small> MT</small></div>
+        <button class="add-btn">+</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="produto-card">
+    <div class="card-img card-img-bg-5">
+      🕯️
+      <span class="card-badge">🎀 Especial</span>
+    </div>
+    <div class="card-body">
+      <div class="card-name">Decoração Romântica</div>
+      <div class="card-desc">Kit completo com velas, pétalas e flores para criar o ambiente perfeito para a tua noite especial.</div>
+      <div class="card-footer">
+        <div class="card-price">1.500<small> MT</small></div>
+        <button class="add-btn">+</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="produto-card">
+    <div class="card-img card-img-bg-6">
+      🌷
+    </div>
+    <div class="card-body">
+      <div class="card-name">Mini Bouquet</div>
+      <div class="card-desc">Pequeno e delicado, o mini bouquet é ideal para presentear com estilo em qualquer ocasião.</div>
+      <div class="card-footer">
+        <div class="card-price">420<small> MT</small></div>
+        <button class="add-btn">+</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+  </div>
+
+  <div class="carousel-controls">
+    <button class="carousel-btn" id="prevBtn">←</button>
+    <button class="carousel-btn" id="nextBtn">→</button>
+  </div>
+  <div class="carousel-dots" id="carouselDots"></div>
+</section>
+
+<!-- CATEGORIAS -->
+
+<section id="categorias">
+  <div style="text-align:center; margin-bottom:0" class="reveal">
+    <span class="section-tag">O que Oferecemos</span>
+    <h2 class="section-title">As Nossas Categorias</h2>
+    <p class="section-sub" style="margin:0 auto">Cada categoria pensada para tornar o teu momento único e inesquecível.</p>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card reveal" style="animation-delay:0.0s">
+      <span class="cat-icon">🌹</span>
+      <div class="cat-name">Buquês</div>
+      <div class="cat-desc">Rosas, lílios e flores sazonais</div>
+    </div>
+    <div class="cat-card reveal" style="animation-delay:0.1s">
+      <span class="cat-icon">🎁</span>
+      <div class="cat-name">Bandejas</div>
+      <div class="cat-desc">Composições com flores e mimos</div>
+    </div>
+    <div class="cat-card reveal" style="animation-delay:0.2s">
+      <span class="cat-icon">💍</span>
+      <div class="cat-name">Casamentos</div>
+      <div class="cat-desc">Decoração floral para cerimónias</div>
+    </div>
+    <div class="cat-card reveal" style="animation-delay:0.3s">
+      <span class="cat-icon">🕯️</span>
+      <div class="cat-name">Romântico</div>
+      <div class="cat-desc">Velas, pétalas e surpresas</div>
+    </div>
+    <div class="cat-card reveal" style="animation-delay:0.4s">
+      <span class="cat-icon">🎂</span>
+      <div class="cat-name">Aniversários</div>
+      <div class="cat-desc">Arranjos especiais para celebrar</div>
+    </div>
+    <div class="cat-card reveal" style="animation-delay:0.5s">
+      <span class="cat-icon">🌿</span>
+      <div class="cat-name">Decoração</div>
+      <div class="cat-desc">Ambientes e centros de mesa</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY STRIP -->
+
+<div class="gallery-strip">
+  <div class="gallery-strip-header reveal">
+    <span class="section-tag">Galeria</span>
+    <h2 class="section-title">Cada peça, uma história.</h2>
+  </div>
+  <div class="gallery-track" id="galleryTrack"></div>
+</div>
+
+<!-- REVIEWS -->
+
+<section id="reviews">
+  <div class="reveal">
+    <span class="section-tag">Testemunhos</span>
+    <h2 class="section-title" style="color:var(--white)">O que dizem sobre nós 🌸</h2>
+    <p class="section-sub">As palavras das pessoas que já viveram a experiência ShyFlowers.</p>
+  </div>
+
+  <div class="review-slider-wrap reveal">
+    <div class="review-track" id="reviewTrack">
+
+
+  <div class="review-slide">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"O bouquet que encomendei para o aniversário da minha namorada ficou absolutamente perfeito. Ela adorou cada detalhe!"</div>
+      <div class="review-author">
+        <div class="review-avatar">A</div>
+        <div>
+          <div class="review-name">Ana Mendes</div>
+          <div class="review-date">Janeiro 2025</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"Encomendei a decoração romântica para surpreender a minha esposa. Superou todas as expectativas. Profissionais incríveis!"</div>
+      <div class="review-author">
+        <div class="review-avatar">M</div>
+        <div>
+          <div class="review-name">Marcos Costa</div>
+          <div class="review-date">Fevereiro 2025</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"A bandeja de luxo foi o presente mais bonito que já dei. Entrega rápida, embalagem impecável. Recomendo a todos!"</div>
+      <div class="review-author">
+        <div class="review-avatar">C</div>
+        <div>
+          <div class="review-name">Carla Neves</div>
+          <div class="review-date">Março 2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="review-slide">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"As flores para o meu casamento ficaram lindíssimas. A ShyFlowers transformou o dia mais especial da minha vida."</div>
+      <div class="review-author">
+        <div class="review-avatar">L</div>
+        <div>
+          <div class="review-name">Luísa Faria</div>
+          <div class="review-date">Abril 2025</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"Delivery antes da hora combinada e as flores estavam frescas e vibrantes. Já encomendei três vezes e voltarei sempre."</div>
+      <div class="review-author">
+        <div class="review-avatar">P</div>
+        <div>
+          <div class="review-name">Pedro Alves</div>
+          <div class="review-date">Maio 2025</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"Pedi um arranjo personalizado e ficou ainda mais bonito do que imaginei. Atendimento atencioso e muito profissional!"</div>
+      <div class="review-author">
+        <div class="review-avatar">S</div>
+        <div>
+          <div class="review-name">Sofia Dias</div>
+          <div class="review-date">Junho 2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+  </div>
+  <div class="review-nav" id="reviewNav"></div>
+</section>
+
+<!-- SOBRE -->
+
+<section id="sobre">
+  <div class="about-visual reveal">
+    <div class="about-img-main">🌸</div>
+    <div class="about-img-accent">💐</div>
+  </div>
+  <div class="about-text reveal">
+    <span class="section-tag">A Nossa História</span>
+    <h2 class="section-title">Feitas com amor,<br/>entregues com alma.</h2>
+    <p>A ShyFlowers nasceu de uma paixão genuína pelas flores e pela arte de criar momentos inesquecíveis. Cada arranjo é pensado ao detalhe para contar uma história única.</p>
+    <p>De buquês románticos a decorações de casamento, o nosso compromisso é sempre o mesmo: fazer-te sorrir com flores que falam por ti.</p>
+    <div class="about-chips">
+      <span class="chip">🌿 100% Fresco</span>
+      <span class="chip">💕 Feito com Amor</span>
+      <span class="chip">⚡ Entrega Rápida</span>
+      <span class="chip">🎨 Design Único</span>
+      <span class="chip">📍 Maputo</span>
+    </div>
+    <div style="margin-top:2rem">
+      <a href="#contato" class="btn-primary">Falar Connosco</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+
+<section id="contato">
+  <div class="contact-left reveal">
+    <span class="contact-logo">Shy<span>Flowers</span></span>
+    <div class="contact-item">
+      <div class="contact-icon">📍</div>
+      <div>
+        <span class="contact-label">Localização</span>
+        Av. da República, 342<br/>Cidade de Maputo
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">🕐</div>
+      <div>
+        <span class="contact-label">Horário</span>
+        Seg–Sex: 8h00 – 19h00<br/>
+        Sáb–Dom: 9h00 – 17h00
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">📞</div>
+      <div>
+        <span class="contact-label">Contacto</span>
+        (+258) 84 000 0000<br/>
+        shyflowers@info.mz
+      </div>
+    </div>
+    <div class="socials">
+      <a href="#" class="social-btn">💬</a>
+      <a href="#" class="social-btn">📱</a>
+      <a href="#" class="social-btn">📘</a>
+      <a href="#" class="social-btn">📸</a>
+    </div>
+  </div>
+
+  <div class="contact-right reveal">
+    <h3>Fazer Encomenda 🌸</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Nome</label>
+        <input type="text" placeholder="O seu nome"/>
+      </div>
+      <div class="form-group">
+        <label>Telefone</label>
+        <input type="tel" placeholder="+258 ..."/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>E-mail</label>
+      <input type="email" placeholder="email@exemplo.com"/>
+    </div>
+    <div class="form-group">
+      <label>Tipo de Encomenda</label>
+      <select>
+        <option value="">Seleccionar...</option>
+        <option>Buquê Romântico</option>
+        <option>Bandeja Luxo</option>
+        <option>Arranjo de Mesa</option>
+        <option>Decoração Romântica</option>
+        <option>Decoração de Casamento</option>
+        <option>Encomenda Personalizada</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Mensagem</label>
+      <textarea rows="4" placeholder="Descreva o seu pedido ou deixe uma mensagem especial..."></textarea>
+    </div>
+    <button class="btn-primary" style="width:100%;padding:1rem;font-size:1rem" onclick="alert('Encomenda enviada! Entraremos em contacto em breve 🌸')">
+      Enviar Encomenda 🌸
+    </button>
+  </div>
+</section>
+
+<footer>
+  <p>©2026 ShyFlowers. Todos os direitos reservados.</p>
+  <a href="#">Desenvolvido por Milton Tchambule</a>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
