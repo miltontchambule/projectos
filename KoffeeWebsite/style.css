@@ -672,18 +672,18 @@ color:var(--white);
 #reviews .section-title{
     color:#ffffff;
     font-size: 50px;
-    margin-left: 3rem;
+    margin-left: 1rem;
 }
 
 #reviews .section-tag{
     color:var(–gold);
-     margin-left: 3rem;
+     margin-left: 1rem;
 
 }
 
 
 #reviews .section-sub{
-     margin-left: 3rem;
+     margin-left: 1rem;
     color:rgba(255,255,255,0.5);
 }
 
