@@ -20,10 +20,10 @@
 
 
        --pink: #F4A7B9;
-    --pink-deep: #E8748A;
+    /* --pink-deep: #E8748A; */
     --pink-light: #FDE8EE;
-    --red: #C0392B;
-    --red-soft: #E57373;
+    /* --red: #C0392B;
+    --red-soft: #E57373; */
     --white: #FFFFFF;
    --black: #111111;
     --gray: #888888;
@@ -490,7 +490,7 @@ h1 em{
     color: #855d21;
 }
 
-/* /////////////////////////////////CONTAINER DOS CARTOES COM OS PRODUTOS DO MEU////////////////////////// */
+/* /////////////////////////////////CONTAINER DOS CARTOES COM OS PRODUTOS DO MENU////////////////////////// */
 .cards{
     display:grid;
     grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
@@ -504,7 +504,7 @@ h1 em{
     overflow:hidden;
     transition:.3s;
     cursor:pointer;
-    box-shadow:0 4px 20px rgba(44,26,14,0.06);
+    box-shadow:0 4px 20px rgba(44, 26, 14, 0.123);
 }
 
 .card:hover{
@@ -513,7 +513,7 @@ h1 em{
 }
 
 .card-img{
-    
+    object-fit: cover;
     height:250px;
     background:linear-gradient(135deg,var(--warm),#e8d5bf);
     display:flex;
@@ -528,11 +528,13 @@ h1 em{
     position:absolute;
     top:12px;
     right:12px;
-    background-color: white;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.486) ;
     color:black;
     font-size:.7rem;
     font-weight:700;
-    padding:.3rem .7rem;
+    padding:.4rem .8rem;
     border-radius:50px;
 }
 
@@ -595,24 +597,81 @@ h1 em{
     background:var(--gold);
 }
 
-/* TESTIMONIALS */
+/* ///////////////////LOCALIZACAO////////////////////////////////////////////////////////////////// */
+
+.location{
+    padding:1rem 8%;
+    background:var(--cream);
+    margin-bottom: 3em;
+}
+
+.location a{
+    text-decoration: none;   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.location-text{
+    margin-top: -1em;
+}
+
+#location-cta{
+ 
+background-color: var(--black);
+color:var(--white);
+}
+
+#location-cta:hover{
+    background-color:var(--gold);
+}
+
+.iframe-container{
+    
+   display: flex;
+   align-items: center;
+   justify-content: center;
+    overflow:hidden;
+    height: 320px;
+}
+
+.iframe{
+    border: 0;
+    border-radius:16px;
+    height:300px;
+    width:100%;
+    max-width:600px;
+    transition: transform 0.5s ease;    
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.24);
+}
+
+.iframe:hover{
+    transform: translateY(-0.5px);
+
+}
+
+/*/////// TESTIMONIALS ///////////////////////////////////////////////////////////////*/
 #reviews{
-    padding:9rem 8%;
-    background:black;
+    padding:8rem 0%;
+    background:var(--black);
     overflow:hidden;
 }
 
 #reviews .section-title{
     color:#ffffff;
     font-size: 50px;
+    margin-left: 3rem;
 }
 
 #reviews .section-tag{
     color:var(–gold);
+     margin-left: 3rem;
+
 }
 
 
 #reviews .section-sub{
+     margin-left: 3rem;
     color:rgba(255,255,255,0.5);
 }
 
@@ -625,7 +684,7 @@ h1 em{
 
 }
 
-
+/* //////////////////////////SLIDES DOS REVIEWS//////////////////////////////////////////////// */
 .marquee{
     display:flex;
     gap:1rem;
@@ -662,7 +721,8 @@ h1 em{
     font-size:.8rem;
 }
 
-/*//////////////// EVENTOS ///////////////////*/
+/*////////////////////////////////////////////// EVENTOS ///////////////////////////////////////*/
+
 #eventos{
     padding:7rem 8%;
     background:var(--warm);
@@ -721,7 +781,7 @@ h1 em{
     line-height:1.4;
 }
 
-.event-tag{
+/* .event-tag{
     position:absolute;
     top:14px;
     left:14px;
@@ -731,9 +791,32 @@ h1 em{
     font-weight:700;
     padding:.3rem .7rem;
     border-radius:50px;
+} */
+
+.event-tag-more{
+      position:absolute;
+    bottom:0;
+    right:0;
+    background-color: white;
+    color:var(--black);
+    font-size:.7rem;
+    font-weight:700;
+    padding:.4rem .7rem;
+    border-top-right-radius: 0;
+    border-top-left-radius: 50px;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.562) inset;
+    transition: transform 0.3ms ease;
 }
 
+.event-tag-more a{
+    text-decoration: none;
+}
 
+.event-tag-more:hover{
+    transform: translateY(0.5px) scale(1.05);
+    background-color: var(--warm);
+    color: var(--black);
+}
 
 /* ABOUT */
 #sobre{
@@ -785,7 +868,7 @@ h1 em{
     margin-top:1.8rem;
 }
 
-
+/* /////////////////////CONTAINER DE EVENTOS////////////////////////////// */
 .chip{
     background:var(--warm);
     color:var(--brown);
@@ -963,21 +1046,6 @@ footer a{
     color:var(--gray);
     text-decoration:none;
     font-size:.8rem;
-}
-
-/* MAP PLACEHOLDER */
-.map-wrap{
-    border-radius:16px;
-    overflow:hidden;
-    height:270px;
-    width:320px;
-    background-color:rgb(24, 24, 24);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:rgba(255,255,255,0.3);
-    font-size:.9rem;
-    margin-top:1.5rem;
 }
 
 

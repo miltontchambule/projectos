@@ -22,12 +22,13 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#hero" onclick="closeMenu()"><img src="Media/home30.PNG" alt="home-page" class="icones"> Início</a>
   <a href="#menu" onclick="closeMenu()"><img src="Media/eventoss20.PNG" alt="menu" class="icones"> Produtos</a> 
+     <a href="#location" onclick="closeMenu()"><img src="Media/locatio20preto.PNG" alt="Localização" class="icones"> Localização</a>
    <a href="#reviews" onclick="closeMenu()"><img src="Media/reviews20.PNG" alt="reviews" class="icones"> Reviews</a>
   <a href="#eventos" onclick="closeMenu()"><img src="Media/events20.PNG" alt="Events" class="icones"> Eventos</a>
   <a href="#sobre" onclick="closeMenu()"><img src="Media/about20preto.PNG" alt="Historia" class="icones"> Sobre Nós</a>
   <a href="#contato" onclick="closeMenu()"><img src="Media/contacts20preto.PNG" alt="Contacts" class="icones"> Contactos</a>
   <a href="#contato" class="mobile-menu-cta" onclick="closeMenu()">
-    <img src="Media/cart5.PNG" alt="Cart" class="mobile-menu-cta-icon"> Encomendar</a>
+    <img src="Media/locatio5branco.PNG" alt="Cart" class="mobile-menu-cta-icon"> Ver no Mapa</a>
 </div>
 
 
@@ -36,13 +37,14 @@
 <nav id="navbar">
   <a class="nav-logo" href="#hero"><img src="Media/Logokoffee160.png" alt="Logo"></span></a>
   <ul class="nav-links">
-    <li><a href="#menu">Produtos</a></li>    
+    <li><a href="#menu">Produtos</a></li>  
+       <li><a href="#location">Localização</a></li>  
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#eventos">Eventos</a></li>
     <li><a href="#sobre">Sobre Nós</a></li>
     <li><a href="#contato">Contactos</a></li>
   </ul>
-  <button class="nav-cta" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">    <img src="Media/cartpreto5.PNG" alt="Cart" class="mobile-menu-cta-icon"> Encomendar</button>
+  <button class="nav-cta" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">    <img src="Media/locatio5.PNG" alt="Cart" class="mobile-menu-cta-icon"> Visite-nos</button>
   <div class="hamburger" id="hamburger" onclick="toggleMenu()">
     <span></span>
     <span></span>
@@ -62,7 +64,7 @@
     
   <div class="hero-badge">Combo Iced Coffee & Donut</div>
         <h1>Hmmm...<br/><em>Koffeeee!</em></h1>
-        <p class="hero-sub">O melhor café de Maputo. Cada sorvo é uma experiência única — artesanal, fresco e feito com amor.</p>
+        <p class="hero-sub">O Iced Coffee que vais querer repetir amanhã — Homemade, fresco e feito com amor.</p>
 
 
         <!--//////////////////////////// BOTOES VER MENU E HISTORIA/////////////////////////// -->
@@ -73,9 +75,9 @@
 
         <!-- //////////////////////////////////STATS////////////////////////////////// -->
         <div class="hero-stats">
-          <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Clientes</div></div>
+          <div class="stat"><div class="stat-num">100+</div><div class="stat-label">Clientes</div></div>
           <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Opções</div></div>
-          <div class="stat"><div class="stat-num">4.8&star;</div><div class="stat-label">Avaliação</div></div>
+          <div class="stat"><div class="stat-num">4.7&star;</div><div class="stat-label">Avaliação</div></div>
         </div>
     </div> 
 
@@ -114,7 +116,7 @@ combinado com o sabor rico de Nutella. Textura, contraste e indulgência em cada
 </div>
         <div class="card-footer">
           <div class="card-price">289<span>.00 MT</span></div>
-          <button class="add-btn"><img src="Media/cart5.PNG" alt="Comprar"></button>
+          <button class="add-btn"> <a href="https://www.instagram.com/koffeeshop.mz" class="social-btn" target="_blank"><img src="Media/cart5.PNG" alt="Comprar"></a></button>
         </div>
       </div>
     </div>
@@ -127,8 +129,8 @@ combinado com o sabor rico de Nutella. Textura, contraste e indulgência em cada
           Macios por dentro, intensos no sabor.</div>
 
         <div class="card-footer">
-          <div class="card-price">599<span>.00 MT</span></div>
-          <button class="add-btn"><img src="Media/cart5.PNG" alt="Comprar"></button>
+          <div class="card-price">399<span>.00 MT</span></div>
+           <button class="add-btn"> <a href="https://www.instagram.com/koffeeshop.mz" class="social-btn" target="_blank"><img src="Media/cart5.PNG" alt="Comprar"></a></button>
         </div>
       </div>
     </div>
@@ -137,17 +139,48 @@ combinado com o sabor rico de Nutella. Textura, contraste e indulgência em cada
       <div class="card-body">
         <div class="card-name">Nutella & Biscoff Lotus Iced Coffee</div>
         <div class="card-desc">Copos cheios de Iced coffee com camadas visíveis de leite, 
-          café e calda de caramelo, finalizados com gelo crocante no topo. Refrescante, doce na medida certa 
-          e com aquele efeito drip irresistível.</div>
+          café e calda de caramelo, finalizados com gelo crocante no topo.</div>
         <div class="card-footer">
           <div class="card-price">449<span>.00 MT</span></div>
-          <button class="add-btn"><img src="Media/cart5.PNG" alt="Comprar"></button>
+            <button class="add-btn"> <a href="https://www.instagram.com/koffeeshop.mz" class="social-btn" target="_blank"><img src="Media/cart5.PNG" alt="Comprar"></a></button>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+
+<!-- /////////////////////////////////////////// LOCALIZACAO ///////////////////////////////////////////////// -->
+ <section class="location" id="location">
+  <div class="location-text">
+      <p class="section-tag">Localização</p>
+  <h2 class="section-title"> Onde Estamos?</h2>
+  <p class="section-sub"> Venha viver a experiência Koffee ao vivo.</p>
+  </div>
+  <br>
+  <br>
+
+<div class="iframe-container">
+   
+  <iframe class="iframe"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.1259890966217!2d32.5617991742074!3d-25.963908077225327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69b7d6166b651%3A0xe324aea2cffbd8b5!2sKoffee%20Shop.%20EI!5e0!3m2!1spt-PT!2smz!4v1770216729289!5m2!1spt-PT!2smz"
+      
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade"
+        sandbox="allow-scripts allow-same-origin allow-popups"
+        allow="geolocation 'none'; camera 'none' microphone 'none' fullscreen 'none'">
+  </iframe>
+</div>
+<br>
+<br>
+
+<a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.1259890966217!2d32.5617991742074!3d-25.963908077225327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69b7d6166b651%3A0xe324aea2cffbd8b5!2sKoffee%20Shop.%20EI!5e0!3m2!1spt-PT!2smz!4v1770216729289!5m2!1spt-PT!2smz" target="_blank" rel="next">
+  <button class="nav-cta "id="location-cta"  onclick="document.getElementById('location').scrollIntoView({behavior:'smooth'})">
+   <img src="Media/locatio5branco.PNG" alt="Location" class="mobile-menu-cta-icon"> Abrir no Google Maps</button></a>
+
+ </section>
 <!-- //////////////////////////////////////////AVALIACOES/TESTEMUNHOS///////////////////////////////////////////// -->
 
 <section id="reviews">
@@ -180,7 +213,7 @@ combinado com o sabor rico de Nutella. Textura, contraste e indulgência em cada
     <div class="marquee marquee-rev">
       <div class="review-pill">Melhor café de Maputo, sem dúvida.</div>
       <div class="review-pill">O Frappuccino é uma obra de arte.</div>
-      <div class="review-pill">Sempre fresco e saboroso.</div>
+      <div class="review-pill">Um lugar muito acolhedor, amei!</div>
       <div class="review-pill">Atendimento impecável, voltarei sempre.</div>
       <div class="review-pill">Preço justo para a qualidade.</div>
       <div class="review-pill">Rápidos e muito simpáticos.</div>
@@ -208,22 +241,26 @@ combinado com o sabor rico de Nutella. Textura, contraste e indulgência em cada
       <div class="event-overlay">
         <div class="event-info"><h3>Feira ATCM 2023</h3><p>Primeira edição — presença marcada</p></div>
       </div>
-      <div class="event-tag">2023</div>
+           <a href=""></a><div class="event-tag-more"><small>Ver mais</small></div></a>
     </div>
+
+
     <div class="event-card">
       <div><img src="Media/atcm2023-2-200.jpg" alt="ATCM 2023 dia 2"></div>
       <div class="event-overlay">
         <div class="event-info"><h3>Feira ATCM 2023 — Dia 2</h3><p>Mais sabor, mais clientes, mais sucesso</p></div>
       </div>
-      <div class="event-tag">2023</div>
-    </div>
+          <a href=""></a> <div class="event-tag-more"><small>Ver mais</small></div></a>
+    
+      </div>
     <div class="event-card">
       <div><img src="Media/atcm2024-2.jpg" alt="TCM - 2024"></div>
       <div class="event-overlay">
         <div class="event-info"><h3>Feira ATMC 2024</h3><p>Edição ainda maior — ainda mais Koffee</p></div>
       </div>
-      <div class="event-tag">2024</div>
-    </div>
+          <a href=""></a> <div class="event-tag-more"><small>Ver mais</small></div></a>
+    
+     </div>
   </div>
 </section>
 
@@ -287,31 +324,21 @@ combinado com o sabor rico de Nutella. Textura, contraste e indulgência em cada
     </div>
     
 
-    <!-- /////////////////////////IFRAME DO GOOGLE MAPS//////// -->
-    <iframe  class="map-wrap"
-   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.1259890966217!2d32.5617991742074!3d-25.963908077225327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69b7d6166b651%3A0xe324aea2cffbd8b5!2sKoffee%20Shop.%20EI!5e0!3m2!1spt-PT!2smz!4v1770216729289!5m2!1spt-PT!2smz"
-  
-   style="border:0;" 
-   allowfullscreen="" 
-   loading="lazy" 
-   referrerpolicy="no-referrer-when-downgrade"
-    sandbox="allow-scripts allow-same-origin allow-popups"
-    allow="geolocation 'none'; camera 'none' microphone 'none' fullscreen 'none'">
-</iframe>
-
-
-<!-- ///////////////////////////////////////////////PLACE ORDER -->
-  </div>
+<!-- ///////////////////////////////////////////////PLACE ORDER ////////////////////////////////////////////-->
+ 
+</div>
   <div class="contact-right">
     <h3>Faça a Sua Encomenda</h3>
     <div class="form-row">
-      <div class="form-group"><label>Nome</label><input type="text" placeholder="O seu nome"/></div>
-      <div class="form-group"><label>Telefone</label><input type="tel" placeholder="+258 ..."/></div>
+      <div class="form-group"><label>Nome</label><input required type="text" placeholder="O seu nome"/></div>
+      <div class="form-group"><label>Telefone</label><input required type="tel" placeholder="+258 ..."/></div>
     </div>
     <div class="form-group"><label>E-mail</label><input type="email" placeholder="email@exemplo.com"/></div>
-    <div class="form-group"><label>Mensagem / Pedido</label><textarea rows="5" placeholder="Descreva o seu pedido ou deixe uma mensagem..."></textarea></div>
-    <button class="btn-primary" style="width:100%;padding:1rem" onclick="alert('Pedido enviado! Entraremos em contacto em breve ☕')">Enviar Pedido</button>
+    <div class="form-group"><label>Mensagem / Pedido</label><textarea required rows="10" placeholder="Descreva o seu pedido ou deixe uma mensagem..."></textarea></div>
+    <button class="btn-primary" style="width:100%;padding:1rem" onclick="alert('Pedido enviado! Entraremos em contacto em breve')">Enviar Pedido</button>
   </div>
+
+  
 </section>
 
 
