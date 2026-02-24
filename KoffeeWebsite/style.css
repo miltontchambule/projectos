@@ -597,7 +597,7 @@ h1 em{
     background:var(--gold);
 }
 
-/* ///////////////////LOCALIZACAO////////////////////////////////////////////////////////////////// */
+/* ///////////////////////////////    LOCALIZACAO    ////////////////////////////////////////////////////////////////// */
 
 .location{
     padding:1rem 8%;
@@ -612,8 +612,20 @@ h1 em{
     justify-content: center;
 }
 
-.location-text{
-    margin-top: -1em;
+#location .section-title{
+    color:var(--dark);
+    font-size: 50px;
+    margin-left: 3rem;
+}
+
+#location .section-tag{
+    color:var(–gold);
+     margin-left: 3rem;
+}
+
+#location .section-sub{
+     margin-left: 3rem;
+    color: var(--gray);
 }
 
 #location-cta{
