@@ -504,12 +504,12 @@ h1 em{
     overflow:hidden;
     transition:.3s;
     cursor:pointer;
-    box-shadow:0 4px 20px rgba(44, 26, 14, 0.123);
+    box-shadow:0px 0px 14px rgba(44, 26, 14, 0.295);
 }
 
 .card:hover{
     transform:translateY(-6px);
-    box-shadow:0 16px 40px rgba(44,26,14,0.14);
+    box-shadow:0 16px 20px rgba(44,26,14,0.14);
 }
 
 .card-img{
@@ -613,19 +613,25 @@ h1 em{
 }
 
 #location .section-title{
-    color:var(--dark);
-    font-size: 50px;
-    margin-left: 3rem;
+   font-size:clamp(1.8rem,3.5vw,2.8rem);
+    font-weight:900;
+    color:var(--brown);
+    letter-spacing:-1px;
 }
 
 #location .section-tag{
-    color:var(–gold);
-     margin-left: 3rem;
+    font-size:.8rem;
+    font-weight:700;
+    color:var(--gold);
+    letter-spacing:2px;
+    text-transform:uppercase;
 }
 
 #location .section-sub{
-     margin-left: 3rem;
-    color: var(--gray);
+    color:var(--gray);
+    font-size:1rem;
+    max-width:460px;
+    line-height:1.6;
 }
 
 #location-cta{
