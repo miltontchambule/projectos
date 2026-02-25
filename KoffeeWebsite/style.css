@@ -975,6 +975,7 @@ color: var(--cream);
     letter-spacing:.5px;
     display:block;
     margin-bottom:.2rem;
+    text-decoration:none;
 }
 
 
