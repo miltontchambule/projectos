@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+:root{
+   --brown:#2C1A0E;
+    --dark:#1a0f07;
+    --gold:#C8913A;
+    --cream:#FDF6EE;
+    --warm:#F5E6D3;
+    --text:#3d2b1a;
+    --gray:#888;  
+}
+
+
+body{ margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family:'Segoe UI',system-ui,sans-serif;    
+    color: var(--gray);
+    background-color: var(--warm);
+}
+
+.img{   
+     transform: translateY(30px);
+    animation: fadeUp 1s ease-out forwards;
+    text-align: center;
+}
+
+
+.img p{
+    letter-spacing: 1.3px;
+    font-size: 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s ease-out forwards;
+}
+
+.img a{
+    text-decoration: none;
+    color: var(--gray);
+
+}
+
+.img a:hover{
+    color: rgb(43, 43, 43);
+}
+
+
+@keyframes fadeUp{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
