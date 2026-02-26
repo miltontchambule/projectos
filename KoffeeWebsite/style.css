@@ -32,7 +32,7 @@
 
   body{
     font-family:'Segoe UI',system-ui,sans-serif;
-    background:var(--warm);
+    background:var(--cream);
     color:var(--text);
     overflow-x:hidden;
 }
@@ -242,6 +242,7 @@ pointer-events: all;
 /* HERO */
 #hero{
     min-height:100%;
+    width: 100%;
     background:black;
     display:flex;
     align-items:center;
