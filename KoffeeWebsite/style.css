@@ -809,7 +809,7 @@ color: var(--gray);
     display:flex;
     gap:1rem;
     width:max-content;
-    animation:marquee 40s linear infinite;
+    animation:marquee 25s linear infinite;
 }
 
 
