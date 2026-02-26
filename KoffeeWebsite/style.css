@@ -1119,10 +1119,14 @@ footer a{
 #contato{
     grid-template-columns:1fr;
 }
-
+ 
 #hero{
     position: relative;
     overflow: hidden;
+}
+
+.geral{
+    padding: 0;
 }
 
 #hero::after{
