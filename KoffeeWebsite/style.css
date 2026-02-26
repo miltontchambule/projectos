@@ -1,7 +1,6 @@
 @charset "UTF-8";
 /* ////////////////////SUPERGLOBAIS E VARS////////////////////////////////// */
   * {
-    
     margin:0;
     padding:0;
     box-sizing:border-box;   
@@ -31,12 +30,18 @@
     --border: #F0D6DC;
   }
 
-
   body{
     font-family:'Segoe UI',system-ui,sans-serif;
-    background:var(--cream);
+    background:var(--warm);
     color:var(--text);
     overflow-x:hidden;
+}
+
+.geral{
+    max-width: 1200px;
+    margin:0 auto;
+    padding:0 20px;
+   
 }
 
 
@@ -236,13 +241,14 @@ pointer-events: all;
 
 /* HERO */
 #hero{
-    min-height:100vh;
+    min-height:100%;
     background:black;
     display:flex;
     align-items:center;
     padding:5% 10%;
     position:relative;
     overflow:hidden;
+    margin-top: 1rem;
     
 }
 
@@ -638,6 +644,7 @@ h1 em{
  
 background-color: var(--black);
 color:var(--white);
+margin-bottom: 2em;
 }
 
 #location-cta:hover{
@@ -670,6 +677,7 @@ color:var(--white);
 
 /*/////// TESTIMONIALS ///////////////////////////////////////////////////////////////*/
 #reviews{
+    margin-top: -3rem;
     padding:8rem 0%;
     background:var(--black);
     overflow:hidden;
