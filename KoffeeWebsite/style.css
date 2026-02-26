@@ -1239,6 +1239,7 @@ animation: fadeUp 1s ease forwards;
     margin-top:2.5rem;   
  animation: fadeUp 1.6s ease forwards;
     justify-content:flex-start;
+    margin-bottom: 10%;
 }
 
 @keyframes fadeUp{
