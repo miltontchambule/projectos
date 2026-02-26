@@ -373,6 +373,7 @@ h1 em{
     position:relative;
     /* right:8%; */
     margin-top: 5%;
+    margin-bottom: 10%;
     display:flex;
     gap:2.5rem;
     z-index:2;
