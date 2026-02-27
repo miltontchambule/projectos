@@ -1,6 +1,6 @@
 
  
- ///////////////SOMBRA DO NAVBAR 40PX DO TOPO AO FAZER SCROLL////////////////////////////
+ //////////////////////////////SOMBRA DO NAVBAR 40px DO TOPO AO FAZER SCROLL//////////////////////////////////////
 
  window.addEventListener('scroll', function() {
     var nav = document.getElementById('navbar');
@@ -11,7 +11,7 @@
     }
   });
 
- ///////////////MENU HAMBUERGUER MOBILE////////////////////////////
+ /////////////////////////////////////////MENU HAMBUERGUER MOBILE/////////////////////////////////////////////////
   
  function toggleMenu() {
     var menu    = document.getElementById('mobileMenu');
@@ -33,24 +33,37 @@
 
 
 
- ///////////////EFEITO DAS ROSAS A CAIREM DO TOPO////////////////////////////
-  (function spawnPetals() {
-    var container = document.getElementById('petals');
-    var emojis    = ['🌸', '🌹', '🌷', '💮', '🪷'];
-    for (var i = 0; i < 18; i++) {
-      var p           = document.createElement('div');
-      p.className     = 'petal';
-      p.textContent   = emojis[Math.floor(Math.random() * emojis.length)];
-      p.style.left    = Math.random() * 100 + '%';
-      p.style.animationDuration  = (8 + Math.random() * 10) + 's';
-      p.style.animationDelay     = (-Math.random() * 12) + 's';
-      p.style.fontSize           = (0.9 + Math.random() * 1.2) + 'rem';
-      container.appendChild(p);
-    }
-  })();
+ //////////////////////////////////EFEITO DAS ROSAS A CAIREM DO TOPO//////////////////////////////////////////////
 
- ///////////////////////////////ANIMACAO DE RODAPE ////////////////////////////
-  (function buildMarquee() {
+
+ (function spawnPetals(){
+  var container = document.getElementById('petals');
+  var images = [
+                'media/rosa4-200.PNG',
+                'media/rosa5-200.PNG',
+                'media/rosa1-170.PNG',     
+                'media/rosa2-200.PNG', 
+                'media/rosa3-100.PNG' 
+  ];
+
+  for (var i=0; i < 18; i++) {
+    var img = document.createElement('img');
+    img.className = ('petal');
+    img.src = images[Math.floor(Math.random() * images.length)];
+    img.style.left = Math.random() * 100 + '%';
+    img.style.width = (32 + Math.random() * 32) + 'px';
+    img.style.height = img.style.width;
+    img.style.animationDuration = (8 + Math.random() * 10) + 's';
+    img.style.animationDelay = (-Math.random() * 12) + 's';
+    container.appendChild(img);
+  }
+ })();
+
+ 
+
+ ///////////////////////////////////////////ANIMACAO DE RODAPE ///////////////////////////////////////////////
+  
+ (function buildMarquee() {
     var items = [
       'Buquês Românticos', 'Bandejas Luxo', 'Decorações de Casamento',
       'Arranjos Personalizados', 'Entrega em Maputo', 'Flores Frescas Diárias',
@@ -66,15 +79,16 @@
     track.innerHTML = html;
   })();
 
-  /* ===== PRODUCT CAROUSEL ===== */
+  /* /////////////////////////////// CAROSSEL DE PRODUCTOS ///////////////////////////////////////////////////// */
+
   (function initCarousel() {
     var track      = document.getElementById('carouselTrack');
     var dotsWrap   = document.getElementById('carouselDots');
     var prevBtn    = document.getElementById('prevBtn');
     var nextBtn    = document.getElementById('nextBtn');
     var cards      = track.querySelectorAll('.produto-card');
-    var current    = 0;
-    var perView    = 2;
+    var current    = 1;
+    var perView    = 5;
 
     function getPerView() {
       if (window.innerWidth <= 480) return 1;
@@ -111,7 +125,7 @@
       perView        = getPerView();
       var maxIndex   = total() - 1;
       current        = Math.max(0, Math.min(n, maxIndex));
-      var cardWidth  = cards[0].offsetWidth + 24;
+      var cardWidth  = cards[0].offsetWidth + 0;
       track.style.transform = 'translateX(-' + (current * perView * cardWidth) + 'px)';
       updateDots();
     }
@@ -128,13 +142,16 @@
     buildDots();
 
     /* auto-play */
-    // setInterval(function() {
-    //   var next = (current + 1) >= total() ? 0 : current + 1;
-    //   goTo(next);
-    // }, 6000);
+    setInterval(function() {
+      var next = (current + 1) >= total() ? 0 : current + 1;
+      goTo(next);
+    }, 6000);
   })();
 
-  /* ===== GALLERY STRIP ===== */
+
+  
+  /* //////////////////////////////// CAROSSEL DE IMAGENS  ///////////////////////////////////////////////////// */
+
   (function buildGallery() {
     var track  = document.getElementById('galleryTrack');
     var emojis = ['🌹', '💐', '🌸', '🌷', '🪷', '💮', '🌺', '🌻'];
@@ -147,7 +164,8 @@
     track.innerHTML = html;
   })();
 
-  /* ===== REVIEW SLIDER ===== */
+  /* /////////////////////////////////////// SLIDES DOS REVIEWS //////////////////////////////////////////////// */
+
   (function initReviews() {
     var track   = document.getElementById('reviewTrack');
     var navWrap = document.getElementById('reviewNav');
@@ -186,7 +204,8 @@
     }, 5500);
   })();
 
-  /* ===== SCROLL REVEAL ===== */
+  /* ////////////////////////////////// ANIMACAO DE REVEALING DO SITE ////////////////////////////////////////// */
+
   (function initReveal() {
     var els = document.querySelectorAll('.reveal');
     var io  = new IntersectionObserver(function(entries) {

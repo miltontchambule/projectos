@@ -996,7 +996,8 @@ color: var(--gray);
     font-weight:600;
 }
 
-/* CONTACT / FOOTER */
+/* ///////////////////////////////////CONTACTOS E FOOTER ///////////////////////////////////////////*/
+
 #contato{
     background:black;
     padding:5rem 8%;
@@ -1090,6 +1091,9 @@ color: var(--gray);
     color:rgba(255,255,255,0.9);
 }
 
+
+/* ///////////////////////////////  FORMULARIO  //////////////////////////////////////////////////////// */
+
 .contact-right{
     padding-top:1rem;
 }
@@ -1102,13 +1106,10 @@ color: var(--gray);
 }
 
 
-.form-group{
-    margin-bottom:1rem;
-}
 
-
-.form-group label{
-    display:block;
+.label-form{
+    display:flex;
+    flex-direction: row;
     font-size:.8rem;
     font-weight:600;
     color:rgba(255,255,255,0.5);
@@ -1116,9 +1117,8 @@ color: var(--gray);
     letter-spacing:.3px;
 }
 
-
-.form-group input,.form-group textarea{
-    width:100%;
+.input-form{
+  width:100%;
     background:rgba(255,255,255,0.06);
     border:1px solid rgba(255,255,255,0.1);
     border-radius:10px;
@@ -1128,22 +1128,58 @@ color: var(--gray);
     font-family:inherit;
     transition:.2s;
     resize:none;
+
 }
 
+.form-textarea{
 
-.form-group input:focus,.form-group textarea:focus{
-    outline:none;
-    border-color:var(--gold);
-    background:rgba(200,145,58,0.08);
+    width:100%;
+    padding:1.75rem .60rem;
+    margin-top: 0.2rem;
+    
+    background:rgba(255,255,255,0.06);
+    color:#fff;
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:10px;
+
+    font-size:.9rem;
+    font-family:inherit;
+    transition:.2s;
+    resize: none;
 }
 
-
-.form-row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:1rem;
+.nav-cta-form{
+    margin-top: 5px;
+background: var(--black);
+color: var(--white);
+border: solid 1px var(--gray);
+padding: 0.55rem 0.9rem;
+border-radius: 10px;
+font-size: 0.76rem;
+font-weight: 700;
+cursor: pointer;
+transition: background 0.2s, transform 0.2s;
 }
 
+.nav-cta-form:hover {
+background: var(--gold);
+transform:scale(0.99);
+
+} 
+
+
+#estadoMessage{
+    color:var(--gray-light);
+    font-weight: bold;
+    margin-top: 10px;
+    transition: opacity 0.5s ease;
+}
+
+#estadoMessage.hide{
+    opacity:0;
+}
+
+/* ///////////////////////////////FOOTER////////////////////////////////////////////// */
 
 footer{
     background:black;
@@ -1187,6 +1223,7 @@ footer a{
 
 .geral{
     padding: 0;
+    text-decoration: none;
 }
 
 #hero::after{
