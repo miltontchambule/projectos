@@ -37,11 +37,7 @@ if (!nome || !mensagem) {
 
 ///////////////////////////////////////MENSAGEM QUE SERA ENVIADA PELO USER//////////////////////////////
 
-const texto = `*Novo Pedido - Koffee Shop*\n\n*Nome: 
-                                              ${nome}\n*Telefone:*
-                                              ${contacto || 'Nao informado'}\n*E-mail:* 
-                                              ${email || 'Nao informado'}\n*Pedido:*
-                                              ${mensagem}`;
+const texto = `*Novo Pedido - Koffee Shop*\n\n*Nome: ${nome}\n*Telefone:* ${contacto || 'Nao informado'}\n*E-mail:* ${email || 'Nao informado'}\n*Pedido:* ${mensagem}`;
 const url = `https://wa.me/258826972504?text=${encodeURIComponent(texto)}`;
 
 /////////////////////////////////////ABRIR NUMA NOVA ABA O WHATSAPP. USER FICA NO SITE/////////////////////////////

@@ -32,17 +32,19 @@
 
   body{
     font-family:'Segoe UI',system-ui,sans-serif;
-    background:var(--cream);
+    background:var(--brown);
     color:var(--text);
     overflow-x:hidden;
 }
 
 .geral{
-    max-width: 1440px;
+    max-width: 1240px;
     margin:0 auto;
+    background-color: var(--brown);
     padding:0 20px;
    
 }
+
 
 
 /*/////////////////////////////////////// NAV BAR////////////////////////////*/
