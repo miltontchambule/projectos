@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /* ////////////////////SUPERGLOBAIS E VARS////////////////////////////////// */
   * {
+    max-width:1440px;
     margin:0;
     padding:0;
     box-sizing:border-box;   
@@ -38,7 +39,7 @@
 }
 
 .geral{
-    max-width: 1240px;
+    max-width: 1440px;
     margin:0 auto;
     background-color: var(--brown);
     padding:0 20px;
@@ -49,7 +50,37 @@
 
 /*/////////////////////////////////////// NAV BAR////////////////////////////*/
 
+.botao-whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    
+    text-decoration: none;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    background: #4dda54;
+    
+ 
+    transition: transform 0.3s;
+}
+
+.botao-whatsapp:hover {
+    transform: scale(1.1);
+}
+
+
+
 nav {
+max-width: 1311px;
+margin: 0 auto;
 position: fixed;
 top: 0;
 left: 0;
@@ -57,13 +88,16 @@ right: 0;
 z-index: 200;
 height: 68px;
 padding: 0 6%;
+
 display: flex;
 align-items: center;
 justify-content: space-between;
+
 background-color: rgba(12, 11, 11, 0.89);
 backdrop-filter: blur(10px);
 -webkit-backdrop-filter: blur(10px);
 border-bottom: 1px solid rgba(12, 11, 11, 0.89);
+
 transition: box-shadow 0.3s;
 }
 
@@ -500,7 +534,49 @@ h1 em{
     color: #855d21;
 }
 
+/* ///////////////////////////////////////////// HORARIO DE RAMADAN SLIDES //////////////////////////// */
+
+.horario-especial {
+background-color: var(--gold);
+padding: 2.5rem 0;
+overflow: hidden;
+}
+
+.horario-track {
+display: flex;
+width: max-content;
+animation: horario 20s linear infinite;
+}
+
+.horario-item {
+margin-top: -2rem;
+justify-content: center;
+white-space: nowrap;
+font-size: 1.0rem;
+font-weight: 700;
+color: var(--white);
+padding:.7rem .5rem;
+letter-spacing: 0.5px;
+display: flex;
+align-items: center;
+gap: 1rem;
+}
+
+.horario-item::before {
+content: "";
+font-size: 0.9rem;
+}
+
+@keyframes horario {
+from { transform: translateX(0); }
+to   { transform: translateX(-100%); }
+}
+
+
+
 /* /////////////////////////////////CONTAINER DOS CARTOES COM OS PRODUTOS DO MENU////////////////////////// */
+
+
 .cards{
     display:grid;
     grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
@@ -682,17 +758,17 @@ margin-bottom: 2em;
 /*/////// TESTIMONIALS ///////////////////////////////////////////////////////////////*/
 #reviews{
     margin-top: -3rem;
-    padding:8rem 0%;
+    padding:6rem 0%;
     background: var(--black);
     overflow:hidden;
 }
 
 #reviews .section-title{
-    font-size:clamp(1.8rem,3.5vw,2.8rem);
+    font-size:50px;
     font-weight:900;
     color:var(--cream);
     letter-spacing:-1px;
-    margin-left: 1rem;
+    margin-left: 3rem;
 }
 
 #reviews .section-tag{
@@ -701,38 +777,19 @@ margin-bottom: 2em;
     color:var(--gold);
     letter-spacing:2px;
     text-transform:uppercase;
-    margin-left: 1rem;
+    margin-left:  3rem;
 
 }
-
-
-.review-avatar {
-width: 38px;
-height: 38px;
-border-radius: 50%;
-background: linear-gradient(135deg, var(--dark), var(--black));
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 1rem;
-color: var(--white);
-font-weight: 700;
-}
-
-.review-name {
-font-size: 0.88rem;
-font-weight: 20;
-color: var(--cream);
-}
-
 
 #reviews .section-sub{
-    color:var(--gray);
-    font-size:1rem;
-    max-width:460px;
-    line-height:1.6;
-    margin-left: 1rem;
+    color: var(--gray);
+    font-size: 1rem;
+    max-width: 460px;
+    line-height: 1.6;
+    margin-left: 3rem;
+
 }
+
 
 .marquee-wrap{
     margin-top:3rem;
@@ -745,14 +802,15 @@ color: var(--cream);
 
 
 .review-card {
-flex: 1;
+display: grid;
 background: linear-gradient(135deg, rgb(37, 36, 36), var(--black));
 -webkit-backdrop-filter: blur(22px);
 backdrop-filter: blur(22px);
+
 border: 1px solid rgba(255, 255, 255, 0.08);
 border-radius: 20px;
-padding: .9rem;
-transition: background 0.3s;
+padding: 1rem;
+
 }
 
 .review-card:hover {
@@ -760,6 +818,7 @@ background: rgba(192, 192, 192, 0.12);
 }
 
 .review-stars {
+text-align: left;
 color: var(--gold);
 font-size: 0.85rem;
 margin-bottom: 0.8rem;
@@ -767,11 +826,27 @@ letter-spacing: 2px;
 }
 
 .review-text {
+    
 color: rgba(255, 255, 255, 0.8);
 font-size: 0.92rem;
 line-height: 1.65;
 margin-bottom: 1.2rem;
 font-style: italic;
+}
+
+
+.review-avatar {
+width: 38px;
+height: 28px;
+border-radius: 1000px;
+background: var(--gold);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1rem;
+color: var(--white);
+font-weight: 700;
+
 }
 
 .review-author {
@@ -780,34 +855,15 @@ align-items: center;
 gap: 0.8rem;
 }
 
-.review-avatar {
-width: 38px;
-height: 38px;
-border-radius: 50%;
-background: var(--gold);
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 1rem;
-color: var(--white);
-font-weight: 700;
-}
-
 .review-name {
-font-size: 0.88rem;
+font-size:14px;
 font-weight: 700;
 color: var(--white);
 }
 
-.review-date {
-font-size: 0.75rem;
-color: var(--gray);
-}
 
 
-
-
-/* //////////////////////////SLIDES DOS REVIEWS//////////////////////////////////////////////// */
+/* ////////////////////////////////////// SLIDES DOS REVIEWS //////////////////////////////////////////////// */
 .marquee{
     display:flex;
     gap:1rem;
@@ -817,11 +873,18 @@ color: var(--gray);
 
 
 .marquee-rev{
+
     animation-direction:reverse;
 }
 
-@keyframes marquee{
-    from{transform:translateX(0)}to{transform:translateX(-50%);
+@keyframes marquee {
+
+    from{
+        transform:translateX(0)
+    }
+   
+    to {
+        transform:translateX(-50%);
     }
 }
 
@@ -907,17 +970,6 @@ color: var(--gray);
     line-height:1.4;
 }
 
-/* .event-tag{
-    position:absolute;
-    top:14px;
-    left:14px;
-    background-color: white;
-    color:black;
-    font-size:.7rem;
-    font-weight:700;
-    padding:.3rem .7rem;
-    border-radius:50px;
-} */
 
 .event-tag-more{
       position:absolute;
@@ -1226,6 +1278,17 @@ footer a{
 .geral{
     padding: 0;
     text-decoration: none;
+}
+
+#reviews .section-title{
+     margin-left: 1rem;
+     font-size: 30px;
+}
+#reviews .section-tag{
+     margin-left: 1rem;
+}
+#reviews .section-sub{
+    margin-left: 1rem;
 }
 
 #hero::after{

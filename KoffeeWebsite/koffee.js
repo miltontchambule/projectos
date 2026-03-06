@@ -19,6 +19,24 @@
     burger.classList.remove('active');
   }
 
+
+  /////////////////////////////////// RODAPE DE HORARIO ESPECIAL ///////////////////////////////////////////
+ (function rodape() {
+    let items = [ 'Alusivo ao Ramadan, De 18 de Fevereiro - 19 de Março, o Koffee do Alto Maé estará aberto, nas sextas: das 7h30 às 23h30 e nos sábados: das 8h30 às 23h00!', 'Alusivo ao Ramadan, De 18 de Fevereiro - 19 de Março, o Koffee do Alto Maé estará aberto, nas sextas: das 7h30 às 23h30 e nos sábados: das 8h30 às 23h00!'
+    ];
+    let track = document.getElementById('horarioTrack');
+    let html  = '';
+    for (let i = 0; i < 20; i++) {
+
+      items.forEach(function(item) {
+        html += '<span class="horario-item">' + item + '</span>';
+      });
+    }
+    track.innerHTML = html;
+  })();
+
+
+
   ////////////////////// FORMULARIO DE ENCOMENDAS ////////////////////////////
 
 function enviarPedido(){
@@ -37,7 +55,7 @@ if (!nome || !mensagem) {
 
 ///////////////////////////////////////MENSAGEM QUE SERA ENVIADA PELO USER//////////////////////////////
 
-const texto = `*Novo Pedido - Koffee Shop*\n\n*Nome: ${nome}\n*Telefone:* ${contacto || 'Nao informado'}\n*E-mail:* ${email || 'Nao informado'}\n*Pedido:* ${mensagem}`;
+const texto = `*Novo Pedido - Koffee Shop*\n\n*Nome:* ${nome}\n*Telefone:* ${contacto || 'Nao informado'}\n*E-mail:* ${email || 'Nao informado'}\n*Pedido:* ${mensagem}`;
 const url = `https://wa.me/258826972504?text=${encodeURIComponent(texto)}`;
 
 /////////////////////////////////////ABRIR NUMA NOVA ABA O WHATSAPP. USER FICA NO SITE/////////////////////////////
