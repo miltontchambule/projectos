@@ -534,11 +534,11 @@ h1 em{
     color: #855d21;
 }
 
-/* ///////////////////////////////////////////// HORARIO DE RAMADAN SLIDES //////////////////////////// */
+/* ///////////////////////////////////// HORARIO DE RAMADAN SLIDES //////////////////////////// */
 
 .horario-especial {
 background-color: var(--gold);
-padding: 2.5rem 0;
+padding: 1.9rem 0;
 overflow: hidden;
 }
 
@@ -549,16 +549,16 @@ animation: horario 20s linear infinite;
 }
 
 .horario-item {
-margin-top: -2rem;
-justify-content: center;
 white-space: nowrap;
-font-size: 1.0rem;
+margin-top: -2rem;
+justify-content: left;
+font-size: .7rem;
 font-weight: 700;
 color: var(--white);
 padding:.7rem .5rem;
 letter-spacing: 0.5px;
 display: flex;
-align-items: center;
+align-items: left;
 gap: 1rem;
 }
 
@@ -1279,6 +1279,8 @@ footer a{
     padding: 0;
     text-decoration: none;
 }
+
+
 
 #reviews .section-title{
      margin-left: 1rem;

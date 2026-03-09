@@ -22,11 +22,10 @@
 
   /////////////////////////////////// RODAPE DE HORARIO ESPECIAL ///////////////////////////////////////////
  (function rodape() {
-    let items = [ 'Alusivo ao Ramadan, De 18 de Fevereiro - 19 de Março, o Koffee do Alto Maé estará aberto, nas sextas: das 7h30 às 23h30 e nos sábados: das 8h30 às 23h00!'
-    ];
+    let items = [ 'Alusivo ao Ramadan, de 18 de Fevereiro - 19 de Março, o Koffee do Alto Maé estará aberto, nas sextas: das 7h30 às 23h30 e nos sábados: das 8h30 às 23h00!'];
     let track = document.getElementById('horarioTrack');
     let html  = '';
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 30; i++) {
 
       items.forEach(function(item) {
         html += '<span class="horario-item">' + item + '</span>';
