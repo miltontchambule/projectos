@@ -22,7 +22,7 @@
 
   /////////////////////////////////// RODAPE DE HORARIO ESPECIAL ///////////////////////////////////////////
  (function rodape() {
-    let items = [ 'Alusivo ao Ramadan, De 18 de Fevereiro - 19 de Março, o Koffee do Alto Maé estará aberto, nas sextas: das 7h30 às 23h30 e nos sábados: das 8h30 às 23h00!', 'Alusivo ao Ramadan, De 18 de Fevereiro - 19 de Março, o Koffee do Alto Maé estará aberto, nas sextas: das 7h30 às 23h30 e nos sábados: das 8h30 às 23h00!'
+    let items = [ 'Alusivo ao Ramadan, De 18 de Fevereiro - 19 de Março, o Koffee do Alto Maé estará aberto, nas sextas: das 7h30 às 23h30 e nos sábados: das 8h30 às 23h00!'
     ];
     let track = document.getElementById('horarioTrack');
     let html  = '';
