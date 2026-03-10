@@ -57,15 +57,10 @@ if (!nome || !mensagem) {
 const texto = `*Novo Pedido - Koffee Shop*\n\n*Nome:* ${nome}\n*Telefone:* ${contacto || 'Nao informado'}\n*E-mail:* ${email || 'Nao informado'}\n*Pedido:* ${mensagem}`;
 const url = `https://wa.me/258826972504?text=${encodeURIComponent(texto)}`;
 
-/////////////////////////////////////ABRIR NUMA NOVA ABA O WHATSAPP. USER FICA NO SITE/////////////////////////////
 
 window.open(url, '_blank');
 
-///////////////////////////////// RESETA O FORMULARIO ////////////////////////////////
-
 document.getElementById('pedidoForm').reset();
-
-////////////////////////////////// MENSAGEM DE SUCESSO ///////////////////////////////////////
 
 estado.classList.remove('hide');
 estado.textContent = 'Pedido enviado com sucesso, entraremos em contacto em breve. Obrigado!';
