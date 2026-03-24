@@ -649,7 +649,8 @@ z-index:0;
     .linha-1, .linha-2 { flex-direction: column; }
 
     .caixa{
-  margin:2em 2em 0 2em;
+  margin:0 auto;
+  padding: 0;
 
 }
 
@@ -662,23 +663,28 @@ z-index:0;
   display:grid;
   grid: 1fr;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
+ 
   
 }
 .habilidades-titulo{
   margin:auto;
+  background: linear-gradient(240deg, rgba(133, 123, 98, 0.356), rgba(107, 124, 107, 0.377));
   font-family: var(--fonte-display);
   font-weight: lighter;
-  padding:30px 30px;
+  padding:24px 24px;
   font-size: 16px;
   grid-column: 1;
   margin-bottom:2em;
+  color:var(--preto-suave);
+    
   
 }
 
 .habilidades-titulo p{
    text-align: left;
-   color:var(--creme);
+   color:var(--preto-suave);
+ 
 }
 
  #skills{
@@ -697,9 +703,10 @@ z-index:0;
   backdrop-filter: (12px);
   z-index: 999;
 font-size: 13.7px;
-flex-grow: 1 0 2px;
+flex-grow: 1 0 500px;
  transition: background 0.7s ease;
  cursor:pointer;
+ 
 }
 #skills .span-container:hover{
   background-color:var(--verde-sage);
