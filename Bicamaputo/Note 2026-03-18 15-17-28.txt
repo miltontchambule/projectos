@@ -1,0 +1,2216 @@
+Bica Maputo
+
+<!DOCTYPE html>
+
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bica Maputo — Café & Comunidade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================
+       VARIÁVEIS E RESET
+    ============================================ */
+    :root {
+      --creme:        #F5F0E8;
+      --creme-escuro: #EDE5D5;
+      --verde:        #7A9E7E;
+      --verde-claro:  #A8C5A0;
+      --verde-escuro: #4E7A52;
+      --castanho:     #6B4C35;
+      --castanho-claro: #A07850;
+      --texto:        #2C2015;
+      --texto-suave:  #7A6A55;
+      --branco:       #FDFAF5;
+      --sombra:       rgba(107, 76, 53, 0.08);
+      --sombra-media: rgba(107, 76, 53, 0.15);
+      --transicao:    cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--creme);
+      color: var(--texto);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ============================================
+       SCROLLBAR
+    ============================================ */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--creme); }
+    ::-webkit-scrollbar-thumb { background: var(--verde-claro); border-radius: 3px; }
+
+    /* ============================================
+       NAVEGAÇÃO
+    ============================================ */
+    #navegacao {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1.2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s var(--transicao), box-shadow 0.4s var(--transicao);
+    }
+
+    #navegacao.rolado {
+      background: rgba(245, 240, 232, 0.92);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 2px 24px var(--sombra-media);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--castanho);
+    }
+
+    .nav-logo span {
+      color: var(--verde-escuro);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--texto-suave);
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--verde);
+      transition: width 0.35s var(--transicao);
+    }
+
+    .nav-links a:hover { color: var(--verde-escuro); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-botao-reserva {
+      background: var(--verde-escuro);
+      color: var(--branco) !important;
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px;
+      font-size: 0.8rem !important;
+      letter-spacing: 0.12em;
+      transition: background 0.3s, transform 0.2s !important;
+    }
+
+    .nav-botao-reserva::after { display: none !important; }
+    .nav-botao-reserva:hover {
+      background: var(--verde) !important;
+      transform: translateY(-1px);
+      color: var(--branco) !important;
+    }
+
+    /* Menu Hambúrguer */
+    #botao-menu {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 1100;
+      background: none;
+      border: none;
+    }
+
+    .linha-menu {
+      width: 26px;
+      height: 2px;
+      background: var(--castanho);
+      border-radius: 2px;
+      transition: transform 0.4s var(--transicao), opacity 0.3s, width 0.3s;
+      transform-origin: center;
+    }
+
+    #botao-menu.ativo .linha-menu:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    #botao-menu.ativo .linha-menu:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    #botao-menu.ativo .linha-menu:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Menu mobile */
+    #menu-mobile {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: min(320px, 85vw);
+      height: 100vh;
+      background: var(--branco);
+      z-index: 1050;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem 2.5rem;
+      transition: right 0.5s var(--transicao);
+      box-shadow: -8px 0 40px var(--sombra-media);
+    }
+
+    #menu-mobile.aberto { right: 0; }
+
+    #overlay-menu {
+      position: fixed;
+      inset: 0;
+      background: rgba(44, 32, 21, 0.5);
+      z-index: 1040;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s;
+      backdrop-filter: blur(4px);
+    }
+
+    #overlay-menu.visivel {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .menu-mobile-links {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .menu-mobile-links a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--castanho);
+      letter-spacing: 0.02em;
+      transition: color 0.3s, transform 0.3s;
+      transform: translateX(20px);
+      opacity: 0;
+    }
+
+    #menu-mobile.aberto .menu-mobile-links a {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    #menu-mobile.aberto .menu-mobile-links a:nth-child(1) { transition-delay: 0.1s; }
+    #menu-mobile.aberto .menu-mobile-links a:nth-child(2) { transition-delay: 0.15s; }
+    #menu-mobile.aberto .menu-mobile-links a:nth-child(3) { transition-delay: 0.2s; }
+    #menu-mobile.aberto .menu-mobile-links a:nth-child(4) { transition-delay: 0.25s; }
+    #menu-mobile.aberto .menu-mobile-links a:nth-child(5) { transition-delay: 0.3s; }
+
+    .menu-mobile-links a:hover { color: var(--verde-escuro); transform: translateX(8px); }
+
+    .menu-mobile-rodape {
+      margin-top: 3rem;
+      font-size: 0.8rem;
+      color: var(--texto-suave);
+      letter-spacing: 0.08em;
+    }
+
+    /* ============================================
+       HERO
+    ============================================ */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-esquerda {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 4rem 4rem 5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-etiqueta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--verde-escuro);
+      font-weight: 500;
+      margin-bottom: 1.8rem;
+      opacity: 0;
+      animation: surgir-baixo 0.8s var(--transicao) 0.2s forwards;
+    }
+
+    .hero-etiqueta::before {
+      content: '';
+      width: 32px;
+      height: 1.5px;
+      background: var(--verde);
+    }
+
+    .hero-titulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 5vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.08;
+      color: var(--castanho);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: surgir-baixo 0.9s var(--transicao) 0.35s forwards;
+    }
+
+    .hero-titulo em {
+      font-style: italic;
+      color: var(--verde-escuro);
+      display: block;
+    }
+
+    .hero-subtitulo {
+      font-size: 1rem;
+      color: var(--texto-suave);
+      max-width: 400px;
+      margin-bottom: 2.5rem;
+      line-height: 1.75;
+      font-weight: 300;
+      opacity: 0;
+      animation: surgir-baixo 0.9s var(--transicao) 0.5s forwards;
+    }
+
+    .hero-botoes {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: surgir-baixo 0.9s var(--transicao) 0.65s forwards;
+    }
+
+    .botao-primario {
+      background: var(--verde-escuro);
+      color: var(--branco);
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 20px rgba(78, 122, 82, 0.3);
+    }
+
+    .botao-primario:hover {
+      background: var(--verde);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(78, 122, 82, 0.4);
+    }
+
+    .botao-secundario {
+      border: 1.5px solid var(--castanho-claro);
+      color: var(--castanho);
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      transition: background 0.3s, color 0.3s, transform 0.3s;
+    }
+
+    .botao-secundario:hover {
+      background: var(--castanho);
+      color: var(--branco);
+      transform: translateY(-3px);
+    }
+
+    .hero-direita {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-imagem-container {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(160deg, rgba(122, 158, 126, 0.15) 0%, transparent 60%),
+        linear-gradient(to bottom, var(--creme) 0%, transparent 20%);
+      z-index: 2;
+    }
+
+    /* SVG Ilustração Café Hero */
+    .hero-svg {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .hero-decoracao {
+      position: absolute;
+      bottom: 3rem;
+      left: 5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      z-index: 3;
+      opacity: 0;
+      animation: surgir-baixo 0.9s var(--transicao) 0.9s forwards;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat-numero {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--castanho);
+      line-height: 1;
+    }
+
+    .hero-stat-texto {
+      font-size: 0.7rem;
+      color: var(--texto-suave);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .hero-stat-divisor {
+      width: 1px;
+      height: 40px;
+      background: var(--creme-escuro);
+    }
+
+    /* Ondas decorativas */
+    .onda-hero {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      line-height: 0;
+    }
+
+    /* Círculo flutuante */
+    .circulo-flutuante {
+      position: absolute;
+      border-radius: 50%;
+      animation: flutuar 6s ease-in-out infinite;
+    }
+
+    .circulo-flutuante-1 {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(168, 197, 160, 0.25) 0%, transparent 70%);
+      top: 10%;
+      right: 5%;
+      animation-delay: 0s;
+    }
+
+    .circulo-flutuante-2 {
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(160, 120, 80, 0.12) 0%, transparent 70%);
+      bottom: 20%;
+      right: 30%;
+      animation-delay: -3s;
+    }
+
+    /* ============================================
+       SOBRE
+    ============================================ */
+    #sobre {
+      padding: 8rem 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #sobre::before {
+      content: 'BICA';
+      position: absolute;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18rem;
+      font-weight: 700;
+      color: rgba(122, 158, 126, 0.05);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      white-space: nowrap;
+      letter-spacing: -0.05em;
+    }
+
+    .sobre-visual {
+      position: relative;
+    }
+
+    .sobre-imagem-principal {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: linear-gradient(135deg, var(--verde-claro) 0%, var(--verde-escuro) 100%);
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 20px 60px var(--sombra-media);
+    }
+
+    .sobre-svg-cafe {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+    }
+
+    .sobre-badge {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      width: 120px;
+      height: 120px;
+      background: var(--creme);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 30px var(--sombra-media);
+      animation: flutuar 5s ease-in-out infinite;
+    }
+
+    .sobre-badge-numero {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--castanho);
+      line-height: 1;
+    }
+
+    .sobre-badge-texto {
+      font-size: 0.65rem;
+      color: var(--texto-suave);
+      text-align: center;
+      letter-spacing: 0.08em;
+    }
+
+    .sobre-conteudo { position: relative; z-index: 1; }
+
+    .secao-etiqueta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--verde-escuro);
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+    }
+
+    .secao-etiqueta::before {
+      content: '';
+      width: 24px;
+      height: 1.5px;
+      background: var(--verde);
+    }
+
+    .secao-titulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--castanho);
+      margin-bottom: 1.5rem;
+    }
+
+    .secao-titulo em {
+      font-style: italic;
+      color: var(--verde-escuro);
+    }
+
+    .sobre-texto {
+      color: var(--texto-suave);
+      font-weight: 300;
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .sobre-caracteristicas {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .caracteristica {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      padding: 1rem;
+      background: var(--branco);
+      border-radius: 12px;
+      box-shadow: 0 2px 12px var(--sombra);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .caracteristica:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px var(--sombra-media);
+    }
+
+    .caracteristica-icone {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--verde-claro), var(--verde-escuro));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+
+    .caracteristica-texto {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--texto);
+      line-height: 1.4;
+    }
+
+    .caracteristica-desc {
+      font-size: 0.72rem;
+      color: var(--texto-suave);
+      margin-top: 0.2rem;
+      font-weight: 300;
+    }
+
+    /* ============================================
+       MENU / CARDÁPIO
+    ============================================ */
+    #cardapio {
+      background: var(--branco);
+      padding: 8rem 5rem;
+    }
+
+    .cardapio-cabecalho {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .cardapio-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: 1.5px solid var(--creme-escuro);
+      color: var(--texto-suave);
+      background: transparent;
+      transition: all 0.3s;
+    }
+
+    .tab.ativo, .tab:hover {
+      background: var(--verde-escuro);
+      border-color: var(--verde-escuro);
+      color: var(--branco);
+    }
+
+    .cardapio-grelha {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .item-cardapio {
+      background: var(--creme);
+      border-radius: 16px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid rgba(160, 120, 80, 0.1);
+    }
+
+    .item-cardapio:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px var(--sombra-media);
+    }
+
+    .item-emoji {
+      font-size: 2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .item-nome {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--castanho);
+    }
+
+    .item-descricao {
+      font-size: 0.82rem;
+      color: var(--texto-suave);
+      font-weight: 300;
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .item-preco {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--verde-escuro);
+      margin-top: 0.5rem;
+    }
+
+    /* ============================================
+       EVENTOS
+    ============================================ */
+    #eventos {
+      padding: 8rem 5rem;
+      background: linear-gradient(180deg, var(--creme) 0%, var(--creme-escuro) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .eventos-cabecalho {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .eventos-grelha {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .evento-destaque {
+      background: var(--verde-escuro);
+      border-radius: 20px;
+      padding: 2.5rem;
+      color: var(--branco);
+      position: relative;
+      overflow: hidden;
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .evento-destaque::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .evento-destaque::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      left: -40px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(168, 197, 160, 0.2) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .evento-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.9);
+      padding: 0.35rem 0.9rem;
+      border-radius: 50px;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: auto;
+    }
+
+    .evento-destaque .evento-data {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      opacity: 0.7;
+      margin-bottom: 0.5rem;
+      font-style: italic;
+    }
+
+    .evento-destaque .evento-titulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .evento-destaque .evento-descricao {
+      font-size: 0.88rem;
+      opacity: 0.75;
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .evento-destaque .botao-evento {
+      background: var(--branco);
+      color: var(--verde-escuro);
+      padding: 0.7rem 1.6rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      display: inline-block;
+      transition: transform 0.3s, box-shadow 0.3s;
+      width: fit-content;
+    }
+
+    .evento-destaque .botao-evento:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .eventos-lista {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .evento-card {
+      background: var(--branco);
+      border-radius: 16px;
+      padding: 1.5rem;
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid rgba(160, 120, 80, 0.08);
+    }
+
+    .evento-card:hover {
+      transform: translateX(6px);
+      box-shadow: 0 8px 30px var(--sombra-media);
+    }
+
+    .evento-card-data {
+      background: var(--creme-escuro);
+      border-radius: 10px;
+      padding: 0.6rem 0.8rem;
+      text-align: center;
+      flex-shrink: 0;
+      min-width: 52px;
+    }
+
+    .evento-card-dia {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--castanho);
+      line-height: 1;
+    }
+
+    .evento-card-mes {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--texto-suave);
+    }
+
+    .evento-card-info { flex: 1; }
+
+    .evento-card-titulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--castanho);
+      margin-bottom: 0.3rem;
+    }
+
+    .evento-card-desc {
+      font-size: 0.78rem;
+      color: var(--texto-suave);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    .evento-card-badge {
+      font-size: 0.65rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 50px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+    }
+
+    .badge-desporto { background: #E8F4EA; color: var(--verde-escuro); }
+    .badge-cultura  { background: #F4EEE8; color: var(--castanho); }
+    .badge-musica   { background: #EAE8F4; color: #5E52A0; }
+
+    /* ============================================
+       MARATONA / CTA ESPECIAL
+    ============================================ */
+    #maratona {
+      background: var(--castanho);
+      padding: 7rem 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #maratona::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse at 0% 0%, rgba(122, 158, 126, 0.2) 0%, transparent 60%),
+        radial-gradient(ellipse at 100% 100%, rgba(160, 120, 80, 0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .maratona-texto { position: relative; z-index: 1; }
+
+    .maratona-texto .secao-etiqueta { color: var(--verde-claro); }
+    .maratona-texto .secao-etiqueta::before { background: var(--verde-claro); }
+
+    .maratona-titulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 4vw, 3.8rem);
+      font-weight: 300;
+      color: var(--branco);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    .maratona-titulo em { font-style: italic; color: var(--verde-claro); }
+
+    .maratona-descricao {
+      color: rgba(255,255,255,0.6);
+      font-weight: 300;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      font-size: 0.95rem;
+    }
+
+    .maratona-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .maratona-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: var(--verde-claro);
+      line-height: 1;
+      display: block;
+    }
+
+    .maratona-stat-desc {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .maratona-botao {
+      background: var(--verde-claro);
+      color: var(--castanho);
+      padding: 1rem 2.2rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      display: inline-block;
+      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 20px rgba(168, 197, 160, 0.3);
+    }
+
+    .maratona-botao:hover {
+      background: var(--branco);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .maratona-visual {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .corredor-svg-container {
+      width: 100%;
+      max-width: 480px;
+      animation: flutuar 7s ease-in-out infinite;
+    }
+
+    /* ============================================
+       GALERIA
+    ============================================ */
+    #galeria {
+      padding: 8rem 5rem;
+      background: var(--branco);
+    }
+
+    .galeria-cabecalho {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .galeria-grelha {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(2, 260px);
+      gap: 1rem;
+    }
+
+    .galeria-item {
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .galeria-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(44,32,21,0.5) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .galeria-item:hover::after { opacity: 1; }
+
+    .galeria-item:nth-child(1) { grid-column: 1 / 6; }
+    .galeria-item:nth-child(2) { grid-column: 6 / 9; }
+    .galeria-item:nth-child(3) { grid-column: 9 / 13; }
+    .galeria-item:nth-child(4) { grid-column: 1 / 4; }
+    .galeria-item:nth-child(5) { grid-column: 4 / 9; }
+    .galeria-item:nth-child(6) { grid-column: 9 / 13; }
+
+    .galeria-svg {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s var(--transicao);
+    }
+
+    .galeria-item:hover .galeria-svg { transform: scale(1.05); }
+
+    /* ============================================
+       LOCALIZAÇÃO
+    ============================================ */
+    #localizacao {
+      padding: 8rem 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      background: var(--creme);
+    }
+
+    .localizacao-info { }
+
+    .localizacao-mapa {
+      background: var(--creme-escuro);
+      border-radius: 20px;
+      overflow: hidden;
+      height: 400px;
+      position: relative;
+      box-shadow: 0 20px 60px var(--sombra-media);
+    }
+
+    .mapa-svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .localizacao-item {
+      display: flex;
+      gap: 1.2rem;
+      margin-bottom: 1.8rem;
+      align-items: flex-start;
+    }
+
+    .localizacao-icone {
+      width: 44px;
+      height: 44px;
+      background: var(--branco);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      box-shadow: 0 4px 14px var(--sombra);
+    }
+
+    .localizacao-texto-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--verde-escuro);
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+
+    .localizacao-texto-valor {
+      font-size: 0.95rem;
+      color: var(--texto);
+      font-weight: 400;
+    }
+
+    /* ============================================
+       NEWSLETTER
+    ============================================ */
+    #newsletter {
+      background: linear-gradient(135deg, var(--verde-escuro) 0%, #3A6840 100%);
+      padding: 6rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #newsletter::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .newsletter-conteudo { position: relative; z-index: 1; max-width: 540px; margin: 0 auto; }
+
+    .newsletter-titulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      font-weight: 300;
+      color: var(--branco);
+      margin-bottom: 1rem;
+    }
+
+    .newsletter-subtitulo {
+      color: rgba(255,255,255,0.65);
+      font-weight: 300;
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 0.8rem;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: 0.9rem 1.4rem;
+      border-radius: 50px;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.1);
+      color: var(--branco);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.3s, background 0.3s;
+    }
+
+    .newsletter-input::placeholder { color: rgba(255,255,255,0.45); }
+    .newsletter-input:focus {
+      border-color: var(--verde-claro);
+      background: rgba(255,255,255,0.15);
+    }
+
+    .newsletter-submit {
+      padding: 0.9rem 1.6rem;
+      background: var(--branco);
+      color: var(--verde-escuro);
+      border: none;
+      border-radius: 50px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      white-space: nowrap;
+      letter-spacing: 0.06em;
+    }
+
+    .newsletter-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    /* ============================================
+       RODAPÉ
+    ============================================ */
+    #rodape {
+      background: var(--texto);
+      padding: 5rem 5rem 2rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .rodape-grelha {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .rodape-marca {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--branco);
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .rodape-marca span { color: var(--verde-claro); }
+
+    .rodape-descricao {
+      font-size: 0.82rem;
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .rodape-social {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .social-link {
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      transition: background 0.3s, transform 0.3s, color 0.3s;
+    }
+
+    .social-link:hover {
+      background: var(--verde);
+      color: var(--branco);
+      transform: translateY(-3px);
+    }
+
+    .rodape-coluna-titulo {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    .rodape-links { display: flex; flex-direction: column; gap: 0.8rem; }
+
+    .rodape-links a {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.45);
+      transition: color 0.3s, transform 0.3s;
+      display: inline-block;
+      font-weight: 300;
+    }
+
+    .rodape-links a:hover {
+      color: var(--verde-claro);
+      transform: translateX(4px);
+    }
+
+    .rodape-base {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.25);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* ============================================
+       ANIMAÇÕES
+    ============================================ */
+    @keyframes surgir-baixo {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes surgir-esquerda {
+      from { opacity: 0; transform: translateX(-30px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes flutuar {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-18px); }
+    }
+
+    @keyframes rodar-lento {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    @keyframes pulsar {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50%       { transform: scale(1.05); opacity: 0.85; }
+    }
+
+    .revelar {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s var(--transicao), transform 0.7s var(--transicao);
+    }
+
+    .revelar.visivel {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================
+       RESPONSIVE
+    ============================================ */
+    @media (max-width: 1024px) {
+      #hero, #sobre, #localizacao, #maratona {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-direita { height: 50vw; min-height: 350px; }
+      #hero { min-height: auto; }
+      .hero-esquerda { padding: 9rem 2.5rem 3rem; }
+
+      .eventos-grelha { grid-template-columns: 1fr; }
+
+      .galeria-grelha {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 220px);
+      }
+      .galeria-item:nth-child(1) { grid-column: 1 / 2; }
+      .galeria-item:nth-child(2) { grid-column: 2 / 3; }
+      .galeria-item:nth-child(3) { grid-column: 1 / 2; }
+      .galeria-item:nth-child(4) { grid-column: 2 / 3; }
+      .galeria-item:nth-child(5) { grid-column: 1 / 2; }
+      .galeria-item:nth-child(6) { grid-column: 2 / 3; }
+
+      .rodape-grelha { grid-template-columns: 1fr 1fr; }
+      #sobre { padding: 5rem 2.5rem; }
+      #cardapio, #eventos, #galeria, #localizacao, #newsletter { padding: 5rem 2.5rem; }
+      #maratona { padding: 5rem 2.5rem; }
+      #rodape { padding: 4rem 2.5rem 2rem; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      #botao-menu { display: flex; }
+      #navegacao { padding: 1rem 1.5rem; }
+
+      .hero-esquerda { padding: 8rem 1.5rem 3rem; }
+      .hero-decoracao { left: 1.5rem; }
+
+      .sobre-caracteristicas { grid-template-columns: 1fr; }
+      .maratona-stats { gap: 1.5rem; }
+      .newsletter-form { flex-direction: column; }
+
+      .galeria-grelha {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 200px);
+      }
+      .galeria-item:nth-child(n) { grid-column: 1 / 2; }
+
+      .rodape-grelha { grid-template-columns: 1fr; }
+      #cardapio, #eventos, #galeria, #localizacao, #newsletter { padding: 4rem 1.5rem; }
+      #maratona { padding: 4rem 1.5rem; gap: 3rem; }
+      #sobre { padding: 4rem 1.5rem; }
+      #rodape { padding: 3rem 1.5rem 1.5rem; }
+    }
+  </style>
+
+</head>
+<body>
+
+  <!-- ==================== NAVEGAÇÃO ==================== -->
+
+  <nav id="navegacao">
+    <div class="nav-logo">Bica <span>Maputo</span></div>
+
+```
+<ul class="nav-links">
+  <li><a href="#sobre">Sobre</a></li>
+  <li><a href="#cardapio">Cardápio</a></li>
+  <li><a href="#eventos">Eventos</a></li>
+  <li><a href="#galeria">Galeria</a></li>
+  <li><a href="#localizacao">Contacto</a></li>
+  <li><a href="#newsletter" class="nav-botao-reserva">Reservar</a></li>
+</ul>
+
+<button id="botao-menu" aria-label="Abrir menu">
+  <span class="linha-menu"></span>
+  <span class="linha-menu"></span>
+  <span class="linha-menu"></span>
+</button>
+```
+
+  </nav>
+
+  <!-- Menu Mobile -->
+
+  <div id="overlay-menu"></div>
+  <aside id="menu-mobile">
+    <ul class="menu-mobile-links">
+      <li><a href="#sobre" class="link-menu-mobile">Sobre</a></li>
+      <li><a href="#cardapio" class="link-menu-mobile">Cardápio</a></li>
+      <li><a href="#eventos" class="link-menu-mobile">Eventos</a></li>
+      <li><a href="#maratona" class="link-menu-mobile">Maratona</a></li>
+      <li><a href="#localizacao" class="link-menu-mobile">Contacto</a></li>
+    </ul>
+    <p class="menu-mobile-rodape">Av. Eduardo Mondlane · Maputo</p>
+  </aside>
+
+  <!-- ==================== HERO ==================== -->
+
+  <section id="hero">
+    <div class="hero-esquerda">
+      <span class="hero-etiqueta">Café & Comunidade · Maputo</span>
+      <h1 class="hero-titulo">
+        Onde cada<br>sorvo conta<br>
+        <em>uma história</em>
+      </h1>
+      <p class="hero-subtitulo">
+        No coração da Av. Eduardo Mondlane, o Bica Maputo é mais que um café — é um espaço vivo de cultura, conexão e movimento.
+      </p>
+      <div class="hero-botoes">
+        <a href="#cardapio" class="botao-primario">Ver Cardápio</a>
+        <a href="#eventos" class="botao-secundario">Próximos Eventos</a>
+      </div>
+    </div>
+
+```
+<div class="hero-direita">
+  <!-- SVG Café Ilustração -->
+  <svg class="hero-svg" viewBox="0 0 600 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="600" height="700" fill="#EDE5D5"/>
+    <!-- Fundo botanical -->
+    <ellipse cx="500" cy="100" rx="180" ry="180" fill="rgba(122,158,126,0.12)"/>
+    <ellipse cx="80"  cy="550" rx="140" ry="140" fill="rgba(160,120,80,0.08)"/>
+    <!-- Mesa -->
+    <ellipse cx="300" cy="500" rx="200" ry="30" fill="rgba(107,76,53,0.15)"/>
+    <rect x="160" y="420" width="280" height="18" rx="9" fill="#A07850"/>
+    <rect x="200" y="438" width="16" height="80" rx="8" fill="#8B6640"/>
+    <rect x="384" y="438" width="16" height="80" rx="8" fill="#8B6640"/>
+    <!-- Xícara grande -->
+    <ellipse cx="300" cy="350" rx="80" ry="20" fill="rgba(107,76,53,0.2)"/>
+    <path d="M220 330 Q220 420 300 420 Q380 420 380 330 Z" fill="#F5F0E8" stroke="#D4B896" stroke-width="2"/>
+    <ellipse cx="300" cy="330" rx="80" ry="20" fill="white"/>
+    <ellipse cx="300" cy="330" rx="65" ry="15" fill="rgba(107,76,53,0.08)"/>
+    <!-- Café na xícara -->
+    <ellipse cx="300" cy="330" rx="60" ry="13" fill="#6B4C35" opacity="0.9"/>
+    <ellipse cx="290" cy="326" rx="15" ry="5" fill="rgba(255,255,255,0.15)" transform="rotate(-20 290 326)"/>
+    <!-- Pires -->
+    <ellipse cx="300" cy="425" rx="100" ry="16" fill="#E8DECA" stroke="#D4B896" stroke-width="1.5"/>
+    <!-- Asa da xícara -->
+    <path d="M378 350 Q420 350 420 380 Q420 410 378 410" stroke="#D4B896" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <!-- Vapor -->
+    <path d="M270 310 Q265 290 275 270 Q285 250 280 230" stroke="rgba(107,76,53,0.3)" stroke-width="3" fill="none" stroke-linecap="round">
+      <animate attributeName="d" values="M270 310 Q265 290 275 270 Q285 250 280 230;M270 310 Q275 290 265 270 Q255 250 260 230;M270 310 Q265 290 275 270 Q285 250 280 230" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M300 300 Q295 278 305 258 Q315 238 310 218" stroke="rgba(107,76,53,0.25)" stroke-width="3" fill="none" stroke-linecap="round">
+      <animate attributeName="d" values="M300 300 Q295 278 305 258 Q315 238 310 218;M300 300 Q305 278 295 258 Q285 238 290 218;M300 300 Q295 278 305 258 Q315 238 310 218" dur="3.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.25;0.5;0.25" dur="3.5s" repeatCount="indefinite"/>
+    </path>
+    <path d="M330 310 Q325 290 335 270 Q345 250 340 230" stroke="rgba(107,76,53,0.2)" stroke-width="3" fill="none" stroke-linecap="round">
+      <animate attributeName="d" values="M330 310 Q325 290 335 270 Q345 250 340 230;M330 310 Q335 290 325 270 Q315 250 320 230;M330 310 Q325 290 335 270 Q345 250 340 230" dur="2.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.2;0.45;0.2" dur="2.8s" repeatCount="indefinite"/>
+    </path>
+    <!-- Folhas decorativas -->
+    <ellipse cx="160" cy="360" rx="35" ry="12" fill="#7A9E7E" opacity="0.7" transform="rotate(-30 160 360)"/>
+    <ellipse cx="145" cy="375" rx="25" ry="8" fill="#4E7A52" opacity="0.6" transform="rotate(-40 145 375)"/>
+    <ellipse cx="440" cy="370" rx="40" ry="13" fill="#7A9E7E" opacity="0.6" transform="rotate(25 440 370)"/>
+    <ellipse cx="455" cy="388" rx="28" ry="9" fill="#4E7A52" opacity="0.5" transform="rotate(35 455 388)"/>
+    <!-- Grãos de café -->
+    <ellipse cx="200" cy="460" rx="10" ry="6" fill="#6B4C35" opacity="0.4" transform="rotate(-20 200 460)"/>
+    <ellipse cx="395" cy="455" rx="8"  ry="5" fill="#6B4C35" opacity="0.35" transform="rotate(15 395 455)"/>
+    <ellipse cx="230" cy="470" rx="7"  ry="4" fill="#6B4C35" opacity="0.3" transform="rotate(30 230 470)"/>
+    <!-- Texto decorativo -->
+    <text x="300" y="160" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="42" fill="rgba(107,76,53,0.08)" font-style="italic">since 2019</text>
+    <!-- Padrão de pontos -->
+    <circle cx="80"  cy="200" r="3" fill="rgba(122,158,126,0.3)"/>
+    <circle cx="100" cy="220" r="2" fill="rgba(122,158,126,0.2)"/>
+    <circle cx="60"  cy="230" r="2" fill="rgba(122,158,126,0.25)"/>
+    <circle cx="500" cy="580" r="4" fill="rgba(160,120,80,0.2)"/>
+    <circle cx="520" cy="560" r="2" fill="rgba(160,120,80,0.15)"/>
+    <circle cx="480" cy="600" r="3" fill="rgba(160,120,80,0.18)"/>
+  </svg>
+  <div class="hero-imagem-container"></div>
+  <div class="circulo-flutuante circulo-flutuante-1"></div>
+  <div class="circulo-flutuante circulo-flutuante-2"></div>
+</div>
+
+<div class="hero-decoracao">
+  <div class="hero-stat">
+    <div class="hero-stat-numero">5+</div>
+    <div class="hero-stat-texto">Anos</div>
+  </div>
+  <div class="hero-stat-divisor"></div>
+  <div class="hero-stat">
+    <div class="hero-stat-numero">120+</div>
+    <div class="hero-stat-texto">Eventos</div>
+  </div>
+  <div class="hero-stat-divisor"></div>
+  <div class="hero-stat">
+    <div class="hero-stat-numero">4.9★</div>
+    <div class="hero-stat-texto">Avaliação</div>
+  </div>
+</div>
+```
+
+  </section>
+
+  <!-- ==================== SOBRE ==================== -->
+
+  <section id="sobre">
+    <div class="sobre-visual revelar">
+      <div class="sobre-imagem-principal">
+        <svg class="sobre-svg-cafe" viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="500" fill="url(#gradVerde)"/>
+          <defs>
+            <linearGradient id="gradVerde" x1="0" y1="0" x2="400" y2="500" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#A8C5A0"/>
+              <stop offset="100%" stop-color="#4E7A52"/>
+            </linearGradient>
+          </defs>
+          <!-- Interior café -->
+          <rect x="40" y="60"  width="320" height="380" rx="20" fill="rgba(255,255,255,0.1)"/>
+          <!-- Janela -->
+          <rect x="80" y="90"  width="100" height="80" rx="8" fill="rgba(255,255,255,0.2)"/>
+          <rect x="130" y="90" width="2" height="80" fill="rgba(255,255,255,0.3)"/>
+          <rect x="80"  cy="130" width="100" height="2" fill="rgba(255,255,255,0.3)"/>
+          <line x1="130" y1="90" x2="130" y2="170" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+          <line x1="80"  y1="130" x2="180" y2="130" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+          <!-- Prateleira -->
+          <rect x="60"  y="200" width="280" height="6" rx="3" fill="rgba(255,255,255,0.4)"/>
+          <!-- Jarras na prateleira -->
+          <rect x="80"  y="175" width="20" height="28" rx="4" fill="rgba(255,255,255,0.5)"/>
+          <rect x="110" y="180" width="16" height="22" rx="3" fill="rgba(255,255,255,0.4)"/>
+          <rect x="136" y="172" width="22" height="30" rx="5" fill="rgba(255,255,255,0.45)"/>
+          <rect x="300" y="177" width="18" height="24" rx="4" fill="rgba(255,255,255,0.4)"/>
+          <!-- Mesa e cadeiras -->
+          <rect x="100" y="310" width="200" height="12" rx="6" fill="rgba(255,255,255,0.5)"/>
+          <rect x="120" y="322" width="10" height="50" rx="5" fill="rgba(255,255,255,0.35)"/>
+          <rect x="270" y="322" width="10" height="50" rx="5" fill="rgba(255,255,255,0.35)"/>
+          <!-- Xícara na mesa -->
+          <ellipse cx="200" cy="305" rx="22" ry="6" fill="rgba(255,255,255,0.3)"/>
+          <path d="M178 295 Q178 305 200 305 Q222 305 222 295 Z" fill="rgba(255,255,255,0.4)"/>
+          <!-- Planta decorativa -->
+          <rect x="330" y="260" width="10" height="110" rx="5" fill="rgba(255,255,255,0.3)"/>
+          <ellipse cx="335" cy="255" rx="30" ry="30" fill="rgba(168,197,160,0.6)"/>
+          <ellipse cx="318" cy="240" rx="20" ry="20" fill="rgba(168,197,160,0.5)"/>
+          <ellipse cx="352" cy="242" rx="18" ry="18" fill="rgba(168,197,160,0.4)"/>
+          <!-- Luz/Atmosfera -->
+          <ellipse cx="200" cy="250" rx="150" ry="100" fill="rgba(255,255,255,0.05)"/>
+          <text x="200" y="420" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="18" fill="rgba(255,255,255,0.6)" font-style="italic">ambiente único</text>
+        </svg>
+      </div>
+      <div class="sobre-badge">
+        <span class="sobre-badge-numero">5★</span>
+        <span class="sobre-badge-texto">Qualidade<br>Premium</span>
+      </div>
+    </div>
+
+```
+<div class="sobre-conteudo revelar">
+  <span class="secao-etiqueta">A Nossa História</span>
+  <h2 class="secao-titulo">
+    Um café com<br><em>alma moçambicana</em>
+  </h2>
+  <p class="sobre-texto">
+    Fundado em 2019 na vibrante Avenida Eduardo Mondlane, o Bica Maputo nasceu da paixão por um café excepcional e por uma comunidade unida. Cada espaço foi pensado para inspirar conversas, ideias e conexões genuínas.
+  </p>
+  <p class="sobre-texto">
+    Aqui, o café de origem local encontra o design moderno, e os eventos comunitários transformam cada visita numa experiência memorável.
+  </p>
+
+  <div class="sobre-caracteristicas">
+    <div class="caracteristica">
+      <div class="caracteristica-icone">☕</div>
+      <div>
+        <div class="caracteristica-texto">Café de Origem Local</div>
+        <div class="caracteristica-desc">Grãos selecionados de Moçambique</div>
+      </div>
+    </div>
+    <div class="caracteristica">
+      <div class="caracteristica-icone">🌱</div>
+      <div>
+        <div class="caracteristica-texto">100% Sustentável</div>
+        <div class="caracteristica-desc">Práticas eco-responsáveis</div>
+      </div>
+    </div>
+    <div class="caracteristica">
+      <div class="caracteristica-icone">🤝</div>
+      <div>
+        <div class="caracteristica-texto">Comunidade Activa</div>
+        <div class="caracteristica-desc">Eventos e encontros regulares</div>
+      </div>
+    </div>
+    <div class="caracteristica">
+      <div class="caracteristica-icone">🏃</div>
+      <div>
+        <div class="caracteristica-texto">Clube de Corrida</div>
+        <div class="caracteristica-desc">Maratonas e treinos semanais</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+  </section>
+
+  <!-- ==================== CARDÁPIO ==================== -->
+
+  <section id="cardapio">
+    <div class="cardapio-cabecalho revelar">
+      <span class="secao-etiqueta">O Nosso Menu</span>
+      <h2 class="secao-titulo">Sabores que <em>ficam na memória</em></h2>
+      <div class="cardapio-tabs">
+        <button class="tab ativo" data-categoria="cafes">Cafés</button>
+        <button class="tab" data-categoria="comidas">Comidas</button>
+        <button class="tab" data-categoria="bebidas">Bebidas</button>
+      </div>
+    </div>
+
+```
+<div id="grelha-cardapio" class="cardapio-grelha">
+  <!-- Items preenchidos via JS -->
+</div>
+```
+
+  </section>
+
+  <!-- ==================== EVENTOS ==================== -->
+
+  <section id="eventos">
+    <div class="eventos-cabecalho revelar">
+      <div>
+        <span class="secao-etiqueta">Agenda</span>
+        <h2 class="secao-titulo">Próximos <em>Eventos</em></h2>
+      </div>
+      <a href="#newsletter" class="botao-secundario">Ver todos →</a>
+    </div>
+
+```
+<div class="eventos-grelha revelar">
+  <div class="evento-destaque">
+    <span class="evento-tag">🏃 Destaque do Mês</span>
+    <div>
+      <p class="evento-data">Domingo, 23 de Março 2026</p>
+      <h3 class="evento-titulo">Maratona Bica Maputo — 5ª Edição</h3>
+      <p class="evento-descricao">
+        A maior corrida comunitária da cidade. 5km, 10km e 21km pelos bairros históricos de Maputo. Inclui pequeno-almoço no café para todos os participantes.
+      </p>
+      <a href="#newsletter" class="botao-evento">Inscrever-me agora</a>
+    </div>
+  </div>
+
+  <div class="eventos-lista">
+    <div class="evento-card revelar">
+      <div class="evento-card-data">
+        <div class="evento-card-dia">15</div>
+        <div class="evento-card-mes">Mar</div>
+      </div>
+      <div class="evento-card-info">
+        <span class="evento-card-badge badge-musica">Música</span>
+        <div class="evento-card-titulo">Jazz ao Pôr do Sol</div>
+        <div class="evento-card-desc">Trio de jazz ao vivo na esplanada. Das 17h às 20h.</div>
+      </div>
+    </div>
+
+    <div class="evento-card revelar">
+      <div class="evento-card-data">
+        <div class="evento-card-dia">19</div>
+        <div class="evento-card-mes">Mar</div>
+      </div>
+      <div class="evento-card-info">
+        <span class="evento-card-badge badge-desporto">Desporto</span>
+        <div class="evento-card-titulo">Treino Semanal — 10km</div>
+        <div class="evento-card-desc">Saída às 6h da manhã. Todos os níveis. Café gratuito.</div>
+      </div>
+    </div>
+
+    <div class="evento-card revelar">
+      <div class="evento-card-data">
+        <div class="evento-card-dia">28</div>
+        <div class="evento-card-mes">Mar</div>
+      </div>
+      <div class="evento-card-info">
+        <span class="evento-card-badge badge-cultura">Cultura</span>
+        <div class="evento-card-titulo">Exposição: Arte Urbana Maputo</div>
+        <div class="evento-card-desc">Artistas locais apresentam obras inspiradas na cidade.</div>
+      </div>
+    </div>
+
+    <div class="evento-card revelar">
+      <div class="evento-card-data">
+        <div class="evento-card-dia">05</div>
+        <div class="evento-card-mes">Abr</div>
+      </div>
+      <div class="evento-card-info">
+        <span class="evento-card-badge badge-desporto">Desporto</span>
+        <div class="evento-card-titulo">Workshop: Nutrição para Corredores</div>
+        <div class="evento-card-desc">Com nutricionista convidada. Inscrição antecipada.</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+  </section>
+
+  <!-- ==================== MARATONA CTA ==================== -->
+
+  <section id="maratona">
+    <div class="maratona-texto revelar">
+      <span class="secao-etiqueta">Clube de Corrida</span>
+      <h2 class="maratona-titulo">
+        Corre com<br>a <em>comunidade</em><br>Bica Maputo
+      </h2>
+      <p class="maratona-descricao">
+        O nosso clube de corrida reúne pessoas de todos os níveis. Treinos semanais ao amanhecer, com café quente à chegada e uma comunidade que te vai fazer querer correr ainda mais.
+      </p>
+      <div class="maratona-stats">
+        <div>
+          <span class="maratona-stat-num">350+</span>
+          <span class="maratona-stat-desc">Membros activos</span>
+        </div>
+        <div>
+          <span class="maratona-stat-num">52</span>
+          <span class="maratona-stat-desc">Treinos por ano</span>
+        </div>
+        <div>
+          <span class="maratona-stat-num">5ª</span>
+          <span class="maratona-stat-desc">Edição maratona</span>
+        </div>
+      </div>
+      <a href="#newsletter" class="maratona-botao">Juntar-me ao clube</a>
+    </div>
+
+```
+<div class="maratona-visual revelar">
+  <svg class="corredor-svg-container" viewBox="0 0 480 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Fundo circular -->
+    <circle cx="240" cy="210" r="200" fill="rgba(168,197,160,0.08)"/>
+    <circle cx="240" cy="210" r="170" stroke="rgba(168,197,160,0.12)" stroke-width="1" stroke-dasharray="8 4"/>
+    <!-- Sol nascente -->
+    <ellipse cx="240" cy="320" rx="220" ry="30" fill="rgba(160,120,80,0.1)"/>
+    <circle cx="80" cy="100" r="45" fill="rgba(160,120,80,0.2)"/>
+    <line x1="80" y1="42" x2="80" y2="30" stroke="rgba(160,120,80,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <line x1="80" y1="158" x2="80" y2="170" stroke="rgba(160,120,80,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <line x1="22" y1="100" x2="10" y2="100" stroke="rgba(160,120,80,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <line x1="138" y1="100" x2="150" y2="100" stroke="rgba(160,120,80,0.3)" stroke-width="3" stroke-linecap="round"/>
+    <!-- Silhueta corredor 1 (à frente) -->
+    <g transform="translate(200, 80)">
+      <!-- Cabeça -->
+      <circle cx="80" cy="40" r="22" fill="rgba(255,255,255,0.5)"/>
+      <!-- Corpo -->
+      <path d="M80 62 L80 140" stroke="rgba(255,255,255,0.5)" stroke-width="10" stroke-linecap="round"/>
+      <!-- Braço esquerdo (levantado) -->
+      <path d="M80 90 L40 60" stroke="rgba(255,255,255,0.5)" stroke-width="8" stroke-linecap="round"/>
+      <!-- Braço direito (baixo) -->
+      <path d="M80 90 L120 115" stroke="rgba(255,255,255,0.5)" stroke-width="8" stroke-linecap="round"/>
+      <!-- Perna esquerda (frente) -->
+      <path d="M80 140 L50 200 L35 250" stroke="rgba(255,255,255,0.5)" stroke-width="9" stroke-linecap="round"/>
+      <!-- Perna direita (trás) -->
+      <path d="M80 140 L110 195 L140 240" stroke="rgba(255,255,255,0.45)" stroke-width="9" stroke-linecap="round"/>
+      <!-- Tênis -->
+      <ellipse cx="30" cy="252" rx="18" ry="7" fill="rgba(168,197,160,0.7)"/>
+      <ellipse cx="143" cy="242" rx="18" ry="7" fill="rgba(168,197,160,0.7)"/>
+    </g>
+    <!-- Silhueta corredor 2 (atrás, menor) -->
+    <g transform="translate(100, 140) scale(0.75)">
+      <circle cx="80" cy="40" r="22" fill="rgba(255,255,255,0.3)"/>
+      <path d="M80 62 L80 140" stroke="rgba(255,255,255,0.3)" stroke-width="10" stroke-linecap="round"/>
+      <path d="M80 90 L45 70" stroke="rgba(255,255,255,0.3)" stroke-width="8" stroke-linecap="round"/>
+      <path d="M80 90 L115 110" stroke="rgba(255,255,255,0.3)" stroke-width="8" stroke-linecap="round"/>
+      <path d="M80 140 L55 195 L40 240" stroke="rgba(255,255,255,0.3)" stroke-width="9" stroke-linecap="round"/>
+      <path d="M80 140 L105 190 L130 235" stroke="rgba(255,255,255,0.25)" stroke-width="9" stroke-linecap="round"/>
+    </g>
+    <!-- Linha de chegada -->
+    <rect x="350" y="90" width="4" height="220" rx="2" fill="rgba(168,197,160,0.4)"/>
+    <rect x="354" y="90" width="40" height="20" rx="2" fill="rgba(168,197,160,0.3)"/>
+    <text x="358" y="105" font-family="DM Sans, sans-serif" font-size="11" fill="rgba(168,197,160,0.8)" font-weight="500">META</text>
+    <!-- Estrelas / partículas -->
+    <circle cx="420" cy="60"  r="3" fill="rgba(255,255,255,0.4)"><animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite"/></circle>
+    <circle cx="50"  cy="350" r="2" fill="rgba(168,197,160,0.5)"><animate attributeName="r" values="2;4;2" dur="2.5s" repeatCount="indefinite"/></circle>
+    <circle cx="440" cy="300" r="2" fill="rgba(255,255,255,0.3)"><animate attributeName="r" values="2;4;2" dur="3s" repeatCount="indefinite"/></circle>
+    <!-- Texto motivacional -->
+    <text x="240" y="390" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="20" fill="rgba(255,255,255,0.4)" font-style="italic">juntos chegamos mais longe</text>
+  </svg>
+</div>
+```
+
+  </section>
+
+  <!-- ==================== GALERIA ==================== -->
+
+  <section id="galeria">
+    <div class="galeria-cabecalho revelar">
+      <span class="secao-etiqueta">Momentos</span>
+      <h2 class="secao-titulo">O nosso <em>espaço</em></h2>
+    </div>
+
+```
+<div class="galeria-grelha revelar">
+  <!-- Item 1 -->
+  <div class="galeria-item">
+    <svg class="galeria-svg" viewBox="0 0 500 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="500" height="280" fill="#C8B89A"/>
+      <rect x="0" y="0" width="500" height="280" fill="url(#g1)"/>
+      <defs><linearGradient id="g1" x1="0" y1="0" x2="500" y2="280"><stop stop-color="#D4C4A8"/><stop offset="1" stop-color="#A07850"/></linearGradient></defs>
+      <ellipse cx="250" cy="160" rx="180" ry="50" fill="rgba(255,255,255,0.05)"/>
+      <rect x="80" y="60" width="340" height="160" rx="12" fill="rgba(255,255,255,0.08)"/>
+      <text x="250" y="155" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="32" fill="rgba(255,255,255,0.5)" font-style="italic">Interior</text>
+      <text x="250" y="182" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" fill="rgba(255,255,255,0.35)" letter-spacing="3">BICA MAPUTO</text>
+    </svg>
+  </div>
+  <!-- Item 2 -->
+  <div class="galeria-item">
+    <svg class="galeria-svg" viewBox="0 0 300 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="300" height="280" fill="url(#g2)"/>
+      <defs><linearGradient id="g2" x1="0" y1="0" x2="300" y2="280"><stop stop-color="#7A9E7E"/><stop offset="1" stop-color="#4E7A52"/></linearGradient></defs>
+      <circle cx="150" cy="130" r="60" fill="rgba(255,255,255,0.1)"/>
+      <circle cx="150" cy="130" r="45" fill="rgba(255,255,255,0.12)"/>
+      <text x="150" y="125" text-anchor="middle" font-size="36" fill="rgba(255,255,255,0.7)">☕</text>
+      <text x="150" y="170" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="20" fill="rgba(255,255,255,0.6)" font-style="italic">Café</text>
+    </svg>
+  </div>
+  <!-- Item 3 -->
+  <div class="galeria-item">
+    <svg class="galeria-svg" viewBox="0 0 400 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="280" fill="url(#g3)"/>
+      <defs><linearGradient id="g3" x1="0" y1="0" x2="400" y2="280"><stop stop-color="#6B4C35"/><stop offset="1" stop-color="#2C2015"/></linearGradient></defs>
+      <text x="200" y="150" text-anchor="middle" font-size="48" fill="rgba(255,255,255,0.3)">🏃</text>
+      <text x="200" y="195" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="22" fill="rgba(255,255,255,0.5)" font-style="italic">Maratona</text>
+    </svg>
+  </div>
+  <!-- Item 4 -->
+  <div class="galeria-item">
+    <svg class="galeria-svg" viewBox="0 0 300 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="300" height="280" fill="url(#g4)"/>
+      <defs><linearGradient id="g4" x1="0" y1="280" x2="300" y2="0"><stop stop-color="#A8C5A0"/><stop offset="1" stop-color="#7A9E7E"/></linearGradient></defs>
+      <text x="150" y="150" text-anchor="middle" font-size="42" fill="rgba(255,255,255,0.4)">🌱</text>
+      <text x="150" y="192" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="19" fill="rgba(255,255,255,0.55)" font-style="italic">Sustentável</text>
+    </svg>
+  </div>
+  <!-- Item 5 -->
+  <div class="galeria-item">
+    <svg class="galeria-svg" viewBox="0 0 500 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="500" height="280" fill="url(#g5)"/>
+      <defs><linearGradient id="g5" x1="0" y1="0" x2="500" y2="0"><stop stop-color="#C8A87A"/><stop offset="1" stop-color="#A07850"/></linearGradient></defs>
+      <text x="250" y="140" text-anchor="middle" font-size="44" fill="rgba(255,255,255,0.35)">🎵</text>
+      <text x="250" y="185" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="24" fill="rgba(255,255,255,0.5)" font-style="italic">Jazz ao Vivo</text>
+    </svg>
+  </div>
+  <!-- Item 6 -->
+  <div class="galeria-item">
+    <svg class="galeria-svg" viewBox="0 0 400 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="280" fill="url(#g6)"/>
+      <defs><linearGradient id="g6" x1="0" y1="0" x2="400" y2="280"><stop stop-color="#4E7A52"/><stop offset="1" stop-color="#2C2015"/></linearGradient></defs>
+      <text x="200" y="140" text-anchor="middle" font-size="42" fill="rgba(255,255,255,0.35)">🤝</text>
+      <text x="200" y="185" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="22" fill="rgba(255,255,255,0.5)" font-style="italic">Comunidade</text>
+    </svg>
+  </div>
+</div>
+```
+
+  </section>
+
+  <!-- ==================== LOCALIZAÇÃO ==================== -->
+
+  <section id="localizacao">
+    <div class="localizacao-info revelar">
+      <span class="secao-etiqueta">Encontra-nos</span>
+      <h2 class="secao-titulo">Visita-nos em <em>Maputo</em></h2>
+
+```
+  <div class="localizacao-item">
+    <div class="localizacao-icone">📍</div>
+    <div>
+      <div class="localizacao-texto-label">Endereço</div>
+      <div class="localizacao-texto-valor">Av. Eduardo Mondlane, 1247<br>Maputo, Moçambique</div>
+    </div>
+  </div>
+
+  <div class="localizacao-item">
+    <div class="localizacao-icone">⏰</div>
+    <div>
+      <div class="localizacao-texto-label">Horário</div>
+      <div class="localizacao-texto-valor">Seg – Sex: 06h00 – 21h00<br>Sáb – Dom: 07h00 – 22h00</div>
+    </div>
+  </div>
+
+  <div class="localizacao-item">
+    <div class="localizacao-icone">📞</div>
+    <div>
+      <div class="localizacao-texto-label">Telefone / WhatsApp</div>
+      <div class="localizacao-texto-valor">+258 84 000 0000</div>
+    </div>
+  </div>
+
+  <div class="localizacao-item">
+    <div class="localizacao-icone">📧</div>
+    <div>
+      <div class="localizacao-texto-label">Email</div>
+      <div class="localizacao-texto-valor">ola@bicamaputo.co.mz</div>
+    </div>
+  </div>
+
+  <a href="https://maps.google.com" target="_blank" class="botao-primario" style="display:inline-block; margin-top: 1rem;">
+    Ver no Google Maps →
+  </a>
+</div>
+
+<div class="localizacao-mapa revelar">
+  <svg class="mapa-svg" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Fundo mapa -->
+    <rect width="500" height="400" fill="#E8E0D0"/>
+    <!-- Ruas principais -->
+    <rect x="0"   y="180" width="500" height="18" rx="2" fill="#D4C8B4"/>
+    <rect x="0"   y="100" width="500" height="12" rx="2" fill="#DDD5C5"/>
+    <rect x="0"   y="280" width="500" height="10" rx="2" fill="#DDD5C5"/>
+    <rect x="220" y="0"   width="18"  height="400" rx="2" fill="#D4C8B4"/>
+    <rect x="120" y="0"   width="12"  height="400" rx="2" fill="#DDD5C5"/>
+    <rect x="360" y="0"   width="10"  height="400" rx="2" fill="#DDD5C5"/>
+    <!-- Quarteirões / edifícios -->
+    <rect x="20"  y="20"  width="90" height="70"  rx="6" fill="#D0C4B0" opacity="0.8"/>
+    <rect x="130" y="20"  width="80" height="70"  rx="6" fill="#C8BCA8" opacity="0.8"/>
+    <rect x="240" y="20"  width="110" height="70" rx="6" fill="#D0C4B0" opacity="0.8"/>
+    <rect x="20"  y="115" width="90" height="55"  rx="6" fill="#C8BCA8" opacity="0.8"/>
+    <rect x="130" y="115" width="80" height="55"  rx="6" fill="#D0C4B0" opacity="0.8"/>
+    <rect x="20"  y="208" width="90" height="60"  rx="6" fill="#D0C4B0" opacity="0.8"/>
+    <rect x="130" y="208" width="80" height="60"  rx="6" fill="#C8BCA8" opacity="0.8"/>
+    <rect x="240" y="208" width="110" height="60" rx="6" fill="#D0C4B0" opacity="0.8"/>
+    <rect x="370" y="208" width="110" height="60" rx="6" fill="#C8BCA8" opacity="0.8"/>
+    <rect x="20"  y="298" width="90" height="90"  rx="6" fill="#C8BCA8" opacity="0.8"/>
+    <rect x="130" y="298" width="80" height="90"  rx="6" fill="#D0C4B0" opacity="0.8"/>
+    <rect x="240" y="298" width="110" height="90" rx="6" fill="#C8BCA8" opacity="0.8"/>
+    <rect x="370" y="298" width="110" height="90" rx="6" fill="#D0C4B0" opacity="0.8"/>
+    <!-- Zona verde (parque) -->
+    <rect x="370" y="20" width="110" height="150" rx="8" fill="#A8C5A0" opacity="0.4"/>
+    <text x="425" y="100" text-anchor="middle" font-size="10" fill="#4E7A52" opacity="0.7" font-family="DM Sans, sans-serif">Parque</text>
+    <!-- Label Av. Eduardo Mondlane -->
+    <text x="250" y="176" text-anchor="middle" font-size="10" fill="#8B7A60" font-family="DM Sans, sans-serif" letter-spacing="1" font-weight="500">Av. Eduardo Mondlane</text>
+    <!-- Pin Bica Maputo -->
+    <g transform="translate(195, 145)">
+      <circle cx="0" cy="0" r="24" fill="rgba(78,122,82,0.2)">
+        <animate attributeName="r" values="24;32;24" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.3;0;0.3" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="0" cy="0" r="16" fill="var(--verde-escuro)" opacity="0.95"/>
+      <text x="0" y="5" text-anchor="middle" font-size="14" fill="white">☕</text>
+      <rect x="-32" y="-52" width="64" height="24" rx="12" fill="white" filter="drop-shadow(0 2px 6px rgba(0,0,0,0.15))"/>
+      <text x="0" y="-35" text-anchor="middle" font-size="9" fill="#4E7A52" font-family="DM Sans, sans-serif" font-weight="600">BICA MAPUTO</text>
+      <!-- Seta do balão -->
+      <path d="M-6 -28 L0 -18 L6 -28 Z" fill="white"/>
+    </g>
+  </svg>
+</div>
+```
+
+  </section>
+
+  <!-- ==================== NEWSLETTER ==================== -->
+
+  <section id="newsletter">
+    <div class="newsletter-conteudo revelar">
+      <span class="secao-etiqueta" style="color: rgba(255,255,255,0.6); justify-content: center;">
+        Mantém-te ligado
+      </span>
+      <h2 class="newsletter-titulo">Recebe novidades<br>e eventos em primeira mão</h2>
+      <p class="newsletter-subtitulo">Subscreve e fica a saber de tudo o que acontece no Bica Maputo antes de qualquer pessoa.</p>
+      <form class="newsletter-form" onsubmit="submeterNewsletter(event)">
+        <input type="email" class="newsletter-input" placeholder="O teu email" required />
+        <button type="submit" class="newsletter-submit">Subscrever</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ==================== RODAPÉ ==================== -->
+
+  <footer id="rodape">
+    <div class="rodape-grelha">
+      <div>
+        <div class="rodape-marca">Bica <span>Maputo</span></div>
+        <p class="rodape-descricao">
+          Café, comunidade e movimento no coração de Maputo. Desde 2019, a unir pessoas à volta de um bom café e de grandes eventos.
+        </p>
+        <div class="rodape-social">
+          <a href="#" class="social-link" aria-label="Instagram">📸</a>
+          <a href="#" class="social-link" aria-label="Facebook">👤</a>
+          <a href="#" class="social-link" aria-label="WhatsApp">💬</a>
+          <a href="#" class="social-link" aria-label="TikTok">🎵</a>
+        </div>
+      </div>
+
+```
+  <div>
+    <div class="rodape-coluna-titulo">Explorar</div>
+    <ul class="rodape-links">
+      <li><a href="#sobre">A Nossa História</a></li>
+      <li><a href="#cardapio">Cardápio</a></li>
+      <li><a href="#eventos">Eventos</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+    </ul>
+  </div>
+
+  <div>
+    <div class="rodape-coluna-titulo">Comunidade</div>
+    <ul class="rodape-links">
+      <li><a href="#maratona">Clube de Corrida</a></li>
+      <li><a href="#eventos">Maratona Bica</a></li>
+      <li><a href="#newsletter">Newsletter</a></li>
+      <li><a href="#eventos">Parceiros</a></li>
+    </ul>
+  </div>
+
+  <div>
+    <div class="rodape-coluna-titulo">Contacto</div>
+    <ul class="rodape-links">
+      <li><a href="#">Av. Eduardo Mondlane</a></li>
+      <li><a href="#">+258 84 000 0000</a></li>
+      <li><a href="#">ola@bicamaputo.co.mz</a></li>
+      <li><a href="#">Reservas Online</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="rodape-base">
+  <span>© 2026 Bica Maputo. Todos os direitos reservados.</span>
+  <span>Feito com ☕ em Maputo, Moçambique</span>
+</div>
+```
+
+  </footer>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+
+  <script>
+    /* ===== DADOS DO CARDÁPIO ===== */
+    const dadosCardapio = {
+      cafes: [
+        { emoji: '☕', nome: 'Bica Tradicional',   descricao: 'Espresso intenso de grãos moçambicanos torrados na perfeição.',                   preco: '50 MT' },
+        { emoji: '🥛', nome: 'Flat White',          descricao: 'Espresso duplo com leite vaporizado sedoso. Equilíbrio perfeito.',                  preco: '75 MT' },
+        { emoji: '🧊', nome: 'Cold Brew',           descricao: '18 horas de infusão a frio. Suave, encorpado e sem acidez.',                        preco: '90 MT' },
+        { emoji: '🌿', nome: 'Matcha Latte',        descricao: 'Chá verde japonês com leite de aveia cremoso.',                                     preco: '85 MT' },
+        { emoji: '✨', nome: 'Bica Especial',       descricao: 'O nosso blend exclusivo com notas de chocolate e frutos vermelhos.',                 preco: '65 MT' },
+        { emoji: '🍦', nome: 'Affogato',            descricao: 'Gelado artesanal de baunilha coberto com espresso quente.',                         preco: '110 MT' },
+      ],
+      comidas: [
+        { emoji: '🥐', nome: 'Croissant de Manteiga', descricao: 'Folhado francês com manteiga local. Quente e crocante.',                          preco: '45 MT' },
+        { emoji: '🥑', nome: 'Tosta de Abacate',      descricao: 'Pão artesanal com guacamole, ovo escalfado e sementes.',                          preco: '120 MT' },
+        { emoji: '🍳', nome: 'Pequeno-Almoço Bica',   descricao: 'Ovos mexidos, tosta, fruta da época e sumo natural.',                            preco: '180 MT' },
+        { emoji: '🍰', nome: 'Bolo de Mel',           descricao: 'Receita da avó com mel de abelha local e nozes torradas.',                       preco: '75 MT' },
+        { emoji: '🥗', nome: 'Bowl Verde',            descricao: 'Quinoa, legumes grelhados, hummus e molho tahini.',                               preco: '150 MT' },
+        { emoji: '🫙', nome: 'Overnight Oats',        descricao: 'Aveia com leite de coco, manga e granola caseira.',                               preco: '95 MT' },
+      ],
+      bebidas: [
+        { emoji: '🍊', nome: 'Sumo Natural',         descricao: 'Laranja, manga ou maracujá. Espremido na hora.',                                   preco: '60 MT' },
+        { emoji: '🍵', nome: 'Chá Ervas Locais',     descricao: 'Mistura de ervas moçambicanas colhidas localmente.',                               preco: '40 MT' },
+        { emoji: '🥤', nome: 'Smoothie Tropical',    descricao: 'Banana, manga, ananás e leite de coco. 100% natural.',                            preco: '95 MT' },
+        { emoji: '🫧', nome: 'Água com Gás Cítrica', descricao: 'Água mineral com limão, hortelã e bolhas naturais.',                               preco: '35 MT' },
+        { emoji: '🍫', nome: 'Chocolate Quente',     descricao: 'Cacau de origem com leite integral vaporizado.',                                   preco: '70 MT' },
+        { emoji: '🌸', nome: 'Chá de Hibisco',       descricao: 'Flor de hibisco local com gengibre e mel. Gelado ou quente.',                      preco: '50 MT' },
+      ]
+    };
+
+    /* ===== RENDERIZAR CARDÁPIO ===== */
+    function renderizarCardapio(categoria) {
+      const grelha = document.getElementById('grelha-cardapio');
+      const items  = dadosCardapio[categoria];
+
+      grelha.style.opacity = '0';
+      grelha.style.transform = 'translateY(12px)';
+
+      setTimeout(() => {
+        grelha.innerHTML = items.map(item => `
+          <div class="item-cardapio">
+            <div class="item-emoji">${item.emoji}</div>
+            <div class="item-nome">${item.nome}</div>
+            <div class="item-descricao">${item.descricao}</div>
+            <div class="item-preco">${item.preco}</div>
+          </div>
+        `).join('');
+        grelha.style.transition = 'opacity 0.4s, transform 0.4s';
+        grelha.style.opacity    = '1';
+        grelha.style.transform  = 'translateY(0)';
+      }, 200);
+    }
+
+    /* ===== TABS ===== */
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('ativo'));
+        this.classList.add('ativo');
+        renderizarCardapio(this.dataset.categoria);
+      });
+    });
+
+    renderizarCardapio('cafes');
+
+    /* ===== MENU HAMBÚRGUER ===== */
+    const botaoMenu  = document.getElementById('botao-menu');
+    const menuMobile = document.getElementById('menu-mobile');
+    const overlay    = document.getElementById('overlay-menu');
+
+    function abrirMenu() {
+      botaoMenu.classList.add('ativo');
+      menuMobile.classList.add('aberto');
+      overlay.classList.add('visivel');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function fecharMenu() {
+      botaoMenu.classList.remove('ativo');
+      menuMobile.classList.remove('aberto');
+      overlay.classList.remove('visivel');
+      document.body.style.overflow = '';
+    }
+
+    botaoMenu.addEventListener('click', () => {
+      menuMobile.classList.contains('aberto') ? fecharMenu() : abrirMenu();
+    });
+
+    overlay.addEventListener('click', fecharMenu);
+
+    document.querySelectorAll('.link-menu-mobile').forEach(link => {
+      link.addEventListener('click', fecharMenu);
+    });
+
+    /* ===== SCROLL: NAVBAR ===== */
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navegacao');
+      if (window.scrollY > 60) {
+        nav.classList.add('rolado');
+      } else {
+        nav.classList.remove('rolado');
+      }
+    });
+
+    /* ===== REVEAL ON SCROLL ===== */
+    const observador = new IntersectionObserver((entradas) => {
+      entradas.forEach((entrada, indice) => {
+        if (entrada.isIntersecting) {
+          setTimeout(() => {
+            entrada.target.classList.add('visivel');
+          }, indice * 80);
+          observador.unobserve(entrada.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.revelar').forEach(el => observador.observe(el));
+
+    /* ===== NEWSLETTER ===== */
+    function submeterNewsletter(e) {
+      e.preventDefault();
+      const botao = e.target.querySelector('.newsletter-submit');
+      botao.textContent = 'Subscrito! ✓';
+      botao.style.background = 'rgba(168,197,160,0.8)';
+      botao.style.color = 'white';
+      botao.disabled = true;
+      e.target.reset();
+    }
+
+    /* ===== SMOOTH SCROLL para links internos ===== */
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const alvo = document.querySelector(this.getAttribute('href'));
+        if (alvo) {
+          e.preventDefault();
+          alvo.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
