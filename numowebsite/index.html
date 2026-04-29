@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Numo Sorveteria — Gelado Turco Natural</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+</head>
+<body>
+
+  <!-- ══ WHATSAPP FLUTUANTE ═══════════════════════════════ -->
+
+<a href="https://wa.me/?text=Olá%20Numo!%20Gostaria%20de%20fazer%20uma%20encomenda." 
+class="wpp-flutuante" 
+target="_blank" 
+rel="noopener noreferrer"
+aria-label="Contactar pelo WhatsApp">
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+</svg>
+</a>
+
+  <!-- ══ NAVEGAÇÃO ════════════════════════════════════════ -->
+
+  <nav id="nav" role="navigation" aria-label="Navegação principal">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo" aria-label="Numo Sorveteria — Início">
+          <img src="../numowebsite/media/Numulogo400.PNG" alt="Logotipo Numo Sorveteria" />
+        </a>
+
+
+    <ul class="nav-links">
+      <li><a href="#teaser">Sabores</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#historia">História</a></li>
+      <li><a href="#encomendas">Encomendas</a></li>
+      <li><a href="#localizacao">Localização</a></li>
+    </ul>
+
+    <a href="#encomendas" class="btn btn-primario nav-cta">Encomendar</a>
+
+    <button class="hamburguer" id="hamburguer" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</div>
+
+
+  </nav>
+
+  <!-- Menu Mobile Overlay -->
+
+  <div class="menu-mobile" id="menuMobile" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+    <button class="menu-mobile-fechar" id="fecharMenu" aria-label="Fechar menu"></button>
+    <a href="#teaser"      onclick="fecharMenuMobile()">Sabores</a>
+    <a href="#galeria"     onclick="fecharMenuMobile()">Galeria</a>
+    <a href="#historia"    onclick="fecharMenuMobile()">História</a>
+    <a href="#encomendas"  onclick="fecharMenuMobile()">Encomendas</a>
+    <a href="#localizacao" onclick="fecharMenuMobile()">Localização</a>
+    <a href="https://wa.me/?text=Olá%20Numo!" class="btn btn-primario" target="_blank" rel="noopener">Pedir no WhatsApp</a>
+  </div>
+
+
+
+  <!-- ///////////////////////////////////////////// HERO //////////////////////////////////// -->
+
+  <section id="hero" aria-label="Secção principal">
+    <div class="hero-deco hero-deco-1"></div>
+    <div class="hero-deco hero-deco-2"></div>
+    <div class="container">
+      <div class="hero-conteudo">
+        <div class="hero-texto">
+          <span class="hero-badge">Gelado Turco Natural</span>
+          <h1 class="hero-titulo">
+           Causa<br/>
+            <em>flashbacks</em> na alma
+          </h1>
+          <p class="hero-sub">
+            Gelado turco artesanal feito com ingredientes naturais. 
+            Entrega rápida, sem taxas dentro da cidade da Matola. 
+            Uma experiência doce que fica na memória.
+          </p>
+          <div class="hero-acoes">
+            <a href="#teaser" class="btn btn-primario">Ver Sabores</a>
+            <a href="#encomendas" class="btn btn-contorno">Fazer Encomenda</a>
+          </div>
+        </div>
+
+
+    <div class="hero-imagem">
+      <img 
+        src="media/center.JPG" 
+        alt="Gelado turco Numo — Cone de Chocolate e Baunilha"
+        class="hero-img-principal"
+        loading="eager"
+      />
+      <!-- <div class="hero-bolha hero-bolha-1">
+        <strong>+10 Sabores</strong><br/>
+        <span style="font-size:.8rem;color:var(--castanho)">Todos no Max Plaza</span>
+      </div> -->
+
+    </div>
+  </div>
+</div>
+
+
+  </section>
+
+  <!-- ══ TEASER — SORVETE DERRETENDO + SABORES ════════════ -->
+
+  <section id="teaser" aria-label="Os nossos sabores">
+    <div class="teaser-topo container reveal">
+      <h2 class="secao-titulo">Os Nossos Sabores</h2>
+      <p>Cada bola, uma história. Cada sabor, um momento.</p>
+    </div>
+
+<!-- Grade de sabores -->
+<div class="sabores-grade" role="list">
+  <article class="sabor-card" role="listitem">
+    <img 
+      src="media/IMG_4264.JPG" 
+      alt="Bolas de Vanilla Numo"
+      loading="lazy"
+    />
+    <span class="sabor-badge">Popular</span>
+    <div class="sabor-overlay">
+      <h3>Bolas de Vanilla</h3>
+      <p class="preco">200 MT</p>
+    </div>
+  </article>
+
+  <article class="sabor-card" role="listitem">
+    <img 
+      src="media/IMG_4267.JPG" 
+      alt="Cone de Chocolate e Baunilha Numo"
+      loading="lazy"/>
+      <span class="sabor-badge">Promoção</span> 
+    <div class="sabor-overlay">
+      <h3>Cone Chocolate & Baunilha</h3>
+      <p class="preco">120 MT</p>
+    </div>
+  </article>
+
+  <article class="sabor-card" role="listitem">
+    <img 
+      src="media/IMG_4268.JPG" 
+      alt="Gelado de Morango e Chocolate Numo"
+      loading="lazy"
+    />
+    <span class="sabor-badge">Novo</span>
+    <div class="sabor-overlay">
+      <h3>Morango & Chocolate</h3>
+      <p class="preco">240 MT</p>
+    </div>
+  </article>
+</div>
+
+
+  </section>
+
+  <!-- ══ GALERIA ═══════════════════════════════════════════ -->
+
+  <section id="galeria" class="secao secao-alt" aria-label="Galeria Numo">
+    <div class="container">
+      <div class="galeria-topo reveal">
+        <h2 class="secao-titulo">O Nosso Espaço</h2>
+        <p style="margin-top:.8rem">Passe por nós e sinta o ambiente.</p>
+      </div>
+
+  <div class="galeria-flex reveal" role="list" aria-label="Fotos do espaço Numo">
+
+    <div class="galeria-item" role="listitem" tabindex="0" aria-label="Foto 3 — Preparação">
+      <img 
+        src="media/1.JPG" 
+        alt="Preparação artesanal do gelado Numo"
+        loading="lazy"
+      />
+      <div class="galeria-caption">Feito com arte</div>
+    </div>
+
+    <div class="galeria-item" role="listitem" tabindex="0" aria-label="Foto 4 — Vitrine">
+      <img 
+        src="media/2.JPG" 
+        alt="Vitrine de gelados Numo"
+        loading="lazy"
+      />
+      <div class="galeria-caption">Regista o momento</div>
+    </div>
+
+    <div class="galeria-item" role="listitem" tabindex="0" aria-label="Foto 5 — Exterior">
+      <img 
+        src="media/3.JPG" 
+        alt="Exterior da Sorveteria Numo"
+        loading="lazy"
+      />
+      <div class="galeria-caption">Venha nos visitar</div>
+    </div>
+  </div>
+</div>
+
+
+  </section>
+
+  <!-- ══ HISTÓRIA ══════════════════════════════════════════ -->
+
+  <section id="historia" class="secao" aria-label="A nossa história">
+    <div class="container">
+      <div class="historia-grid">
+        <div class="historia-visual reveal">
+          <img 
+            src="media/right11.JPG" 
+            alt="Gelado artesanal Numo"
+            class="historia-img-grande"
+            loading="lazy"/>
+
+          <img src="media/sorvete1.JPG" alt="Detalhe gelado Numo" class="historia-img-pequena" loading="lazy"/>
+        </div>
+
+
+    <div class="historia-texto reveal">
+      <h2 class="secao-titulo">A Nossa História</h2>
+      <p>
+        A Numo nasceu de uma paixão simples: partilhar o sabor autêntico do gelado turco 
+        artesanal com a nossa comunidade. O nome <em>"Numo"</em> evoca leveza, 
+        frescura e aquele momento de puro prazer que só um bom gelado proporciona.
+      </p>
+      <p>
+        Começámos pequenos, com receitas tradicionais trazidas directamente de Istambul, 
+        usando ingredientes 100% naturais, sem corantes artificiais, sem conservantes. 
+        Hoje, cada bola que servimos carrega esse mesmo compromisso com a qualidade.
+      </p>
+      <p>
+        Entregamos dentro da cidade sem taxas adicionais, porque acreditamos que 
+        o prazer não deve ter obstáculos.
+      </p>
+
+      
+          <!--
+          <div class="historia-valores" role="list" aria-label="Os nossos valores">
+        <div class="valor-item" role="listitem">
+          <h4>Natural</h4>
+          <p>Ingredientes frescos e naturais em cada receita</p>
+        </div>
+        <div class="valor-item" role="listitem">
+          <h4>Autêntico</h4>
+          <p>Receitas tradicionais da culinária turca</p>
+        </div>
+        <div class="valor-item" role="listitem">
+          <h4>Rápido</h4>
+          <p>Entrega sem taxas dentro da cidade</p>
+        </div>
+        <div class="valor-item" role="listitem">
+          <h4>Artesanal</h4>
+          <p>Feito com cuidado e paixão em cada porção</p>
+        </div> 
+       </div>
+    </div> 
+    -->
+    
+  </div>
+</div>
+
+
+  </section>
+
+  <!-- ══ ENCOMENDAS ════════════════════════════════════════ -->
+
+  <section id="encomendas" aria-label="Fazer encomenda">
+    <div class="container">
+      <div class="encomendas-grid">
+        <div class="encomendas-info reveal">
+          <h2 class="secao-titulo">Faça a Sua<br/>Encomenda</h2>
+          <p>
+            Preencha o formulário e entraremos em contacto para confirmar 
+            os detalhes da sua encomenda. Entrega rápida dentro da cidade, 
+            sem taxas adicionais.
+          </p>
+
+
+      <div class="encomendas-beneficios" role="list">
+        <div class="beneficio" role="listitem">
+          <div class="beneficio-icone" aria-hidden="true"><img src="media/location20.PNG" alt="location-icon"></div>
+          <span>Entrega gratuita dentro da cidade</span>
+        </div>
+        <div class="beneficio" role="listitem">
+          <div class="beneficio-icone" aria-hidden="true"><img src="media/events10.PNG" alt="hora-icon"></div>
+          <span>Confirmação em menos de 30 minutos</span>
+        </div>
+        <div class="beneficio" role="listitem">
+          <div class="beneficio-icone" aria-hidden="true"><img src="media/cart10.PNG" alt="cart-icon"></div>
+          <span>Mais de 10 sabores disponíveis</span>
+        </div>
+        <div class="beneficio" role="listitem">
+          <div class="beneficio-icone" aria-hidden="true"><img src="media/contacts20.PNG" alt="contactos-icon"></div>
+          <span>Suporte via WhatsApp 24/7</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card reveal" role="region" aria-label="Formulário de encomenda">
+      <h3>Nova Encomenda</h3>
+
+      <!-- 
+        FORM PREPARADO PARA BACKEND FUTURO:
+        - id="formEncomenda" para targeting via JS
+        - data-api-endpoint para integração futura (ex. /api/encomendas)
+        - Campos com name semânticos para REST payload
+        - Validação HTML5 nativa + JS customizado
+        - data-validar para futura validação server-side
+      -->
+      <form 
+        id="formEncomenda" 
+        novalidate 
+        data-api-endpoint="/api/encomendas"
+        data-validar="true"
+        autocomplete="on"
+      >
+        <div class="campo-grupo">
+          <div class="campo">
+            <label for="nome">Nome Completo *</label>
+
+            <input type="text" id="nome" name="nome" 
+            placeholder="O seu nome" required 
+            autocomplete="name"minlength="2"/>
+
+          </div>
+          <div class="campo">
+            <label for="telefone">Telefone / WhatsApp *</label>
+            <input 
+              type="tel" 
+              id="telefone" 
+              name="telefone" 
+              placeholder="+258 8X XXX XXXX" 
+              required 
+              autocomplete="tel"
+              pattern="[+\d\s\-]{9,}"
+            />
+          </div>
+        </div>
+
+        <div class="campo campo-largo">
+          <label for="morada">Endereço para Entrega *</label>
+          <input 
+            type="text" 
+            id="morada" 
+            name="morada" 
+            placeholder="Rua, número, bairro" 
+            required 
+            autocomplete="street-address"
+          />
+        </div>
+
+        <div class="campo-grupo">
+          <div class="campo">
+            <label for="sabor">Sabor Principal *</label>
+            <select id="sabor" name="sabor" required>
+              <option value="" disabled selected>Escolha um sabor</option>
+              <option value="vanilla">Bolas de Vanilla — 200 MT</option>
+              <option value="choco-vanilla">Cone Chocolate & Baunilha — 120 MT</option>
+              <option value="morango-choco">Morango & Chocolate — 240 MT</option>
+              <option value="outro">Outro (especifique nas notas)</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="quantidade">Quantidade</label>
+            <input 
+              type="number" 
+              id="quantidade" 
+              name="quantidade" 
+              placeholder="1" 
+              min="1" 
+              max="100"
+              value="1"
+            />
+          </div>
+        </div>
+
+        <div class="campo campo-largo">
+          <label for="notas">Notas Adicionais</label>
+          <textarea 
+            id="notas" 
+            name="notas" 
+            placeholder="Alergias, preferências, hora de entrega preferida..."
+            maxlength="500"
+          ></textarea>
+        </div>
+
+        <p class="form-aviso">
+          * Campos obrigatórios. Os seus dados são usados apenas para processar a encomenda.
+        </p>
+
+        <button type="submit" class="form-submit">
+          Enviar Encomenda 
+        </button>
+      </form>
+
+      <!-- Mensagem de sucesso (escondida inicialmente) -->
+      <div class="form-sucesso" id="formSucesso" role="alert" aria-live="polite">
+        <div class="emoji-grande"></div>
+        <h3 style="color:var(--creme);font-family:var(--fonte-titulo)">Encomenda Recebida!</h3>
+        <p>Entraremos em contacto brevemente para confirmar os detalhes. Obrigado por escolher a Numo!</p>
+        <br/>
+        <a 
+          href="https://wa.me/?text=Olá%20Numo!%20Fiz%20uma%20encomenda%20no%20site." 
+          class="btn btn-contorno" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style="color:var(--laranja-claro);border-color:var(--laranja-claro)"
+        >
+          Confirmar pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  </section>
+
+  <!-- ══ LOCALIZAÇÃO ═══════════════════════════════════════ -->
+
+  <section id="localizacao" class="secao secao-alt" aria-label="A nossa localização">
+    <div class="container">
+      <div class="localizacao-grid">
+        <div class="localizacao-info reveal">
+          <h2 class="secao-titulo">Onde Estamos</h2>
+
+
+      <div class="localizacao-detalhe">
+        <div class="loc-icone" aria-hidden="true"><img src="media/location20.PNG" alt=""></div>
+        <div class="loc-texto">
+          <h4>Endereço</h4>
+          <p>Maputo, Moçambique<br/>Av. Moçambique, Max Plaza, nº 12</p>
+        </div>
+      </div>
+
+      <div class="localizacao-detalhe">
+        <div class="loc-icone" aria-hidden="true"><img src="media/events10.PNG" alt=""></div>
+        <div class="loc-texto">
+          <h4>Horário de Funcionamento</h4>
+          <p>Segunda a Sábado: 10h - 22h<br/>Domingo: 11h - 20h</p>
+        </div>
+      </div>
+
+      <div class="localizacao-detalhe">
+        <div class="loc-icone" aria-hidden="true"><img src="media/contacts20.PNG" alt=""></div>
+        <div class="loc-texto">
+          <h4>Contacto</h4>
+          <p>
+            <a href="https://wa.me/?text=Olá%20Numo!" target="_blank" rel="noopener">
+              WhatsApp: +258 81 234 5678
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div class="localizacao-detalhe">
+        <div class="loc-icone" aria-hidden="true"><img src="media/cart10.PNG" alt=""></div>
+        <div class="loc-texto">
+          <h4>Área de Entrega</h4>
+          <p>Cidade da Matola<br/>Sem taxa de entrega</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mapa com consentimento (privacy-first) -->
+    <div class="reveal">
+      <div class="mapa-contentor" id="mapaConteiner">
+        <!-- Overlay de consentimento antes de carregar o iframe -->
+
+        <div class="mapa-consentimento" id="mapaConsentimento" role="dialog" aria-label="Consentimento para mapa">
+          <div style="font-size:2.5rem" aria-hidden="true"></div>
+
+          <h4 style="font-family:var(--fonte-titulo)">Ver Localização no Mapa</h4>
+
+          <p>Para mostrar o mapa, o Google Maps será carregado. Ao aceitar, 
+            concorda com a política de privacidade do Google.</p>
+
+          <button class="btn btn-primario" id="aceitarMapa" onclick="carregarMapa()">
+            Aceitar e Ver Mapa
+          </button>
+
+          <a 
+            href="https://maps.google.com/?q=Maputo,Mozambique" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style="color:var(--castanho);font-size:.85rem"
+          >
+            Abrir directamente no Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </section>
+
+  <!-- ══ FOOTER ════════════════════════════════════════════ -->
+
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grade">
+        <div class="footer-marca">
+          <img 
+            src="media/Numulogo400.PNG" 
+            alt="Logotipo Numo Sorveteria"
+          />
+          <p>Gelado Turco Natural feito com amor e ingredientes frescos. Entrega dentro da cidade da Matola sem taxas.</p>
+          <div class="footer-sociais" aria-label="Redes sociais">
+            <a href="#" class="social-link" aria-label="Instagram Numo">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="color:var(--cinza-quente)"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Facebook Numo">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="color:var(--cinza-quente)"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="TikTok Numo">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="color:var(--cinza-quente)"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            </a>
+            <a href="https://wa.me/?text=Olá%20Numo!" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp Numo">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="color:var(--cinza-quente)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+          </div>
+        </div>
+
+
+    <div class="footer-coluna">
+      <h5>Navegação</h5>
+      <ul>
+        <li><a href="#hero">Início</a></li>
+        <li><a href="#teaser">Sabores</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#historia">História</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-coluna">
+      <h5>Encomendas</h5>
+      <ul>
+        <li><a href="#encomendas">Fazer Encomenda</a></li>
+        <li><a href="https://wa.me/+258812345678?text=Olá%20Numo!" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="#localizacao">Localização</a></li>
+        <li><a href="#localizacao">Horários</a></li>
+      </ul>
+    </div>
+
+    <!-- <div class="footer-coluna">
+
+      <h5>Legal</h5>
+      <ul>
+        <li><a href="#">Política de Privacidade</a></li>
+        <li><a href="#">Termos de Serviço</a></li>
+        <li><a href="#">Política de Cookies</a></li>
+      </ul>
+    </div> -->
+
+  </div>
+
+  <hr class="footer-divisor" />
+
+  <div class="footer-base">
+    <p>© 2026 Numo Sorveteria. Todos os direitos reservados.</p>
+    <p>Desenvolvido por <strong style="color:var(--laranja-claro)">Milton Tchambule</strong></p>
+  </div>
+</div>
+
+  </footer>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
