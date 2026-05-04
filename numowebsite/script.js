@@ -1,14 +1,14 @@
  'use strict';
 
-    /* ─── NAV: scroll effect ─── */
+    /* Efeito do Scroll do nav logo no inicio*/
     const nav = document.getElementById('nav');
     const scrollHandler = () => {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
+      nav.classList.toggle('scrolled', window.scrollY > 1);
     };
     window.addEventListener('scroll', scrollHandler, { passive: true });
     scrollHandler();
 
-    /* ─── HAMBURGUER ─── */
+    /* Menu Hamburguer */
     const hamburguer  = document.getElementById('hamburguer');
     const menuMobile  = document.getElementById('menuMobile');
     const fecharBtn   = document.getElementById('fecharMenu');
@@ -60,7 +60,7 @@
 
     
 
-    /* ─── MAPA com consentimento (privacy-first) ─── */
+    /* MAPA com consentimento tipo (privacy-first)  */
     function carregarMapa() {
       const consentimento = document.getElementById('mapaConsentimento');
       const contentor     = document.getElementById('mapaConteiner');
@@ -93,7 +93,7 @@
 
 
 
-    /* ─── FORM DE ENCOMENDA ─── */
+    /*  formulario de ENCOMENDA */
     const form       = document.getElementById('formEncomenda');
     const formSucesso = document.getElementById('formSucesso');
 

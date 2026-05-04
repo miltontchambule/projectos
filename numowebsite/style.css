@@ -1,27 +1,5 @@
 @charset "UTF-8";
 
-
-    /* ============================================================
-       NUMO SORVETERIA — CSS GLOBAL
-       Organização:
-       1. Variáveis & Reset
-       2. Base & Tipografia
-       3. Utilitários
-       4. Navegação
-       5. Hero Section
-       6. Teaser / Animação Derretendo
-       7. Galeria Flexbox
-       8. História
-       9. Encomendas (Form)
-       10. Localização (iframe)
-       11. Footer
-       12. Animações & Keyframes
-       13. Media Queries
-    ============================================================ */
-
-    /* ── 1. VARIÁVEIS & RESET ────────────────────────────── */
-   
-
 :root {
       --creme:        #FDF6EC;
       --ivory:        #FAF3E8;
@@ -35,18 +13,27 @@
       --branco-ivory: #FFFDF8;
 
       --fonte-titulo: 'Playfair Display', serif;
-      --fonte-corpo:  'DM Sans', sans-serif;
+      --fonte-corpo:  'calibri';
+     
+    
 
-      --sombra-suave: 0 4px 24px rgba(46,31,15,.10);
-      --sombra-media: 0 8px 40px rgba(46,31,15,.18);
+      --sombra-suave: 0 0px 20px rgba(46, 31, 15, 0.288);
+      --sombra-media: 0 0px 25px rgba(46, 31, 15, 0.39);
       --raio:         16px;
       --raio-grande:  28px;
       --transicao:    all .35s cubic-bezier(.4,0,.2,1);
+     
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { 
+        box-sizing: border-box; 
+        margin: 0;
+        padding: 0;
+       }
 
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html {
+        scroll-behavior: smooth; 
+        font-size: 18px; }
 
     body {
       background: var(--creme);
@@ -65,6 +52,8 @@
       font-family: var(--fonte-titulo);
       line-height: 1.2;
       color: var(--escuro);
+      
+    
     }
 
     h2.secao-titulo {
@@ -903,13 +892,9 @@
       position: fixed;
       bottom: 2rem; right: 2rem;
       z-index: 900;
-      width: 58px; height: 58px;
-      border-radius: 50%;
-      background: #25D366;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0px 0px 2px rgba(37, 211, 101, 0.301);
       transition: var(--transicao);
       animation: pulsoWpp 2.5s ease-in-out infinite;
     }
@@ -950,10 +935,7 @@
       100% { opacity: 0; transform: translateX(-50%) scaleY(1.3) translateY(50px); }
     }
 
-    @keyframes pulsoWpp {
-      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,.5); }
-      50%       { box-shadow: 0 4px 32px rgba(37,211,102,.8); }
-    }
+
 
     /* Reveal on scroll */
     .reveal {
