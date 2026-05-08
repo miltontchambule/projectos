@@ -1,0 +1,29 @@
+body{
+background-color: rgb(60, 67, 133);
+color: white;
+background-attachment: fixed;
+border-radius: 10px;
+
+
+}
+
+header{
+color: white;
+text-align: center;
+font-family: Arial, Helvetica, sans-serif;
+}
+ section{
+background-color: rgb(255, 255, 255);
+color: black;
+padding: 20px 20px 20px 30px;
+margin-left: 29px;
+margin-right: 29px;
+border-radius: 8px;
+box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.281)  ;
+ }
+
+ footer{
+margin-top: 50px;
+text-align: center;
+
+ }

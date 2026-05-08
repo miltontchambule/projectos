@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sistema de multas</title>
+    <link rel="stylesheet" href="multas.css">
+</head>
+
+<body>
+
+    <main>
+   <H1>SISTEMA DE MULTAS</H1> 
+       <label for="velocidade">Velocidade do carro</label> 
+         <input type="number" id="vel"><em>Km/h</em> <br>
+         
+        <label for="matricula">Matricula</label>
+        <input type="text" id="mat" placeholder="Insira a matricula">
+
+       
+        <button onclick="multar()" id="multa">Multar</button>
+         <div id="res"></div>
+<script>
+
+       
+        const matricula = "AKP827MC"
+
+function multar(){
+
+        let vel = document.getElementById('vel')
+        let mat = document.getElementById('mat')
+        let res = document.getElementById('res')
+
+        let velocidade = Number(vel.value)
+        let matriculaDigitada = mat.value.toUpperCase()
+        
+        if(velocidade > 80 && matriculaDigitada === matricula){
+             res.innerHTML = "veiculo com matricula: " + matricula + " e prioritario e isento de multas."
+
+        } else if(velocidade > 80){
+            res.innerHTML = "Veiculo multado no valor de 1000MT, por excesso de velocidade. Dirija-se ao INATTER."
+        } else if(velocidade <= 80 && matriculaDigitada === matricula){
+            res.innerHTML = "Boa viagem, Presidente!"
+        }
+        else{
+            res.innerHTML = "Boa viagem!"
+        }
+    }
+        
+</script>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+    body{
+
+        background-color: rgb(94, 94, 167);
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        color: white;
+    }        
+    </style>
+</head>
+<body>
+    <h1>
+        Iniciando estudos com DOM</h1>
+
+        <p>Aqui vai o resultado</p>
+        <p>Aprendendo a manipular <strong>DOM</strong></p>
+       
+        <div class="msg">
+            Clique em mim
+        </div>
+    
+        <script>
+            var p1= window.document.getElementsByTagName('p')[1] // seleccao por TagName
+            p1.style.color='pink';
+            var corpo = window.document.body
+            document.write(p1.innerHTML)
+           // var d=window.document.getElementById('msg') // seleccao por ID
+          //  d.style.background='green'
+          //  d.innerText='Estou a espera' // ou window.document.getElementById('msg').innerText='Ola'
+           // var d=window.document.getElementsByName('msg')[0]
+           // d.innerText='ola'
+           //window.document.getElementsByClass('msg')[0].innerText('')
+          
+           //Por selector usando o query.Selector
+
+            var d= window.document.querySelector('div.msg')
+            d.style.background='blue'
+        
+            </script>
+
+
+</body>
+</html>

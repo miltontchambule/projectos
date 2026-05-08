@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sistema de multas</title>
+    <link rel="stylesheet" href="multas.css">
+</head>
+
+<body>
+
+                 
+        <section class="area-container">
+<H1>SISTEMA DE MULTAS</H1> 
+<hr>
+                
+                 <br><br>
+
+         <div class="area">
+          
+           
+            <div class="inserir">
+                <label for="velocidade" class="nome-caixa">Velocidade</label> 
+                <input type="number" id="vel" class="caixa" required> Km/h <br>
+
+            </div>
+              
+            <div class="inserir">
+                <label for="matricula" class="nome-caixa" >Matricula </label> 
+                <input type="text" id="mat" class="caixa" placeholder="Insira a matricula" required><br>
+  
+            </div>
+            
+            <br>
+                
+            <button onclick="multar()" id="multa">Verificar</button>
+               
+              
+         </div>
+            <div id="res"></div>
+         
+           
+ 
+        </section>
+  <footer>
+    <small id="tag">Desenvolvido por Milton Tchambule</small>
+  </footer>
+</body>
+<script src="script.js"></script>
+</html>

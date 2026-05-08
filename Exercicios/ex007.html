@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Somando Numeros</title>
+
+    
+    <style>
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(22, 10, 44);
+    color: white;
+    
+}
+
+main{
+background-color: rgb(54, 54, 121);
+margin: 0px 100px 0px 100px;
+border-radius: 20px;
+box-shadow: 30px color(rgba(0, 0, 0, 0.363));
+text-align: center;
+
+
+}
+#res{
+
+margin-top: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-weight: light;
+
+color: rgba(252, 252, 252, 0.644);
+margin-bottom: 15px;
+}
+
+#resdiv{
+    margin-top: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-weight: light;
+
+color: rgba(252, 252, 252, 0.644);
+}
+
+.input{
+    background-color: rgb(149, 228, 228);
+    border-radius: 6px;
+    padding: 10px;
+    border: none;
+}
+
+#soma{
+
+    background-color: rgb(255, 255, 255);
+    border-radius: 6px;
+    padding: 10px;
+    border: none;
+}
+
+#dividir{
+background-color: rgb(255, 255, 255);
+border-radius: 6px;
+padding: 10px;
+border: none;
+}
+    </style>
+</head>
+
+
+
+<body>
+
+   <main> 
+    <h1>
+        Calculadora
+    </h1>
+
+    <input class="input" type="number" name="txtn1" id="txtn1"> +
+    <input class="input" type="number" name="txtn2" id="txtn2">
+    <input id="soma" type="button" value="Somar" onclick="somar()">    
+    
+    <div id="res">Resultado</div>
+
+    <input class="input" type="number" name="txtn3" id="txtn3"> /
+    <input class="input" type="number" name="txtn4" id="txtn4">
+    <input id="dividir" type="button" value="Dividir" onclick="dividir()">    
+    
+    <div id="resdiv">Resultado</div>
+
+<script>
+
+function somar() {
+var tn1 = window.document.getElementById('txtn1')
+var tn2 = window.document.getElementById('txtn2')
+var res= window.document.getElementById('res')
+var n1 = Number(tn1.value)
+var n2 = Number(tn2.value)
+var s = n1 + n2
+res.innerHTML =`A soma entre <strong>${n1}</strong> e <strong>${n2}</strong> e igual a <strong>${s}</strong>`
+}
+
+function dividir() {
+var tn3 = window.document.getElementById('txtn3')
+var tn4 = window.document.getElementById('txtn4')
+var res= window.document.getElementById('res')
+var n3 = Number(tn3.value)
+var n4 = Number(tn4.value)
+var d = n3/n4
+resdiv.innerHTML =`A divisao entre <strong>${n3}</strong> e <strong>${n4}</strong> e igual a <strong>${d}</strong>`
+}
+
+</script>
+
+</main>
+</body>
+
+
+
+</html>

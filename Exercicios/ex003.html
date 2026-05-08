@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Variaveis numericas</title>
+    <style>
+        body{
+            background-color: rgba(148, 54, 0, 0.712);
+            color: rgb(255, 255, 255);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 20px;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversao de String para Number</h1>
+    <p>No cursing</p>
+    <script>
+
+/*
+var numero1=windows.prompt(window.prompt('digite um numero!'))
+     var numero2=windows.prompt(prompt('digite outro numero'))
+     var a = numero1 + numero2
+     window.alert('A soma dos valores e: ' + a + '!') 
+     ESTE METODO CRIA CONCATENACAO POIS W.PROMPT RETORNA STRINGS*/
+
+        /*
+        usando Number.parseFloat(retorna valores reais somados com virgula ou nao)
+         e Number.parseInt(retorna valores inteiros somados inteiros apenas)
+     var numero1=n=Number.parseFloat(window.prompt('digite um numero!'))
+     var numero2=Number.parseFloat(prompt('digite outro numero'))
+     var a = numero1 + numero2
+     window.alert('A soma dos valores e: ' + a + '!')*/
+
+     /*Usando Number(n) - versao mais actual que o JS reconhece o tipo de variavel e retorna.
+     var numero1=n=Number(window.prompt('digite um numero!'))
+     var numero2=Number(window.prompt('digite outro numero'))
+     var a = numero1 + numero2
+     window.alert('A soma dos valores e: ' + a + '!')*/
+
+     var numero1=Number(window.prompt('digite um numero!'))
+     var numero2=Number(window.prompt('digite outro numero'))
+     var a = numero1 + numero2
+     window.alert(`A soma entre ${numero1} e ${numero2} e igual a ${a}`)
+        
+    </script>
