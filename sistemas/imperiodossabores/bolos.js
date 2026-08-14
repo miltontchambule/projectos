@@ -98,10 +98,17 @@
     banner.classList.remove("show");
   });
 
-  /* =========================================================
+ /* =========================================================
      Validação e envio para o WhatsApp
   ========================================================== */
   const form = document.getElementById("orderForm");
+
+  const deliveryNote = document.getElementById("deliveryNote");
+  form.querySelectorAll('input[name="delivery"]').forEach(radio=>{
+    radio.addEventListener("change", ()=>{
+      deliveryNote.classList.toggle("show", radio.value === "Sim" && radio.checked);
+    });
+  });
 
   function showError(id, show){
     const el = document.getElementById("err-"+id);
@@ -148,7 +155,7 @@
 
   function enviarParaWhatsApp(dados){
     const linhas = [];
-    linhas.push("*NOVA ENCOMENDA - Império do Sabor*");
+    linhas.push("*NOVA ENCOMENDA — Império do Sabor*");
     linhas.push("");
     if(bolosSelecionado){
       linhas.push(`*Bolo escolhido:* ${bolosSelecionado.nome} (${bolosSelecionado.preco})`);

@@ -1,10 +1,5 @@
 @charset "UTF-8";
 
-  @font-face {
-            font-family: 'ManchesterSignature';
-          src: url('ManchesterSignature.ttf') format('truetype');
-  }
-
     @font-face {
             font-family: 'Autography';
           src: url('Autography.otf') format('opentype');
@@ -41,14 +36,13 @@
   body{
     margin:0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* font-family:'Outfit', sans-serif; */
     background:var(--cream);
     color:var(--cocoa);
     -webkit-font-smoothing:antialiased;
   }
   h1,h2,h3,.display{
     font-family:'Fraunces', serif;
-    font-weight:700;
+    font-weight:900;
     color:var(--berry-deep);
     margin:0;
   }
@@ -60,12 +54,25 @@
   }
   
 
-  a{color:inherit;}
-  img{max-width:100%;display:block;}
-  button{font-family:inherit;cursor:pointer;border:none;}
+  a{
+    color:inherit;
+  }
 
 
-  /* ---------- decorative scalloped seal, echoes the brand's round badge ---------- */
+  img{
+
+    max-width:100%;
+    display:block;
+  
+  }
+
+
+  button{
+    font-family:inherit;
+    cursor:pointer;
+    border:none;
+  }
+
    .seal{
     position:relative;
     display:inline-flex;
@@ -75,8 +82,6 @@
   
   }
 
-
-  /* ---------- top bar ---------- */
   .topbar{
     background:var(--berry-deep);
     color:var(--blush-soft);
@@ -87,7 +92,7 @@
     padding:8px 14px;
   }
 
-  /* ---------- hero ---------- */
+
   header.hero{
 
     position:relative;
@@ -99,6 +104,8 @@
       linear-gradient(160deg, var(--blush) 0%, var(--blush-soft) 55%, var(--cream) 100%);
     text-align:center;
   }
+
+  
   header.hero .seal{margin-bottom:22px;}
   header.hero h1{
     font-size:clamp(2.2rem, 7vw, 3.4rem);
@@ -166,9 +173,27 @@
     margin-bottom:8px;
     display:block;
   }
-  .section-head{text-align:center;max-width:560px;margin:0 auto 40px;}
-  .section-head h2{font-size:clamp(1.7rem,4vw,2.3rem);}
-  .section-head p{color:var(--cocoa-soft);margin-top:10px;line-height:1.55;}
+  .section-head{
+    
+    text-align:center;
+    max-width:560px;
+    margin:0 auto 40px;
+  }
+  
+  .section-head h2{
+    font-size:clamp(1.7rem,4vw,2.3rem);
+  }
+
+  .subtitulo{
+    font-weight: 900px;
+  }
+
+  .section-head p{
+    
+    color:var(--cocoa-soft);
+    margin-top:10px;
+    line-height:1.55;
+  }
 
   /* ---------- product grid ---------- */
   .grid{
@@ -296,6 +321,11 @@
     color:var(--berry-deep);
     margin-bottom:7px;
     letter-spacing:0.01em;
+
+  }
+
+  #titulo{
+    font-size: 3rem;
   }
   .field .hint{
     display:block;

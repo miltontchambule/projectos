@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Império do Sabor | Encomendas de Bolos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --berry:#9c2255;
+    --berry-deep:#6e163b;
+    --blush:#f9dce6;
+    --blush-soft:#fdf0f4;
+    --gold:#c69a44;
+    --gold-soft:#e9d5a8;
+    --cream:#fff8f1;
+    --cocoa:#3a2318;
+    --cocoa-soft:#6b5347;
+    --white:#ffffff;
+    --shadow: 0 12px 30px -12px rgba(58,35,24,0.25);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Outfit', sans-serif;
+    background:var(--cream);
+    color:var(--cocoa);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    color:var(--berry-deep);
+    margin:0;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;cursor:pointer;border:none;}
+
+  /* ---------- decorative scalloped seal, echoes the brand's round badge ---------- */
+  .seal{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:92px;height:92px;
+    border-radius:50%;
+    background:
+      repeating-conic-gradient(var(--gold) 0deg 9deg, transparent 9deg 18deg),
+      var(--berry);
+    padding:6px;
+  }
+  .seal-inner{
+    width:100%;height:100%;
+    border-radius:50%;
+    background:var(--berry);
+    border:2px solid var(--gold-soft);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:var(--cream);
+    font-family:'Fraunces', serif;
+    font-size:0.62rem;
+    line-height:1.15;
+    letter-spacing:0.04em;
+    padding:6px;
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    background:var(--berry-deep);
+    color:var(--blush-soft);
+    text-align:center;
+    font-size:0.8rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:8px 14px;
+  }
+
+  /* ---------- hero ---------- */
+  header.hero{
+    position:relative;
+    overflow:hidden;
+    padding:56px 20px 70px;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(255,255,255,0.35), transparent 45%),
+      linear-gradient(160deg, var(--blush) 0%, var(--blush-soft) 55%, var(--cream) 100%);
+    text-align:center;
+  }
+  header.hero .seal{margin-bottom:22px;}
+  header.hero h1{
+    font-size:clamp(2.2rem, 7vw, 3.4rem);
+    line-height:1.05;
+  }
+  header.hero p.tag{
+    max-width:480px;
+    margin:16px auto 0;
+    color:var(--cocoa-soft);
+    font-size:1.02rem;
+    line-height:1.55;
+  }
+  header.hero .hero-cta{
+    margin-top:30px;
+    display:flex;
+    gap:12px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 26px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:0.95rem;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .btn-primary{
+    background:var(--berry);
+    color:var(--white);
+    box-shadow:var(--shadow);
+  }
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-ghost{
+    background:transparent;
+    color:var(--berry-deep);
+    border:1.5px solid var(--berry-deep);
+  }
+  .btn-ghost:hover{background:var(--berry-deep);color:var(--white);}
+  .btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
+
+  .hero-wave{
+    position:absolute;
+    left:0;right:0;bottom:-1px;
+    line-height:0;
+  }
+
+  /* ---------- section shell ---------- */
+  section{padding:64px 20px;}
+  .section-inner{max-width:1080px;margin:0 auto;}
+  .eyebrow{
+    font-size:0.78rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:600;
+    margin-bottom:8px;
+    display:block;
+  }
+  .section-head{text-align:center;max-width:560px;margin:0 auto 40px;}
+  .section-head h2{font-size:clamp(1.7rem,4vw,2.3rem);}
+  .section-head p{color:var(--cocoa-soft);margin-top:10px;line-height:1.55;}
+
+  /* ---------- product grid ---------- */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:26px;
+  }
+  .card{
+    background:var(--white);
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    display:flex;
+    flex-direction:column;
+    border:1px solid rgba(156,34,85,0.08);
+  }
+  .card-photo{
+    position:relative;
+    aspect-ratio:4/3;
+    background:linear-gradient(135deg,var(--blush) 0%, var(--gold-soft) 100%);
+  }
+  .card-photo img{width:100%;height:100%;object-fit:cover;}
+  .card-photo .price-seal{
+    position:absolute;
+    top:12px;right:12px;
+    background:var(--berry);
+    color:var(--cream);
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:0.92rem;
+    padding:10px 12px;
+    border-radius:50%;
+    width:64px;height:64px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    line-height:1.05;
+    box-shadow:0 6px 16px rgba(0,0,0,0.25);
+    border:2px solid var(--gold-soft);
+  }
+  .card-body{
+    padding:18px 20px 20px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    flex:1;
+  }
+  .card-body h3{font-size:1.15rem;}
+  .card-body p{
+    margin:0;
+    font-size:0.88rem;
+    color:var(--cocoa-soft);
+    line-height:1.5;
+    flex:1;
+  }
+  .card-order-btn{
+    margin-top:6px;
+    width:100%;
+    background:var(--cocoa);
+    color:var(--cream);
+    border-radius:12px;
+    padding:12px 14px;
+    font-size:0.88rem;
+    font-weight:600;
+    text-align:center;
+    transition:background .18s ease;
+  }
+  .card-order-btn:hover{background:var(--berry);}
+
+  /* ---------- order form ---------- */
+  .order-section{
+    background:linear-gradient(180deg, var(--white) 0%, var(--blush-soft) 100%);
+  }
+  .form-shell{
+    background:var(--white);
+    border-radius:28px;
+    box-shadow:var(--shadow);
+    padding:36px clamp(20px,5vw,48px);
+    border:1px solid rgba(156,34,85,0.08);
+  }
+  .selected-cake-banner{
+    display:none;
+    align-items:center;
+    gap:12px;
+    background:var(--blush-soft);
+    border:1px dashed var(--gold);
+    border-radius:14px;
+    padding:12px 16px;
+    margin-bottom:26px;
+    font-size:0.9rem;
+  }
+  .selected-cake-banner.show{display:flex;}
+  .selected-cake-banner strong{color:var(--berry-deep);}
+  .selected-cake-banner button{
+    margin-left:auto;
+    background:none;
+    color:var(--berry);
+    font-size:0.8rem;
+    text-decoration:underline;
+    flex-shrink:0;
+  }
+
+  form{display:grid;gap:20px;}
+  .form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+  @media(max-width:560px){.form-row{grid-template-columns:1fr;}}
+
+  .field label{
+    display:block;
+    font-size:0.82rem;
+    font-weight:600;
+    color:var(--berry-deep);
+    margin-bottom:7px;
+    letter-spacing:0.01em;
+  }
+  .field .hint{
+    display:block;
+    font-weight:400;
+    color:var(--cocoa-soft);
+    font-size:0.76rem;
+    margin-top:4px;
+  }
+  input[type=text], input[type=tel], input[type=number], select, textarea{
+    width:100%;
+    padding:13px 14px;
+    border-radius:12px;
+    border:1.5px solid #e8dcd4;
+    background:var(--cream);
+    font-family:inherit;
+    font-size:0.95rem;
+    color:var(--cocoa);
+    transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  input:focus, select:focus, textarea:focus{
+    outline:none;
+    border-color:var(--berry);
+    box-shadow:0 0 0 4px rgba(156,34,85,0.12);
+  }
+  select{appearance:none;-webkit-appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9'><path d='M1 1l6 6 6-6' stroke='%239c2255' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat:no-repeat;
+    background-position:right 14px center;
+    padding-right:38px;
+  }
+  textarea{resize:vertical;min-height:80px;}
+
+  .radio-group{
+    display:flex;
+    gap:18px;
+    padding:4px 2px 2px;
+  }
+  .radio-option{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:0.92rem;
+    font-weight:500;
+    color:var(--cocoa);
+    cursor:pointer;
+  }
+  .radio-option input[type=radio]{
+    width:18px;height:18px;
+    accent-color:var(--berry);
+    cursor:pointer;
+  }
+  .delivery-note{
+    display:none;
+    margin-top:10px;
+    color:var(--berry-deep);
+    background:var(--blush-soft);
+    border:1px dashed var(--gold);
+    border-radius:10px;
+    padding:8px 12px;
+    font-size:0.78rem;
+    line-height:1.4;
+  }
+  .delivery-note.show{display:block;}
+
+  .submit-row{
+    display:flex;
+    justify-content:center;
+    margin-top:6px;
+  }
+  .submit-row .btn{width:100%;justify-content:center;font-size:1.02rem;padding:16px 26px;}
+  .form-note{
+    text-align:center;
+    font-size:0.78rem;
+    color:var(--cocoa-soft);
+    margin-top:14px;
+    line-height:1.5;
+  }
+  .error-msg{
+    color:var(--berry);
+    font-size:0.78rem;
+    margin-top:-10px;
+    display:none;
+  }
+  .error-msg.show{display:block;}
+
+  /* ---------- footer ---------- */
+  footer{
+    background:var(--cocoa);
+    color:var(--blush-soft);
+    text-align:center;
+    padding:34px 20px;
+    font-size:0.85rem;
+  }
+  footer .seal{width:60px;height:60px;margin-bottom:14px;}
+  footer .seal-inner{font-size:0.4rem;}
+  footer a{text-decoration:underline;}
+
+  /* editor note, remove before shipping */
+  .dev-note{
+    max-width:1080px;
+    margin:0 auto 0;
+    padding:14px 20px;
+    background:#fff3cd;
+    border:1px dashed #c69a44;
+    border-radius:12px;
+    font-size:0.8rem;
+    color:#5c4300;
+    line-height:1.5;
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">Império do Sabor · Confeitaria &nbsp;•&nbsp; Cuidando do seu paladar</div>
+
+<div class="dev-note section-inner" style="margin-top:16px;">
+  <strong>Nota para o dono da loja:</strong> troque o número de WhatsApp em <code>CONFIG.numeroWhatsApp</code> no final do ficheiro, substitua as imagens de exemplo (<code>src="..."</code> nos cartões) pelas fotos reais dos bolos, e ajuste nomes/preços conforme o menu actual.
+</div>
+
+<header class="hero">
+  <div class="seal">
+    <div class="seal-inner">IMPÉRIO<br>DO SABOR</div>
+  </div>
+  <h1>Encomende o seu bolo<br>sem sair da conversa</h1>
+  <p class="tag">Escolha o bolo, preencha o formulário e o seu pedido segue organizado directamente para o nosso WhatsApp. Só falta clicar em enviar.</p>
+  <div class="hero-cta">
+    <a href="#bolos" class="btn btn-primary">Ver os bolos</a>
+    <a href="#encomendar" class="btn btn-ghost">Ir para o formulário</a>
+  </div>
+</header>
+
+<section id="bolos">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">Menu</span>
+      <h2>Os nossos bolos</h2>
+      <p>Cada bolo pode ser feito à sua medida — formato, tamanho e ocasião. Ao clicar em "Encomendar este bolo", o formulário abaixo já vem com o bolo escolhido.</p>
+    </div>
+
+    <div class="grid" id="productGrid"></div>
+  </div>
+</section>
+
+<section id="encomendar" class="order-section">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">Formulário</span>
+      <h2>Finalize a sua encomenda</h2>
+      <p>Preencha os dados abaixo. Ao enviar, o WhatsApp abre com a sua encomenda já organizada — só precisa de clicar em enviar.</p>
+    </div>
+
+    <div class="form-shell">
+
+      <div class="selected-cake-banner" id="selectedBanner">
+        <span>Bolo escolhido: <strong id="selectedCakeName"></strong></span>
+        <button type="button" id="clearSelection">alterar</button>
+      </div>
+
+      <form id="orderForm" novalidate>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" required placeholder="Ex: Sara">
+            <span class="error-msg" id="err-nome">Por favor indique o seu nome.</span>
+          </div>
+          <div class="field">
+            <label for="apelido">Apelido</label>
+            <input type="text" id="apelido" name="apelido" required placeholder="Ex: Macuácua">
+            <span class="error-msg" id="err-apelido">Por favor indique o seu apelido.</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="bairro">Bairro</label>
+            <input type="text" id="bairro" name="bairro" required placeholder="Ex: Sommerschield">
+            <span class="error-msg" id="err-bairro">Por favor indique o seu bairro.</span>
+          </div>
+          <div class="field">
+            <label for="telefone">Número de telemóvel</label>
+            <input type="tel" id="telefone" name="telefone" required placeholder="84/86 xxx xxxx">
+            <span class="error-msg" id="err-telefone">Indique um número válido (8-9 dígitos).</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="quantidade">Quantidade de bolos</label>
+            <input type="number" id="quantidade" name="quantidade" min="1" value="1" required>
+          </div>
+          <div class="field">
+            <label for="ocasiao">Tipo de ocasião</label>
+            <select id="ocasiao" name="ocasiao" required>
+              <option value="" disabled selected>Seleccione a ocasião</option>
+              <option value="Aniversário">Aniversário</option>
+              <option value="Casamento">Casamento</option>
+              <option value="Boda de casamento">Boda de casamento</option>
+              <option value="Baptizado">Baptizado</option>
+              <option value="Formatura">Formatura</option>
+              <option value="Corporativo/Empresa">Corporativo / Empresa</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="formato">Formato do bolo</label>
+            <select id="formato" name="formato" required>
+              <option value="" disabled selected>Seleccione o formato</option>
+              <option value="Redondo">Redondo</option>
+              <option value="Quadrado">Quadrado</option>
+              <option value="Coração">Coração</option>
+              <option value="Andares (2 ou mais níveis)">Andares (2 ou mais níveis)</option>
+              <option value="Personalizado">Personalizado</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="tamanho">Tamanho do bolo</label>
+            <select id="tamanho" name="tamanho" required>
+              <option value="" disabled selected>Seleccione o tamanho</option>
+              <option value="Pequeno - 15cm (6 a 8 pessoas)">Pequeno — 15cm (6 a 8 pessoas)</option>
+              <option value="Médio - 20cm (12 a 15 pessoas)">Médio — 20cm (12 a 15 pessoas)</option>
+              <option value="Grande - 25cm (20 a 25 pessoas)">Grande — 25cm (20 a 25 pessoas)</option>
+              <option value="Extra grande - 30cm (30+ pessoas)">Extra grande — 30cm (30+ pessoas)</option>
+              <option value="Personalizado">Personalizado / a combinar</option>
+            </select>
+            <span class="hint">Tamanhos aproximados — o valor final pode ser confirmado no WhatsApp.</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label>Quer delivery?</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="delivery" value="Sim" required> Sim
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="delivery" value="Não" required> Não
+              </label>
+            </div>
+            <small class="delivery-note" id="deliveryNote">Delivery aplicável apenas na cidade de Maputo e sob a taxa de 200MT.</small>
+          </div>
+          <div class="field">
+            <label for="dataEntrega">Data em que quer receber o bolo</label>
+            <input type="date" id="dataEntrega" name="dataEntrega" required>
+            <span class="error-msg" id="err-dataEntrega">Por favor escolha a data de entrega.</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="observacoes">Observações (opcional)</label>
+          <textarea id="observacoes" name="observacoes" placeholder="Cor, recheio, mensagem no bolo, data de entrega, etc."></textarea>
+        </div>
+
+        <div class="submit-row">
+          <button type="submit" class="btn btn-primary">
+            Enviar encomenda para o WhatsApp
+          </button>
+        </div>
+        <p class="form-note">Ao clicar, o WhatsApp abre com a sua encomenda já escrita. Basta confirmar e enviar — vamos falar consigo apenas para alinhar os últimos detalhes.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="seal"><div class="seal-inner">IMPÉRIO<br>DO SABOR</div></div>
+  <p>Império do Sabor | Confeitaria — Cuidando do seu paladar<br>
+  Av. de Moçambique, Maputo — Moçambique<br>
+  <a href="#" id="footerWhatsapp">Fale connosco no WhatsApp</a></p>
+</footer>
+
+<script>
+(function(){
+
+  /* =========================================================
+     CONFIG — edite aqui
+  ========================================================== */
+  const CONFIG = {
+    // Número de WhatsApp da loja em formato internacional, sem "+", sem espaços.
+    // Ex: para +258 86 149 3492 -> "258861493492"
+    numeroWhatsApp: "258861493492"
+  };
+
+  // Catálogo de bolos — substitua "img" pelo caminho/URL da foto real de cada bolo.
+  const produtos = [
+    {
+      id: "choc-classico",
+      nome: "Bolo de Chocolate Clássico",
+      preco: "1500 MT",
+      descricao: "Massa fofa de chocolate com recheio e cobertura de ganache. Ideal para aniversários simples.",
+      img: "https://placehold.co/600x450/9c2255/fdf0f4?text=Chocolate+Cl%C3%A1ssico"
+    },
+    {
+      id: "morango-amor",
+      nome: "Morango do Amor",
+      preco: "1800 MT",
+      descricao: "Camadas de bolo de baunilha, chantilly e morango fresco. O mais pedido nas nossas redes.",
+      img: "https://placehold.co/600x450/c69a44/3a2318?text=Morango+do+Amor"
+    },
+    {
+      id: "aniversario-tema",
+      nome: "Bolo de Aniversário Temático",
+      preco: "2200 MT",
+      descricao: "Decoração personalizada ao tema da festa, com nome e idade incluídos.",
+      img: "https://placehold.co/600x450/f9dce6/6e163b?text=Anivers%C3%A1rio+Tem%C3%A1tico"
+    },
+    {
+      id: "casamento-andares",
+      nome: "Bolo de Casamento (Andares)",
+      preco: "Sob consulta",
+      descricao: "Estrutura de 2 ou mais andares, acabamento fondant ou chantilly, para casamentos e bodas.",
+      img: "https://placehold.co/600x450/6e163b/f9dce6?text=Casamento"
+    },
+    {
+      id: "red-velvet",
+      nome: "Red Velvet",
+      preco: "1900 MT",
+      descricao: "Massa aveludada com cream cheese, num equilíbrio perfeito entre doce e suave.",
+      img: "https://placehold.co/600x450/9c2255/fff8f1?text=Red+Velvet"
+    },
+    {
+      id: "corporativo",
+      nome: "Bolo Corporativo / Empresa",
+      preco: "Sob consulta",
+      descricao: "Logotipo e cores da sua empresa, ideal para eventos e lançamentos.",
+      img: "https://placehold.co/600x450/3a2318/e9d5a8?text=Corporativo"
+    }
+  ];
+
+  const grid = document.getElementById("productGrid");
+  produtos.forEach(p=>{
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <div class="card-photo">
+        <img src="${p.img}" alt="${p.nome}" loading="lazy">
+        <div class="price-seal">${p.preco}</div>
+      </div>
+      <div class="card-body">
+        <h3>${p.nome}</h3>
+        <p>${p.descricao}</p>
+        <button type="button" class="card-order-btn" data-produto="${p.id}">Encomendar este bolo</button>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+
+  /* =========================================================
+     Selecção de bolo a partir dos cartões
+  ========================================================== */
+  let bolosSelecionado = null;
+  const banner = document.getElementById("selectedBanner");
+  const bannerNome = document.getElementById("selectedCakeName");
+
+  grid.addEventListener("click", (e)=>{
+    const btn = e.target.closest(".card-order-btn");
+    if(!btn) return;
+    const produto = produtos.find(p => p.id === btn.dataset.produto);
+    if(!produto) return;
+    bolosSelecionado = produto;
+    bannerNome.textContent = produto.nome + " — " + produto.preco;
+    banner.classList.add("show");
+    document.getElementById("encomendar").scrollIntoView({behavior:"smooth", block:"start"});
+  });
+
+  document.getElementById("clearSelection").addEventListener("click", ()=>{
+    bolosSelecionado = null;
+    banner.classList.remove("show");
+  });
+
+  /* =========================================================
+     Validação e envio para o WhatsApp
+  ========================================================== */
+  const form = document.getElementById("orderForm");
+
+  const deliveryNote = document.getElementById("deliveryNote");
+  form.querySelectorAll('input[name="delivery"]').forEach(radio=>{
+    radio.addEventListener("change", ()=>{
+      deliveryNote.classList.toggle("show", radio.value === "Sim" && radio.checked);
+    });
+  });
+
+  function showError(id, show){
+    const el = document.getElementById("err-"+id);
+    if(el) el.classList.toggle("show", show);
+  }
+
+  function validarTelefone(valor){
+    const digitos = valor.replace(/\D/g,"");
+    return digitos.length >= 8 && digitos.length <= 9;
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const dados = {
+      nome: form.nome.value.trim(),
+      apelido: form.apelido.value.trim(),
+      bairro: form.bairro.value.trim(),
+      telefone: form.telefone.value.trim(),
+      quantidade: form.quantidade.value,
+      ocasiao: form.ocasiao.value,
+      formato: form.formato.value,
+      tamanho: form.tamanho.value,
+      observacoes: form.observacoes.value.trim()
+    };
+
+    let valido = true;
+    showError("nome", false); showError("apelido", false);
+    showError("bairro", false); showError("telefone", false);
+
+    if(!dados.nome){ showError("nome", true); valido = false; }
+    if(!dados.apelido){ showError("apelido", true); valido = false; }
+    if(!dados.bairro){ showError("bairro", true); valido = false; }
+    if(!validarTelefone(dados.telefone)){ showError("telefone", true); valido = false; }
+    if(!dados.ocasiao || !dados.formato || !dados.tamanho){
+      valido = false;
+      alert("Por favor preencha a ocasião, o formato e o tamanho do bolo.");
+    }
+
+    if(!valido) return;
+
+    enviarParaWhatsApp(dados);
+  });
+
+  function enviarParaWhatsApp(dados){
+    const linhas = [];
+    linhas.push("*NOVA ENCOMENDA — Império do Sabor*");
+    linhas.push("");
+    if(bolosSelecionado){
+      linhas.push(`*Bolo escolhido:* ${bolosSelecionado.nome} (${bolosSelecionado.preco})`);
+    } else {
+      linhas.push("*Bolo escolhido:* a definir com a loja");
+    }
+    linhas.push(`*Nome:* ${dados.nome}`);
+    linhas.push(`*Apelido:* ${dados.apelido}`);
+    linhas.push(`*Bairro:* ${dados.bairro}`);
+    linhas.push(`*Telemóvel:* ${dados.telefone}`);
+    linhas.push(`*Quantidade de bolos:* ${dados.quantidade}`);
+    linhas.push(`*Ocasião:* ${dados.ocasiao}`);
+    linhas.push(`*Formato:* ${dados.formato}`);
+    linhas.push(`*Tamanho:* ${dados.tamanho}`);
+    if(dados.observacoes){
+      linhas.push(`*Observações:* ${dados.observacoes}`);
+    }
+    linhas.push("");
+    linhas.push("_Encomenda gerada automaticamente pelo site. Aguardo confirmação._");
+
+    const mensagem = encodeURIComponent(linhas.join("\n"));
+    const url = `https://wa.me/${CONFIG.numeroWhatsApp}?text=${mensagem}`;
+    window.open(url, "_blank");
+  }
+
+  // link de contacto directo no rodapé
+  document.getElementById("footerWhatsapp").addEventListener("click", function(e){
+    e.preventDefault();
+    window.open(`https://wa.me/${CONFIG.numeroWhatsApp}`, "_blank");
+  });
+
+})();
+</script>
+
+</body>
+</html>

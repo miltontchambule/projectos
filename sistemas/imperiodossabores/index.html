@@ -40,7 +40,7 @@
 <section id="bolos">
   <div class="section-inner">
     <div class="section-head">
-      <h2>Os Nossos Bolos</h2>
+      <h2 class="subtitulo">Os Nossos Bolos</h2>
       <p>Cada bolo pode ser feito à sua medida; Formato, tamanho e ocasião.
         Ao clicar em "Encomendar este bolo", o formulário abaixo já vem com o bolo escolhido.</p>
     </div>
@@ -52,7 +52,7 @@
 <section id="encomendar" class="order-section">
   <div class="section-inner">
     <div class="section-head">
-      <h2>Finalizar Encomenda</h2>
+      <h2 class="subtitulo">Finalizar Encomenda</h2>
       <p>Preencha os dados abaixo. Ao enviar, o WhatsApp abre com a sua encomenda já organizada, só precisa de clicar em enviar.</p>
     </div>
 
@@ -137,10 +137,31 @@
           </div>
         </div>
 
+     <div class="form-row">
+          <div class="field">
+            <label>Quer delivery?</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="delivery" value="Sim" required> Sim
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="delivery" value="Não" required> Não
+              </label>
+            </div>
+            <small class="delivery-note" id="deliveryNote">Delivery aplicável apenas na cidade de Maputo e sob a taxa de 200MT.</small>
+          </div>
+          <div class="field">
+            <label for="dataEntrega">Data de levantamento do bolo</label>
+            <input type="date" id="dataEntrega" name="dataEntrega" required>
+            <span class="error-msg" id="err-dataEntrega">Por favor escolha a data de entrega.</span>
+          </div>
+        </div>
+
         <div class="field">
           <label for="observacoes">Observações (opcional)</label>
           <textarea id="observacoes" name="observacoes" placeholder="Cor, recheio, mensagem no bolo, data de entrega, etc."></textarea>
         </div>
+
 
         <div class="submit-row">
           <button type="submit" class="btn btn-primary">
@@ -171,9 +192,10 @@ src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d229725.7223625132!2d3
 
   <div class="icones">
       <a href="https://wa.me/258826972504" id="footerWhatsapp"><img src="social-50px.PNG" alt="WhatsApp logo"></a>
- <a href="https://www.instagram.com/imperiodosabores/"><img src="IMG_5191.PNG" alt="Instagram logo"></a>
- <a href="https://www.tiktok.com/imperiodosabores/"><img src="IMG_5192.PNG" alt="Tiktok logo"></a>
-  <a href="+258826972504"><img src="IMG_5186.PNG" alt="Telefone logo"></a>
+ <a href="https://www.tiktok.com/@imperiodosabor?_r=1&_t=ZS-98sbfftae29/"><img src="IMG_5191.PNG" alt="Instagram logo"></a>
+ <a href="https://www.instagram.com/imperiodesabor?igsh=Y3piN2tlNHF0emlk/"><img src="IMG_5192.PNG" alt="Tiktok logo"></a>
+ <br>
+<a class="telemovel" href="tel:+258876972509">Fale Connosco</a>
 </div>
 
 
