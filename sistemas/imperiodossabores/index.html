@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Império do Sabor - Encomendas de Bolos</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="style.css">
+
+
+
+</head>
+<body>
+
+
+<header class="hero">
+  <div class="desfoque"></div>
+
+    <div class="seal">
+    <img src="logo-500px.PNG" alt="logotipo">
+  </div>
+
+ <h1 id="titulo">Império do Sabor</h1>
+
+ <small>Bolos e Ornamentação - Sistema de Encomendas</small>
+ <br>
+  <br>
+
+  <p class="tag">Escolha o bolo, preencha o formulário e o seu pedido segue organizado directamente para o nosso WhatsApp. Só falta clicar em enviar.</p>
+  <div class="hero-cta">
+    <a href="#bolos" class="btn btn-primary">Ver bolos</a>
+    <a href="#encomendar" class="btn btn-ghost">Visite-nos</a>
+  </div>
+ 
+  </div> 
+</header>
+
+
+
+<section id="bolos">
+  <div class="section-inner">
+    <div class="section-head">
+      <h2>Os Nossos Bolos</h2>
+      <p>Cada bolo pode ser feito à sua medida; Formato, tamanho e ocasião.
+        Ao clicar em "Encomendar este bolo", o formulário abaixo já vem com o bolo escolhido.</p>
+    </div>
+
+    <div class="grid" id="productGrid"></div>
+  </div>
+</section>
+
+<section id="encomendar" class="order-section">
+  <div class="section-inner">
+    <div class="section-head">
+      <h2>Finalizar Encomenda</h2>
+      <p>Preencha os dados abaixo. Ao enviar, o WhatsApp abre com a sua encomenda já organizada, só precisa de clicar em enviar.</p>
+    </div>
+
+    <div class="form-shell">
+
+      <div class="selected-cake-banner" id="selectedBanner">
+        <span>Bolo escolhido: <strong id="selectedCakeName"></strong></span>
+        <button type="button" id="clearSelection">alterar</button>
+      </div>
+
+      <form id="orderForm" novalidate>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" requiredplaceholder="Ex: Sara">
+            <span class="error-msg" id="err-nome">Por favor indique o seu nome.</span>
+          </div>
+          <div class="field">
+            <label for="apelido">Apelido</label>
+            <input type="text" id="apelido" name="apelido" required >
+            <span class="error-msg" id="err-apelido">Por favor indique o seu apelido.</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="bairro">Bairro</label>
+            <input type="text" id="bairro" name="bairro" required placeholder="Ex: Magoanine B">
+            <span class="error-msg" id="err-bairro">Por favor indique o seu bairro.</span>
+          </div>
+          <div class="field">
+            <label for="telefone">Número de telemóvel</label>
+            <input type="tel" id="telefone" name="telefone" required placeholder="+258...">
+            <span class="error-msg" id="err-telefone">Indique um número válido. O prefixo é opcional.</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="quantidade">Quantidade de bolos</label>
+            <input type="number" id="quantidade" name="quantidade" min="1" value="1" required>
+          </div>
+          <div class="field">
+            <label for="ocasiao">Tipo de ocasião</label>
+            <select id="ocasiao" name="ocasiao" required>
+              <option value="" disabled selected>Seleccione a ocasião</option>
+              <option value="Aniversário">Aniversário</option>
+              <option value="Casamento">Casamento</option>
+              <option value="Boda de casamento">Boda de casamento</option>
+              <option value="Baptizado">Baptizado</option>
+              <option value="Formatura">Formatura</option>
+              <option value="Corporativo/Empresa">Romântico</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="formato">Formato do bolo</label>
+            <select id="formato" name="formato" required>
+              <option value="" disabled selected>Seleccione o formato</option>
+              <option value="Redondo">Redondo</option>
+              <option value="Quadrado">Quadrado</option>
+              <option value="Coração">Coração</option>
+              <option value="Andares (2 ou mais níveis)">Andares (2 ou mais níveis)</option>
+              <option value="Personalizado">Personalizado</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="tamanho">Tamanho do bolo</label>
+            <select id="tamanho" name="tamanho" required>
+              <option value="" disabled selected>Seleccione o tamanho</option>
+              <option value="Pequeno - 15cm (6 a 8 pessoas)">Pequeno - 15cm (6 a 8 pessoas)</option>
+              <option value="Médio - 20cm (12 a 15 pessoas)">Médio - 20cm (12 a 15 pessoas)</option>
+              <option value="Grande - 25cm (20 a 25 pessoas)">Grande - 25cm (20 a 25 pessoas)</option>
+              <option value="Extra grande - 30cm (30+ pessoas)">Extra grande - 30cm (30+ pessoas)</option>
+              <option value="Personalizado">Personalizado / a combinar</option>
+            </select>
+            <span class="hint">Tamanhos aproximados - o valor final pode ser confirmado no WhatsApp.</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="observacoes">Observações (opcional)</label>
+          <textarea id="observacoes" name="observacoes" placeholder="Cor, recheio, mensagem no bolo, data de entrega, etc."></textarea>
+        </div>
+
+        <div class="submit-row">
+          <button type="submit" class="btn btn-primary">
+            Enviar encomenda para o WhatsApp
+          </button>
+        </div>
+        <p class="form-note">Ao clicar, o WhatsApp abre com a sua encomenda já escrita.
+           Basta confirmar e enviar. Vamos falar consigo apenas para alinhar os últimos detalhes.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+
+  <p> <h1 id="titulo" style="font-size: 2rem;">Império do Sabor</h1><br>
+  Av. de Moçambique, Maputo - Moçambique<br><br>
+  <div class="icones">
+      <a href="https://wa.me/258826972504" id="footerWhatsapp"><img src="social-50px.PNG" alt="WhatsApp logo"></a>
+ <a href="https://www.instagram.com/imperiodosabores/"><img src="IMG_5191.PNG" alt="Instagram logo"></a>
+ <a href="https://www.tiktok.com/imperiodosabores/"><img src="IMG_5192.PNG" alt="Tiktok logo"></a>
+  <a href="+258826972504"><img src="IMG_5186.PNG" alt="Telefone logo"></a>
+</div>
+
+
+</p>
+<br>
+<small id="dev"><a href="https://wa.me/258826972504/">Desenvolvido por Milton Tchambule</a></small>
+</footer>
+
+<script src="bolos.js"></script>
+
+</body>
+</html>

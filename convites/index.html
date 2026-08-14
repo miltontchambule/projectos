@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convite de Casamento — Gloria & Pedro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Lora:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <main class="cartao-convite">
+
+        <!-- Substitui pela foto real do casal -->
+        <img class="foto-casal" src="foto-casal.jpg" alt="Fotografia do casal Gloria e Pedro">
+
+        <h1 class="nomes-casal">Gloria &amp; Pedro</h1>
+        <p class="texto-convite">convidam-te a celebrar a cerimónia do seu casamento</p>
+
+        <!-- <div class="divisor-ornamental" aria-hidden="true"><span></span>✦<span></span></div> -->
+
+        <!-- ESTADO 1: escolha inicial — é tudo o que aparece ao carregar a página -->
+        <section id="escolha-inicial" class="secao-escolha">
+            <p class="pergunta-principal">Vais poder celebrar este dia connosco?</p>
+            <div class="botoes-resposta">
+                <button type="button" id="aceitar" class="botao botao-aceitar">Aceito</button>
+                <button type="button" id="rejeitar" class="botao botao-rejeitar">Não poderei ir</button>
+            </div>
+        </section>
+
+        <!-- ESTADO 2: formulário de confirmação — só aparece após clicar em "Aceito" -->
+        <section id="secao-aceitar" class="secao-formulario oculto" aria-hidden="true">
+            <h2 class="titulo-secao">Confirma os teus dados</h2>
+
+            <form id="form-aceite" novalidate>
+                <div class="campo">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" required autocomplete="given-name">
+                </div>
+
+                <div class="campo">
+                    <label for="apelido">Apelido</label>
+                    <input type="text" id="apelido" name="apelido" required autocomplete="family-name">
+                </div>
+
+                <div class="campo">
+                    <label for="contacto">Contacto (WhatsApp)</label>
+                    <input type="tel" id="contacto" name="contacto" placeholder="84 123 4567" required pattern="[0-9 ]{6,15}">
+                </div>
+
+                <fieldset class="campo campo-radio">
+                    <legend>Sexo</legend>
+                    <label class="opcao-radio">
+                        <input type="radio" name="sexo" id="mas" value="Masculino" required>
+                        Homem
+                    </label>
+                    <label class="opcao-radio">
+                        <input type="radio" name="sexo" id="fem" value="Feminino" required>
+                        Mulher
+                    </label>
+                </fieldset>
+
+                <div class="campo">
+                    <label for="graus">Grau de parentesco</label>
+                    <select name="parentesco" id="graus" required>
+                        <option value="" disabled selected>-- Selecione --</option>
+                        <option value="Pai/Mãe">Pai/Mãe</option>
+                        <option value="Irmão(ã)">Irmão(ã)</option>
+                        <option value="Primo(a)">Primo(a)</option>
+                        <option value="Tio(a)">Tio(a)</option>
+                        <option value="Avô(ó)">Avô(ó)</option>
+                        <option value="Padrinho/Madrinha">Padrinho/Madrinha</option>
+                        <option value="Vizinho(a)">Vizinho(a)</option>
+                        <option value="Amigo(a)">Amigo(a)</option>
+                        <option value="Colega">Colega</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+
+                <!-- Só fica visível quando "Outro" é escolhido acima (controlado em convite.js) -->
+                <div class="campo oculto" id="campo-outro">
+                    <label for="outro">Especifica o grau de parentesco</label>
+                    <input type="text" name="outro" id="outro" placeholder="Ex: Colega de trabalho">
+                </div>
+
+                <div class="campo">
+                    <label for="igreja">Poderás estar na igreja?</label>
+                    <select name="igreja" id="igreja" required>
+                        <option value="" disabled selected>-- Selecione --</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="salao">Poderás estar no salão?</label>
+                    <select name="salao" id="salao" required>
+                        <option value="" disabled selected>-- Selecione --</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="botao botao-submeter">Submeter confirmação</button>
+            </form>
+        </section>
+
+        <!-- ESTADO 3: motivo da ausência — só aparece após clicar em "Não poderei ir" -->
+        <section id="secao-rejeitar" class="secao-formulario oculto" aria-hidden="true">
+            <p class="mensagem-pena">
+                É uma pena que não poderás estar connosco neste dia fantástico.
+                Podes partilhar connosco o motivo da ausência?
+            </p>
+
+            <form id="form-rejeicao" novalidate>
+                <div class="campo">
+                    <label for="motivo">Motivo (opcional)</label>
+                    <textarea id="motivo" name="motivo" rows="3" placeholder="Ex: Estarei fora do país nessa data"></textarea>
+                </div>
+
+                <button type="submit" class="botao botao-submeter">Submeter resposta</button>
+            </form>
+        </section>
+
+    </main>
+
+
+</body>
+
+<script src="convite1.js"></script>
+</html>
+

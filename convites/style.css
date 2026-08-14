@@ -1,0 +1,254 @@
+/* ---------- 1. VARIÁVEIS GLOBAIS ---------- */
+:root {
+    --cor-fundo: #8f2b51;
+    --cor-fundo-cartao: #ffb6e7;
+    --cor-texto-principal: #f3eadf;
+    --cor-texto-secundario: #c9b8a8;
+    --cor-destaque: #d4a857;
+    --cor-destaque-suave: #e8c9a0;
+    --cor-rejeitar: #9a5b48;
+    --cor-rejeitar-suave: #b97a63;
+    --cor-erro: #c75c4f;
+    --cor-borda: rgba(212, 168, 87, 0.25);
+
+    --fonte-titulo: 'Cormorant Garamond', Georgia, serif;
+    --fonte-corpo: 'Lora', Georgia, serif;
+
+    --espaco-xs: 0.5rem;
+    --espaco-sm: 0.9rem;
+    --espaco-md: 1.6rem;
+    --espaco-lg: 3rem;
+
+    --raio-borda: 6px;
+    --duracao-transicao: 0.35s;
+}
+
+/* Respeita utilizadores que desactivaram movimento */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --duracao-transicao: 0s;
+    }
+}
+
+/* ---------- 2. RESET E BASE ---------- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--cor-fundo);
+    background-image: radial-gradient(circle at 50% 0%, rgba(212, 168, 87, 0.08), transparent 60%);
+    font-family: var(--fonte-corpo);
+    color: var(--cor-texto-principal);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: var(--espaco-lg) var(--espaco-md);
+}
+
+/* ---------- 3. CARTÃO DO CONVITE ---------- */
+.cartao-convite {
+    width: 100%;
+    max-width: 440px;
+    background: var(--cor-fundo-cartao);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+    padding: var(--espaco-lg) var(--espaco-md);
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.foto-casal {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--cor-destaque);
+    margin-bottom: var(--espaco-md);
+}
+
+.nomes-casal {
+    font-family: var(--fonte-titulo);
+    font-weight: 600;
+    font-size: 2.4rem;
+    margin: 0;
+    color: var(--cor-destaque-suave);
+    letter-spacing: 0.02em;
+}
+
+.texto-convite {
+    font-style: italic;
+    color: var(--cor-texto-secundario);
+    margin: var(--espaco-xs) 0 0;
+}
+
+/* Divisor ornamental: duas linhas finas com um símbolo dourado ao centro,
+   imitando o filete decorativo de um convite impresso */
+.divisor-ornamental {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--espaco-sm);
+    color: var(--cor-destaque);
+    margin: var(--espaco-md) 0;
+}
+
+.divisor-ornamental span {
+    height: 1px;
+    width: 60px;
+    background: var(--cor-borda);
+}
+
+/* ---------- 4. ESTADO INICIAL: BOTÕES ACEITO / REJEITO ---------- */
+.pergunta-principal {
+    font-size: 1.05rem;
+    margin-bottom: var(--espaco-md);
+}
+
+.botoes-resposta {
+    display: flex;
+    gap: var(--espaco-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.botao {
+    font-family: var(--fonte-corpo);
+    font-size: 0.95rem;
+    padding: 0.75rem 1.6rem;
+    border-radius: var(--raio-borda);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform var(--duracao-transicao), opacity var(--duracao-transicao);
+}
+
+.botao:hover {
+    transform: translateY(-1px);
+    opacity: 0.92;
+}
+
+.botao:focus-visible {
+    outline: 2px solid var(--cor-destaque-suave);
+    outline-offset: 2px;
+}
+
+.botao-aceitar {
+    background: var(--cor-destaque);
+    color: #1c1207;
+    font-weight: 600;
+}
+
+.botao-rejeitar {
+    background: transparent;
+    color: var(--cor-rejeitar-suave);
+    border-color: var(--cor-rejeitar);
+}
+
+.botao-submeter {
+    background: var(--cor-destaque);
+    color: #1c1207;
+    font-weight: 600;
+    width: 100%;
+    margin-top: var(--espaco-sm);
+}
+
+/* ---------- 5. FORMULÁRIOS (confirmação e rejeição) ---------- */
+.secao-formulario {
+    text-align: left;
+    margin-top: var(--espaco-md);
+    animation: revelar var(--duracao-transicao) ease-out;
+}
+
+.titulo-secao {
+    font-family: var(--fonte-titulo);
+    font-size: 1.4rem;
+    color: var(--cor-destaque-suave);
+    text-align: center;
+    margin-top: 0;
+}
+
+.campo {
+    margin-bottom: var(--espaco-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.campo label {
+    font-size: 0.85rem;
+    color: var(--cor-texto-secundario);
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    font-family: var(--fonte-corpo);
+    background: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+    color: var(--cor-texto-principal);
+    padding: 0.6rem 0.7rem;
+    font-size: 0.95rem;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    outline: none;
+    border-color: var(--cor-destaque);
+}
+
+.campo-radio {
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+    padding: var(--espaco-sm);
+    display: flex;
+    gap: var(--espaco-md);
+}
+
+.campo-radio legend {
+    font-size: 0.85rem;
+    color: var(--cor-texto-secundario);
+    padding: 0 0.3rem;
+}
+
+.opcao-radio {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+}
+
+.mensagem-pena {
+    color: var(--cor-texto-secundario);
+    line-height: 1.5;
+}
+
+/* ---------- 6. UTILITÁRIOS ---------- */
+.oculto {
+    display: none;
+}
+
+@keyframes revelar {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------- 7. RESPONSIVO ---------- */
+@media (max-width: 380px) {
+    .nomes-casal {
+        font-size: 2rem;
+    }
+
+    .botoes-resposta {
+        flex-direction: column;
+    }
+}
