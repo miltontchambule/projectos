@@ -132,12 +132,15 @@
       ocasiao: form.ocasiao.value,
       formato: form.formato.value,
       tamanho: form.tamanho.value,
+       delivery: (form.querySelector('input[name="delivery"]:checked') || {}).value || "",
+      dataEntrega: form.dataEntrega.value,
       observacoes: form.observacoes.value.trim()
     };
 
     let valido = true;
     showError("nome", false); showError("apelido", false);
     showError("bairro", false); showError("telefone", false);
+    showError("dataEntrega", false);
 
     if(!dados.nome){ showError("nome", true); valido = false; }
     if(!dados.apelido){ showError("apelido", true); valido = false; }
@@ -147,11 +150,22 @@
       valido = false;
       alert("Por favor preencha a ocasião, o formato e o tamanho do bolo.");
     }
+    if(!dados.delivery){
+      valido = false;
+      alert("Por favor indique se quer delivery.");
+    }
+    if(!dados.dataEntrega){ showError("dataEntrega", true); valido = false; }
 
     if(!valido) return;
 
     enviarParaWhatsApp(dados);
   });
+
+  function formatarData(valor){
+    if(!valor) return "";
+    const [ano, mes, dia] = valor.split("-");
+    return `${dia}/${mes}/${ano}`;
+  }
 
   function enviarParaWhatsApp(dados){
     const linhas = [];
@@ -170,6 +184,8 @@
     linhas.push(`*Ocasião:* ${dados.ocasiao}`);
     linhas.push(`*Formato:* ${dados.formato}`);
     linhas.push(`*Tamanho:* ${dados.tamanho}`);
+    linhas.push(`*Delivery:* ${dados.delivery}${dados.delivery === "Sim" ? " (taxa de 200MT, apenas cidade de Maputo)" : ""}`);
+    linhas.push(`*Data de entrega:* ${formatarData(dados.dataEntrega)}`);
     if(dados.observacoes){
       linhas.push(`*Observações:* ${dados.observacoes}`);
     }
