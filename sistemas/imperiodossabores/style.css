@@ -309,7 +309,7 @@
     padding:13px 14px;
     border-radius:12px;
     border:1.5px solid #e8dcd4;
-    background:var(--cream);
+    background:var(--blush-soft);
     font-family:inherit;
     font-size:0.95rem;
     color:var(--cocoa);
@@ -326,7 +326,7 @@
     background-position:right 14px center;
     padding-right:38px;
   }
-  textarea{resize:vertical;min-height:80px;}
+  textarea{resize:vertical;min-height:80px; }
 
   .submit-row{
     display:flex;
@@ -381,6 +381,12 @@ margin-top: 1rem;
  
   footer a{
     text-decoration:underline;
+}
+
+iframe{
+   width: 400;
+  height: 250;
+  border-radius: 10px;
 }
 #dev{
     color: var(--cream);
