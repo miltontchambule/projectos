@@ -2,16 +2,12 @@
 
 (function(){
 
-  /* =========================================================
-     CONFIG — edite aqui
-  ========================================================== */
   const CONFIG = {
-    // Número de WhatsApp da loja em formato internacional, sem "+", sem espaços.
-    // Ex: para +258 86 149 3492 -> "258861493492"
-    numeroWhatsApp: "258826972504"
+  
+    numeroWhatsApp: "258861493492"
   };
 
-  // Catálogo de bolos — substitua "img" pelo caminho/URL da foto real de cada bolo.
+  // Catálogo de bolos
   const produtos = [
     {
       id: "choc-classico",
@@ -20,34 +16,34 @@
       descricao: "Massa fofa de chocolate com recheio e cobertura de ganache. Ideal para aniversários simples.",
       img: "900px-1.jpg"
     },
-    {
-      id: "morango-amor",
-      nome: "Morango do Amor",
-      preco: "1800MT",
-      descricao: "Camadas de bolo de baunilha, chantilly e morango fresco. O mais pedido nas nossas redes.",
-      img: "900px-2.jpg"
-    },
-    {
-      id: "aniversario-tema",
-      nome: "Bolo de Aniversário Temático",
-      preco: "2200MT",
-      descricao: "Decoração personalizada ao tema da festa, com nome e idade incluídos.",
-      img: "900px-6.jpg"
-    },
-    {
-      id: "casamento-andares",
-      nome: "Bolo de Chocolate",
-      preco: "1500MT",
-      descricao: "Estrutura simples ou de andares, acabamento fondant ou chantilly, para jantares em família ou presente.",
-      img: "900px-4.jpg"
-    },
-    {
-      id: "red-velvet",
-      nome: "Bolo de Uvas",
-      preco: "1900MT",
-      descricao: "Creme num equilíbrio perfeito entre doce e suave.",
-      img: "900px-5.jpg"
-    },
+        {
+          id: "morango-amor",
+          nome: "Morango do Amor",
+          preco: "1800MT",
+          descricao: "Camadas de bolo de baunilha, chantilly e morango fresco. O mais pedido nas nossas redes.",
+          img: "900px-2.jpg"
+        },
+            {
+              id: "aniversario-tema",
+              nome: "Bolo de Aniversário Temático",
+              preco: "2200MT",
+              descricao: "Decoração personalizada ao tema da festa, com nome e idade incluídos.",
+              img: "900px-6.jpg"
+            },
+          {
+            id: "casamento-andares",
+            nome: "Bolo de Chocolate",
+            preco: "1500MT",
+            descricao: "Estrutura simples ou de andares, acabamento fondant ou chantilly, para jantares em família ou presente.",
+            img: "900px-4.jpg"
+          },
+            {
+              id: "red-velvet",
+              nome: "Bolo de Uvas",
+              preco: "1900MT",
+              descricao: "Creme num equilíbrio perfeito entre doce e suave.",
+              img: "900px-5.jpg"
+            },
     {
       id: "corporativo",
       nome: "Bolo de Bodas",
@@ -75,9 +71,9 @@
     grid.appendChild(card);
   });
 
-  /* =========================================================
-     Selecção de bolo a partir dos cartões
-  ========================================================== */
+
+     //escolher o bolo 
+
   let bolosSelecionado = null;
   const banner = document.getElementById("selectedBanner");
   const bannerNome = document.getElementById("selectedCakeName");
@@ -98,9 +94,8 @@
     banner.classList.remove("show");
   });
 
- /* =========================================================
-     Validação e envio para o WhatsApp
-  ========================================================== */
+   //envio para o WhatsApp
+
   const form = document.getElementById("orderForm");
 
   const deliveryNote = document.getElementById("deliveryNote");
