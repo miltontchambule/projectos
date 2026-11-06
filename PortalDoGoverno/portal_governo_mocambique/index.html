@@ -1,0 +1,364 @@
+
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="estilos.css">
+  <title>Portal do Governo de Moçambique | Informação oficial e serviços públicos</title>
+</head>
+
+
+<body>
+
+  <a class="atalho-conteudo" href="#conteudo">Saltar para o conteúdo principal</a>
+
+  <div class="barra-superior">
+    <div class="contentor barra-superior-conteudo">
+    </div>
+  </div>
+
+  <header class="cabecalho">
+    <div class="contentor cabecalho-conteudo">
+      <a class="marca" href="#inicio" aria-label="Portal do Governo de Moçambique - página inicial">
+        <span class="marca-simbolo" aria-hidden="true">
+          <img src="imagens/emblema100px.png" alt="emblema da republica"></span>
+       
+          <span class="marca-texto">
+          <strong>REPÚBLICA DE MOÇAMBIQUE</strong>
+          <span>Portal do Governo</span>
+       
+        </span>
+      </a>
+
+      <button class="botao-menu" id="botao-menu"
+       type="button" aria-label="Abrir menu" 
+       aria-expanded="false" aria-controls="navegacao">
+        <span></span><span></span><span></span>
+      </button>
+
+    
+      <nav class="navegacao" id="navegacao" aria-label="Navegação principal">
+        <a class="ativo" href="#inicio">Início</a>
+        <a href="#noticias">Notícias</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#documentos">Documentos</a>
+        <a href="#comunicados">Comunicados</a>
+        <a href="#contactos">Contactos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="destaque" id="inicio">
+      <div class="contentor destaque-conteudo">
+
+        <div class="destaque-texto">
+        
+          <h1 id="titulo-destaque">Informação pública. Serviços. Governação.</h1>
+          <p>Acompanhe as decisões do Governo,
+             consulte informação oficial e encontre os principais 
+             serviços públicos de Moçambique.</p>
+          <div class="destaque-accoes">
+            <a class="botao botao-principal" href="#servicos">Consultar serviços</a>
+            <a class="botao botao-contorno" href="#noticias">Últimas notícias</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="faixa-informativa">
+
+      <div class="contentor faixa-conteudo">
+        <span class="faixa-ponto" aria-hidden="true"></span>
+        <p>Notícias oficias em tempo real</p>
+        <time class="faixa-data" id="data-atual"></time>
+      </div>
+
+    </section>
+
+    <section class="seccao noticias" id="noticias">
+      <div class="contentor">
+
+        <div class="cabecalho-seccao">
+          <div>
+            <span class="sobretitulo">Actualidade</span>
+            <h2 id="titulo-noticias">Últimas notícias</h2>
+            <p>Acompanhe as principais notícias e atividades do Governo.</p>
+          </div>
+          <a class="ligacao-seta" href="#lista-noticias">Ver todas as notícias 
+            <span aria-hidden="true">&rightarrow;</span>
+          </a>
+        </div>
+
+
+        <div class="pesquisa-noticias">
+          <label for="pesquisa">Pesquisar notícias</label>
+          <div class="campo-pesquisa">
+            <input id="pesquisa" type="search" placeholder="Escreva uma palavra-chave..." 
+            autocomplete="off">
+            <button id="limpar-pesquisa" type="button">Limpar</button>
+          </div>
+          <p class="resultado-pesquisa" id="resultado-pesquisa" aria-live="polite"></p>
+        </div>
+
+
+        <div class="grelha-noticias" id="lista-noticias">
+          <article class="cartao-noticia noticia-principal">
+            <a class="imagem-noticia imagem-noticia-um" >
+             <span class="imagem-legenda">Destaque</span></a>
+            
+             <div class="noticia-corpo">
+              <time datetime="2026-11-05">5 de novembro de 2026</time>
+              <h3>
+              Presidente Chapo e a Primeira Dama visitam
+               Estação Ferroviaria em Dar-Es-Salaam, Tanzania
+              </h3>
+
+              <p>Sistema ferroviário eléctrico: Presidente Chapo quer replicar 
+                modelo tanzaniano no país
+              </p>
+              <a class="ligacao-seta">Ler notícia 
+                <span aria-hidden="true">&rightarrow;</span>
+              </a>
+            </div>
+
+          </article>
+
+          <article class="cartao-noticia" 
+          data-titulo="Conselho de Ministros aprova alterações ao regime remuneratório dos órgãos de soberania">
+            <a class="imagem-noticia imagem-noticia-dois"></a>
+            <div class="noticia-corpo">
+              <time datetime="2026-11-04">4 de novembro de 2026</time>
+              <h3>Conselho de Ministros aprova alterações ao regime 
+                remuneratório dos órgãos de soberania
+              </h3>
+              <p>Decisão aprovada na 32.ª sessão ordinária do Conselho de Ministros.
+              </p>
+              <a class="ligacao-seta">Ler notícia
+                 <span aria-hidden="true">&rightarrow;</span>
+                </a>
+              </div>
+          </article>
+
+          <article class="cartao-noticia">
+            <a class="imagem-noticia imagem-noticia-tres"></a>
+            <div class="noticia-corpo">
+              <time datetime="2026-11-04">4 de novembro de 2026</time>
+              <h3>Governo aprova Plano de Contingência 2026-2027</h3>
+              <p>O plano prevê medidas de preparação e resposta a situações de 
+                emergência.</p><a class="ligacao-seta">Ler notícia 
+                  <span aria-hidden="true">&rightarrow;</span>
+                </a>
+              </div>
+          </article>
+
+        </div>
+
+        <p class="sem-resultados" id="sem-resultados" hidden>
+          Não foram encontradas notícias com esse termo.</p>
+      </div>
+
+    </section>
+
+    <section class="seccao servicos" id="servicos" aria-labelledby="titulo-servicos">
+      <div class="contentor">
+
+        <div class="cabecalho-seccao">
+          <div>
+          <span class="sobretitulo">Atendimento ao cidadão</span>
+          <h2 id="titulo-servicos">Serviços e informação útil</h2>
+          <p>Aceda rapidamente a informação e plataformas públicas.</p>
+        </div>
+        </div>
+        <div class="grelha-servicos">
+          <a class="cartao-servico">
+            <span class="servico-numero">01</span>
+            <strong>Visto eletrónico</strong>
+            <span>Informação e acesso ao serviço de vistos.</span>
+            <b>Consultar serviço &rightarrow;</b>
+          </a>
+          <a class="cartao-servico" href="#documentos">
+            <span class="servico-numero">02</span>
+            <strong>Formatos de documentos oficiais</strong>
+            <span>Consulte publicações e atos oficiais.</span>
+            <b>Consultar documentos &rightarrow;</b></a>
+
+          <a class="cartao-servico" href="#comunicados">
+            <span class="servico-numero">03</span>
+            <strong>Comunicados</strong>
+            <span>Leia os comunicados e as decisões do Governo.</span>
+            <b>Ver comunicados &rightarrow;</b></a>
+
+          <a class="cartao-servico" href="#contactos">
+            <span class="servico-numero">04</span>
+            <strong>Contactos institucionais</strong>
+            <span>Encontre os canais de contacto disponíveis para ministérios e outros orgãos</span>
+            <b>Ver contactos &rightarrow;</b></a>
+
+        </div>
+      </div>
+
+    </section>
+
+    <section class="seccao documentos" id="documentos" aria-labelledby="titulo-documentos">
+      <div class="contentor documentos-grelha">
+        <div><span class="sobretitulo">Consulta pública</span>
+          <h2 id="titulo-documentos">Documentos oficiais</h2>
+          <p>Uma área organizada para consultar legislação, publicações,
+             relatórios e outros documentos de interesse público.</p>
+             <a class="botao botao-principal">Aceder ao arquivo oficial</a>
+            </div>
+
+        <div class="lista-documentos">
+          <a>
+          <span>Publicações oficiais</span>
+          <b aria-hidden="true">&rightarrow;</b>
+        </a>
+
+          <a><span>Legislação e regulamentos</span>
+            <b aria-hidden="true">&rightarrow;</b>
+          </a>
+
+           <a><span>Planos e relatórios</span>
+            <b aria-hidden="true">&rightarrow;</b>
+          </a>
+            <a><span>Anúncios de concursos</span><b aria-hidden="true">&rightarrow;</b></a>
+          </div>
+      </div>
+    </section>
+
+
+     <section class="seccao gestao-documentos" id="gestao-documentos" aria-labelledby="titulo-gestao-documentos">
+      <div class="contentor">
+        <div class="cabecalho-seccao">
+          <div>
+            <span class="sobretitulo">Submeta a sua candidatura</span>
+            <h2 id="titulo-gestao-documentos">Candidate-se ao Estado</h2>
+            <p>Submeta o seu CV à nossa base de dados e fique pronto para eventuais vagas
+               disponiveís que se apliquem à sua área.</p>
+          </div>
+        </div>
+        
+
+        <form class="formulario-documentos" id="formulario-documentos">
+          <div class="campo-documento">
+            <label for="tipo-documento">Tipo de documento</label>
+            <select id="tipo-documento" name="tipo" required>
+              <option value="">Seleccione uma opção</option>
+              <option value="Curriculum Vitae">Curriculum Vitae (CV)</option>
+              <option value="Carta de apresentação">Carta de apresentação</option>
+              <option value="Bilhete de Identidade">Bilhete de Identidade (BI)</option>
+              <option value="NUIT">NUIT</option>
+              <option value="Certificado">Certificado</option>
+              <option value="Outro">Outro documento</option>
+            </select>
+          </div>
+
+          <div class="campo-documento">
+            <label for="nome-documento">Nome do documento</label>
+            <input id="nome-documento" name="nome" type="text" maxlength="100" placeholder="Ex.: CV actualizado" required>
+          </div>
+
+          <div class="campo-documento campo-ficheiro">
+            <label for="ficheiro-documento">Seleccionar ficheiro</label>
+            <input id="ficheiro-documento" name="ficheiro" type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required>
+            <small>Formatos permitidos: PDF, DOC, DOCX, JPG e PNG. Tamanho máximo: 2 MB por ficheiro.</small>
+          </div>
+
+          <div class="accoes-formulario-documentos">
+            <button class="botao botao-principal" id="botao-guardar-documento" type="submit">Guardar documento</button>
+            <button class="botao botao-secundario" id="botao-cancelar-edicao" type="button" hidden>Cancelar edição</button>
+          </div>
+          <p class="mensagem-documentos" id="mensagem-documentos" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="cabecalho-lista-documentos">
+          <h3>Documentos guardados</h3>
+          <span id="contador-documentos">0 documentos</span>
+        </div>
+        <div class="lista-documentos-pessoais" id="lista-documentos-pessoais">
+          <p class="lista-vazia" id="lista-vazia">Ainda não existem documentos guardados neste dispositivo.</p>
+          <ul id="documentos-armazenados" aria-label="Lista de documentos guardados"></ul>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section class="seccao comunicados" id="comunicados"
+     aria-labelledby="titulo-comunicados">
+      
+      <div class="contentor">
+        <div class="cabecalho-seccao">
+          <div><span class="sobretitulo">Informação institucional</span>
+            <h2 id="tit ulo-comunicados">Comunicados do Governo</h2>
+            <p>Atualizações e informação oficial para os cidadãos.</p>
+          </div>
+        </div>
+
+        <div class="comunicado">
+          
+          <div class="comunicado-data">
+          <strong>Novembro</strong>
+          <span>Publicações</span></div>
+          <div>
+            <h3>Comunicados e anúncios oficiais</h3>
+            <p>Consulte os comunicados publicados pelas instituições governamentais.</p></div>
+            <a>Consultar arquivo &rightarrow;</a>
+          </div>
+      </div>
+    </section>
+
+    <section class="seccao contactos" id="contactos" aria-labelledby="titulo-contactos">
+      <div class="contentor contactos-grelha"><div>
+        <span class="sobretitulo">Canais institucionais</span>
+        <h2 id="titulo-contactos">Contactos</h2>
+
+        <p> Encontre aqui os contactos para comunicar-se com o orgão responsável pelo Portal do Governo,
+           obter informações ou assistencia, 24h, todos os dias.</p>
+           <p class="nota-contactos">
+            Secretaria: +258 12 345 6789
+            <br>Telefone: +21 334 55 353
+           <br> facebook: portal_do_governo
+           </p>
+            </div>
+
+        <div class="contactos-painel"><h3>Portal do Governo</h3>
+          <p>República de Moçambique</p>
+          <a>www.portaldogoverno.gov.mz</a>
+          <a>Portal do Cidadão</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+
+    <div class="contentor rodape-grelha"><div>
+      <a class="marca marca-rodape" href="#inicio">
+        <span class="marca-simbolo">
+          
+          <img src="imagens/emblema100px.png" alt="">
+        </span><span class="marca-texto"><strong>REPÚBLICA DE MOÇAMBIQUE</strong>
+          <span>Portal do Governo</span></span></a>
+          <p>Informação pública ao serviço dos cidadãos.
+
+          </p></div>
+
+      <div><h2>Explorar</h2><a href="#noticias">Notícias</a>
+        <a href="#servicos">Serviços</a><a href="#documentos">Documentos</a>
+      </div>
+
+      <div><h2>Institucional</h2><a href="#comunicados">Comunicados</a>
+        <a href="#contactos">Contactos</a><a href="#inicio">Voltar ao início</a></div>
+    </div>
+    <div class="rodape-final"><div class="contentor"><span>&copy; 
+      <span id="ano-atual"></span> Governo de Moçambique.
+      Todos os direitos reservados.</span><span>Desenvolvido por Xavier Chambule Jr.</span></div></div>
+  </footer>
+
+</body>
+  <script src="script.js" defer></script>
+</html>
