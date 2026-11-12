@@ -1,29 +1,31 @@
 
 
-
 document.addEventListener("DOMContentLoaded", function () {
   const botaoMenu = document.getElementById("botao-menu");
   const navegacao = document.getElementById("navegacao");
   const linksMenu = navegacao.querySelectorAll("a");
-  const pesquisa = document.getElementById("pesquisa");
-  const limparPesquisa = document.getElementById("limpar-pesquisa");
-  const cartoes = document.querySelectorAll(".cartao-noticia");
-  const semResultados = document.getElementById("sem-resultados");
-  const resultadoPesquisa = document.getElementById("resultado-pesquisa");
   const botaoAcessibilidade = document.getElementById("botao-acessibilidade");
 
+
+
+  //capta a data do sistema////////////////////////////////////////////////////
   const data = new Date();
   document.getElementById("ano-atual").textContent = data.getFullYear();
   document.getElementById("data-atual").textContent = new Intl.DateTimeFormat("pt-PT", {
     day: "2-digit", month: "long", year: "numeric"
   }).format(data);
 
+
+    //menu hamburguer////////////////////////////////////////////////////
   botaoMenu.addEventListener("click", function () {
     const aberto = navegacao.classList.toggle("aberta");
     botaoMenu.setAttribute("aria-expanded", String(aberto));
     botaoMenu.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
   });
 
+
+
+  //activa os links do menu////////////////////////////////////////////////////
   linksMenu.forEach(function (link) {
     link.addEventListener("click", function () {
       navegacao.classList.remove("aberta");
@@ -34,43 +36,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  function filtrarNoticias() {
-    const termo = pesquisa.value.trim().toLocaleLowerCase("pt-PT");
-    let visiveis = 0;
-
-    cartoes.forEach(function (cartao) {
-      const titulo = cartao.dataset.titulo.toLocaleLowerCase("pt-PT");
-      const mostrar = titulo.includes(termo);
-      cartao.hidden = !mostrar;
-      if (mostrar) visiveis++;
-    });
-
-    semResultados.hidden = visiveis !== 0;
-    resultadoPesquisa.textContent = termo
-      ? visiveis + (visiveis === 1 ? " notícia encontrada." : " notícias encontradas.")
-      : "";
-  }
-
-  pesquisa.addEventListener("input", filtrarNoticias);
-  limparPesquisa.addEventListener("click", function () {
-    pesquisa.value = "";
-    filtrarNoticias();
-    pesquisa.focus();
-  });
-
-  botaoAcessibilidade.addEventListener("click", function () {
-    const activo = document.body.classList.toggle("texto-grande");
-    botaoAcessibilidade.setAttribute("aria-pressed", String(activo));
-    botaoAcessibilidade.textContent = activo ? "Texto normal" : "Aumentar texto";
-  });
-});
 
 
 
-
-/////////////////////////////////////////// CRUD com armazenamento de ficheiros localmente com localStorage
- 
-//determinacao das variaveis a usar
+  // Gestão local de documentos. CRUD com localStorage.
   const chaveDocumentos = "portalGovernoDocumentos";
   const formularioDocumentos = document.getElementById("formulario-documentos");
   const tipoDocumento = document.getElementById("tipo-documento");
@@ -85,7 +54,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let documentoEmEdicao = null;
 
 
-  // funcao para fazer o upload dos documentos no armazenamento interno do dispositivo
+
+  //funcao para obter o documento do disposivo e depois guardar no website///////////////////////////
+ 
   function obterDocumentos() {
     try {
       return JSON.parse(localStorage.getItem(chaveDocumentos)) || [];
@@ -94,14 +65,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-
-
   function guardarDocumentos(documentos) {
     localStorage.setItem(chaveDocumentos, JSON.stringify(documentos));
   }
 
 
-  // apenas ficheiros menores que 2MB ou 2048 KB podem ser submetidos
+
+
+
+  //tamanho acima de 2MB nao e permitido//////////////////////////////////////////
   function formatarTamanho(bytes) {
     return bytes < 1024 * 1024
       ? (bytes / 1024).toFixed(0) + " KB"
@@ -112,6 +84,8 @@ document.addEventListener("DOMContentLoaded", function () {
     mensagemDocumentos.textContent = mensagem;
     mensagemDocumentos.classList.toggle("mensagem-erro", Boolean(erro));
   }
+
+
 
   function criarBotao(texto, accao, id, classe) {
     const botao = document.createElement("button");
@@ -129,6 +103,8 @@ document.addEventListener("DOMContentLoaded", function () {
     listaVazia.hidden = documentos.length > 0;
     contadorDocumentos.textContent = documentos.length + (documentos.length === 1 ? " documento" : " documentos");
 
+
+    //cria uma lista de ficheiros prontos para carregar/////////////////////////////////////
     documentos.forEach(function (documento) {
       const item = document.createElement("li");
       item.className = "item-documento";
@@ -150,6 +126,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
       informacao.append(titulo, detalhes, estado);
 
+      
+      
+      //funcao para submeter os dados/////////////////////////
+      
       const accoes = document.createElement("div");
       accoes.className = "accoes-documento";
       const botaoSubmeter = criarBotao(
@@ -160,6 +140,8 @@ document.addEventListener("DOMContentLoaded", function () {
       );
       botaoSubmeter.disabled = documento.estado === "Submetido localmente";
 
+
+      //funcao de chamar o algoritmo///////////////////////////////////////////////
       accoes.append(
         criarBotao("Editar / renomear", "editar", documento.id, "botao-accao"),
         botaoSubmeter,
@@ -171,6 +153,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+
+  //limpa o dados todos do formulario
   function limparFormulario() {
     formularioDocumentos.reset();
     documentoEmEdicao = null;
@@ -178,6 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
     botaoGuardarDocumento.textContent = "Guardar documento";
     botaoCancelarEdicao.hidden = true;
   }
+
 
   function lerFicheiroComoTexto(ficheiro) {
     return new Promise(function (resolver, rejeitar) {
@@ -191,12 +176,14 @@ document.addEventListener("DOMContentLoaded", function () {
   formularioDocumentos.addEventListener("submit", async function (evento) {
     evento.preventDefault();
 
+
+
     const ficheiro = ficheiroDocumento.files[0];
     if (!documentoEmEdicao && !ficheiro) {
       mostrarMensagem("Seleccione um ficheiro para continuar.", true);
       return;
     }
-
+//mostra mensagem de aviso quando o ficheiro ultrapassa 2MB//////////////////////////////////////////////
     if (ficheiro && ficheiro.size > 2 * 1024 * 1024) {
       mostrarMensagem("O ficheiro excede o limite de 2 MB.", true);
       return;
@@ -228,12 +215,15 @@ document.addEventListener("DOMContentLoaded", function () {
       guardarDocumentos(documentos);
       apresentarDocumentos();
       limparFormulario();
-      mostrarMensagem(documentoAnterior ? "Documento actualizado localmente." : "Documento guardado neste dispositivo.", false);
+      mostrarMensagem(documentoAnterior ? "Documento actualizado." : "Documento guardado neste dispositivo.", false);
     } catch (erro) {
-      mostrarMensagem("Não foi possível guardar. O armazenamento do navegador pode estar cheio.", true);
+      mostrarMensagem("Não foi possível guardar.", true);
     }
   });
 
+
+
+  //funcao para editar os documentos que forem submetidos a plataforma///////////////////////////////////
   listaDocumentos.addEventListener("click", function (evento) {
     const botao = evento.target.closest("button[data-acao]");
     if (!botao) return;
@@ -258,26 +248,29 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+
+
+    //apaga o documento do CRUD
     if (botao.dataset.acao === "apagar") {
       if (!window.confirm("Apagar o documento ‘" + documento.nome + "’ deste dispositivo?")) return;
       documentos.splice(indice, 1);
       try {
         guardarDocumentos(documentos);
         apresentarDocumentos();
-        mostrarMensagem("Documento apagado do armazenamento local.", false);
+        mostrarMensagem("Documento apagado do armazenamento.", false);
       } catch (erro) {
-        mostrarMensagem("Não foi possível actualizar o armazenamento local.", true);
+        mostrarMensagem("Não foi possível actualizar o armazenamento.", true);
       }
       return;
     }
 
     if (botao.dataset.acao === "submeter") {
-      documento.estado = "Submetido localmente";
+      documento.estado = "Submetido";
       documento.atualizadoEm = new Date().toISOString();
       try {
         guardarDocumentos(documentos);
         apresentarDocumentos();
-        mostrarMensagem("Estado actualizado. O documento não foi enviado para um servidor.", false);
+        mostrarMensagem("Estado actualizado.", false);
       } catch (erro) {
         mostrarMensagem("Não foi possível actualizar o estado do documento.", true);
       }
@@ -290,5 +283,134 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   apresentarDocumentos();
+});
 
 
+
+
+ // espera o carregamento do documento antes de procurar os elementos da pagina////////////////////////
+document.addEventListener("DOMContentLoaded", function () {
+
+
+    // Guarda as referencias dos elementos usados pela pesquisa///////////////////////////////////
+    const formulario = document.getElementById("form-pesquisa-noticias");
+    const campoPesquisa = document.getElementById("pesquisa-noticias");
+    const listaNoticias = document.getElementById("lista-noticias-pagina");
+    const contadorResultados = document.getElementById("contador-resultados-noticias");
+    const mensagemSemResultados = document.getElementById("sem-resultados-noticias");
+    const botaoLimpar = document.getElementById("limpar-pesquisa-noticias");
+
+
+
+    // interrompe a execucao se os elementos necessarios nao existirem na pagina/////////////////////////
+    if (!formulario || !campoPesquisa || !listaNoticias || !contadorResultados || !mensagemSemResultados || !botaoLimpar) {
+        return;
+    }
+
+  
+
+
+    //procura todas as noticias no site
+    const noticias = Array.from(listaNoticias.querySelectorAll(".item-pagina"));
+
+    // Converte o texto para minúsculas, remove acentos e espaços desnecessários.//////////////////////////
+    function normalizarTexto(texto) {
+        return texto
+            .toLocaleLowerCase("pt-PT")
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .trim();
+    }
+
+    // Pesquisa cada termo no titulo e no conteudo de todas as noticias.//////////////////////
+    function pesquisarNoticias() {
+        const termoOriginal = campoPesquisa.value.trim();
+        const termos = normalizarTexto(termoOriginal)
+            .split(/\s+/)
+            .filter(Boolean);
+
+        let totalResultados = 0;
+
+        // procura na seccao de noticias e verifica se contem todos os termos pesquisados///////////////////////
+        noticias.forEach(function (noticia) {
+            const conteudoNoticia = normalizarTexto(noticia.textContent);
+            const corresponde = termos.every(function (termo) {
+                return conteudoNoticia.includes(termo);
+
+
+            });
+
+            //mostra as noticias correspondentes ao item pesquisado////////////
+            noticia.hidden = !corresponde;
+
+            // actualiza o total de noticias encontradas.
+            if (corresponde) {
+                totalResultados++;
+            }
+        });
+
+        // Apresenta o contador adequado a pesquisa.////////////////////
+        if (termoOriginal) {
+            const textoResultado = totalResultados === 1
+                ? " resultado encontrado para \""
+                : " resultados encontrados para \"";
+
+
+                 contadorResultados.textContent = totalResultados + textoResultado + termoOriginal + "\".";
+        } else {
+            const textoNoticias = totalResultados === 1
+                ? " notícia disponível."
+                : " notícias disponíveis.";
+
+          contadorResultados.textContent = totalResultados + textoNoticias;
+        }
+
+        // mostra a mensagem de sem resultados so quando for necessario.//////////////////
+        mensagemSemResultados.hidden = totalResultados > 0;
+    }
+
+
+
+    // procura o termo enviado na página inicial através do q do endereco///////////////// //////////
+    const parametrosEndereco = new URLSearchParams(window.location.search);
+    campoPesquisa.value = parametrosEndereco.get("q") || "";
+
+
+
+    // evita que a pagina recarregue enquanto o formulario esta a ser submetido//////////////////
+    formulario.addEventListener("submit", function (evento) {
+        evento.preventDefault();
+
+        const termo = campoPesquisa.value.trim();
+        const endereco = new URL(window.location.href);
+
+
+
+        // actualiza o q para permitir recarregar a pesquisa.
+        if (termo) {
+            endereco.searchParams.set("q", termo);
+        } else {
+            endereco.searchParams.delete("q");
+        }
+
+
+        window.history.replaceState({}, "", endereco);
+        pesquisarNoticias();
+    });
+
+
+    // actualiza os resultados em tempo real enquanto o utilizador escreve/////////////
+    campoPesquisa.addEventListener("input", pesquisarNoticias);
+
+
+
+    // limpa o campo, remove o parametro q e volta a mostrar todas as notícias.
+    botaoLimpar.addEventListener("click", function () {
+        campoPesquisa.value = "";
+        window.history.replaceState({}, "", window.location.pathname);
+        pesquisarNoticias();
+        campoPesquisa.focus();
+    });
+
+    pesquisarNoticias();
+});
