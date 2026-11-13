@@ -213,6 +213,8 @@ font-size: 13px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }
+
+
 .destaque h1 {
   max-width: 680px;
   margin: 14px 0 18px;
@@ -244,12 +246,18 @@ font-size: 13px;
   color: #fff;
   background: var(--vermelho);
 }
+
+
 .botao-principal:hover {
-  background: #a91f27;
+  background-color: #a91f27;
 }
+
+
 .botao-contorno {
   border: 1px solid rgba(255,255,255,.7);
   color: #fff;
+
+
 }
 .botao-contorno:hover {
   color: var(--verde-escuro);
@@ -260,6 +268,8 @@ font-size: 13px;
   border: 1px solid rgba(255,255,255,.24);
   background: rgba(0,0,0,.12);
 }
+
+
 .painel-titulo {
   margin: 0 0 10px;
   color: var(--amarelo);
@@ -268,6 +278,8 @@ font-size: 13px;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
+
+
 .destaque-painel a {
   display: flex;
   align-items: center;
@@ -373,11 +385,12 @@ font-size: 13px;
 
 .pesquisa-noticias {
   display: grid;
-  grid-template-columns: 180px minmax(220px, 1fr);
+  grid-template-columns: 500px minmax(220px, 1fr, 1fr);
   align-items: center;
   gap: 12px 20px;
   margin: 0 0 24px;
 }
+
 
 
 .pesquisa-noticias label {
@@ -439,8 +452,7 @@ font-size: 13px;
   display: block;
   min-height: 190px;
   background-color: #dce5dd;
-  background-image: linear-gradient(135deg, rgba(6, 77, 43, 0.397), rgba(8,120,62,.2)), 
-  url("../portal_governo_mocambique/imagens/PR-Chapo-ruune-se-com-a-Comunidade-Mocambicana-residente-em-Tanzania-em-Dar-es-Salaam-47-7.jpg");
+  background-image: url("../portal_governo_mocambique/imagens/PR-Chapo-ruune-se-com-a-Comunidade-Mocambicana-residente-em-Tanzania-em-Dar-es-Salaam-47-7.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -448,14 +460,12 @@ font-size: 13px;
   min-height: 245px;
 }
 .imagem-noticia-dois {
-  background-image: linear-gradient(135deg, rgba(30,45,35,.6), rgba(8,120,62,.25)), 
-  url("../portal_governo_mocambique/imagens/PR-dirige-abertura-da-11a-Conferencia-e-Exposicao-de-Mineracao-e-Energia-de-Mocambique-4.jpeg");
+  background-image: url("../portal_governo_mocambique/imagens/PR-dirige-abertura-da-11a-Conferencia-e-Exposicao-de-Mineracao-e-Energia-de-Mocambique-4.jpeg");
 }
 
 
 .imagem-noticia-tres {
-  background-image: linear-gradient(135deg, rgba(30,45,35,.6), rgba(8,120,62,.25)),
-   url("../portal_governo_mocambique/imagens/PR-recebe-Enviada-Especial-do-Presidente-do-Senegal-5.jpeg");
+  background-image: url("../portal_governo_mocambique/imagens/PR-recebe-Enviada-Especial-do-Presidente-do-Senegal-5.jpeg");
 }
 
 
@@ -986,7 +996,7 @@ font-size: 13px;
 }
 
 
-/* Gestão de documentos pessoais */
+/* Gestãg de documentos pessoais/////////////////////// */
 .gestao-documentos {
   background: var(--fundo);
 }
@@ -1213,8 +1223,9 @@ font-size: 13px;
 
 .campo-pesquisa-pagina {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr ;
     gap: 10px;
+
 }
 
 .campo-pesquisa-pagina input {
