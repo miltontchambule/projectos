@@ -1135,7 +1135,7 @@ font-size: 13px;
   font-size: 12px;
 }
 .estado-documento {
-  color: #8a5a00;
+  color: var(--amarelo);
   font-size: 12px;
   font-weight: 700;
 }
